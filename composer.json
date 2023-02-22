@@ -25,6 +25,7 @@
         "php": "^8.0",
         "jane-php/open-api-runtime": "^7.0",
         "nyholm/psr7": "^1.5",
+        "php-http/discovery": "^1.15",
         "symfony/http-client": "^6.0"
     },
     "require-dev": {
