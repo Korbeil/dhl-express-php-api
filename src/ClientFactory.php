@@ -6,6 +6,7 @@ namespace Korbeil\DHLExpress;
 
 use Http\Client\Common\Plugin\AddHostPlugin;
 use Http\Client\Common\Plugin\AddPathPlugin;
+use Http\Client\Common\PluginClient;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
 use Korbeil\DHLExpress\Api\Authentication\BasicAuthAuthentication;
@@ -36,16 +37,14 @@ final class ClientFactory
 
     private function buildClient(string $apiUrl): Client
     {
-        $httpClient = new Psr18Client(new CurlHttpClient(['base_uri' => $apiUrl]));
         $dhlExpressUri = Psr17FactoryDiscovery::findUriFactory()->createUri($apiUrl);
 
-        return Client::create(
-            $httpClient,
-            [
-                new AddHostPlugin($dhlExpressUri),
-                new AddPathPlugin($dhlExpressUri),
-                new AuthenticationRegistry([new BasicAuthAuthentication($this->dhlExpressUsername, $this->dhlExpressPassword)]),
-            ]
-        );
+        $httpClient = new PluginClient(new Psr18Client(new CurlHttpClient()), [
+            new AddHostPlugin($dhlExpressUri),
+            new AddPathPlugin($dhlExpressUri),
+            new AuthenticationRegistry([new BasicAuthAuthentication($this->dhlExpressUsername, $this->dhlExpressPassword)]),
+        ]);
+
+        return Client::create($httpClient);
     }
 }
