@@ -1,0 +1,53 @@
+{
+    "name": "korbeil/dhl-express-php-api",
+    "description": "An up to date PHP client for DHL Express API",
+    "keywords": ["dhl", "express", "api", "client", "openapi", "swagger", "sdk"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Baptiste Leduc",
+            "email": "baptiste.leduc@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Korbeil\\DHLExpress\\Api\\": "generated/",
+            "Korbeil\\DHLExpress\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Korbeil\\DHLExpress\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "jane-php/open-api-runtime": "^7.0",
+        "nyholm/psr7": "^1.5",
+        "symfony/http-client": "^6.2"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.14",
+        "jane-php/open-api-3": "^7.0",
+        "phpunit/phpunit": "^10.0"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "sort-packages": true,
+        "allow-plugins": {
+            "php-http/discovery": false
+        }
+    },
+    "conflict": {
+        "php-http/httplug": "< 2.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix",
+        "cs-check": "php-cs-fixer fix --dry-run",
+        "generate": "jane-openapi generate --config-file .jane-openapi.php",
+        "tests": "phpunit"
+    }
+}

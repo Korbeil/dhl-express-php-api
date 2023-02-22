@@ -1,0 +1,9 @@
+/.gitattributes export-ignore
+/.github export-ignore
+/.gitignore export-ignore
+/.jane-openapi.php export-ignore
+/.php-cs-fixer.dist.php export-ignore
+/CHANGELOG.md export-ignore
+/phpunit.xml.dist export-ignore
+/resources export-ignore
+/tests export-ignore
