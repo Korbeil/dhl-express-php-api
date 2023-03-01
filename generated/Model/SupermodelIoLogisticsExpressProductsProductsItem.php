@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressProductsProductsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Name of the DHL Express product.
      *
      * @var string|null
@@ -82,6 +91,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setProductName(?string $productName): self
     {
+        $this->initialized['productName'] = true;
         $this->productName = $productName;
 
         return $this;
@@ -100,6 +110,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -118,6 +129,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
+        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -136,6 +148,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setLocalProductCountryCode(?string $localProductCountryCode): self
     {
+        $this->initialized['localProductCountryCode'] = true;
         $this->localProductCountryCode = $localProductCountryCode;
 
         return $this;
@@ -154,6 +167,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setNetworkTypeCode(?string $networkTypeCode): self
     {
+        $this->initialized['networkTypeCode'] = true;
         $this->networkTypeCode = $networkTypeCode;
 
         return $this;
@@ -172,6 +186,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setIsCustomerAgreement(?bool $isCustomerAgreement): self
     {
+        $this->initialized['isCustomerAgreement'] = true;
         $this->isCustomerAgreement = $isCustomerAgreement;
 
         return $this;
@@ -184,6 +199,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
 
     public function setWeight(?SupermodelIoLogisticsExpressProductsProductsItemWeight $weight): self
     {
+        $this->initialized['weight'] = true;
         $this->weight = $weight;
 
         return $this;
@@ -202,6 +218,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setBreakdown(?array $breakdown): self
     {
+        $this->initialized['breakdown'] = true;
         $this->breakdown = $breakdown;
 
         return $this;
@@ -224,6 +241,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setServiceCodeMutuallyExclusiveGroups(?array $serviceCodeMutuallyExclusiveGroups): self
     {
+        $this->initialized['serviceCodeMutuallyExclusiveGroups'] = true;
         $this->serviceCodeMutuallyExclusiveGroups = $serviceCodeMutuallyExclusiveGroups;
 
         return $this;
@@ -246,6 +264,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     public function setServiceCodeDependencyRuleGroups(?array $serviceCodeDependencyRuleGroups): self
     {
+        $this->initialized['serviceCodeDependencyRuleGroups'] = true;
         $this->serviceCodeDependencyRuleGroups = $serviceCodeDependencyRuleGroups;
 
         return $this;
@@ -258,6 +277,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
 
     public function setPickupCapabilities(?SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilities $pickupCapabilities): self
     {
+        $this->initialized['pickupCapabilities'] = true;
         $this->pickupCapabilities = $pickupCapabilities;
 
         return $this;
@@ -270,6 +290,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
 
     public function setDeliveryCapabilities(?SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities $deliveryCapabilities): self
     {
+        $this->initialized['deliveryCapabilities'] = true;
         $this->deliveryCapabilities = $deliveryCapabilities;
 
         return $this;

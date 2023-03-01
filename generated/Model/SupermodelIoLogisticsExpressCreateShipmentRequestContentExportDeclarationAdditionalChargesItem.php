@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide the charge value.
      *
      * @var float|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationA
      */
     public function setValue(?float $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationA
      */
     public function setCaption(?string $caption): self
     {
+        $this->initialized['caption'] = true;
         $this->caption = $caption;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationA
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;

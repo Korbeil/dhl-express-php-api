@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var string|null
      */
     protected $shipmentTrackingNumber;
@@ -74,6 +83,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
     {
+        $this->initialized['shipmentTrackingNumber'] = true;
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
 
         return $this;
@@ -86,6 +96,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setStatus(?string $status): self
     {
+        $this->initialized['status'] = true;
         $this->status = $status;
 
         return $this;
@@ -98,6 +109,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setShipmentTimestamp(?string $shipmentTimestamp): self
     {
+        $this->initialized['shipmentTimestamp'] = true;
         $this->shipmentTimestamp = $shipmentTimestamp;
 
         return $this;
@@ -116,6 +128,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -128,6 +141,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setDescription(?string $description): self
     {
+        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -140,6 +154,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setShipperDetails(?SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetails $shipperDetails): self
     {
+        $this->initialized['shipperDetails'] = true;
         $this->shipperDetails = $shipperDetails;
 
         return $this;
@@ -152,6 +167,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setReceiverDetails(?SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetails $receiverDetails): self
     {
+        $this->initialized['receiverDetails'] = true;
         $this->receiverDetails = $receiverDetails;
 
         return $this;
@@ -164,6 +180,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setTotalWeight(?float $totalWeight): self
     {
+        $this->initialized['totalWeight'] = true;
         $this->totalWeight = $totalWeight;
 
         return $this;
@@ -176,6 +193,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setUnitOfMeasurements(?string $unitOfMeasurements): self
     {
+        $this->initialized['unitOfMeasurements'] = true;
         $this->unitOfMeasurements = $unitOfMeasurements;
 
         return $this;
@@ -194,6 +212,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
      */
     public function setShipperReferences(?array $shipperReferences): self
     {
+        $this->initialized['shipperReferences'] = true;
         $this->shipperReferences = $shipperReferences;
 
         return $this;
@@ -212,6 +231,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
      */
     public function setEvents(?array $events): self
     {
+        $this->initialized['events'] = true;
         $this->events = $events;
 
         return $this;
@@ -224,6 +244,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setNumberOfPieces(?float $numberOfPieces): self
     {
+        $this->initialized['numberOfPieces'] = true;
         $this->numberOfPieces = $numberOfPieces;
 
         return $this;
@@ -242,6 +263,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
      */
     public function setPieces(?array $pieces): self
     {
+        $this->initialized['pieces'] = true;
         $this->pieces = $pieces;
 
         return $this;
@@ -254,6 +276,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
 
     public function setEstimatedDeliveryDate(?string $estimatedDeliveryDate): self
     {
+        $this->initialized['estimatedDeliveryDate'] = true;
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
 
         return $this;
@@ -272,6 +295,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItem
      */
     public function setChildrenShipmentIdentificationNumbers(?array $childrenShipmentIdentificationNumbers): self
     {
+        $this->initialized['childrenShipmentIdentificationNumbers'] = true;
         $this->childrenShipmentIdentificationNumbers = $childrenShipmentIdentificationNumbers;
 
         return $this;

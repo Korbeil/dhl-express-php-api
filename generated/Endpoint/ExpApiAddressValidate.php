@@ -62,13 +62,13 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
         $optionsResolver = parent::getQueryOptionsResolver();
         $optionsResolver->setDefined(['type', 'countryCode', 'postalCode', 'cityName', 'countyName', 'strictValidation']);
         $optionsResolver->setRequired(['type', 'countryCode']);
-        $optionsResolver->setDefaults(['strictValidation' => true]);
-        $optionsResolver->setAllowedTypes('type', ['string']);
-        $optionsResolver->setAllowedTypes('countryCode', ['string']);
-        $optionsResolver->setAllowedTypes('postalCode', ['string']);
-        $optionsResolver->setAllowedTypes('cityName', ['string']);
-        $optionsResolver->setAllowedTypes('countyName', ['string']);
-        $optionsResolver->setAllowedTypes('strictValidation', ['string']);
+        $optionsResolver->setDefaults(['strictValidation' => 'true']);
+        $optionsResolver->addAllowedTypes('type', ['string']);
+        $optionsResolver->addAllowedTypes('countryCode', ['string']);
+        $optionsResolver->addAllowedTypes('postalCode', ['string']);
+        $optionsResolver->addAllowedTypes('cityName', ['string']);
+        $optionsResolver->addAllowedTypes('countyName', ['string']);
+        $optionsResolver->addAllowedTypes('strictValidation', ['string']);
 
         return $optionsResolver;
     }
@@ -79,14 +79,14 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
         $optionsResolver->setDefined(['Message-Reference', 'Message-Reference-Date', 'Plugin-Name', 'Plugin-Version', 'Shipping-System-Platform-Name', 'Shipping-System-Platform-Version', 'Webstore-Platform-Name', 'Webstore-Platform-Version']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('Message-Reference', ['string']);
-        $optionsResolver->setAllowedTypes('Message-Reference-Date', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference-Date', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Version', ['string']);
 
         return $optionsResolver;
     }
@@ -96,13 +96,15 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
      *
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiAddressValidateBadRequestException
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressValidateResponse', 'json');
         }
         if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiAddressValidateBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiAddressValidateBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

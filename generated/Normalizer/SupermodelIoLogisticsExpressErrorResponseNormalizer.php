@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressErrorResponseNormalizer implements Denormalize
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse' === $data::class;
     }
@@ -77,29 +79,32 @@ class SupermodelIoLogisticsExpressErrorResponseNormalizer implements Denormalize
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getInstance()) {
+        if ($object->isInitialized('instance') && null !== $object->getInstance()) {
             $data['instance'] = $object->getInstance();
         }
-        if (null !== $object->getDetail()) {
+        if ($object->isInitialized('detail') && null !== $object->getDetail()) {
             $data['detail'] = $object->getDetail();
         }
-        if (null !== $object->getTitle()) {
+        if ($object->isInitialized('title') && null !== $object->getTitle()) {
             $data['title'] = $object->getTitle();
         }
-        if (null !== $object->getMessage()) {
+        if ($object->isInitialized('message') && null !== $object->getMessage()) {
             $data['message'] = $object->getMessage();
         }
-        if (null !== $object->getAdditionalDetails()) {
+        if ($object->isInitialized('additionalDetails') && null !== $object->getAdditionalDetails()) {
             $values = [];
             foreach ($object->getAdditionalDetails() as $value) {
                 $values[] = $value;
             }
             $data['additionalDetails'] = $values;
         }
-        if (null !== $object->getStatus()) {
+        if ($object->isInitialized('status') && null !== $object->getStatus()) {
             $data['status'] = $object->getStatus();
         }
 

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressImageUploadRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide Shipment Identification number (AWB number).
      *
      * @var string|null
@@ -46,6 +55,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
      */
     public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
     {
+        $this->initialized['shipmentTrackingNumber'] = true;
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
 
         return $this;
@@ -58,6 +68,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
 
     public function setOriginalPlannedShippingDate(?string $originalPlannedShippingDate): self
     {
+        $this->initialized['originalPlannedShippingDate'] = true;
         $this->originalPlannedShippingDate = $originalPlannedShippingDate;
 
         return $this;
@@ -80,6 +91,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
      */
     public function setAccounts(?array $accounts): self
     {
+        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -98,6 +110,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -120,6 +133,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
      */
     public function setDocumentImages(?array $documentImages): self
     {
+        $this->initialized['documentImages'] = true;
         $this->documentImages = $documentImages;
 
         return $this;

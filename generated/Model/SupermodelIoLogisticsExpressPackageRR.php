@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPackageRR
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please contact your DHL Express representative if you wish to use a DHL specific package otherwise ignore this element.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressPackageRR
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressPackageRR
      */
     public function setWeight(?float $weight): self
     {
+        $this->initialized['weight'] = true;
         $this->weight = $weight;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressPackageRR
      */
     public function setDimensions(?SupermodelIoLogisticsExpressPackageRRDimensions $dimensions): self
     {
+        $this->initialized['dimensions'] = true;
         $this->dimensions = $dimensions;
 
         return $this;

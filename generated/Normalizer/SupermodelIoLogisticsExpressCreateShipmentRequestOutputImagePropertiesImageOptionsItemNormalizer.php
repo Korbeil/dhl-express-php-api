@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem();
+        if (\array_key_exists('numberOfCopies', $data) && \is_int($data['numberOfCopies'])) {
+            $data['numberOfCopies'] = (float) $data['numberOfCopies'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -108,44 +113,47 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['typeCode'] = $object->getTypeCode();
-        if (null !== $object->getTemplateName()) {
+        if ($object->isInitialized('templateName') && null !== $object->getTemplateName()) {
             $data['templateName'] = $object->getTemplateName();
         }
-        if (null !== $object->getIsRequested()) {
+        if ($object->isInitialized('isRequested') && null !== $object->getIsRequested()) {
             $data['isRequested'] = $object->getIsRequested();
         }
-        if (null !== $object->getHideAccountNumber()) {
+        if ($object->isInitialized('hideAccountNumber') && null !== $object->getHideAccountNumber()) {
             $data['hideAccountNumber'] = $object->getHideAccountNumber();
         }
-        if (null !== $object->getNumberOfCopies()) {
+        if ($object->isInitialized('numberOfCopies') && null !== $object->getNumberOfCopies()) {
             $data['numberOfCopies'] = $object->getNumberOfCopies();
         }
-        if (null !== $object->getInvoiceType()) {
+        if ($object->isInitialized('invoiceType') && null !== $object->getInvoiceType()) {
             $data['invoiceType'] = $object->getInvoiceType();
         }
-        if (null !== $object->getLanguageCode()) {
+        if ($object->isInitialized('languageCode') && null !== $object->getLanguageCode()) {
             $data['languageCode'] = $object->getLanguageCode();
         }
-        if (null !== $object->getLanguageCountryCode()) {
+        if ($object->isInitialized('languageCountryCode') && null !== $object->getLanguageCountryCode()) {
             $data['languageCountryCode'] = $object->getLanguageCountryCode();
         }
-        if (null !== $object->getEncodingFormat()) {
+        if ($object->isInitialized('encodingFormat') && null !== $object->getEncodingFormat()) {
             $data['encodingFormat'] = $object->getEncodingFormat();
         }
-        if (null !== $object->getRenderDHLLogo()) {
+        if ($object->isInitialized('renderDHLLogo') && null !== $object->getRenderDHLLogo()) {
             $data['renderDHLLogo'] = $object->getRenderDHLLogo();
         }
-        if (null !== $object->getFitLabelsToA4()) {
+        if ($object->isInitialized('fitLabelsToA4') && null !== $object->getFitLabelsToA4()) {
             $data['fitLabelsToA4'] = $object->getFitLabelsToA4();
         }
-        if (null !== $object->getLabelFreeText()) {
+        if ($object->isInitialized('labelFreeText') && null !== $object->getLabelFreeText()) {
             $data['labelFreeText'] = $object->getLabelFreeText();
         }
-        if (null !== $object->getLabelCustomerDataText()) {
+        if ($object->isInitialized('labelCustomerDataText') && null !== $object->getLabelCustomerDataText()) {
             $data['labelCustomerDataText'] = $object->getLabelCustomerDataText();
         }
 

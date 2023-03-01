@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUpdatePickupResponse
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Identifies the pickup you made the changes for.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
      */
     public function setDispatchConfirmationNumber(?string $dispatchConfirmationNumber): self
     {
+        $this->initialized['dispatchConfirmationNumber'] = true;
         $this->dispatchConfirmationNumber = $dispatchConfirmationNumber;
 
         return $this;
@@ -48,6 +58,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
 
     public function setReadyByTime(?string $readyByTime): self
     {
+        $this->initialized['readyByTime'] = true;
         $this->readyByTime = $readyByTime;
 
         return $this;
@@ -60,6 +71,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
 
     public function setNextPickupDate(?string $nextPickupDate): self
     {
+        $this->initialized['nextPickupDate'] = true;
         $this->nextPickupDate = $nextPickupDate;
 
         return $this;
@@ -78,6 +90,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
      */
     public function setWarnings(?array $warnings): self
     {
+        $this->initialized['warnings'] = true;
         $this->warnings = $warnings;
 
         return $this;

@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItemNormalizer im
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem' === $data::class;
     }
@@ -83,31 +85,34 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItemNormalizer im
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getName()) {
+        if ($object->isInitialized('name') && null !== $object->getName()) {
             $data['name'] = $object->getName();
         }
-        if (null !== $object->getServiceCode()) {
+        if ($object->isInitialized('serviceCode') && null !== $object->getServiceCode()) {
             $data['serviceCode'] = $object->getServiceCode();
         }
-        if (null !== $object->getLocalServiceCode()) {
+        if ($object->isInitialized('localServiceCode') && null !== $object->getLocalServiceCode()) {
             $data['localServiceCode'] = $object->getLocalServiceCode();
         }
-        if (null !== $object->getTypeCode()) {
+        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
-        if (null !== $object->getServiceTypeCode()) {
+        if ($object->isInitialized('serviceTypeCode') && null !== $object->getServiceTypeCode()) {
             $data['serviceTypeCode'] = $object->getServiceTypeCode();
         }
-        if (null !== $object->getIsCustomerAgreement()) {
+        if ($object->isInitialized('isCustomerAgreement') && null !== $object->getIsCustomerAgreement()) {
             $data['isCustomerAgreement'] = $object->getIsCustomerAgreement();
         }
-        if (null !== $object->getIsMarketedService()) {
+        if ($object->isInitialized('isMarketedService') && null !== $object->getIsMarketedService()) {
             $data['isMarketedService'] = $object->getIsMarketedService();
         }
-        if (null !== $object->getIsBillingServiceIndicator()) {
+        if ($object->isInitialized('isBillingServiceIndicator') && null !== $object->getIsBillingServiceIndicator()) {
             $data['isBillingServiceIndicator'] = $object->getIsBillingServiceIndicator();
         }
 

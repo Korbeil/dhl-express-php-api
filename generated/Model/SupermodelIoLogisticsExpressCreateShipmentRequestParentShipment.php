@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide the parent (mother) Product Code.
      *
      * @var string|null
@@ -30,6 +39,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -48,6 +58,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment
      */
     public function setPackagesCount(?float $packagesCount): self
     {
+        $this->initialized['packagesCount'] = true;
         $this->packagesCount = $packagesCount;
 
         return $this;

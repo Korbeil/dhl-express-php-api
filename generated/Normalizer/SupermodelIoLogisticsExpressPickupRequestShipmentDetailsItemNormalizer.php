@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem();
+        if (\array_key_exists('declaredValue', $data) && \is_int($data['declaredValue'])) {
+            $data['declaredValue'] = (float) $data['declaredValue'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -105,21 +110,24 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['productCode'] = $object->getProductCode();
-        if (null !== $object->getLocalProductCode()) {
+        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
-        if (null !== $object->getAccounts()) {
+        if ($object->isInitialized('accounts') && null !== $object->getAccounts()) {
             $values = [];
             foreach ($object->getAccounts() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['accounts'] = $values;
         }
-        if (null !== $object->getValueAddedServices()) {
+        if ($object->isInitialized('valueAddedServices') && null !== $object->getValueAddedServices()) {
             $values_1 = [];
             foreach ($object->getValueAddedServices() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
@@ -127,14 +135,14 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
             $data['valueAddedServices'] = $values_1;
         }
         $data['isCustomsDeclarable'] = $object->getIsCustomsDeclarable();
-        if (null !== $object->getDeclaredValue()) {
+        if ($object->isInitialized('declaredValue') && null !== $object->getDeclaredValue()) {
             $data['declaredValue'] = $object->getDeclaredValue();
         }
-        if (null !== $object->getDeclaredValueCurrency()) {
+        if ($object->isInitialized('declaredValueCurrency') && null !== $object->getDeclaredValueCurrency()) {
             $data['declaredValueCurrency'] = $object->getDeclaredValueCurrency();
         }
         $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
-        if (null !== $object->getShipmentTrackingNumber()) {
+        if ($object->isInitialized('shipmentTrackingNumber') && null !== $object->getShipmentTrackingNumber()) {
             $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
         }
         $values_2 = [];

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter channel type to send the notification by. At this moment only email is supported.
      *
      * @var string|null
@@ -48,6 +57,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -66,6 +76,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
      */
     public function setReceiverId(?string $receiverId): self
     {
+        $this->initialized['receiverId'] = true;
         $this->receiverId = $receiverId;
 
         return $this;
@@ -84,6 +95,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
      */
     public function setLanguageCode(?string $languageCode): self
     {
+        $this->initialized['languageCode'] = true;
         $this->languageCode = $languageCode;
 
         return $this;
@@ -102,6 +114,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
      */
     public function setLanguageCountryCode(?string $languageCountryCode): self
     {
+        $this->initialized['languageCountryCode'] = true;
         $this->languageCountryCode = $languageCountryCode;
 
         return $this;
@@ -120,6 +133,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem
      */
     public function setBespokeMessage(?string $bespokeMessage): self
     {
+        $this->initialized['bespokeMessage'] = true;
         $this->bespokeMessage = $bespokeMessage;
 
         return $this;

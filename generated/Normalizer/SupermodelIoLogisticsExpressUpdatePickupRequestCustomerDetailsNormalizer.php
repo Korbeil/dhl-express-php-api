@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsNormalizer i
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetails' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetails' === $data::class;
     }
@@ -63,17 +65,20 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsNormalizer i
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['shipperDetails'] = $this->normalizer->normalize($object->getShipperDetails(), 'json', $context);
-        if (null !== $object->getReceiverDetails()) {
+        if ($object->isInitialized('receiverDetails') && null !== $object->getReceiverDetails()) {
             $data['receiverDetails'] = $this->normalizer->normalize($object->getReceiverDetails(), 'json', $context);
         }
-        if (null !== $object->getBookingRequestorDetails()) {
+        if ($object->isInitialized('bookingRequestorDetails') && null !== $object->getBookingRequestorDetails()) {
             $data['bookingRequestorDetails'] = $this->normalizer->normalize($object->getBookingRequestorDetails(), 'json', $context);
         }
-        if (null !== $object->getPickupDetails()) {
+        if ($object->isInitialized('pickupDetails') && null !== $object->getPickupDetails()) {
             $data['pickupDetails'] = $this->normalizer->normalize($object->getPickupDetails(), 'json', $context);
         }
 

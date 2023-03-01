@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight' === $data::class;
     }
@@ -36,6 +38,12 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight();
+        if (\array_key_exists('netValue', $data) && \is_int($data['netValue'])) {
+            $data['netValue'] = (float) $data['netValue'];
+        }
+        if (\array_key_exists('grossValue', $data) && \is_int($data['grossValue'])) {
+            $data['grossValue'] = (float) $data['grossValue'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -53,6 +61,9 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];

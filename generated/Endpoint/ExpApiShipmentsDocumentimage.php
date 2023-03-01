@@ -66,12 +66,12 @@ class ExpApiShipmentsDocumentimage extends \Korbeil\DHLExpress\Api\Runtime\Clien
         $optionsResolver->setDefined(['shipperAccountNumber', 'typeCode', 'pickupYearAndMonth', 'encodingFormat', 'allInOnePDF', 'compressedPackage']);
         $optionsResolver->setRequired(['shipperAccountNumber', 'typeCode', 'pickupYearAndMonth']);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('shipperAccountNumber', ['string']);
-        $optionsResolver->setAllowedTypes('typeCode', ['string']);
-        $optionsResolver->setAllowedTypes('pickupYearAndMonth', ['string']);
-        $optionsResolver->setAllowedTypes('encodingFormat', ['string']);
-        $optionsResolver->setAllowedTypes('allInOnePDF', ['bool']);
-        $optionsResolver->setAllowedTypes('compressedPackage', ['bool']);
+        $optionsResolver->addAllowedTypes('shipperAccountNumber', ['string']);
+        $optionsResolver->addAllowedTypes('typeCode', ['string']);
+        $optionsResolver->addAllowedTypes('pickupYearAndMonth', ['string']);
+        $optionsResolver->addAllowedTypes('encodingFormat', ['string']);
+        $optionsResolver->addAllowedTypes('allInOnePDF', ['bool']);
+        $optionsResolver->addAllowedTypes('compressedPackage', ['bool']);
 
         return $optionsResolver;
     }
@@ -82,14 +82,14 @@ class ExpApiShipmentsDocumentimage extends \Korbeil\DHLExpress\Api\Runtime\Clien
         $optionsResolver->setDefined(['Message-Reference', 'Message-Reference-Date', 'Plugin-Name', 'Plugin-Version', 'Shipping-System-Platform-Name', 'Shipping-System-Platform-Version', 'Webstore-Platform-Name', 'Webstore-Platform-Version']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->setAllowedTypes('Message-Reference', ['string']);
-        $optionsResolver->setAllowedTypes('Message-Reference-Date', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference-Date', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Version', ['string']);
 
         return $optionsResolver;
     }
@@ -100,16 +100,18 @@ class ExpApiShipmentsDocumentimage extends \Korbeil\DHLExpress\Api\Runtime\Clien
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageNotFoundException
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressDocumentImageResponse', 'json');
         }
         if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
         if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsDocumentimageNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

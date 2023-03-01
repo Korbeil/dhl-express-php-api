@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Shipment Tracking Number.
      *
      * @var string|null
@@ -48,6 +57,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
      */
     public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
     {
+        $this->initialized['shipmentTrackingNumber'] = true;
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
 
         return $this;
@@ -66,6 +76,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -84,6 +95,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
      */
     public function setFunction(?string $function): self
     {
+        $this->initialized['function'] = true;
         $this->function = $function;
 
         return $this;
@@ -102,6 +114,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
      */
     public function setEncodingFormat(?string $encodingFormat): self
     {
+        $this->initialized['encodingFormat'] = true;
         $this->encodingFormat = $encodingFormat;
 
         return $this;
@@ -120,6 +133,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem
      */
     public function setContent(?string $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;

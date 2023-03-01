@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer implemen
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestPickup' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestPickup' === $data::class;
     }
@@ -77,27 +79,30 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer implemen
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['isRequested'] = $object->getIsRequested();
-        if (null !== $object->getCloseTime()) {
+        if ($object->isInitialized('closeTime') && null !== $object->getCloseTime()) {
             $data['closeTime'] = $object->getCloseTime();
         }
-        if (null !== $object->getLocation()) {
+        if ($object->isInitialized('location') && null !== $object->getLocation()) {
             $data['location'] = $object->getLocation();
         }
-        if (null !== $object->getSpecialInstructions()) {
+        if ($object->isInitialized('specialInstructions') && null !== $object->getSpecialInstructions()) {
             $values = [];
             foreach ($object->getSpecialInstructions() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['specialInstructions'] = $values;
         }
-        if (null !== $object->getPickupDetails()) {
+        if ($object->isInitialized('pickupDetails') && null !== $object->getPickupDetails()) {
             $data['pickupDetails'] = $this->normalizer->normalize($object->getPickupDetails(), 'json', $context);
         }
-        if (null !== $object->getPickupRequestorDetails()) {
+        if ($object->isInitialized('pickupRequestorDetails') && null !== $object->getPickupRequestorDetails()) {
             $data['pickupRequestorDetails'] = $this->normalizer->normalize($object->getPickupRequestorDetails(), 'json', $context);
         }
 

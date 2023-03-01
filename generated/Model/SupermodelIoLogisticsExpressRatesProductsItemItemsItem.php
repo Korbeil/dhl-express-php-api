@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Item line number.
      *
      * @var float|null
@@ -28,6 +37,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
      */
     public function setNumber(?float $number): self
     {
+        $this->initialized['number'] = true;
         $this->number = $number;
 
         return $this;
@@ -46,6 +56,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
      */
     public function setBreakdown(?array $breakdown): self
     {
+        $this->initialized['breakdown'] = true;
         $this->breakdown = $breakdown;
 
         return $this;

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponse
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * URL where the request has been sent to.
      *
      * @var string|null
@@ -94,6 +103,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setUrl(?string $url): self
     {
+        $this->initialized['url'] = true;
         $this->url = $url;
 
         return $this;
@@ -112,6 +122,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
     {
+        $this->initialized['shipmentTrackingNumber'] = true;
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
 
         return $this;
@@ -130,6 +141,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setCancelPickupUrl(?string $cancelPickupUrl): self
     {
+        $this->initialized['cancelPickupUrl'] = true;
         $this->cancelPickupUrl = $cancelPickupUrl;
 
         return $this;
@@ -148,6 +160,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setTrackingUrl(?string $trackingUrl): self
     {
+        $this->initialized['trackingUrl'] = true;
         $this->trackingUrl = $trackingUrl;
 
         return $this;
@@ -166,6 +179,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setDispatchConfirmationNumber(?string $dispatchConfirmationNumber): self
     {
+        $this->initialized['dispatchConfirmationNumber'] = true;
         $this->dispatchConfirmationNumber = $dispatchConfirmationNumber;
 
         return $this;
@@ -188,6 +202,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setPackages(?array $packages): self
     {
+        $this->initialized['packages'] = true;
         $this->packages = $packages;
 
         return $this;
@@ -210,6 +225,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setDocuments(?array $documents): self
     {
+        $this->initialized['documents'] = true;
         $this->documents = $documents;
 
         return $this;
@@ -228,6 +244,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setOnDemandDeliveryURL(?string $onDemandDeliveryURL): self
     {
+        $this->initialized['onDemandDeliveryURL'] = true;
         $this->onDemandDeliveryURL = $onDemandDeliveryURL;
 
         return $this;
@@ -250,6 +267,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setShipmentDetails(?array $shipmentDetails): self
     {
+        $this->initialized['shipmentDetails'] = true;
         $this->shipmentDetails = $shipmentDetails;
 
         return $this;
@@ -272,6 +290,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setShipmentCharges(?array $shipmentCharges): self
     {
+        $this->initialized['shipmentCharges'] = true;
         $this->shipmentCharges = $shipmentCharges;
 
         return $this;
@@ -290,6 +309,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setBarcodeInfo(?SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo $barcodeInfo): self
     {
+        $this->initialized['barcodeInfo'] = true;
         $this->barcodeInfo = $barcodeInfo;
 
         return $this;
@@ -308,6 +328,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setEstimatedDeliveryDate(?SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate $estimatedDeliveryDate): self
     {
+        $this->initialized['estimatedDeliveryDate'] = true;
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
 
         return $this;
@@ -326,6 +347,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     public function setWarnings(?array $warnings): self
     {
+        $this->initialized['warnings'] = true;
         $this->warnings = $warnings;
 
         return $this;

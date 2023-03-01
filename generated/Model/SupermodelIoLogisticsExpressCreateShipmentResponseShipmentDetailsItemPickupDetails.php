@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Pickup booking cutoff time.
      *
      * @var string|null
@@ -78,6 +87,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setLocalCutoffDateAndTime(?string $localCutoffDateAndTime): self
     {
+        $this->initialized['localCutoffDateAndTime'] = true;
         $this->localCutoffDateAndTime = $localCutoffDateAndTime;
 
         return $this;
@@ -96,6 +106,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setGmtCutoffTime(?string $gmtCutoffTime): self
     {
+        $this->initialized['gmtCutoffTime'] = true;
         $this->gmtCutoffTime = $gmtCutoffTime;
 
         return $this;
@@ -114,6 +125,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setCutoffTimeOffset(?string $cutoffTimeOffset): self
     {
+        $this->initialized['cutoffTimeOffset'] = true;
         $this->cutoffTimeOffset = $cutoffTimeOffset;
 
         return $this;
@@ -132,6 +144,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setPickupEarliest(?string $pickupEarliest): self
     {
+        $this->initialized['pickupEarliest'] = true;
         $this->pickupEarliest = $pickupEarliest;
 
         return $this;
@@ -150,6 +163,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setPickupLatest(?string $pickupLatest): self
     {
+        $this->initialized['pickupLatest'] = true;
         $this->pickupLatest = $pickupLatest;
 
         return $this;
@@ -168,6 +182,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setTotalTransitDays(?string $totalTransitDays): self
     {
+        $this->initialized['totalTransitDays'] = true;
         $this->totalTransitDays = $totalTransitDays;
 
         return $this;
@@ -186,6 +201,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setPickupAdditionalDays(?string $pickupAdditionalDays): self
     {
+        $this->initialized['pickupAdditionalDays'] = true;
         $this->pickupAdditionalDays = $pickupAdditionalDays;
 
         return $this;
@@ -204,6 +220,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setDeliveryAdditionalDays(?string $deliveryAdditionalDays): self
     {
+        $this->initialized['deliveryAdditionalDays'] = true;
         $this->deliveryAdditionalDays = $deliveryAdditionalDays;
 
         return $this;
@@ -222,6 +239,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setPickupDayOfWeek(?string $pickupDayOfWeek): self
     {
+        $this->initialized['pickupDayOfWeek'] = true;
         $this->pickupDayOfWeek = $pickupDayOfWeek;
 
         return $this;
@@ -240,6 +258,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
      */
     public function setDeliveryDayOfWeek(?string $deliveryDayOfWeek): self
     {
+        $this->initialized['deliveryDayOfWeek'] = true;
         $this->deliveryDayOfWeek = $deliveryDayOfWeek;
 
         return $this;

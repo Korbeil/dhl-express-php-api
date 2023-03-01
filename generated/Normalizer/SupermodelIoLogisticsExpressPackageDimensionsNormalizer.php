@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressPackageDimensionsNormalizer implements Denorma
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackageDimensions' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackageDimensions' === $data::class;
     }
@@ -36,6 +38,15 @@ class SupermodelIoLogisticsExpressPackageDimensionsNormalizer implements Denorma
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageDimensions();
+        if (\array_key_exists('length', $data) && \is_int($data['length'])) {
+            $data['length'] = (float) $data['length'];
+        }
+        if (\array_key_exists('width', $data) && \is_int($data['width'])) {
+            $data['width'] = (float) $data['width'];
+        }
+        if (\array_key_exists('height', $data) && \is_int($data['height'])) {
+            $data['height'] = (float) $data['height'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -58,6 +69,9 @@ class SupermodelIoLogisticsExpressPackageDimensionsNormalizer implements Denorma
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];

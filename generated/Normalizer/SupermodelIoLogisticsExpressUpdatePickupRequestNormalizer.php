@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer implements Denor
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupRequest' === $data::class;
     }
@@ -110,19 +112,22 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer implements Denor
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['dispatchConfirmationNumber'] = $object->getDispatchConfirmationNumber();
         $data['originalShipperAccountNumber'] = $object->getOriginalShipperAccountNumber();
         $data['plannedPickupDateAndTime'] = $object->getPlannedPickupDateAndTime();
-        if (null !== $object->getCloseTime()) {
+        if ($object->isInitialized('closeTime') && null !== $object->getCloseTime()) {
             $data['closeTime'] = $object->getCloseTime();
         }
-        if (null !== $object->getLocation()) {
+        if ($object->isInitialized('location') && null !== $object->getLocation()) {
             $data['location'] = $object->getLocation();
         }
-        if (null !== $object->getLocationType()) {
+        if ($object->isInitialized('locationType') && null !== $object->getLocationType()) {
             $data['locationType'] = $object->getLocationType();
         }
         $values = [];
@@ -130,18 +135,18 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer implements Denor
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['accounts'] = $values;
-        if (null !== $object->getSpecialInstructions()) {
+        if ($object->isInitialized('specialInstructions') && null !== $object->getSpecialInstructions()) {
             $values_1 = [];
             foreach ($object->getSpecialInstructions() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['specialInstructions'] = $values_1;
         }
-        if (null !== $object->getRemark()) {
+        if ($object->isInitialized('remark') && null !== $object->getRemark()) {
             $data['remark'] = $object->getRemark();
         }
         $data['customerDetails'] = $this->normalizer->normalize($object->getCustomerDetails(), 'json', $context);
-        if (null !== $object->getShipmentDetails()) {
+        if ($object->isInitialized('shipmentDetails') && null !== $object->getShipmentDetails()) {
             $values_2 = [];
             foreach ($object->getShipmentDetails() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);

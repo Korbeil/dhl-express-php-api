@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please advise if a pickup is needed for this shipment.
      *
      * @var bool|null
@@ -54,6 +63,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setIsRequested(?bool $isRequested): self
     {
+        $this->initialized['isRequested'] = true;
         $this->isRequested = $isRequested;
 
         return $this;
@@ -72,6 +82,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setCloseTime(?string $closeTime): self
     {
+        $this->initialized['closeTime'] = true;
         $this->closeTime = $closeTime;
 
         return $this;
@@ -90,6 +101,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setLocation(?string $location): self
     {
+        $this->initialized['location'] = true;
         $this->location = $location;
 
         return $this;
@@ -112,6 +124,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setSpecialInstructions(?array $specialInstructions): self
     {
+        $this->initialized['specialInstructions'] = true;
         $this->specialInstructions = $specialInstructions;
 
         return $this;
@@ -130,6 +143,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setPickupDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupDetails $pickupDetails): self
     {
+        $this->initialized['pickupDetails'] = true;
         $this->pickupDetails = $pickupDetails;
 
         return $this;
@@ -148,6 +162,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
      */
     public function setPickupRequestorDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupRequestorDetails $pickupRequestorDetails): self
     {
+        $this->initialized['pickupRequestorDetails'] = true;
         $this->pickupRequestorDetails = $pickupRequestorDetails;
 
         return $this;

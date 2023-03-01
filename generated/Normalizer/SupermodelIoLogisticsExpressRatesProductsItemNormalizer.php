@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressRatesProductsItemNormalizer implements Denorma
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItem' === $data::class;
     }
@@ -147,25 +149,28 @@ class SupermodelIoLogisticsExpressRatesProductsItemNormalizer implements Denorma
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getProductName()) {
+        if ($object->isInitialized('productName') && null !== $object->getProductName()) {
             $data['productName'] = $object->getProductName();
         }
-        if (null !== $object->getProductCode()) {
+        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
             $data['productCode'] = $object->getProductCode();
         }
-        if (null !== $object->getLocalProductCode()) {
+        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
-        if (null !== $object->getLocalProductCountryCode()) {
+        if ($object->isInitialized('localProductCountryCode') && null !== $object->getLocalProductCountryCode()) {
             $data['localProductCountryCode'] = $object->getLocalProductCountryCode();
         }
-        if (null !== $object->getNetworkTypeCode()) {
+        if ($object->isInitialized('networkTypeCode') && null !== $object->getNetworkTypeCode()) {
             $data['networkTypeCode'] = $object->getNetworkTypeCode();
         }
-        if (null !== $object->getIsCustomerAgreement()) {
+        if ($object->isInitialized('isCustomerAgreement') && null !== $object->getIsCustomerAgreement()) {
             $data['isCustomerAgreement'] = $object->getIsCustomerAgreement();
         }
         $data['weight'] = $this->normalizer->normalize($object->getWeight(), 'json', $context);
@@ -174,48 +179,48 @@ class SupermodelIoLogisticsExpressRatesProductsItemNormalizer implements Denorma
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['totalPrice'] = $values;
-        if (null !== $object->getTotalPriceBreakdown()) {
+        if ($object->isInitialized('totalPriceBreakdown') && null !== $object->getTotalPriceBreakdown()) {
             $values_1 = [];
             foreach ($object->getTotalPriceBreakdown() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['totalPriceBreakdown'] = $values_1;
         }
-        if (null !== $object->getDetailedPriceBreakdown()) {
+        if ($object->isInitialized('detailedPriceBreakdown') && null !== $object->getDetailedPriceBreakdown()) {
             $values_2 = [];
             foreach ($object->getDetailedPriceBreakdown() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['detailedPriceBreakdown'] = $values_2;
         }
-        if (null !== $object->getServiceCodeMutuallyExclusiveGroups()) {
+        if ($object->isInitialized('serviceCodeMutuallyExclusiveGroups') && null !== $object->getServiceCodeMutuallyExclusiveGroups()) {
             $values_3 = [];
             foreach ($object->getServiceCodeMutuallyExclusiveGroups() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['serviceCodeMutuallyExclusiveGroups'] = $values_3;
         }
-        if (null !== $object->getServiceCodeDependencyRuleGroups()) {
+        if ($object->isInitialized('serviceCodeDependencyRuleGroups') && null !== $object->getServiceCodeDependencyRuleGroups()) {
             $values_4 = [];
             foreach ($object->getServiceCodeDependencyRuleGroups() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['serviceCodeDependencyRuleGroups'] = $values_4;
         }
-        if (null !== $object->getPickupCapabilities()) {
+        if ($object->isInitialized('pickupCapabilities') && null !== $object->getPickupCapabilities()) {
             $data['pickupCapabilities'] = $this->normalizer->normalize($object->getPickupCapabilities(), 'json', $context);
         }
-        if (null !== $object->getDeliveryCapabilities()) {
+        if ($object->isInitialized('deliveryCapabilities') && null !== $object->getDeliveryCapabilities()) {
             $data['deliveryCapabilities'] = $this->normalizer->normalize($object->getDeliveryCapabilities(), 'json', $context);
         }
-        if (null !== $object->getItems()) {
+        if ($object->isInitialized('items') && null !== $object->getItems()) {
             $values_5 = [];
             foreach ($object->getItems() as $value_5) {
                 $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data['items'] = $values_5;
         }
-        if (null !== $object->getPricingDate()) {
+        if ($object->isInitialized('pricingDate') && null !== $object->getPricingDate()) {
             $data['pricingDate'] = $object->getPricingDate();
         }
 

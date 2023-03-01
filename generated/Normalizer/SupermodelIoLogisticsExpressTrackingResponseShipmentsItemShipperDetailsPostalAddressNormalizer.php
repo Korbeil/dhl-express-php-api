@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress' === $data::class;
     }
@@ -68,22 +70,25 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getCityName()) {
+        if ($object->isInitialized('cityName') && null !== $object->getCityName()) {
             $data['cityName'] = $object->getCityName();
         }
-        if (null !== $object->getCountyName()) {
+        if ($object->isInitialized('countyName') && null !== $object->getCountyName()) {
             $data['countyName'] = $object->getCountyName();
         }
-        if (null !== $object->getPostalCode()) {
+        if ($object->isInitialized('postalCode') && null !== $object->getPostalCode()) {
             $data['postalCode'] = $object->getPostalCode();
         }
-        if (null !== $object->getProvinceCode()) {
+        if ($object->isInitialized('provinceCode') && null !== $object->getProvinceCode()) {
             $data['provinceCode'] = $object->getProvinceCode();
         }
-        if (null !== $object->getCountryCode()) {
+        if ($object->isInitialized('countryCode') && null !== $object->getCountryCode()) {
             $data['countryCode'] = $object->getCountryCode();
         }
 

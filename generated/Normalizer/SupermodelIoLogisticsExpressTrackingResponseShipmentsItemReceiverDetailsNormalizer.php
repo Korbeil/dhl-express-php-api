@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsNo
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetails' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetails' === $data::class;
     }
@@ -62,16 +64,19 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsNo
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getName()) {
+        if ($object->isInitialized('name') && null !== $object->getName()) {
             $data['name'] = $object->getName();
         }
-        if (null !== $object->getPostalAddress()) {
+        if ($object->isInitialized('postalAddress') && null !== $object->getPostalAddress()) {
             $data['postalAddress'] = $this->normalizer->normalize($object->getPostalAddress(), 'json', $context);
         }
-        if (null !== $object->getServiceArea()) {
+        if ($object->isInitialized('serviceArea') && null !== $object->getServiceArea()) {
             $values = [];
             foreach ($object->getServiceArea() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

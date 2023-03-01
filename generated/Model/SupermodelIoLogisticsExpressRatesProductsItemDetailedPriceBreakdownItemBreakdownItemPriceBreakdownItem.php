@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * If a breakdown is provided, details can either be; 'TAX',<BR> 'DISCOUNT'.
      *
      * @var string|null
@@ -48,6 +57,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     public function setPriceType(?string $priceType): self
     {
+        $this->initialized['priceType'] = true;
         $this->priceType = $priceType;
 
         return $this;
@@ -66,6 +76,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -84,6 +95,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     public function setPrice(?float $price): self
     {
+        $this->initialized['price'] = true;
         $this->price = $price;
 
         return $this;
@@ -102,6 +114,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     public function setRate(?float $rate): self
     {
+        $this->initialized['rate'] = true;
         $this->rate = $rate;
 
         return $this;
@@ -120,6 +133,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     public function setBasePrice(?float $basePrice): self
     {
+        $this->initialized['basePrice'] = true;
         $this->basePrice = $basePrice;
 
         return $this;

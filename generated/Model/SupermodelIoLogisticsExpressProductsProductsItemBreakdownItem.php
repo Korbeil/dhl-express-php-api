@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Breakdown Name.
      *
      * @var string|null
@@ -66,6 +75,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setName(?string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
 
         return $this;
@@ -84,6 +94,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setServiceCode(?string $serviceCode): self
     {
+        $this->initialized['serviceCode'] = true;
         $this->serviceCode = $serviceCode;
 
         return $this;
@@ -102,6 +113,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setLocalServiceCode(?string $localServiceCode): self
     {
+        $this->initialized['localServiceCode'] = true;
         $this->localServiceCode = $localServiceCode;
 
         return $this;
@@ -120,6 +132,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -138,6 +151,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setServiceTypeCode(?string $serviceTypeCode): self
     {
+        $this->initialized['serviceTypeCode'] = true;
         $this->serviceTypeCode = $serviceTypeCode;
 
         return $this;
@@ -156,6 +170,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setIsCustomerAgreement(?bool $isCustomerAgreement): self
     {
+        $this->initialized['isCustomerAgreement'] = true;
         $this->isCustomerAgreement = $isCustomerAgreement;
 
         return $this;
@@ -174,6 +189,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setIsMarketedService(?bool $isMarketedService): self
     {
+        $this->initialized['isMarketedService'] = true;
         $this->isMarketedService = $isMarketedService;
 
         return $this;
@@ -192,6 +208,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem
      */
     public function setIsBillingServiceIndicator(?bool $isBillingServiceIndicator): self
     {
+        $this->initialized['isBillingServiceIndicator'] = true;
         $this->isBillingServiceIndicator = $isBillingServiceIndicator;
 
         return $this;

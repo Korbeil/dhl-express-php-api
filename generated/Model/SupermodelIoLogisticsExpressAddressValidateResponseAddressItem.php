@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var string|null
      */
     protected $countryCode;
@@ -34,6 +43,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
 
     public function setCountryCode(?string $countryCode): self
     {
+        $this->initialized['countryCode'] = true;
         $this->countryCode = $countryCode;
 
         return $this;
@@ -46,6 +56,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
 
     public function setPostalCode(?string $postalCode): self
     {
+        $this->initialized['postalCode'] = true;
         $this->postalCode = $postalCode;
 
         return $this;
@@ -58,6 +69,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
 
     public function setCityName(?string $cityName): self
     {
+        $this->initialized['cityName'] = true;
         $this->cityName = $cityName;
 
         return $this;
@@ -76,6 +88,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
      */
     public function setCountyName(?string $countyName): self
     {
+        $this->initialized['countyName'] = true;
         $this->countyName = $countyName;
 
         return $this;
@@ -88,6 +101,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItem
 
     public function setServiceArea(?SupermodelIoLogisticsExpressAddressValidateResponseAddressItemServiceArea $serviceArea): self
     {
+        $this->initialized['serviceArea'] = true;
         $this->serviceArea = $serviceArea;
 
         return $this;

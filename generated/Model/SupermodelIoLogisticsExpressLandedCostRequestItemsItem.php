@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Line item number.
      *
      * @var float|null
@@ -128,6 +137,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setNumber(?float $number): self
     {
+        $this->initialized['number'] = true;
         $this->number = $number;
 
         return $this;
@@ -146,6 +156,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setName(?string $name): self
     {
+        $this->initialized['name'] = true;
         $this->name = $name;
 
         return $this;
@@ -164,6 +175,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setDescription(?string $description): self
     {
+        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -182,6 +194,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setManufacturerCountry(?string $manufacturerCountry): self
     {
+        $this->initialized['manufacturerCountry'] = true;
         $this->manufacturerCountry = $manufacturerCountry;
 
         return $this;
@@ -200,6 +213,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setPartNumber(?string $partNumber): self
     {
+        $this->initialized['partNumber'] = true;
         $this->partNumber = $partNumber;
 
         return $this;
@@ -218,6 +232,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setQuantity(?float $quantity): self
     {
+        $this->initialized['quantity'] = true;
         $this->quantity = $quantity;
 
         return $this;
@@ -236,6 +251,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setQuantityType(?string $quantityType): self
     {
+        $this->initialized['quantityType'] = true;
         $this->quantityType = $quantityType;
 
         return $this;
@@ -254,6 +270,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setUnitPrice(?float $unitPrice): self
     {
+        $this->initialized['unitPrice'] = true;
         $this->unitPrice = $unitPrice;
 
         return $this;
@@ -272,6 +289,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setUnitPriceCurrencyCode(?string $unitPriceCurrencyCode): self
     {
+        $this->initialized['unitPriceCurrencyCode'] = true;
         $this->unitPriceCurrencyCode = $unitPriceCurrencyCode;
 
         return $this;
@@ -290,6 +308,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setCustomsValue(?float $customsValue): self
     {
+        $this->initialized['customsValue'] = true;
         $this->customsValue = $customsValue;
 
         return $this;
@@ -308,6 +327,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setCustomsValueCurrencyCode(?string $customsValueCurrencyCode): self
     {
+        $this->initialized['customsValueCurrencyCode'] = true;
         $this->customsValueCurrencyCode = $customsValueCurrencyCode;
 
         return $this;
@@ -326,6 +346,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setCommodityCode(?string $commodityCode): self
     {
+        $this->initialized['commodityCode'] = true;
         $this->commodityCode = $commodityCode;
 
         return $this;
@@ -344,6 +365,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setWeight(?float $weight): self
     {
+        $this->initialized['weight'] = true;
         $this->weight = $weight;
 
         return $this;
@@ -362,6 +384,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setWeightUnitOfMeasurement(?string $weightUnitOfMeasurement): self
     {
+        $this->initialized['weightUnitOfMeasurement'] = true;
         $this->weightUnitOfMeasurement = $weightUnitOfMeasurement;
 
         return $this;
@@ -380,6 +403,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setCategory(?string $category): self
     {
+        $this->initialized['category'] = true;
         $this->category = $category;
 
         return $this;
@@ -398,6 +422,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setBrand(?string $brand): self
     {
+        $this->initialized['brand'] = true;
         $this->brand = $brand;
 
         return $this;
@@ -416,6 +441,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setGoodsCharacteristics(?array $goodsCharacteristics): self
     {
+        $this->initialized['goodsCharacteristics'] = true;
         $this->goodsCharacteristics = $goodsCharacteristics;
 
         return $this;
@@ -434,6 +460,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setAdditionalQuantityDefinitions(?array $additionalQuantityDefinitions): self
     {
+        $this->initialized['additionalQuantityDefinitions'] = true;
         $this->additionalQuantityDefinitions = $additionalQuantityDefinitions;
 
         return $this;
@@ -452,6 +479,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     public function setEstimatedTariffRateType(?string $estimatedTariffRateType): self
     {
+        $this->initialized['estimatedTariffRateType'] = true;
         $this->estimatedTariffRateType = $estimatedTariffRateType;
 
         return $this;

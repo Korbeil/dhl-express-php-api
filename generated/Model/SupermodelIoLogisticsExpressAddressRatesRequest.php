@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressAddressRatesRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter your postcode or leave empty if the address doesn't have a postcode.
      *
      * @var string|null
@@ -66,6 +75,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setPostalCode(?string $postalCode): self
     {
+        $this->initialized['postalCode'] = true;
         $this->postalCode = $postalCode;
 
         return $this;
@@ -84,6 +94,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setCityName(?string $cityName): self
     {
+        $this->initialized['cityName'] = true;
         $this->cityName = $cityName;
 
         return $this;
@@ -102,6 +113,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setCountryCode(?string $countryCode): self
     {
+        $this->initialized['countryCode'] = true;
         $this->countryCode = $countryCode;
 
         return $this;
@@ -120,6 +132,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setProvinceCode(?string $provinceCode): self
     {
+        $this->initialized['provinceCode'] = true;
         $this->provinceCode = $provinceCode;
 
         return $this;
@@ -138,6 +151,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setAddressLine1(?string $addressLine1): self
     {
+        $this->initialized['addressLine1'] = true;
         $this->addressLine1 = $addressLine1;
 
         return $this;
@@ -156,6 +170,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setAddressLine2(?string $addressLine2): self
     {
+        $this->initialized['addressLine2'] = true;
         $this->addressLine2 = $addressLine2;
 
         return $this;
@@ -174,6 +189,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setAddressLine3(?string $addressLine3): self
     {
+        $this->initialized['addressLine3'] = true;
         $this->addressLine3 = $addressLine3;
 
         return $this;
@@ -192,6 +208,7 @@ class SupermodelIoLogisticsExpressAddressRatesRequest
      */
     public function setCountyName(?string $countyName): self
     {
+        $this->initialized['countyName'] = true;
         $this->countyName = $countyName;
 
         return $this;

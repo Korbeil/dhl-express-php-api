@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressIdentifier
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide type of the identifier you want to set value for.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressIdentifier
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressIdentifier
      */
     public function setValue(?string $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressIdentifier
      */
     public function setDataIdentifier(?string $dataIdentifier): self
     {
+        $this->initialized['dataIdentifier'] = true;
         $this->dataIdentifier = $dataIdentifier;
 
         return $this;

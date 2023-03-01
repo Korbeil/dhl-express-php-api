@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRateRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var SupermodelIoLogisticsExpressRateRequestCustomerDetails|null
      */
     protected $customerDetails;
@@ -118,6 +127,7 @@ class SupermodelIoLogisticsExpressRateRequest
 
     public function setCustomerDetails(?SupermodelIoLogisticsExpressRateRequestCustomerDetails $customerDetails): self
     {
+        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;
@@ -140,6 +150,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setAccounts(?array $accounts): self
     {
+        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -158,6 +169,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -176,6 +188,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
+        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -198,6 +211,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
+        $this->initialized['valueAddedServices'] = true;
         $this->valueAddedServices = $valueAddedServices;
 
         return $this;
@@ -220,6 +234,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setProductsAndServices(?array $productsAndServices): self
     {
+        $this->initialized['productsAndServices'] = true;
         $this->productsAndServices = $productsAndServices;
 
         return $this;
@@ -238,6 +253,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setPayerCountryCode(?string $payerCountryCode): self
     {
+        $this->initialized['payerCountryCode'] = true;
         $this->payerCountryCode = $payerCountryCode;
 
         return $this;
@@ -256,6 +272,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setPlannedShippingDateAndTime(?string $plannedShippingDateAndTime): self
     {
+        $this->initialized['plannedShippingDateAndTime'] = true;
         $this->plannedShippingDateAndTime = $plannedShippingDateAndTime;
 
         return $this;
@@ -274,6 +291,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
+        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;
@@ -292,6 +310,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setIsCustomsDeclarable(?bool $isCustomsDeclarable): self
     {
+        $this->initialized['isCustomsDeclarable'] = true;
         $this->isCustomsDeclarable = $isCustomsDeclarable;
 
         return $this;
@@ -314,6 +333,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setMonetaryAmount(?array $monetaryAmount): self
     {
+        $this->initialized['monetaryAmount'] = true;
         $this->monetaryAmount = $monetaryAmount;
 
         return $this;
@@ -332,6 +352,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setRequestAllValueAddedServices(?bool $requestAllValueAddedServices): self
     {
+        $this->initialized['requestAllValueAddedServices'] = true;
         $this->requestAllValueAddedServices = $requestAllValueAddedServices;
 
         return $this;
@@ -350,6 +371,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setEstimatedDeliveryDate(?SupermodelIoLogisticsExpressRateRequestEstimatedDeliveryDate $estimatedDeliveryDate): self
     {
+        $this->initialized['estimatedDeliveryDate'] = true;
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
 
         return $this;
@@ -372,6 +394,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setGetAdditionalInformation(?array $getAdditionalInformation): self
     {
+        $this->initialized['getAdditionalInformation'] = true;
         $this->getAdditionalInformation = $getAdditionalInformation;
 
         return $this;
@@ -390,6 +413,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setReturnStandardProductsOnly(?bool $returnStandardProductsOnly): self
     {
+        $this->initialized['returnStandardProductsOnly'] = true;
         $this->returnStandardProductsOnly = $returnStandardProductsOnly;
 
         return $this;
@@ -408,6 +432,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setNextBusinessDay(?bool $nextBusinessDay): self
     {
+        $this->initialized['nextBusinessDay'] = true;
         $this->nextBusinessDay = $nextBusinessDay;
 
         return $this;
@@ -426,6 +451,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setProductTypeCode(?string $productTypeCode): self
     {
+        $this->initialized['productTypeCode'] = true;
         $this->productTypeCode = $productTypeCode;
 
         return $this;
@@ -448,6 +474,7 @@ class SupermodelIoLogisticsExpressRateRequest
      */
     public function setPackages(?array $packages): self
     {
+        $this->initialized['packages'] = true;
         $this->packages = $packages;
 
         return $this;

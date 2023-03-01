@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * The planned shipment date for the provided shipmentTrackingNumber.  The date must be in the format: YYYY-MM-DD.
      *
      * @var string|null
@@ -48,6 +57,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      */
     public function setPlannedShipDate(?string $plannedShipDate): self
     {
+        $this->initialized['plannedShipDate'] = true;
         $this->plannedShipDate = $plannedShipDate;
 
         return $this;
@@ -70,6 +80,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      */
     public function setAccounts(?array $accounts): self
     {
+        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -88,6 +99,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      */
     public function setContent(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -106,6 +118,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      */
     public function setOutputImageProperties(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImageProperties $outputImageProperties): self
     {
+        $this->initialized['outputImageProperties'] = true;
         $this->outputImageProperties = $outputImageProperties;
 
         return $this;
@@ -124,6 +137,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      */
     public function setCustomerDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetails $customerDetails): self
     {
+        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;

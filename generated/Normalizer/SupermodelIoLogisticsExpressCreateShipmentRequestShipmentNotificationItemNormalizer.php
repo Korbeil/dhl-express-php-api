@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem' === $data::class;
     }
@@ -68,18 +70,21 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['typeCode'] = $object->getTypeCode();
         $data['receiverId'] = $object->getReceiverId();
-        if (null !== $object->getLanguageCode()) {
+        if ($object->isInitialized('languageCode') && null !== $object->getLanguageCode()) {
             $data['languageCode'] = $object->getLanguageCode();
         }
-        if (null !== $object->getLanguageCountryCode()) {
+        if ($object->isInitialized('languageCountryCode') && null !== $object->getLanguageCountryCode()) {
             $data['languageCountryCode'] = $object->getLanguageCountryCode();
         }
-        if (null !== $object->getBespokeMessage()) {
+        if ($object->isInitialized('bespokeMessage') && null !== $object->getBespokeMessage()) {
             $data['bespokeMessage'] = $object->getBespokeMessage();
         }
 

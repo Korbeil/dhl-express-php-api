@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressPackageNormalizer implements DenormalizerInter
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackage' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackage' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressPackageNormalizer implements DenormalizerInter
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackage();
+        if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
+            $data['weight'] = (float) $data['weight'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -104,46 +109,49 @@ class SupermodelIoLogisticsExpressPackageNormalizer implements DenormalizerInter
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getTypeCode()) {
+        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
         $data['weight'] = $object->getWeight();
         $data['dimensions'] = $this->normalizer->normalize($object->getDimensions(), 'json', $context);
-        if (null !== $object->getCustomerReferences()) {
+        if ($object->isInitialized('customerReferences') && null !== $object->getCustomerReferences()) {
             $values = [];
             foreach ($object->getCustomerReferences() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['customerReferences'] = $values;
         }
-        if (null !== $object->getIdentifiers()) {
+        if ($object->isInitialized('identifiers') && null !== $object->getIdentifiers()) {
             $values_1 = [];
             foreach ($object->getIdentifiers() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['identifiers'] = $values_1;
         }
-        if (null !== $object->getDescription()) {
+        if ($object->isInitialized('description') && null !== $object->getDescription()) {
             $data['description'] = $object->getDescription();
         }
-        if (null !== $object->getLabelBarcodes()) {
+        if ($object->isInitialized('labelBarcodes') && null !== $object->getLabelBarcodes()) {
             $values_2 = [];
             foreach ($object->getLabelBarcodes() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['labelBarcodes'] = $values_2;
         }
-        if (null !== $object->getLabelText()) {
+        if ($object->isInitialized('labelText') && null !== $object->getLabelText()) {
             $values_3 = [];
             foreach ($object->getLabelText() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['labelText'] = $values_3;
         }
-        if (null !== $object->getLabelDescription()) {
+        if ($object->isInitialized('labelDescription') && null !== $object->getLabelDescription()) {
             $data['labelDescription'] = $object->getLabelDescription();
         }
 

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressExportDeclarationInvoice
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter commercial invoice number.
      *
      * @var string|null
@@ -42,6 +51,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      */
     public function setNumber(?string $number): self
     {
+        $this->initialized['number'] = true;
         $this->number = $number;
 
         return $this;
@@ -60,6 +70,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      */
     public function setDate(?string $date): self
     {
+        $this->initialized['date'] = true;
         $this->date = $date;
 
         return $this;
@@ -78,6 +89,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      */
     public function setFunction(?string $function): self
     {
+        $this->initialized['function'] = true;
         $this->function = $function;
 
         return $this;
@@ -100,6 +112,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
+        $this->initialized['customerReferences'] = true;
         $this->customerReferences = $customerReferences;
 
         return $this;

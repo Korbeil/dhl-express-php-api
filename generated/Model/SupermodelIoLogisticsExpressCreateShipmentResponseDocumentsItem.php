@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Identifie image format the document is created in, like PDF, JPG etc.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem
      */
     public function setImageFormat(?string $imageFormat): self
     {
+        $this->initialized['imageFormat'] = true;
         $this->imageFormat = $imageFormat;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem
      */
     public function setContent(?string $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;

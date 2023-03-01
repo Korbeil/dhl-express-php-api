@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerDetails
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var SupermodelIoLogisticsExpressAddress|null
      */
     protected $postalAddress;
@@ -30,6 +39,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
 
     public function setPostalAddress(?SupermodelIoLogisticsExpressAddress $postalAddress): self
     {
+        $this->initialized['postalAddress'] = true;
         $this->postalAddress = $postalAddress;
 
         return $this;
@@ -42,6 +52,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
 
     public function setContactInformation(?SupermodelIoLogisticsExpressContact $contactInformation): self
     {
+        $this->initialized['contactInformation'] = true;
         $this->contactInformation = $contactInformation;
 
         return $this;
@@ -60,6 +71,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -78,6 +90,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {
+        $this->initialized['registrationNumbers'] = true;
         $this->registrationNumbers = $registrationNumbers;
 
         return $this;

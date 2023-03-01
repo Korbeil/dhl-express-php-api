@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesRates' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesRates' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates();
+        if (\array_key_exists('value', $data) && \is_int($data['value'])) {
+            $data['value'] = (float) $data['value'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -68,20 +73,23 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['serviceCode'] = $object->getServiceCode();
-        if (null !== $object->getLocalServiceCode()) {
+        if ($object->isInitialized('localServiceCode') && null !== $object->getLocalServiceCode()) {
             $data['localServiceCode'] = $object->getLocalServiceCode();
         }
-        if (null !== $object->getValue()) {
+        if ($object->isInitialized('value') && null !== $object->getValue()) {
             $data['value'] = $object->getValue();
         }
-        if (null !== $object->getCurrency()) {
+        if ($object->isInitialized('currency') && null !== $object->getCurrency()) {
             $data['currency'] = $object->getCurrency();
         }
-        if (null !== $object->getMethod()) {
+        if ($object->isInitialized('method') && null !== $object->getMethod()) {
             $data['method'] = $object->getMethod();
         }
 

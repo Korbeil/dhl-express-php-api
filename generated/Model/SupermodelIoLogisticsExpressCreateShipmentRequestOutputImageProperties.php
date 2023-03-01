@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Printer DPI Resolution for X-axis and Y-axis (in DPI) for transport label and waybill document output.
      *
      * @var float|null
@@ -78,6 +87,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setPrinterDPI(?float $printerDPI): self
     {
+        $this->initialized['printerDPI'] = true;
         $this->printerDPI = $printerDPI;
 
         return $this;
@@ -100,6 +110,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setCustomerBarcodes(?array $customerBarcodes): self
     {
+        $this->initialized['customerBarcodes'] = true;
         $this->customerBarcodes = $customerBarcodes;
 
         return $this;
@@ -122,6 +133,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setCustomerLogos(?array $customerLogos): self
     {
+        $this->initialized['customerLogos'] = true;
         $this->customerLogos = $customerLogos;
 
         return $this;
@@ -140,6 +152,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setEncodingFormat(?string $encodingFormat): self
     {
+        $this->initialized['encodingFormat'] = true;
         $this->encodingFormat = $encodingFormat;
 
         return $this;
@@ -162,6 +175,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setImageOptions(?array $imageOptions): self
     {
+        $this->initialized['imageOptions'] = true;
         $this->imageOptions = $imageOptions;
 
         return $this;
@@ -180,6 +194,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setSplitTransportAndWaybillDocLabels(?bool $splitTransportAndWaybillDocLabels): self
     {
+        $this->initialized['splitTransportAndWaybillDocLabels'] = true;
         $this->splitTransportAndWaybillDocLabels = $splitTransportAndWaybillDocLabels;
 
         return $this;
@@ -198,6 +213,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setAllDocumentsInOneImage(?bool $allDocumentsInOneImage): self
     {
+        $this->initialized['allDocumentsInOneImage'] = true;
         $this->allDocumentsInOneImage = $allDocumentsInOneImage;
 
         return $this;
@@ -216,6 +232,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setSplitDocumentsByPages(?bool $splitDocumentsByPages): self
     {
+        $this->initialized['splitDocumentsByPages'] = true;
         $this->splitDocumentsByPages = $splitDocumentsByPages;
 
         return $this;
@@ -234,6 +251,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setSplitInvoiceAndReceipt(?bool $splitInvoiceAndReceipt): self
     {
+        $this->initialized['splitInvoiceAndReceipt'] = true;
         $this->splitInvoiceAndReceipt = $splitInvoiceAndReceipt;
 
         return $this;
@@ -252,6 +270,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
      */
     public function setReceiptAndLabelsInOneImage(?bool $receiptAndLabelsInOneImage): self
     {
+        $this->initialized['receiptAndLabelsInOneImage'] = true;
         $this->receiptAndLabelsInOneImage = $receiptAndLabelsInOneImage;
 
         return $this;

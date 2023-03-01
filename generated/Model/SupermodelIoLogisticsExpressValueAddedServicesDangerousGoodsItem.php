@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter valid DHL Express Dangerous good content id (please contact your DHL Express IT representative for the relevant content ID code if you are shipping Dan.
      *
      * @var string|null
@@ -42,6 +51,7 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem
      */
     public function setContentId(?string $contentId): self
     {
+        $this->initialized['contentId'] = true;
         $this->contentId = $contentId;
 
         return $this;
@@ -60,6 +70,7 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem
      */
     public function setDryIceTotalNetWeight(?float $dryIceTotalNetWeight): self
     {
+        $this->initialized['dryIceTotalNetWeight'] = true;
         $this->dryIceTotalNetWeight = $dryIceTotalNetWeight;
 
         return $this;
@@ -78,6 +89,7 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem
      */
     public function setUnCode(?string $unCode): self
     {
+        $this->initialized['unCode'] = true;
         $this->unCode = $unCode;
 
         return $this;
@@ -96,6 +108,7 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem
      */
     public function setCustomDescription(?string $customDescription): self
     {
+        $this->initialized['customDescription'] = true;
         $this->customDescription = $customDescription;
 
         return $this;

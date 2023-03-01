@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * This array contains all the DHL Express special handling feature codes.
      *
      * @var string[]|null
@@ -100,6 +109,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setServiceHandlingFeatureCodes(?array $serviceHandlingFeatureCodes): self
     {
+        $this->initialized['serviceHandlingFeatureCodes'] = true;
         $this->serviceHandlingFeatureCodes = $serviceHandlingFeatureCodes;
 
         return $this;
@@ -118,6 +128,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setVolumetricWeight(?float $volumetricWeight): self
     {
+        $this->initialized['volumetricWeight'] = true;
         $this->volumetricWeight = $volumetricWeight;
 
         return $this;
@@ -136,6 +147,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setBillingCode(?string $billingCode): self
     {
+        $this->initialized['billingCode'] = true;
         $this->billingCode = $billingCode;
 
         return $this;
@@ -154,6 +166,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setServiceContentCode(?string $serviceContentCode): self
     {
+        $this->initialized['serviceContentCode'] = true;
         $this->serviceContentCode = $serviceContentCode;
 
         return $this;
@@ -172,6 +185,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setCustomerDetails(?SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetails $customerDetails): self
     {
+        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;
@@ -184,6 +198,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
 
     public function setOriginServiceArea(?SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea $originServiceArea): self
     {
+        $this->initialized['originServiceArea'] = true;
         $this->originServiceArea = $originServiceArea;
 
         return $this;
@@ -196,6 +211,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
 
     public function setDestinationServiceArea(?SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea $destinationServiceArea): self
     {
+        $this->initialized['destinationServiceArea'] = true;
         $this->destinationServiceArea = $destinationServiceArea;
 
         return $this;
@@ -214,6 +230,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setDhlRoutingCode(?string $dhlRoutingCode): self
     {
+        $this->initialized['dhlRoutingCode'] = true;
         $this->dhlRoutingCode = $dhlRoutingCode;
 
         return $this;
@@ -232,6 +249,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setDhlRoutingDataId(?string $dhlRoutingDataId): self
     {
+        $this->initialized['dhlRoutingDataId'] = true;
         $this->dhlRoutingDataId = $dhlRoutingDataId;
 
         return $this;
@@ -250,6 +268,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setDeliveryDateCode(?string $deliveryDateCode): self
     {
+        $this->initialized['deliveryDateCode'] = true;
         $this->deliveryDateCode = $deliveryDateCode;
 
         return $this;
@@ -268,6 +287,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setDeliveryTimeCode(?string $deliveryTimeCode): self
     {
+        $this->initialized['deliveryTimeCode'] = true;
         $this->deliveryTimeCode = $deliveryTimeCode;
 
         return $this;
@@ -286,6 +306,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setProductShortName(?string $productShortName): self
     {
+        $this->initialized['productShortName'] = true;
         $this->productShortName = $productShortName;
 
         return $this;
@@ -304,6 +325,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
+        $this->initialized['valueAddedServices'] = true;
         $this->valueAddedServices = $valueAddedServices;
 
         return $this;
@@ -322,6 +344,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     public function setPickupDetails(?SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails $pickupDetails): self
     {
+        $this->initialized['pickupDetails'] = true;
         $this->pickupDetails = $pickupDetails;
 
         return $this;

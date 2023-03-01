@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormali
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem' === $data::class;
     }
@@ -77,29 +79,32 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormali
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getDate()) {
+        if ($object->isInitialized('date') && null !== $object->getDate()) {
             $data['date'] = $object->getDate();
         }
-        if (null !== $object->getTime()) {
+        if ($object->isInitialized('time') && null !== $object->getTime()) {
             $data['time'] = $object->getTime();
         }
-        if (null !== $object->getTypeCode()) {
+        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
-        if (null !== $object->getDescription()) {
+        if ($object->isInitialized('description') && null !== $object->getDescription()) {
             $data['description'] = $object->getDescription();
         }
-        if (null !== $object->getServiceArea()) {
+        if ($object->isInitialized('serviceArea') && null !== $object->getServiceArea()) {
             $values = [];
             foreach ($object->getServiceArea() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['serviceArea'] = $values;
         }
-        if (null !== $object->getSignedBy()) {
+        if ($object->isInitialized('signedBy') && null !== $object->getSignedBy()) {
             $data['signedBy'] = $object->getSignedBy();
         }
 

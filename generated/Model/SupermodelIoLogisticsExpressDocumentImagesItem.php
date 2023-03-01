@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressDocumentImagesItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide correct document type you wish to upload<BR> <BR>        Possible values;<BR>        INV, Invoice<BR>        PNV, Proforma<BR>        COO, Certificate of Origin<BR>        NAF, Nafta Certificate of Origin<BR>        CIN, Commercial Invoice<BR> DCL, Custom Declaration<BR>        AWB, Air Waybill and Waybill Document.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressDocumentImagesItem
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressDocumentImagesItem
      */
     public function setImageFormat(?string $imageFormat): self
     {
+        $this->initialized['imageFormat'] = true;
         $this->imageFormat = $imageFormat;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressDocumentImagesItem
      */
     public function setContent(?string $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;

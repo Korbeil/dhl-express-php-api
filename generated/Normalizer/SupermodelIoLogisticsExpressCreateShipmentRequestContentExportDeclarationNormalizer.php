@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationN
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration' === $data::class;
     }
@@ -152,6 +154,9 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationN
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
@@ -160,68 +165,68 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationN
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['lineItems'] = $values;
-        if (null !== $object->getInvoice()) {
+        if ($object->isInitialized('invoice') && null !== $object->getInvoice()) {
             $data['invoice'] = $this->normalizer->normalize($object->getInvoice(), 'json', $context);
         }
-        if (null !== $object->getRemarks()) {
+        if ($object->isInitialized('remarks') && null !== $object->getRemarks()) {
             $values_1 = [];
             foreach ($object->getRemarks() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['remarks'] = $values_1;
         }
-        if (null !== $object->getAdditionalCharges()) {
+        if ($object->isInitialized('additionalCharges') && null !== $object->getAdditionalCharges()) {
             $values_2 = [];
             foreach ($object->getAdditionalCharges() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['additionalCharges'] = $values_2;
         }
-        if (null !== $object->getDestinationPortName()) {
+        if ($object->isInitialized('destinationPortName') && null !== $object->getDestinationPortName()) {
             $data['destinationPortName'] = $object->getDestinationPortName();
         }
-        if (null !== $object->getPlaceOfIncoterm()) {
+        if ($object->isInitialized('placeOfIncoterm') && null !== $object->getPlaceOfIncoterm()) {
             $data['placeOfIncoterm'] = $object->getPlaceOfIncoterm();
         }
-        if (null !== $object->getPayerVATNumber()) {
+        if ($object->isInitialized('payerVATNumber') && null !== $object->getPayerVATNumber()) {
             $data['payerVATNumber'] = $object->getPayerVATNumber();
         }
-        if (null !== $object->getRecipientReference()) {
+        if ($object->isInitialized('recipientReference') && null !== $object->getRecipientReference()) {
             $data['recipientReference'] = $object->getRecipientReference();
         }
-        if (null !== $object->getExporter()) {
+        if ($object->isInitialized('exporter') && null !== $object->getExporter()) {
             $data['exporter'] = $this->normalizer->normalize($object->getExporter(), 'json', $context);
         }
-        if (null !== $object->getPackageMarks()) {
+        if ($object->isInitialized('packageMarks') && null !== $object->getPackageMarks()) {
             $data['packageMarks'] = $object->getPackageMarks();
         }
-        if (null !== $object->getDeclarationNotes()) {
+        if ($object->isInitialized('declarationNotes') && null !== $object->getDeclarationNotes()) {
             $values_3 = [];
             foreach ($object->getDeclarationNotes() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['declarationNotes'] = $values_3;
         }
-        if (null !== $object->getExportReference()) {
+        if ($object->isInitialized('exportReference') && null !== $object->getExportReference()) {
             $data['exportReference'] = $object->getExportReference();
         }
-        if (null !== $object->getExportReason()) {
+        if ($object->isInitialized('exportReason') && null !== $object->getExportReason()) {
             $data['exportReason'] = $object->getExportReason();
         }
-        if (null !== $object->getExportReasonType()) {
+        if ($object->isInitialized('exportReasonType') && null !== $object->getExportReasonType()) {
             $data['exportReasonType'] = $object->getExportReasonType();
         }
-        if (null !== $object->getLicenses()) {
+        if ($object->isInitialized('licenses') && null !== $object->getLicenses()) {
             $values_4 = [];
             foreach ($object->getLicenses() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['licenses'] = $values_4;
         }
-        if (null !== $object->getShipmentType()) {
+        if ($object->isInitialized('shipmentType') && null !== $object->getShipmentType()) {
             $data['shipmentType'] = $object->getShipmentType();
         }
-        if (null !== $object->getCustomsDocuments()) {
+        if ($object->isInitialized('customsDocuments') && null !== $object->getCustomsDocuments()) {
             $values_5 = [];
             foreach ($object->getCustomsDocuments() as $value_5) {
                 $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);

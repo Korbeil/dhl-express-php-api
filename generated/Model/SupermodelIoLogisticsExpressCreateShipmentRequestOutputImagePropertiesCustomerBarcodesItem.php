@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter barcode content.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
      */
     public function setContent(?string $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
      */
     public function setTextBelowBarcode(?string $textBelowBarcode): self
     {
+        $this->initialized['textBelowBarcode'] = true;
         $this->textBelowBarcode = $textBelowBarcode;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
      */
     public function setSymbologyCode(?string $symbologyCode): self
     {
+        $this->initialized['symbologyCode'] = true;
         $this->symbologyCode = $symbologyCode;
 
         return $this;

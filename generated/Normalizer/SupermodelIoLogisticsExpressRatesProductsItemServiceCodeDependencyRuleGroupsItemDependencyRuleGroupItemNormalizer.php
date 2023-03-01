@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem' === $data::class;
     }
@@ -67,19 +69,22 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getDependencyRuleName()) {
+        if ($object->isInitialized('dependencyRuleName') && null !== $object->getDependencyRuleName()) {
             $data['dependencyRuleName'] = $object->getDependencyRuleName();
         }
-        if (null !== $object->getDependencyDescription()) {
+        if ($object->isInitialized('dependencyDescription') && null !== $object->getDependencyDescription()) {
             $data['dependencyDescription'] = $object->getDependencyDescription();
         }
-        if (null !== $object->getDependencyCondition()) {
+        if ($object->isInitialized('dependencyCondition') && null !== $object->getDependencyCondition()) {
             $data['dependencyCondition'] = $object->getDependencyCondition();
         }
-        if (null !== $object->getRequiredServiceCodes()) {
+        if ($object->isInitialized('requiredServiceCodes') && null !== $object->getRequiredServiceCodes()) {
             $values = [];
             foreach ($object->getRequiredServiceCodes() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

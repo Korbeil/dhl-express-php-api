@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPickupRequestCustomerDetails
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var SupermodelIoLogisticsExpressPickupRequestCustomerDetailsShipperDetails|null
      */
     protected $shipperDetails;
@@ -28,6 +37,7 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetails
 
     public function setShipperDetails(?SupermodelIoLogisticsExpressPickupRequestCustomerDetailsShipperDetails $shipperDetails): self
     {
+        $this->initialized['shipperDetails'] = true;
         $this->shipperDetails = $shipperDetails;
 
         return $this;
@@ -40,6 +50,7 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetails
 
     public function setReceiverDetails(?SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails $receiverDetails): self
     {
+        $this->initialized['receiverDetails'] = true;
         $this->receiverDetails = $receiverDetails;
 
         return $this;
@@ -52,6 +63,7 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetails
 
     public function setBookingRequestorDetails(?SupermodelIoLogisticsExpressPickupRequestCustomerDetailsBookingRequestorDetails $bookingRequestorDetails): self
     {
+        $this->initialized['bookingRequestorDetails'] = true;
         $this->bookingRequestorDetails = $bookingRequestorDetails;
 
         return $this;
@@ -64,6 +76,7 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetails
 
     public function setPickupDetails(?SupermodelIoLogisticsExpressPickupRequestCustomerDetailsPickupDetails $pickupDetails): self
     {
+        $this->initialized['pickupDetails'] = true;
         $this->pickupDetails = $pickupDetails;
 
         return $this;

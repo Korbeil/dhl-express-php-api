@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties();
+        if (\array_key_exists('printerDPI', $data) && \is_int($data['printerDPI'])) {
+            $data['printerDPI'] = (float) $data['printerDPI'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -105,49 +110,52 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getPrinterDPI()) {
+        if ($object->isInitialized('printerDPI') && null !== $object->getPrinterDPI()) {
             $data['printerDPI'] = $object->getPrinterDPI();
         }
-        if (null !== $object->getCustomerBarcodes()) {
+        if ($object->isInitialized('customerBarcodes') && null !== $object->getCustomerBarcodes()) {
             $values = [];
             foreach ($object->getCustomerBarcodes() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['customerBarcodes'] = $values;
         }
-        if (null !== $object->getCustomerLogos()) {
+        if ($object->isInitialized('customerLogos') && null !== $object->getCustomerLogos()) {
             $values_1 = [];
             foreach ($object->getCustomerLogos() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['customerLogos'] = $values_1;
         }
-        if (null !== $object->getEncodingFormat()) {
+        if ($object->isInitialized('encodingFormat') && null !== $object->getEncodingFormat()) {
             $data['encodingFormat'] = $object->getEncodingFormat();
         }
-        if (null !== $object->getImageOptions()) {
+        if ($object->isInitialized('imageOptions') && null !== $object->getImageOptions()) {
             $values_2 = [];
             foreach ($object->getImageOptions() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['imageOptions'] = $values_2;
         }
-        if (null !== $object->getSplitTransportAndWaybillDocLabels()) {
+        if ($object->isInitialized('splitTransportAndWaybillDocLabels') && null !== $object->getSplitTransportAndWaybillDocLabels()) {
             $data['splitTransportAndWaybillDocLabels'] = $object->getSplitTransportAndWaybillDocLabels();
         }
-        if (null !== $object->getAllDocumentsInOneImage()) {
+        if ($object->isInitialized('allDocumentsInOneImage') && null !== $object->getAllDocumentsInOneImage()) {
             $data['allDocumentsInOneImage'] = $object->getAllDocumentsInOneImage();
         }
-        if (null !== $object->getSplitDocumentsByPages()) {
+        if ($object->isInitialized('splitDocumentsByPages') && null !== $object->getSplitDocumentsByPages()) {
             $data['splitDocumentsByPages'] = $object->getSplitDocumentsByPages();
         }
-        if (null !== $object->getSplitInvoiceAndReceipt()) {
+        if ($object->isInitialized('splitInvoiceAndReceipt') && null !== $object->getSplitInvoiceAndReceipt()) {
             $data['splitInvoiceAndReceipt'] = $object->getSplitInvoiceAndReceipt();
         }
-        if (null !== $object->getReceiptAndLabelsInOneImage()) {
+        if ($object->isInitialized('receiptAndLabelsInOneImage') && null !== $object->getReceiptAndLabelsInOneImage()) {
             $data['receiptAndLabelsInOneImage'] = $object->getReceiptAndLabelsInOneImage();
         }
 

@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails' === $data::class;
     }
@@ -93,37 +95,40 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getLocalCutoffDateAndTime()) {
+        if ($object->isInitialized('localCutoffDateAndTime') && null !== $object->getLocalCutoffDateAndTime()) {
             $data['localCutoffDateAndTime'] = $object->getLocalCutoffDateAndTime();
         }
-        if (null !== $object->getGmtCutoffTime()) {
+        if ($object->isInitialized('gmtCutoffTime') && null !== $object->getGmtCutoffTime()) {
             $data['gmtCutoffTime'] = $object->getGmtCutoffTime();
         }
-        if (null !== $object->getCutoffTimeOffset()) {
+        if ($object->isInitialized('cutoffTimeOffset') && null !== $object->getCutoffTimeOffset()) {
             $data['cutoffTimeOffset'] = $object->getCutoffTimeOffset();
         }
-        if (null !== $object->getPickupEarliest()) {
+        if ($object->isInitialized('pickupEarliest') && null !== $object->getPickupEarliest()) {
             $data['pickupEarliest'] = $object->getPickupEarliest();
         }
-        if (null !== $object->getPickupLatest()) {
+        if ($object->isInitialized('pickupLatest') && null !== $object->getPickupLatest()) {
             $data['pickupLatest'] = $object->getPickupLatest();
         }
-        if (null !== $object->getTotalTransitDays()) {
+        if ($object->isInitialized('totalTransitDays') && null !== $object->getTotalTransitDays()) {
             $data['totalTransitDays'] = $object->getTotalTransitDays();
         }
-        if (null !== $object->getPickupAdditionalDays()) {
+        if ($object->isInitialized('pickupAdditionalDays') && null !== $object->getPickupAdditionalDays()) {
             $data['pickupAdditionalDays'] = $object->getPickupAdditionalDays();
         }
-        if (null !== $object->getDeliveryAdditionalDays()) {
+        if ($object->isInitialized('deliveryAdditionalDays') && null !== $object->getDeliveryAdditionalDays()) {
             $data['deliveryAdditionalDays'] = $object->getDeliveryAdditionalDays();
         }
-        if (null !== $object->getPickupDayOfWeek()) {
+        if ($object->isInitialized('pickupDayOfWeek') && null !== $object->getPickupDayOfWeek()) {
             $data['pickupDayOfWeek'] = $object->getPickupDayOfWeek();
         }
-        if (null !== $object->getDeliveryDayOfWeek()) {
+        if ($object->isInitialized('deliveryDayOfWeek') && null !== $object->getDeliveryDayOfWeek()) {
             $data['deliveryDayOfWeek'] = $object->getDeliveryDayOfWeek();
         }
 

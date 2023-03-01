@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressExportDeclarationNormalizer implements Denorma
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclaration' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclaration' === $data::class;
     }
@@ -114,6 +116,9 @@ class SupermodelIoLogisticsExpressExportDeclarationNormalizer implements Denorma
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
@@ -123,36 +128,36 @@ class SupermodelIoLogisticsExpressExportDeclarationNormalizer implements Denorma
         }
         $data['lineItems'] = $values;
         $data['invoice'] = $this->normalizer->normalize($object->getInvoice(), 'json', $context);
-        if (null !== $object->getRemarks()) {
+        if ($object->isInitialized('remarks') && null !== $object->getRemarks()) {
             $values_1 = [];
             foreach ($object->getRemarks() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['remarks'] = $values_1;
         }
-        if (null !== $object->getAdditionalCharges()) {
+        if ($object->isInitialized('additionalCharges') && null !== $object->getAdditionalCharges()) {
             $values_2 = [];
             foreach ($object->getAdditionalCharges() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['additionalCharges'] = $values_2;
         }
-        if (null !== $object->getPlaceOfIncoterm()) {
+        if ($object->isInitialized('placeOfIncoterm') && null !== $object->getPlaceOfIncoterm()) {
             $data['placeOfIncoterm'] = $object->getPlaceOfIncoterm();
         }
-        if (null !== $object->getRecipientReference()) {
+        if ($object->isInitialized('recipientReference') && null !== $object->getRecipientReference()) {
             $data['recipientReference'] = $object->getRecipientReference();
         }
-        if (null !== $object->getExporter()) {
+        if ($object->isInitialized('exporter') && null !== $object->getExporter()) {
             $data['exporter'] = $this->normalizer->normalize($object->getExporter(), 'json', $context);
         }
-        if (null !== $object->getExportReasonType()) {
+        if ($object->isInitialized('exportReasonType') && null !== $object->getExportReasonType()) {
             $data['exportReasonType'] = $object->getExportReasonType();
         }
-        if (null !== $object->getShipmentType()) {
+        if ($object->isInitialized('shipmentType') && null !== $object->getShipmentType()) {
             $data['shipmentType'] = $object->getShipmentType();
         }
-        if (null !== $object->getCustomsDocuments()) {
+        if ($object->isInitialized('customsDocuments') && null !== $object->getCustomsDocuments()) {
             $values_3 = [];
             foreach ($object->getCustomsDocuments() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);

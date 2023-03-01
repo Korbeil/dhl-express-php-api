@@ -63,8 +63,8 @@ class ExpApiShipmentsTracking extends \Korbeil\DHLExpress\Api\Runtime\Client\Bas
         $optionsResolver->setDefined(['trackingView', 'levelOfDetail']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['trackingView' => 'all-checkpoints', 'levelOfDetail' => 'shipment']);
-        $optionsResolver->setAllowedTypes('trackingView', ['string']);
-        $optionsResolver->setAllowedTypes('levelOfDetail', ['string']);
+        $optionsResolver->addAllowedTypes('trackingView', ['string']);
+        $optionsResolver->addAllowedTypes('levelOfDetail', ['string']);
 
         return $optionsResolver;
     }
@@ -75,15 +75,15 @@ class ExpApiShipmentsTracking extends \Korbeil\DHLExpress\Api\Runtime\Client\Bas
         $optionsResolver->setDefined(['Message-Reference', 'Message-Reference-Date', 'Accept-Language', 'Plugin-Name', 'Plugin-Version', 'Shipping-System-Platform-Name', 'Shipping-System-Platform-Version', 'Webstore-Platform-Name', 'Webstore-Platform-Version']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['Accept-Language' => 'eng']);
-        $optionsResolver->setAllowedTypes('Message-Reference', ['string']);
-        $optionsResolver->setAllowedTypes('Message-Reference-Date', ['string']);
-        $optionsResolver->setAllowedTypes('Accept-Language', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Plugin-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Version', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Name', ['string']);
-        $optionsResolver->setAllowedTypes('Webstore-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference', ['string']);
+        $optionsResolver->addAllowedTypes('Message-Reference-Date', ['string']);
+        $optionsResolver->addAllowedTypes('Accept-Language', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Plugin-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Version', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Name', ['string']);
+        $optionsResolver->addAllowedTypes('Webstore-Platform-Version', ['string']);
 
         return $optionsResolver;
     }
@@ -94,16 +94,18 @@ class ExpApiShipmentsTracking extends \Korbeil\DHLExpress\Api\Runtime\Client\Bas
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingNotFoundException
      */
-    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
+        $status = $response->getStatusCode();
+        $body = (string) $response->getBody();
         if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponse', 'json');
         }
         if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
         if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPickupRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Identifies the date and time the package is ready for pickup Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone. The date component must be in the format: YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00 GMT+01:00).<BR>.
      *
      * @var string|null
@@ -68,6 +77,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setPlannedPickupDateAndTime(?string $plannedPickupDateAndTime): self
     {
+        $this->initialized['plannedPickupDateAndTime'] = true;
         $this->plannedPickupDateAndTime = $plannedPickupDateAndTime;
 
         return $this;
@@ -86,6 +96,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setCloseTime(?string $closeTime): self
     {
+        $this->initialized['closeTime'] = true;
         $this->closeTime = $closeTime;
 
         return $this;
@@ -104,6 +115,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setLocation(?string $location): self
     {
+        $this->initialized['location'] = true;
         $this->location = $location;
 
         return $this;
@@ -122,6 +134,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setLocationType(?string $locationType): self
     {
+        $this->initialized['locationType'] = true;
         $this->locationType = $locationType;
 
         return $this;
@@ -140,6 +153,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setAccounts(?array $accounts): self
     {
+        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -162,6 +176,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setSpecialInstructions(?array $specialInstructions): self
     {
+        $this->initialized['specialInstructions'] = true;
         $this->specialInstructions = $specialInstructions;
 
         return $this;
@@ -180,6 +195,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setRemark(?string $remark): self
     {
+        $this->initialized['remark'] = true;
         $this->remark = $remark;
 
         return $this;
@@ -192,6 +208,7 @@ class SupermodelIoLogisticsExpressPickupRequest
 
     public function setCustomerDetails(?SupermodelIoLogisticsExpressPickupRequestCustomerDetails $customerDetails): self
     {
+        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;
@@ -214,6 +231,7 @@ class SupermodelIoLogisticsExpressPickupRequest
      */
     public function setShipmentDetails(?array $shipmentDetails): self
     {
+        $this->initialized['shipmentDetails'] = true;
         $this->shipmentDetails = $shipmentDetails;
 
         return $this;

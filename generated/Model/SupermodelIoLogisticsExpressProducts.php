@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressProducts
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var SupermodelIoLogisticsExpressProductsProductsItem[]|null
      */
     protected $products;
@@ -26,6 +35,7 @@ class SupermodelIoLogisticsExpressProducts
      */
     public function setProducts(?array $products): self
     {
+        $this->initialized['products'] = true;
         $this->products = $products;
 
         return $this;
@@ -44,6 +54,7 @@ class SupermodelIoLogisticsExpressProducts
      */
     public function setWarnings(?array $warnings): self
     {
+        $this->initialized['warnings'] = true;
         $this->warnings = $warnings;
 
         return $this;

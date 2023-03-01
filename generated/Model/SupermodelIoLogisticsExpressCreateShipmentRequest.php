@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequest
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Identifies the date and time the package is tendered. Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone. The date component must be in the format: YYYY-MM-DD; the time component must be in the format: HH:MM:SS using a 24 hour clock. The date and time parts are separated by the letter T (e.g. 2006-06-26T17:00:00 GMT+01:00).
      *
      * @var string|null
@@ -142,6 +151,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setPlannedShippingDateAndTime(?string $plannedShippingDateAndTime): self
     {
+        $this->initialized['plannedShippingDateAndTime'] = true;
         $this->plannedShippingDateAndTime = $plannedShippingDateAndTime;
 
         return $this;
@@ -154,6 +164,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
 
     public function setPickup(?SupermodelIoLogisticsExpressCreateShipmentRequestPickup $pickup): self
     {
+        $this->initialized['pickup'] = true;
         $this->pickup = $pickup;
 
         return $this;
@@ -172,6 +183,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setProductCode(?string $productCode): self
     {
+        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -190,6 +202,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
+        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -208,6 +221,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setGetRateEstimates(?bool $getRateEstimates): self
     {
+        $this->initialized['getRateEstimates'] = true;
         $this->getRateEstimates = $getRateEstimates;
 
         return $this;
@@ -230,6 +244,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setAccounts(?array $accounts): self
     {
+        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -252,6 +267,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
+        $this->initialized['valueAddedServices'] = true;
         $this->valueAddedServices = $valueAddedServices;
 
         return $this;
@@ -270,6 +286,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setOutputImageProperties(?SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties $outputImageProperties): self
     {
+        $this->initialized['outputImageProperties'] = true;
         $this->outputImageProperties = $outputImageProperties;
 
         return $this;
@@ -292,6 +309,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
+        $this->initialized['customerReferences'] = true;
         $this->customerReferences = $customerReferences;
 
         return $this;
@@ -314,6 +332,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setIdentifiers(?array $identifiers): self
     {
+        $this->initialized['identifiers'] = true;
         $this->identifiers = $identifiers;
 
         return $this;
@@ -332,6 +351,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setCustomerDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails $customerDetails): self
     {
+        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;
@@ -350,6 +370,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setContent(?SupermodelIoLogisticsExpressCreateShipmentRequestContent $content): self
     {
+        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -372,6 +393,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setDocumentImages(?array $documentImages): self
     {
+        $this->initialized['documentImages'] = true;
         $this->documentImages = $documentImages;
 
         return $this;
@@ -390,6 +412,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setOnDemandDelivery(?SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery $onDemandDelivery): self
     {
+        $this->initialized['onDemandDelivery'] = true;
         $this->onDemandDelivery = $onDemandDelivery;
 
         return $this;
@@ -408,6 +431,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setRequestOndemandDeliveryURL(?bool $requestOndemandDeliveryURL): self
     {
+        $this->initialized['requestOndemandDeliveryURL'] = true;
         $this->requestOndemandDeliveryURL = $requestOndemandDeliveryURL;
 
         return $this;
@@ -430,6 +454,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setShipmentNotification(?array $shipmentNotification): self
     {
+        $this->initialized['shipmentNotification'] = true;
         $this->shipmentNotification = $shipmentNotification;
 
         return $this;
@@ -452,6 +477,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setPrepaidCharges(?array $prepaidCharges): self
     {
+        $this->initialized['prepaidCharges'] = true;
         $this->prepaidCharges = $prepaidCharges;
 
         return $this;
@@ -470,6 +496,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setGetTransliteratedResponse(?bool $getTransliteratedResponse): self
     {
+        $this->initialized['getTransliteratedResponse'] = true;
         $this->getTransliteratedResponse = $getTransliteratedResponse;
 
         return $this;
@@ -488,6 +515,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setEstimatedDeliveryDate(?SupermodelIoLogisticsExpressCreateShipmentRequestEstimatedDeliveryDate $estimatedDeliveryDate): self
     {
+        $this->initialized['estimatedDeliveryDate'] = true;
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
 
         return $this;
@@ -510,6 +538,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setGetAdditionalInformation(?array $getAdditionalInformation): self
     {
+        $this->initialized['getAdditionalInformation'] = true;
         $this->getAdditionalInformation = $getAdditionalInformation;
 
         return $this;
@@ -528,6 +557,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
      */
     public function setParentShipment(?SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment $parentShipment): self
     {
+        $this->initialized['parentShipment'] = true;
         $this->parentShipment = $parentShipment;
 
         return $this;

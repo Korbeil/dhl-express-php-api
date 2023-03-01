@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPackageLabelTextItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Position of the bespoke text.
      *
      * @var string|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressPackageLabelTextItem
      */
     public function setPosition(?string $position): self
     {
+        $this->initialized['position'] = true;
         $this->position = $position;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressPackageLabelTextItem
      */
     public function setCaption(?string $caption): self
     {
+        $this->initialized['caption'] = true;
         $this->caption = $caption;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressPackageLabelTextItem
      */
     public function setValue(?string $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;

@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer imple
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclarationLineItemsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclarationLineItemsItem' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer imple
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItem();
+        if (\array_key_exists('price', $data) && \is_int($data['price'])) {
+            $data['price'] = (float) $data['price'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -110,6 +115,9 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer imple
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
@@ -117,29 +125,29 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer imple
         $data['description'] = $object->getDescription();
         $data['price'] = $object->getPrice();
         $data['quantity'] = $this->normalizer->normalize($object->getQuantity(), 'json', $context);
-        if (null !== $object->getCommodityCodes()) {
+        if ($object->isInitialized('commodityCodes') && null !== $object->getCommodityCodes()) {
             $values = [];
             foreach ($object->getCommodityCodes() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['commodityCodes'] = $values;
         }
-        if (null !== $object->getExportReasonType()) {
+        if ($object->isInitialized('exportReasonType') && null !== $object->getExportReasonType()) {
             $data['exportReasonType'] = $object->getExportReasonType();
         }
         $data['manufacturerCountry'] = $object->getManufacturerCountry();
         $data['weight'] = $this->normalizer->normalize($object->getWeight(), 'json', $context);
-        if (null !== $object->getIsTaxesPaid()) {
+        if ($object->isInitialized('isTaxesPaid') && null !== $object->getIsTaxesPaid()) {
             $data['isTaxesPaid'] = $object->getIsTaxesPaid();
         }
-        if (null !== $object->getCustomerReferences()) {
+        if ($object->isInitialized('customerReferences') && null !== $object->getCustomerReferences()) {
             $values_1 = [];
             foreach ($object->getCustomerReferences() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['customerReferences'] = $values_1;
         }
-        if (null !== $object->getCustomsDocuments()) {
+        if ($object->isInitialized('customsDocuments') && null !== $object->getCustomsDocuments()) {
             $values_2 = [];
             foreach ($object->getCustomsDocuments() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);

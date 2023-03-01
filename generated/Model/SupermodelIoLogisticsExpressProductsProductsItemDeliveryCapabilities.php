@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Delivery Date capabilities considering customs clearance days.<BR>                QDDF - is the fastest ("docs") transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered.<BR>                QDDC - constitutes DHL's service commitment as quoted at booking/shipment creation. QDDc builds in clearance time, and potentially other special operational non-transport component(s), when relevant.
      *
      * @var string|null
@@ -60,6 +69,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setDeliveryTypeCode(?string $deliveryTypeCode): self
     {
+        $this->initialized['deliveryTypeCode'] = true;
         $this->deliveryTypeCode = $deliveryTypeCode;
 
         return $this;
@@ -78,6 +88,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setEstimatedDeliveryDateAndTime(?string $estimatedDeliveryDateAndTime): self
     {
+        $this->initialized['estimatedDeliveryDateAndTime'] = true;
         $this->estimatedDeliveryDateAndTime = $estimatedDeliveryDateAndTime;
 
         return $this;
@@ -96,6 +107,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setDestinationServiceAreaCode(?string $destinationServiceAreaCode): self
     {
+        $this->initialized['destinationServiceAreaCode'] = true;
         $this->destinationServiceAreaCode = $destinationServiceAreaCode;
 
         return $this;
@@ -114,6 +126,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setDestinationFacilityAreaCode(?string $destinationFacilityAreaCode): self
     {
+        $this->initialized['destinationFacilityAreaCode'] = true;
         $this->destinationFacilityAreaCode = $destinationFacilityAreaCode;
 
         return $this;
@@ -132,6 +145,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setDeliveryAdditionalDays(?float $deliveryAdditionalDays): self
     {
+        $this->initialized['deliveryAdditionalDays'] = true;
         $this->deliveryAdditionalDays = $deliveryAdditionalDays;
 
         return $this;
@@ -150,6 +164,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setDeliveryDayOfWeek(?float $deliveryDayOfWeek): self
     {
+        $this->initialized['deliveryDayOfWeek'] = true;
         $this->deliveryDayOfWeek = $deliveryDayOfWeek;
 
         return $this;
@@ -168,6 +183,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities
      */
     public function setTotalTransitDays(?float $totalTransitDays): self
     {
+        $this->initialized['totalTransitDays'] = true;
         $this->totalTransitDays = $totalTransitDays;
 
         return $this;

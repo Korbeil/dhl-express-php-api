@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please choose from one of the delivery options.
      *
      * @var string|null
@@ -78,6 +87,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setDeliveryOption(?string $deliveryOption): self
     {
+        $this->initialized['deliveryOption'] = true;
         $this->deliveryOption = $deliveryOption;
 
         return $this;
@@ -96,6 +106,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setLocation(?string $location): self
     {
+        $this->initialized['location'] = true;
         $this->location = $location;
 
         return $this;
@@ -114,6 +125,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setSpecialInstructions(?string $specialInstructions): self
     {
+        $this->initialized['specialInstructions'] = true;
         $this->specialInstructions = $specialInstructions;
 
         return $this;
@@ -132,6 +144,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setGateCode(?string $gateCode): self
     {
+        $this->initialized['gateCode'] = true;
         $this->gateCode = $gateCode;
 
         return $this;
@@ -150,6 +163,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setWhereToLeave(?string $whereToLeave): self
     {
+        $this->initialized['whereToLeave'] = true;
         $this->whereToLeave = $whereToLeave;
 
         return $this;
@@ -168,6 +182,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setNeighbourName(?string $neighbourName): self
     {
+        $this->initialized['neighbourName'] = true;
         $this->neighbourName = $neighbourName;
 
         return $this;
@@ -186,6 +201,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setNeighbourHouseNumber(?string $neighbourHouseNumber): self
     {
+        $this->initialized['neighbourHouseNumber'] = true;
         $this->neighbourHouseNumber = $neighbourHouseNumber;
 
         return $this;
@@ -204,6 +220,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setAuthorizerName(?string $authorizerName): self
     {
+        $this->initialized['authorizerName'] = true;
         $this->authorizerName = $authorizerName;
 
         return $this;
@@ -222,6 +239,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setServicePointId(?string $servicePointId): self
     {
+        $this->initialized['servicePointId'] = true;
         $this->servicePointId = $servicePointId;
 
         return $this;
@@ -240,6 +258,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery
      */
     public function setRequestedDeliveryDate(?string $requestedDeliveryDate): self
     {
+        $this->initialized['requestedDeliveryDate'] = true;
         $this->requestedDeliveryDate = $requestedDeliveryDate;
 
         return $this;

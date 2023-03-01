@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer i
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem' === $data::class;
     }
@@ -68,18 +70,21 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer i
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['countryCode'] = $object->getCountryCode();
         $data['postalCode'] = $object->getPostalCode();
-        if (null !== $object->getCityName()) {
+        if ($object->isInitialized('cityName') && null !== $object->getCityName()) {
             $data['cityName'] = $object->getCityName();
         }
-        if (null !== $object->getCountyName()) {
+        if ($object->isInitialized('countyName') && null !== $object->getCountyName()) {
             $data['countyName'] = $object->getCountyName();
         }
-        if (null !== $object->getServiceArea()) {
+        if ($object->isInitialized('serviceArea') && null !== $object->getServiceArea()) {
             $data['serviceArea'] = $this->normalizer->normalize($object->getServiceArea(), 'json', $context);
         }
 

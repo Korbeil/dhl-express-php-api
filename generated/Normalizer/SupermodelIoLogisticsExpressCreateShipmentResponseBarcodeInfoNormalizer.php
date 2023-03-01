@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoNormalizer im
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo' === $data::class;
     }
@@ -67,19 +69,22 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoNormalizer im
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getShipmentIdentificationNumberBarcodeContent()) {
+        if ($object->isInitialized('shipmentIdentificationNumberBarcodeContent') && null !== $object->getShipmentIdentificationNumberBarcodeContent()) {
             $data['shipmentIdentificationNumberBarcodeContent'] = $object->getShipmentIdentificationNumberBarcodeContent();
         }
-        if (null !== $object->getOriginDestinationServiceTypeBarcodeContent()) {
+        if ($object->isInitialized('originDestinationServiceTypeBarcodeContent') && null !== $object->getOriginDestinationServiceTypeBarcodeContent()) {
             $data['originDestinationServiceTypeBarcodeContent'] = $object->getOriginDestinationServiceTypeBarcodeContent();
         }
-        if (null !== $object->getRoutingBarcodeContent()) {
+        if ($object->isInitialized('routingBarcodeContent') && null !== $object->getRoutingBarcodeContent()) {
             $data['routingBarcodeContent'] = $object->getRoutingBarcodeContent();
         }
-        if (null !== $object->getTrackingNumberBarcodes()) {
+        if ($object->isInitialized('trackingNumberBarcodes') && null !== $object->getTrackingNumberBarcodes()) {
             $values = [];
             foreach ($object->getTrackingNumberBarcodes() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

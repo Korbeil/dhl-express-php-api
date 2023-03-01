@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please provide the line item reference type code.
      *
      * @var string|null
@@ -30,6 +39,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -48,6 +58,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
      */
     public function setValue(?string $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;

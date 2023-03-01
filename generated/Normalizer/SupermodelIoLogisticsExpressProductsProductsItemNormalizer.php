@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressProductsProductsItemNormalizer implements Deno
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItem' === $data::class;
     }
@@ -115,55 +117,58 @@ class SupermodelIoLogisticsExpressProductsProductsItemNormalizer implements Deno
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getProductName()) {
+        if ($object->isInitialized('productName') && null !== $object->getProductName()) {
             $data['productName'] = $object->getProductName();
         }
-        if (null !== $object->getProductCode()) {
+        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
             $data['productCode'] = $object->getProductCode();
         }
-        if (null !== $object->getLocalProductCode()) {
+        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
-        if (null !== $object->getLocalProductCountryCode()) {
+        if ($object->isInitialized('localProductCountryCode') && null !== $object->getLocalProductCountryCode()) {
             $data['localProductCountryCode'] = $object->getLocalProductCountryCode();
         }
-        if (null !== $object->getNetworkTypeCode()) {
+        if ($object->isInitialized('networkTypeCode') && null !== $object->getNetworkTypeCode()) {
             $data['networkTypeCode'] = $object->getNetworkTypeCode();
         }
-        if (null !== $object->getIsCustomerAgreement()) {
+        if ($object->isInitialized('isCustomerAgreement') && null !== $object->getIsCustomerAgreement()) {
             $data['isCustomerAgreement'] = $object->getIsCustomerAgreement();
         }
-        if (null !== $object->getWeight()) {
+        if ($object->isInitialized('weight') && null !== $object->getWeight()) {
             $data['weight'] = $this->normalizer->normalize($object->getWeight(), 'json', $context);
         }
-        if (null !== $object->getBreakdown()) {
+        if ($object->isInitialized('breakdown') && null !== $object->getBreakdown()) {
             $values = [];
             foreach ($object->getBreakdown() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['breakdown'] = $values;
         }
-        if (null !== $object->getServiceCodeMutuallyExclusiveGroups()) {
+        if ($object->isInitialized('serviceCodeMutuallyExclusiveGroups') && null !== $object->getServiceCodeMutuallyExclusiveGroups()) {
             $values_1 = [];
             foreach ($object->getServiceCodeMutuallyExclusiveGroups() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['serviceCodeMutuallyExclusiveGroups'] = $values_1;
         }
-        if (null !== $object->getServiceCodeDependencyRuleGroups()) {
+        if ($object->isInitialized('serviceCodeDependencyRuleGroups') && null !== $object->getServiceCodeDependencyRuleGroups()) {
             $values_2 = [];
             foreach ($object->getServiceCodeDependencyRuleGroups() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['serviceCodeDependencyRuleGroups'] = $values_2;
         }
-        if (null !== $object->getPickupCapabilities()) {
+        if ($object->isInitialized('pickupCapabilities') && null !== $object->getPickupCapabilities()) {
             $data['pickupCapabilities'] = $this->normalizer->normalize($object->getPickupCapabilities(), 'json', $context);
         }
-        if (null !== $object->getDeliveryCapabilities()) {
+        if ($object->isInitialized('deliveryCapabilities') && null !== $object->getDeliveryCapabilities()) {
             $data['deliveryCapabilities'] = $this->normalizer->normalize($object->getDeliveryCapabilities(), 'json', $context);
         }
 

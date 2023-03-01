@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemNormali
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem' === $data::class;
     }
@@ -36,6 +38,9 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemNormali
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem();
+        if (\array_key_exists('price', $data) && \is_int($data['price'])) {
+            $data['price'] = (float) $data['price'];
+        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -107,43 +112,46 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemNormali
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if (null !== $object->getName()) {
+        if ($object->isInitialized('name') && null !== $object->getName()) {
             $data['name'] = $object->getName();
         }
-        if (null !== $object->getServiceCode()) {
+        if ($object->isInitialized('serviceCode') && null !== $object->getServiceCode()) {
             $data['serviceCode'] = $object->getServiceCode();
         }
-        if (null !== $object->getLocalServiceCode()) {
+        if ($object->isInitialized('localServiceCode') && null !== $object->getLocalServiceCode()) {
             $data['localServiceCode'] = $object->getLocalServiceCode();
         }
         $data['typeCode'] = $object->getTypeCode();
-        if (null !== $object->getServiceTypeCode()) {
+        if ($object->isInitialized('serviceTypeCode') && null !== $object->getServiceTypeCode()) {
             $data['serviceTypeCode'] = $object->getServiceTypeCode();
         }
         $data['price'] = $object->getPrice();
-        if (null !== $object->getPriceCurrency()) {
+        if ($object->isInitialized('priceCurrency') && null !== $object->getPriceCurrency()) {
             $data['priceCurrency'] = $object->getPriceCurrency();
         }
-        if (null !== $object->getIsCustomerAgreement()) {
+        if ($object->isInitialized('isCustomerAgreement') && null !== $object->getIsCustomerAgreement()) {
             $data['isCustomerAgreement'] = $object->getIsCustomerAgreement();
         }
-        if (null !== $object->getIsMarketedService()) {
+        if ($object->isInitialized('isMarketedService') && null !== $object->getIsMarketedService()) {
             $data['isMarketedService'] = $object->getIsMarketedService();
         }
-        if (null !== $object->getIsBillingServiceIndicator()) {
+        if ($object->isInitialized('isBillingServiceIndicator') && null !== $object->getIsBillingServiceIndicator()) {
             $data['isBillingServiceIndicator'] = $object->getIsBillingServiceIndicator();
         }
-        if (null !== $object->getPriceBreakdown()) {
+        if ($object->isInitialized('priceBreakdown') && null !== $object->getPriceBreakdown()) {
             $values = [];
             foreach ($object->getPriceBreakdown() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['priceBreakdown'] = $values;
         }
-        if (null !== $object->getTariffRateFormula()) {
+        if ($object->isInitialized('tariffRateFormula') && null !== $object->getTariffRateFormula()) {
             $data['tariffRateFormula'] = $object->getTariffRateFormula();
         }
 

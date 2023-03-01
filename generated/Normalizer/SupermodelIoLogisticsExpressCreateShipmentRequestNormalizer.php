@@ -4,6 +4,7 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
+use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -16,13 +17,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer implements Den
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
+    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null)
+    public function supportsDenormalization($data, $type, $format = null): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null)
+    public function supportsNormalization($data, $format = null): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequest' === $data::class;
     }
@@ -180,16 +182,19 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer implements Den
         return $object;
     }
 
+    /**
+     * @return array|string|int|float|bool|\ArrayObject|null
+     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['plannedShippingDateAndTime'] = $object->getPlannedShippingDateAndTime();
         $data['pickup'] = $this->normalizer->normalize($object->getPickup(), 'json', $context);
         $data['productCode'] = $object->getProductCode();
-        if (null !== $object->getLocalProductCode()) {
+        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
-        if (null !== $object->getGetRateEstimates()) {
+        if ($object->isInitialized('getRateEstimates') && null !== $object->getGetRateEstimates()) {
             $data['getRateEstimates'] = $object->getGetRateEstimates();
         }
         $values = [];
@@ -197,24 +202,24 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer implements Den
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['accounts'] = $values;
-        if (null !== $object->getValueAddedServices()) {
+        if ($object->isInitialized('valueAddedServices') && null !== $object->getValueAddedServices()) {
             $values_1 = [];
             foreach ($object->getValueAddedServices() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['valueAddedServices'] = $values_1;
         }
-        if (null !== $object->getOutputImageProperties()) {
+        if ($object->isInitialized('outputImageProperties') && null !== $object->getOutputImageProperties()) {
             $data['outputImageProperties'] = $this->normalizer->normalize($object->getOutputImageProperties(), 'json', $context);
         }
-        if (null !== $object->getCustomerReferences()) {
+        if ($object->isInitialized('customerReferences') && null !== $object->getCustomerReferences()) {
             $values_2 = [];
             foreach ($object->getCustomerReferences() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['customerReferences'] = $values_2;
         }
-        if (null !== $object->getIdentifiers()) {
+        if ($object->isInitialized('identifiers') && null !== $object->getIdentifiers()) {
             $values_3 = [];
             foreach ($object->getIdentifiers() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
@@ -223,47 +228,47 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer implements Den
         }
         $data['customerDetails'] = $this->normalizer->normalize($object->getCustomerDetails(), 'json', $context);
         $data['content'] = $this->normalizer->normalize($object->getContent(), 'json', $context);
-        if (null !== $object->getDocumentImages()) {
+        if ($object->isInitialized('documentImages') && null !== $object->getDocumentImages()) {
             $values_4 = [];
             foreach ($object->getDocumentImages() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['documentImages'] = $values_4;
         }
-        if (null !== $object->getOnDemandDelivery()) {
+        if ($object->isInitialized('onDemandDelivery') && null !== $object->getOnDemandDelivery()) {
             $data['onDemandDelivery'] = $this->normalizer->normalize($object->getOnDemandDelivery(), 'json', $context);
         }
-        if (null !== $object->getRequestOndemandDeliveryURL()) {
+        if ($object->isInitialized('requestOndemandDeliveryURL') && null !== $object->getRequestOndemandDeliveryURL()) {
             $data['requestOndemandDeliveryURL'] = $object->getRequestOndemandDeliveryURL();
         }
-        if (null !== $object->getShipmentNotification()) {
+        if ($object->isInitialized('shipmentNotification') && null !== $object->getShipmentNotification()) {
             $values_5 = [];
             foreach ($object->getShipmentNotification() as $value_5) {
                 $values_5[] = $this->normalizer->normalize($value_5, 'json', $context);
             }
             $data['shipmentNotification'] = $values_5;
         }
-        if (null !== $object->getPrepaidCharges()) {
+        if ($object->isInitialized('prepaidCharges') && null !== $object->getPrepaidCharges()) {
             $values_6 = [];
             foreach ($object->getPrepaidCharges() as $value_6) {
                 $values_6[] = $this->normalizer->normalize($value_6, 'json', $context);
             }
             $data['prepaidCharges'] = $values_6;
         }
-        if (null !== $object->getGetTransliteratedResponse()) {
+        if ($object->isInitialized('getTransliteratedResponse') && null !== $object->getGetTransliteratedResponse()) {
             $data['getTransliteratedResponse'] = $object->getGetTransliteratedResponse();
         }
-        if (null !== $object->getEstimatedDeliveryDate()) {
+        if ($object->isInitialized('estimatedDeliveryDate') && null !== $object->getEstimatedDeliveryDate()) {
             $data['estimatedDeliveryDate'] = $this->normalizer->normalize($object->getEstimatedDeliveryDate(), 'json', $context);
         }
-        if (null !== $object->getGetAdditionalInformation()) {
+        if ($object->isInitialized('getAdditionalInformation') && null !== $object->getGetAdditionalInformation()) {
             $values_7 = [];
             foreach ($object->getGetAdditionalInformation() as $value_7) {
                 $values_7[] = $this->normalizer->normalize($value_7, 'json', $context);
             }
             $data['getAdditionalInformation'] = $values_7;
         }
-        if (null !== $object->getParentShipment()) {
+        if ($object->isInitialized('parentShipment') && null !== $object->getParentShipment()) {
             $data['parentShipment'] = $this->normalizer->normalize($object->getParentShipment(), 'json', $context);
         }
 

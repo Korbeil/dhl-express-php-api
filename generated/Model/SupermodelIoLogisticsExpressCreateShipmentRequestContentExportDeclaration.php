@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter details for each export line item.
      *
      * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem[]|null
@@ -124,6 +133,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setLineItems(?array $lineItems): self
     {
+        $this->initialized['lineItems'] = true;
         $this->lineItems = $lineItems;
 
         return $this;
@@ -142,6 +152,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setInvoice(?SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice $invoice): self
     {
+        $this->initialized['invoice'] = true;
         $this->invoice = $invoice;
 
         return $this;
@@ -164,6 +175,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setRemarks(?array $remarks): self
     {
+        $this->initialized['remarks'] = true;
         $this->remarks = $remarks;
 
         return $this;
@@ -186,6 +198,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setAdditionalCharges(?array $additionalCharges): self
     {
+        $this->initialized['additionalCharges'] = true;
         $this->additionalCharges = $additionalCharges;
 
         return $this;
@@ -204,6 +217,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setDestinationPortName(?string $destinationPortName): self
     {
+        $this->initialized['destinationPortName'] = true;
         $this->destinationPortName = $destinationPortName;
 
         return $this;
@@ -222,6 +236,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setPlaceOfIncoterm(?string $placeOfIncoterm): self
     {
+        $this->initialized['placeOfIncoterm'] = true;
         $this->placeOfIncoterm = $placeOfIncoterm;
 
         return $this;
@@ -240,6 +255,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setPayerVATNumber(?string $payerVATNumber): self
     {
+        $this->initialized['payerVATNumber'] = true;
         $this->payerVATNumber = $payerVATNumber;
 
         return $this;
@@ -258,6 +274,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setRecipientReference(?string $recipientReference): self
     {
+        $this->initialized['recipientReference'] = true;
         $this->recipientReference = $recipientReference;
 
         return $this;
@@ -276,6 +293,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setExporter(?SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationExporter $exporter): self
     {
+        $this->initialized['exporter'] = true;
         $this->exporter = $exporter;
 
         return $this;
@@ -294,6 +312,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setPackageMarks(?string $packageMarks): self
     {
+        $this->initialized['packageMarks'] = true;
         $this->packageMarks = $packageMarks;
 
         return $this;
@@ -316,6 +335,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setDeclarationNotes(?array $declarationNotes): self
     {
+        $this->initialized['declarationNotes'] = true;
         $this->declarationNotes = $declarationNotes;
 
         return $this;
@@ -334,6 +354,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setExportReference(?string $exportReference): self
     {
+        $this->initialized['exportReference'] = true;
         $this->exportReference = $exportReference;
 
         return $this;
@@ -352,6 +373,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setExportReason(?string $exportReason): self
     {
+        $this->initialized['exportReason'] = true;
         $this->exportReason = $exportReason;
 
         return $this;
@@ -370,6 +392,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setExportReasonType(?string $exportReasonType): self
     {
+        $this->initialized['exportReasonType'] = true;
         $this->exportReasonType = $exportReasonType;
 
         return $this;
@@ -392,6 +415,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setLicenses(?array $licenses): self
     {
+        $this->initialized['licenses'] = true;
         $this->licenses = $licenses;
 
         return $this;
@@ -410,6 +434,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setShipmentType(?string $shipmentType): self
     {
+        $this->initialized['shipmentType'] = true;
         $this->shipmentType = $shipmentType;
 
         return $this;
@@ -432,6 +457,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {
+        $this->initialized['customsDocuments'] = true;
         $this->customsDocuments = $customsDocuments;
 
         return $this;

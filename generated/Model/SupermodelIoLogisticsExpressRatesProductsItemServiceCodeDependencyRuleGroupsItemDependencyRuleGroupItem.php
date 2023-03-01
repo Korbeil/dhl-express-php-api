@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Dependency rule group name.
      *
      * @var string|null
@@ -40,6 +49,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setDependencyRuleName(?string $dependencyRuleName): self
     {
+        $this->initialized['dependencyRuleName'] = true;
         $this->dependencyRuleName = $dependencyRuleName;
 
         return $this;
@@ -58,6 +68,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setDependencyDescription(?string $dependencyDescription): self
     {
+        $this->initialized['dependencyDescription'] = true;
         $this->dependencyDescription = $dependencyDescription;
 
         return $this;
@@ -76,6 +87,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setDependencyCondition(?string $dependencyCondition): self
     {
+        $this->initialized['dependencyCondition'] = true;
         $this->dependencyCondition = $dependencyCondition;
 
         return $this;
@@ -94,6 +106,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setRequiredServiceCodes(?array $requiredServiceCodes): self
     {
+        $this->initialized['requiredServiceCodes'] = true;
         $this->requiredServiceCodes = $requiredServiceCodes;
 
         return $this;

@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressProductsProductsItemWeight
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * The dimensional weight of the shipment.
      *
      * @var float|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeight
      */
     public function setVolumetric(?float $volumetric): self
     {
+        $this->initialized['volumetric'] = true;
         $this->volumetric = $volumetric;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeight
      */
     public function setProvided(?float $provided): self
     {
+        $this->initialized['provided'] = true;
         $this->provided = $provided;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeight
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
+        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;

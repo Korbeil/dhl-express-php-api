@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensions
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Length of the package.
      *
      * @var float|null
@@ -36,6 +45,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensi
      */
     public function setLength(?float $length): self
     {
+        $this->initialized['length'] = true;
         $this->length = $length;
 
         return $this;
@@ -54,6 +64,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensi
      */
     public function setWidth(?float $width): self
     {
+        $this->initialized['width'] = true;
         $this->width = $width;
 
         return $this;
@@ -72,6 +83,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensi
      */
     public function setHeight(?float $height): self
     {
+        $this->initialized['height'] = true;
         $this->height = $height;
 
         return $this;

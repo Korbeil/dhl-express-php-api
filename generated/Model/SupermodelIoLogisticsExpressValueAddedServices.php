@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressValueAddedServices
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * Please enter DHL Express value added service code. For detailed list of all available service codes for your prospect shipment please invoke GET /products or GET /rates.
      *
      * @var string|null
@@ -48,6 +57,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
      */
     public function setServiceCode(?string $serviceCode): self
     {
+        $this->initialized['serviceCode'] = true;
         $this->serviceCode = $serviceCode;
 
         return $this;
@@ -66,6 +76,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
      */
     public function setValue(?float $value): self
     {
+        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -84,6 +95,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
      */
     public function setCurrency(?string $currency): self
     {
+        $this->initialized['currency'] = true;
         $this->currency = $currency;
 
         return $this;
@@ -102,6 +114,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
      */
     public function setMethod(?string $method): self
     {
+        $this->initialized['method'] = true;
         $this->method = $method;
 
         return $this;
@@ -124,6 +137,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
      */
     public function setDangerousGoods(?array $dangerousGoods): self
     {
+        $this->initialized['dangerousGoods'] = true;
         $this->dangerousGoods = $dangerousGoods;
 
         return $this;

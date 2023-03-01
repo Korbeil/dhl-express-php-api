@@ -5,6 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDetails
 {
     /**
+     * @var array
+     */
+    protected $initialized = [];
+
+    public function isInitialized($property): bool
+    {
+        return \array_key_exists($property, $this->initialized);
+    }
+    /**
      * @var SupermodelIoLogisticsExpressAddressCreateShipmentRequest|null
      */
     protected $postalAddress;
@@ -34,6 +43,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDe
 
     public function setPostalAddress(?SupermodelIoLogisticsExpressAddressCreateShipmentRequest $postalAddress): self
     {
+        $this->initialized['postalAddress'] = true;
         $this->postalAddress = $postalAddress;
 
         return $this;
@@ -46,6 +56,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDe
 
     public function setContactInformation(?SupermodelIoLogisticsExpressContact $contactInformation): self
     {
+        $this->initialized['contactInformation'] = true;
         $this->contactInformation = $contactInformation;
 
         return $this;
@@ -64,6 +75,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDe
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {
+        $this->initialized['registrationNumbers'] = true;
         $this->registrationNumbers = $registrationNumbers;
 
         return $this;
@@ -82,6 +94,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDe
      */
     public function setBankDetails(?array $bankDetails): self
     {
+        $this->initialized['bankDetails'] = true;
         $this->bankDetails = $bankDetails;
 
         return $this;
@@ -100,6 +113,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDe
      */
     public function setTypeCode(?string $typeCode): self
     {
+        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
