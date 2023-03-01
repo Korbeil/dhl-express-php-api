@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Barcode base64 encoded airwaybill number.
      *
      * @var string|null
@@ -51,7 +42,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
      */
     public function setShipmentIdentificationNumberBarcodeContent(?string $shipmentIdentificationNumberBarcodeContent): self
     {
-        $this->initialized['shipmentIdentificationNumberBarcodeContent'] = true;
         $this->shipmentIdentificationNumberBarcodeContent = $shipmentIdentificationNumberBarcodeContent;
 
         return $this;
@@ -70,7 +60,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
      */
     public function setOriginDestinationServiceTypeBarcodeContent(?string $originDestinationServiceTypeBarcodeContent): self
     {
-        $this->initialized['originDestinationServiceTypeBarcodeContent'] = true;
         $this->originDestinationServiceTypeBarcodeContent = $originDestinationServiceTypeBarcodeContent;
 
         return $this;
@@ -89,7 +78,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
      */
     public function setRoutingBarcodeContent(?string $routingBarcodeContent): self
     {
-        $this->initialized['routingBarcodeContent'] = true;
         $this->routingBarcodeContent = $routingBarcodeContent;
 
         return $this;
@@ -112,7 +100,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
      */
     public function setTrackingNumberBarcodes(?array $trackingNumberBarcodes): self
     {
-        $this->initialized['trackingNumberBarcodes'] = true;
         $this->trackingNumberBarcodes = $trackingNumberBarcodes;
 
         return $this;

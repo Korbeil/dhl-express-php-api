@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Possible Values :<BR>                  'BILLC', billing currency<BR>                  'PULCL', country public rates currency<BR>                  'BASEC', base currency.
      *
      * @var string|null
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItem
      */
     public function setCurrencyType(?string $currencyType): self
     {
-        $this->initialized['currencyType'] = true;
         $this->currencyType = $currencyType;
 
         return $this;
@@ -64,7 +54,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItem
      */
     public function setPriceCurrency(?string $priceCurrency): self
     {
-        $this->initialized['priceCurrency'] = true;
         $this->priceCurrency = $priceCurrency;
 
         return $this;
@@ -83,7 +72,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItem
      */
     public function setPrice(?float $price): self
     {
-        $this->initialized['price'] = true;
         $this->price = $price;
 
         return $this;

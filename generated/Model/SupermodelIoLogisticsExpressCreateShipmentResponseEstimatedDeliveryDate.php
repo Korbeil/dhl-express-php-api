@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $estimatedDeliveryDate;
@@ -31,7 +22,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate
 
     public function setEstimatedDeliveryDate(?string $estimatedDeliveryDate): self
     {
-        $this->initialized['estimatedDeliveryDate'] = true;
         $this->estimatedDeliveryDate = $estimatedDeliveryDate;
 
         return $this;
@@ -50,7 +40,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate
      */
     public function setEstimatedDeliveryType(?string $estimatedDeliveryType): self
     {
-        $this->initialized['estimatedDeliveryType'] = true;
         $this->estimatedDeliveryType = $estimatedDeliveryType;
 
         return $this;

@@ -15,7 +15,7 @@ class ReferenceNormalizer implements NormalizerInterface
         return $ref;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return $data instanceof Reference;
     }

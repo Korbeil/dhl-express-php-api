@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter type of prepaid charge. At this moment only freight is supported.
      *
      * @var string|null
@@ -51,7 +42,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -70,7 +60,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem
      */
     public function setCurrency(?string $currency): self
     {
-        $this->initialized['currency'] = true;
         $this->currency = $currency;
 
         return $this;
@@ -89,7 +78,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem
      */
     public function setValue(?float $value): self
     {
-        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -108,7 +96,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem
      */
     public function setMethod(?string $method): self
     {
-        $this->initialized['method'] = true;
         $this->method = $method;
 
         return $this;

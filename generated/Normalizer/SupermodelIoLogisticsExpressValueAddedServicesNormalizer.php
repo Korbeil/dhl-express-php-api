@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressValueAddedServicesNormalizer implements Denorm
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServices' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServices' === $data::class;
     }
@@ -38,9 +36,6 @@ class SupermodelIoLogisticsExpressValueAddedServicesNormalizer implements Denorm
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServices();
-        if (\array_key_exists('value', $data) && \is_int($data['value'])) {
-            $data['value'] = (float) $data['value'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -77,23 +72,20 @@ class SupermodelIoLogisticsExpressValueAddedServicesNormalizer implements Denorm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['serviceCode'] = $object->getServiceCode();
-        if ($object->isInitialized('value') && null !== $object->getValue()) {
+        if (null !== $object->getValue()) {
             $data['value'] = $object->getValue();
         }
-        if ($object->isInitialized('currency') && null !== $object->getCurrency()) {
+        if (null !== $object->getCurrency()) {
             $data['currency'] = $object->getCurrency();
         }
-        if ($object->isInitialized('method') && null !== $object->getMethod()) {
+        if (null !== $object->getMethod()) {
             $data['method'] = $object->getMethod();
         }
-        if ($object->isInitialized('dangerousGoods') && null !== $object->getDangerousGoods()) {
+        if (null !== $object->getDangerousGoods()) {
             $values = [];
             foreach ($object->getDangerousGoods() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

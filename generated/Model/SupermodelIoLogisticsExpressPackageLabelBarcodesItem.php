@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPackageLabelBarcodesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Position of the bespoke barcode.
      *
      * @var string|null
@@ -51,7 +42,6 @@ class SupermodelIoLogisticsExpressPackageLabelBarcodesItem
      */
     public function setPosition(?string $position): self
     {
-        $this->initialized['position'] = true;
         $this->position = $position;
 
         return $this;
@@ -70,7 +60,6 @@ class SupermodelIoLogisticsExpressPackageLabelBarcodesItem
      */
     public function setSymbologyCode(?string $symbologyCode): self
     {
-        $this->initialized['symbologyCode'] = true;
         $this->symbologyCode = $symbologyCode;
 
         return $this;
@@ -89,7 +78,6 @@ class SupermodelIoLogisticsExpressPackageLabelBarcodesItem
      */
     public function setContent(?string $content): self
     {
-        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -108,7 +96,6 @@ class SupermodelIoLogisticsExpressPackageLabelBarcodesItem
      */
     public function setTextBelowBarcode(?string $textBelowBarcode): self
     {
-        $this->initialized['textBelowBarcode'] = true;
         $this->textBelowBarcode = $textBelowBarcode;
 
         return $this;

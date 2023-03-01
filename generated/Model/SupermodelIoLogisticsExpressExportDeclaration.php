@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressExportDeclaration
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter details for each export line item.
      *
      * @var SupermodelIoLogisticsExpressExportDeclarationLineItemsItem[]|null
@@ -97,7 +88,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setLineItems(?array $lineItems): self
     {
-        $this->initialized['lineItems'] = true;
         $this->lineItems = $lineItems;
 
         return $this;
@@ -116,7 +106,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setInvoice(?SupermodelIoLogisticsExpressExportDeclarationInvoice $invoice): self
     {
-        $this->initialized['invoice'] = true;
         $this->invoice = $invoice;
 
         return $this;
@@ -139,7 +128,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setRemarks(?array $remarks): self
     {
-        $this->initialized['remarks'] = true;
         $this->remarks = $remarks;
 
         return $this;
@@ -162,7 +150,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setAdditionalCharges(?array $additionalCharges): self
     {
-        $this->initialized['additionalCharges'] = true;
         $this->additionalCharges = $additionalCharges;
 
         return $this;
@@ -181,7 +168,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setPlaceOfIncoterm(?string $placeOfIncoterm): self
     {
-        $this->initialized['placeOfIncoterm'] = true;
         $this->placeOfIncoterm = $placeOfIncoterm;
 
         return $this;
@@ -200,7 +186,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setRecipientReference(?string $recipientReference): self
     {
-        $this->initialized['recipientReference'] = true;
         $this->recipientReference = $recipientReference;
 
         return $this;
@@ -219,7 +204,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setExporter(?SupermodelIoLogisticsExpressExportDeclarationExporter $exporter): self
     {
-        $this->initialized['exporter'] = true;
         $this->exporter = $exporter;
 
         return $this;
@@ -238,7 +222,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setExportReasonType(?string $exportReasonType): self
     {
-        $this->initialized['exportReasonType'] = true;
         $this->exportReasonType = $exportReasonType;
 
         return $this;
@@ -257,7 +240,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setShipmentType(?string $shipmentType): self
     {
-        $this->initialized['shipmentType'] = true;
         $this->shipmentType = $shipmentType;
 
         return $this;
@@ -280,7 +262,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {
-        $this->initialized['customsDocuments'] = true;
         $this->customsDocuments = $customsDocuments;
 
         return $this;
@@ -299,7 +280,6 @@ class SupermodelIoLogisticsExpressExportDeclaration
      */
     public function setIncoterm(?string $incoterm): self
     {
-        $this->initialized['incoterm'] = true;
         $this->incoterm = $incoterm;
 
         return $this;

@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUlti
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetails' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetails' === $data::class;
     }
@@ -69,18 +67,15 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUlti
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['postalAddress'] = $this->normalizer->normalize($object->getPostalAddress(), 'json', $context);
         $data['contactInformation'] = $this->normalizer->normalize($object->getContactInformation(), 'json', $context);
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
+        if (null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
-        if ($object->isInitialized('registrationNumbers') && null !== $object->getRegistrationNumbers()) {
+        if (null !== $object->getRegistrationNumbers()) {
             $values = [];
             foreach ($object->getRegistrationNumbers() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

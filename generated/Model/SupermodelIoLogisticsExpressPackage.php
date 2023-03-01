@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPackage
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please contact your DHL Express representative if you wish to use a DHL specific package otherwise ignore this element.
      *
      * @var string|null
@@ -81,7 +72,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -100,7 +90,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setWeight(?float $weight): self
     {
-        $this->initialized['weight'] = true;
         $this->weight = $weight;
 
         return $this;
@@ -119,7 +108,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setDimensions(?SupermodelIoLogisticsExpressPackageDimensions $dimensions): self
     {
-        $this->initialized['dimensions'] = true;
         $this->dimensions = $dimensions;
 
         return $this;
@@ -142,7 +130,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
-        $this->initialized['customerReferences'] = true;
         $this->customerReferences = $customerReferences;
 
         return $this;
@@ -165,7 +152,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setIdentifiers(?array $identifiers): self
     {
-        $this->initialized['identifiers'] = true;
         $this->identifiers = $identifiers;
 
         return $this;
@@ -184,7 +170,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setDescription(?string $description): self
     {
-        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -207,7 +192,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setLabelBarcodes(?array $labelBarcodes): self
     {
-        $this->initialized['labelBarcodes'] = true;
         $this->labelBarcodes = $labelBarcodes;
 
         return $this;
@@ -230,7 +214,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setLabelText(?array $labelText): self
     {
-        $this->initialized['labelText'] = true;
         $this->labelText = $labelText;
 
         return $this;
@@ -249,7 +232,6 @@ class SupermodelIoLogisticsExpressPackage
      */
     public function setLabelDescription(?string $labelDescription): self
     {
-        $this->initialized['labelDescription'] = true;
         $this->labelDescription = $labelDescription;
 
         return $this;

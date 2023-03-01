@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter commercial invoice number.
      *
      * @var string|null
@@ -99,7 +90,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setNumber(?string $number): self
     {
-        $this->initialized['number'] = true;
         $this->number = $number;
 
         return $this;
@@ -118,7 +108,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setDate(?\DateTime $date): self
     {
-        $this->initialized['date'] = true;
         $this->date = $date;
 
         return $this;
@@ -137,7 +126,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setSignatureName(?string $signatureName): self
     {
-        $this->initialized['signatureName'] = true;
         $this->signatureName = $signatureName;
 
         return $this;
@@ -156,7 +144,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setSignatureTitle(?string $signatureTitle): self
     {
-        $this->initialized['signatureTitle'] = true;
         $this->signatureTitle = $signatureTitle;
 
         return $this;
@@ -175,7 +162,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setSignatureImage(?string $signatureImage): self
     {
-        $this->initialized['signatureImage'] = true;
         $this->signatureImage = $signatureImage;
 
         return $this;
@@ -198,7 +184,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setInstructions(?array $instructions): self
     {
-        $this->initialized['instructions'] = true;
         $this->instructions = $instructions;
 
         return $this;
@@ -221,7 +206,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setCustomerDataTextEntries(?array $customerDataTextEntries): self
     {
-        $this->initialized['customerDataTextEntries'] = true;
         $this->customerDataTextEntries = $customerDataTextEntries;
 
         return $this;
@@ -240,7 +224,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setTotalNetWeight(?float $totalNetWeight): self
     {
-        $this->initialized['totalNetWeight'] = true;
         $this->totalNetWeight = $totalNetWeight;
 
         return $this;
@@ -259,7 +242,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setTotalGrossWeight(?float $totalGrossWeight): self
     {
-        $this->initialized['totalGrossWeight'] = true;
         $this->totalGrossWeight = $totalGrossWeight;
 
         return $this;
@@ -282,7 +264,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
-        $this->initialized['customerReferences'] = true;
         $this->customerReferences = $customerReferences;
 
         return $this;
@@ -301,7 +282,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setTermsOfPayment(?string $termsOfPayment): self
     {
-        $this->initialized['termsOfPayment'] = true;
         $this->termsOfPayment = $termsOfPayment;
 
         return $this;
@@ -320,7 +300,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
      */
     public function setIndicativeCustomsValues(?SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues $indicativeCustomsValues): self
     {
-        $this->initialized['indicativeCustomsValues'] = true;
         $this->indicativeCustomsValues = $indicativeCustomsValues;
 
         return $this;

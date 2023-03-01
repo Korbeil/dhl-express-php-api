@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUpdatePickupRequest
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter Dispatch confirmation number which identifies the already scheduled pickup.
      *
      * @var string|null
@@ -89,7 +80,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setDispatchConfirmationNumber(?string $dispatchConfirmationNumber): self
     {
-        $this->initialized['dispatchConfirmationNumber'] = true;
         $this->dispatchConfirmationNumber = $dispatchConfirmationNumber;
 
         return $this;
@@ -108,7 +98,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setOriginalShipperAccountNumber(?string $originalShipperAccountNumber): self
     {
-        $this->initialized['originalShipperAccountNumber'] = true;
         $this->originalShipperAccountNumber = $originalShipperAccountNumber;
 
         return $this;
@@ -127,7 +116,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setPlannedPickupDateAndTime(?string $plannedPickupDateAndTime): self
     {
-        $this->initialized['plannedPickupDateAndTime'] = true;
         $this->plannedPickupDateAndTime = $plannedPickupDateAndTime;
 
         return $this;
@@ -146,7 +134,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setCloseTime(?string $closeTime): self
     {
-        $this->initialized['closeTime'] = true;
         $this->closeTime = $closeTime;
 
         return $this;
@@ -165,7 +152,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setLocation(?string $location): self
     {
-        $this->initialized['location'] = true;
         $this->location = $location;
 
         return $this;
@@ -184,7 +170,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setLocationType(?string $locationType): self
     {
-        $this->initialized['locationType'] = true;
         $this->locationType = $locationType;
 
         return $this;
@@ -203,7 +188,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setAccounts(?array $accounts): self
     {
-        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -226,7 +210,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setSpecialInstructions(?array $specialInstructions): self
     {
-        $this->initialized['specialInstructions'] = true;
         $this->specialInstructions = $specialInstructions;
 
         return $this;
@@ -245,7 +228,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setRemark(?string $remark): self
     {
-        $this->initialized['remark'] = true;
         $this->remark = $remark;
 
         return $this;
@@ -258,7 +240,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
 
     public function setCustomerDetails(?SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetails $customerDetails): self
     {
-        $this->initialized['customerDetails'] = true;
         $this->customerDetails = $customerDetails;
 
         return $this;
@@ -281,7 +262,6 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     public function setShipmentDetails(?array $shipmentDetails): self
     {
-        $this->initialized['shipmentDetails'] = true;
         $this->shipmentDetails = $shipmentDetails;
 
         return $this;

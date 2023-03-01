@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContent
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Here you can define properties per package.
      *
      * @var SupermodelIoLogisticsExpressPackage[]|null
@@ -85,7 +76,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setPackages(?array $packages): self
     {
-        $this->initialized['packages'] = true;
         $this->packages = $packages;
 
         return $this;
@@ -104,7 +94,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setIsCustomsDeclarable(?bool $isCustomsDeclarable): self
     {
-        $this->initialized['isCustomsDeclarable'] = true;
         $this->isCustomsDeclarable = $isCustomsDeclarable;
 
         return $this;
@@ -123,7 +112,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setDeclaredValue(?float $declaredValue): self
     {
-        $this->initialized['declaredValue'] = true;
         $this->declaredValue = $declaredValue;
 
         return $this;
@@ -142,7 +130,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setDeclaredValueCurrency(?string $declaredValueCurrency): self
     {
-        $this->initialized['declaredValueCurrency'] = true;
         $this->declaredValueCurrency = $declaredValueCurrency;
 
         return $this;
@@ -161,7 +148,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setExportDeclaration(?SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration $exportDeclaration): self
     {
-        $this->initialized['exportDeclaration'] = true;
         $this->exportDeclaration = $exportDeclaration;
 
         return $this;
@@ -180,7 +166,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setDescription(?string $description): self
     {
-        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -199,7 +184,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setUSFilingTypeValue(?string $uSFilingTypeValue): self
     {
-        $this->initialized['uSFilingTypeValue'] = true;
         $this->uSFilingTypeValue = $uSFilingTypeValue;
 
         return $this;
@@ -218,7 +202,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setIncoterm(?string $incoterm): self
     {
-        $this->initialized['incoterm'] = true;
         $this->incoterm = $incoterm;
 
         return $this;
@@ -237,7 +220,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
-        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;

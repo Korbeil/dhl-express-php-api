@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemPriceBreakdownItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Expected values in Breakdown/Type are below:<BR>                        STTXA:  Total tax for the shipment<BR>                        STDIS: Total discount for the shipment<BR>                        SPRQT: Net shipment / weight charge.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemPriceB
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemPriceB
      */
     public function setPrice(?float $price): self
     {
-        $this->initialized['price'] = true;
         $this->price = $price;
 
         return $this;

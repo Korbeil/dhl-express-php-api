@@ -62,8 +62,8 @@ class ExpApiPickupsCancel extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
         $optionsResolver->setDefined(['requestorName', 'reason']);
         $optionsResolver->setRequired(['requestorName', 'reason']);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->addAllowedTypes('requestorName', ['string']);
-        $optionsResolver->addAllowedTypes('reason', ['string']);
+        $optionsResolver->setAllowedTypes('requestorName', ['string']);
+        $optionsResolver->setAllowedTypes('reason', ['string']);
 
         return $optionsResolver;
     }
@@ -74,14 +74,14 @@ class ExpApiPickupsCancel extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
         $optionsResolver->setDefined(['Message-Reference', 'Message-Reference-Date', 'Plugin-Name', 'Plugin-Version', 'Shipping-System-Platform-Name', 'Shipping-System-Platform-Version', 'Webstore-Platform-Name', 'Webstore-Platform-Version']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->addAllowedTypes('Message-Reference', ['string']);
-        $optionsResolver->addAllowedTypes('Message-Reference-Date', ['string']);
-        $optionsResolver->addAllowedTypes('Plugin-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Plugin-Version', ['string']);
-        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Version', ['string']);
-        $optionsResolver->addAllowedTypes('Webstore-Platform-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Webstore-Platform-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Message-Reference', ['string']);
+        $optionsResolver->setAllowedTypes('Message-Reference-Date', ['string']);
+        $optionsResolver->setAllowedTypes('Plugin-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Plugin-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Webstore-Platform-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Webstore-Platform-Version', ['string']);
 
         return $optionsResolver;
     }
@@ -92,18 +92,16 @@ class ExpApiPickupsCancel extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelNotFoundException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
-        $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
         if (200 === $status) {
             return null;
         }
         if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
         }
         if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
         }
     }
 

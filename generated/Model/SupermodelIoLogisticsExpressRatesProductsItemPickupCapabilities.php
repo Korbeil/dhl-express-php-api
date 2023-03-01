@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * This indicator has values of Y or N, and tells the consumer if the service in the response has a pickup date on the same day as the requested shipment date (per the request).
      *
      * @var bool|null
@@ -81,7 +72,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setNextBusinessDay(?bool $nextBusinessDay): self
     {
-        $this->initialized['nextBusinessDay'] = true;
         $this->nextBusinessDay = $nextBusinessDay;
 
         return $this;
@@ -100,7 +90,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setLocalCutoffDateAndTime(?string $localCutoffDateAndTime): self
     {
-        $this->initialized['localCutoffDateAndTime'] = true;
         $this->localCutoffDateAndTime = $localCutoffDateAndTime;
 
         return $this;
@@ -119,7 +108,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setGMTCutoffTime(?string $gMTCutoffTime): self
     {
-        $this->initialized['gMTCutoffTime'] = true;
         $this->gMTCutoffTime = $gMTCutoffTime;
 
         return $this;
@@ -138,7 +126,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setPickupEarliest(?string $pickupEarliest): self
     {
-        $this->initialized['pickupEarliest'] = true;
         $this->pickupEarliest = $pickupEarliest;
 
         return $this;
@@ -157,7 +144,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setPickupLatest(?string $pickupLatest): self
     {
-        $this->initialized['pickupLatest'] = true;
         $this->pickupLatest = $pickupLatest;
 
         return $this;
@@ -176,7 +162,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setOriginServiceAreaCode(?string $originServiceAreaCode): self
     {
-        $this->initialized['originServiceAreaCode'] = true;
         $this->originServiceAreaCode = $originServiceAreaCode;
 
         return $this;
@@ -195,7 +180,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setOriginFacilityAreaCode(?string $originFacilityAreaCode): self
     {
-        $this->initialized['originFacilityAreaCode'] = true;
         $this->originFacilityAreaCode = $originFacilityAreaCode;
 
         return $this;
@@ -214,7 +198,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setPickupAdditionalDays(?float $pickupAdditionalDays): self
     {
-        $this->initialized['pickupAdditionalDays'] = true;
         $this->pickupAdditionalDays = $pickupAdditionalDays;
 
         return $this;
@@ -233,7 +216,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities
      */
     public function setPickupDayOfWeek(?float $pickupDayOfWeek): self
     {
-        $this->initialized['pickupDayOfWeek'] = true;
         $this->pickupDayOfWeek = $pickupDayOfWeek;
 
         return $this;

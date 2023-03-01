@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Any special instructions user wish to send to the courier for the order pick-up.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItem
      */
     public function setValue(?string $value): self
     {
-        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItem
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;

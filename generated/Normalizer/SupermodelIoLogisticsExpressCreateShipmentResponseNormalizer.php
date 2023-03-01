@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer implements De
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponse' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponse' === $data::class;
     }
@@ -130,65 +128,62 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer implements De
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('url') && null !== $object->getUrl()) {
+        if (null !== $object->getUrl()) {
             $data['url'] = $object->getUrl();
         }
-        if ($object->isInitialized('shipmentTrackingNumber') && null !== $object->getShipmentTrackingNumber()) {
+        if (null !== $object->getShipmentTrackingNumber()) {
             $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
         }
-        if ($object->isInitialized('cancelPickupUrl') && null !== $object->getCancelPickupUrl()) {
+        if (null !== $object->getCancelPickupUrl()) {
             $data['cancelPickupUrl'] = $object->getCancelPickupUrl();
         }
-        if ($object->isInitialized('trackingUrl') && null !== $object->getTrackingUrl()) {
+        if (null !== $object->getTrackingUrl()) {
             $data['trackingUrl'] = $object->getTrackingUrl();
         }
-        if ($object->isInitialized('dispatchConfirmationNumber') && null !== $object->getDispatchConfirmationNumber()) {
+        if (null !== $object->getDispatchConfirmationNumber()) {
             $data['dispatchConfirmationNumber'] = $object->getDispatchConfirmationNumber();
         }
-        if ($object->isInitialized('packages') && null !== $object->getPackages()) {
+        if (null !== $object->getPackages()) {
             $values = [];
             foreach ($object->getPackages() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['packages'] = $values;
         }
-        if ($object->isInitialized('documents') && null !== $object->getDocuments()) {
+        if (null !== $object->getDocuments()) {
             $values_1 = [];
             foreach ($object->getDocuments() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['documents'] = $values_1;
         }
-        if ($object->isInitialized('onDemandDeliveryURL') && null !== $object->getOnDemandDeliveryURL()) {
+        if (null !== $object->getOnDemandDeliveryURL()) {
             $data['onDemandDeliveryURL'] = $object->getOnDemandDeliveryURL();
         }
-        if ($object->isInitialized('shipmentDetails') && null !== $object->getShipmentDetails()) {
+        if (null !== $object->getShipmentDetails()) {
             $values_2 = [];
             foreach ($object->getShipmentDetails() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['shipmentDetails'] = $values_2;
         }
-        if ($object->isInitialized('shipmentCharges') && null !== $object->getShipmentCharges()) {
+        if (null !== $object->getShipmentCharges()) {
             $values_3 = [];
             foreach ($object->getShipmentCharges() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['shipmentCharges'] = $values_3;
         }
-        if ($object->isInitialized('barcodeInfo') && null !== $object->getBarcodeInfo()) {
+        if (null !== $object->getBarcodeInfo()) {
             $data['barcodeInfo'] = $this->normalizer->normalize($object->getBarcodeInfo(), 'json', $context);
         }
-        if ($object->isInitialized('estimatedDeliveryDate') && null !== $object->getEstimatedDeliveryDate()) {
+        if (null !== $object->getEstimatedDeliveryDate()) {
             $data['estimatedDeliveryDate'] = $this->normalizer->normalize($object->getEstimatedDeliveryDate(), 'json', $context);
         }
-        if ($object->isInitialized('warnings') && null !== $object->getWarnings()) {
+        if (null !== $object->getWarnings()) {
             $values_4 = [];
             foreach ($object->getWarnings() as $value_4) {
                 $values_4[] = $value_4;

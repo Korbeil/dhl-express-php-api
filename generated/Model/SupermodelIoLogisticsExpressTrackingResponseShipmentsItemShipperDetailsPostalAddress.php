@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $cityName;
@@ -43,7 +34,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
 
     public function setCityName(?string $cityName): self
     {
-        $this->initialized['cityName'] = true;
         $this->cityName = $cityName;
 
         return $this;
@@ -56,7 +46,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
 
     public function setCountyName(?string $countyName): self
     {
-        $this->initialized['countyName'] = true;
         $this->countyName = $countyName;
 
         return $this;
@@ -69,7 +58,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
 
     public function setPostalCode(?string $postalCode): self
     {
-        $this->initialized['postalCode'] = true;
         $this->postalCode = $postalCode;
 
         return $this;
@@ -88,7 +76,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
      */
     public function setProvinceCode(?string $provinceCode): self
     {
-        $this->initialized['provinceCode'] = true;
         $this->provinceCode = $provinceCode;
 
         return $this;
@@ -101,7 +88,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
 
     public function setCountryCode(?string $countryCode): self
     {
-        $this->initialized['countryCode'] = true;
         $this->countryCode = $countryCode;
 
         return $this;

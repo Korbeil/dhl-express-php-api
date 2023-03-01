@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter the document type you want to wish set properties for.
      *
      * @var string|null
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesI
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -64,7 +54,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesI
      */
     public function setTemplateName(?string $templateName): self
     {
-        $this->initialized['templateName'] = true;
         $this->templateName = $templateName;
 
         return $this;
@@ -83,7 +72,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesI
      */
     public function setIsRequested(?bool $isRequested): self
     {
-        $this->initialized['isRequested'] = true;
         $this->isRequested = $isRequested;
 
         return $this;

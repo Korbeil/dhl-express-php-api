@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem' === $data::class;
     }
@@ -38,9 +36,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem();
-        if (\array_key_exists('volumetricWeight', $data) && \is_int($data['volumetricWeight'])) {
-            $data['volumetricWeight'] = (float) $data['volumetricWeight'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -126,60 +121,57 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('serviceHandlingFeatureCodes') && null !== $object->getServiceHandlingFeatureCodes()) {
+        if (null !== $object->getServiceHandlingFeatureCodes()) {
             $values = [];
             foreach ($object->getServiceHandlingFeatureCodes() as $value) {
                 $values[] = $value;
             }
             $data['serviceHandlingFeatureCodes'] = $values;
         }
-        if ($object->isInitialized('volumetricWeight') && null !== $object->getVolumetricWeight()) {
+        if (null !== $object->getVolumetricWeight()) {
             $data['volumetricWeight'] = $object->getVolumetricWeight();
         }
-        if ($object->isInitialized('billingCode') && null !== $object->getBillingCode()) {
+        if (null !== $object->getBillingCode()) {
             $data['billingCode'] = $object->getBillingCode();
         }
-        if ($object->isInitialized('serviceContentCode') && null !== $object->getServiceContentCode()) {
+        if (null !== $object->getServiceContentCode()) {
             $data['serviceContentCode'] = $object->getServiceContentCode();
         }
-        if ($object->isInitialized('customerDetails') && null !== $object->getCustomerDetails()) {
+        if (null !== $object->getCustomerDetails()) {
             $data['customerDetails'] = $this->normalizer->normalize($object->getCustomerDetails(), 'json', $context);
         }
-        if ($object->isInitialized('originServiceArea') && null !== $object->getOriginServiceArea()) {
+        if (null !== $object->getOriginServiceArea()) {
             $data['originServiceArea'] = $this->normalizer->normalize($object->getOriginServiceArea(), 'json', $context);
         }
-        if ($object->isInitialized('destinationServiceArea') && null !== $object->getDestinationServiceArea()) {
+        if (null !== $object->getDestinationServiceArea()) {
             $data['destinationServiceArea'] = $this->normalizer->normalize($object->getDestinationServiceArea(), 'json', $context);
         }
-        if ($object->isInitialized('dhlRoutingCode') && null !== $object->getDhlRoutingCode()) {
+        if (null !== $object->getDhlRoutingCode()) {
             $data['dhlRoutingCode'] = $object->getDhlRoutingCode();
         }
-        if ($object->isInitialized('dhlRoutingDataId') && null !== $object->getDhlRoutingDataId()) {
+        if (null !== $object->getDhlRoutingDataId()) {
             $data['dhlRoutingDataId'] = $object->getDhlRoutingDataId();
         }
-        if ($object->isInitialized('deliveryDateCode') && null !== $object->getDeliveryDateCode()) {
+        if (null !== $object->getDeliveryDateCode()) {
             $data['deliveryDateCode'] = $object->getDeliveryDateCode();
         }
-        if ($object->isInitialized('deliveryTimeCode') && null !== $object->getDeliveryTimeCode()) {
+        if (null !== $object->getDeliveryTimeCode()) {
             $data['deliveryTimeCode'] = $object->getDeliveryTimeCode();
         }
-        if ($object->isInitialized('productShortName') && null !== $object->getProductShortName()) {
+        if (null !== $object->getProductShortName()) {
             $data['productShortName'] = $object->getProductShortName();
         }
-        if ($object->isInitialized('valueAddedServices') && null !== $object->getValueAddedServices()) {
+        if (null !== $object->getValueAddedServices()) {
             $values_1 = [];
             foreach ($object->getValueAddedServices() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['valueAddedServices'] = $values_1;
         }
-        if ($object->isInitialized('pickupDetails') && null !== $object->getPickupDetails()) {
+        if (null !== $object->getPickupDetails()) {
             $data['pickupDetails'] = $this->normalizer->normalize($object->getPickupDetails(), 'json', $context);
         }
 

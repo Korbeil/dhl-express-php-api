@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRateRequestCustomerDetails
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Address defintion for rating related services.
      *
      * @var SupermodelIoLogisticsExpressAddressRatesRequest|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressRateRequestCustomerDetails
      */
     public function setShipperDetails(?SupermodelIoLogisticsExpressAddressRatesRequest $shipperDetails): self
     {
-        $this->initialized['shipperDetails'] = true;
         $this->shipperDetails = $shipperDetails;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressRateRequestCustomerDetails
      */
     public function setReceiverDetails(?SupermodelIoLogisticsExpressAddressRatesRequest $receiverDetails): self
     {
-        $this->initialized['receiverDetails'] = true;
         $this->receiverDetails = $receiverDetails;
 
         return $this;

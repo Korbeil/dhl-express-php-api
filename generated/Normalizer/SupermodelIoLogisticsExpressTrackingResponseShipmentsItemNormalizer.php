@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer implem
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItem' === $data::class;
     }
@@ -38,12 +36,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer implem
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItem();
-        if (\array_key_exists('totalWeight', $data) && \is_int($data['totalWeight'])) {
-            $data['totalWeight'] = (float) $data['totalWeight'];
-        }
-        if (\array_key_exists('numberOfPieces', $data) && \is_int($data['numberOfPieces'])) {
-            $data['numberOfPieces'] = (float) $data['numberOfPieces'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -142,40 +134,37 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer implem
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('shipmentTrackingNumber') && null !== $object->getShipmentTrackingNumber()) {
+        if (null !== $object->getShipmentTrackingNumber()) {
             $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
         }
-        if ($object->isInitialized('status') && null !== $object->getStatus()) {
+        if (null !== $object->getStatus()) {
             $data['status'] = $object->getStatus();
         }
-        if ($object->isInitialized('shipmentTimestamp') && null !== $object->getShipmentTimestamp()) {
+        if (null !== $object->getShipmentTimestamp()) {
             $data['shipmentTimestamp'] = $object->getShipmentTimestamp();
         }
-        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
+        if (null !== $object->getProductCode()) {
             $data['productCode'] = $object->getProductCode();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
+        if (null !== $object->getDescription()) {
             $data['description'] = $object->getDescription();
         }
-        if ($object->isInitialized('shipperDetails') && null !== $object->getShipperDetails()) {
+        if (null !== $object->getShipperDetails()) {
             $data['shipperDetails'] = $this->normalizer->normalize($object->getShipperDetails(), 'json', $context);
         }
-        if ($object->isInitialized('receiverDetails') && null !== $object->getReceiverDetails()) {
+        if (null !== $object->getReceiverDetails()) {
             $data['receiverDetails'] = $this->normalizer->normalize($object->getReceiverDetails(), 'json', $context);
         }
-        if ($object->isInitialized('totalWeight') && null !== $object->getTotalWeight()) {
+        if (null !== $object->getTotalWeight()) {
             $data['totalWeight'] = $object->getTotalWeight();
         }
-        if ($object->isInitialized('unitOfMeasurements') && null !== $object->getUnitOfMeasurements()) {
+        if (null !== $object->getUnitOfMeasurements()) {
             $data['unitOfMeasurements'] = $object->getUnitOfMeasurements();
         }
-        if ($object->isInitialized('shipperReferences') && null !== $object->getShipperReferences()) {
+        if (null !== $object->getShipperReferences()) {
             $values = [];
             foreach ($object->getShipperReferences() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
@@ -187,20 +176,20 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer implem
             $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
         }
         $data['events'] = $values_1;
-        if ($object->isInitialized('numberOfPieces') && null !== $object->getNumberOfPieces()) {
+        if (null !== $object->getNumberOfPieces()) {
             $data['numberOfPieces'] = $object->getNumberOfPieces();
         }
-        if ($object->isInitialized('pieces') && null !== $object->getPieces()) {
+        if (null !== $object->getPieces()) {
             $values_2 = [];
             foreach ($object->getPieces() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['pieces'] = $values_2;
         }
-        if ($object->isInitialized('estimatedDeliveryDate') && null !== $object->getEstimatedDeliveryDate()) {
+        if (null !== $object->getEstimatedDeliveryDate()) {
             $data['estimatedDeliveryDate'] = $object->getEstimatedDeliveryDate();
         }
-        if ($object->isInitialized('childrenShipmentIdentificationNumbers') && null !== $object->getChildrenShipmentIdentificationNumbers()) {
+        if (null !== $object->getChildrenShipmentIdentificationNumbers()) {
             $values_3 = [];
             foreach ($object->getChildrenShipmentIdentificationNumbers() as $value_3) {
                 $values_3[] = $value_3;

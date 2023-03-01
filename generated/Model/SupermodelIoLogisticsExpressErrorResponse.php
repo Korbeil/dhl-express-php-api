@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressErrorResponse
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $instance;
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressErrorResponse
 
     public function setInstance(?string $instance): self
     {
-        $this->initialized['instance'] = true;
         $this->instance = $instance;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressErrorResponse
 
     public function setDetail(?string $detail): self
     {
-        $this->initialized['detail'] = true;
         $this->detail = $detail;
 
         return $this;
@@ -71,7 +60,6 @@ class SupermodelIoLogisticsExpressErrorResponse
 
     public function setTitle(?string $title): self
     {
-        $this->initialized['title'] = true;
         $this->title = $title;
 
         return $this;
@@ -84,7 +72,6 @@ class SupermodelIoLogisticsExpressErrorResponse
 
     public function setMessage(?string $message): self
     {
-        $this->initialized['message'] = true;
         $this->message = $message;
 
         return $this;
@@ -103,7 +90,6 @@ class SupermodelIoLogisticsExpressErrorResponse
      */
     public function setAdditionalDetails(?array $additionalDetails): self
     {
-        $this->initialized['additionalDetails'] = true;
         $this->additionalDetails = $additionalDetails;
 
         return $this;
@@ -116,7 +102,6 @@ class SupermodelIoLogisticsExpressErrorResponse
 
     public function setStatus(?string $status): self
     {
-        $this->initialized['status'] = true;
         $this->status = $status;
 
         return $this;

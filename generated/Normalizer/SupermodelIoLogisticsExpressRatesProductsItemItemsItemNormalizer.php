@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemNormalizer implement
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItem' === $data::class;
     }
@@ -38,9 +36,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemNormalizer implement
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItem();
-        if (\array_key_exists('number', $data) && \is_int($data['number'])) {
-            $data['number'] = (float) $data['number'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -62,14 +57,11 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemNormalizer implement
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['number'] = $object->getNumber();
-        if ($object->isInitialized('breakdown') && null !== $object->getBreakdown()) {
+        if (null !== $object->getBreakdown()) {
             $values = [];
             foreach ($object->getBreakdown() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

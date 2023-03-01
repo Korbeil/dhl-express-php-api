@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter the document type you want to wish set properties for.
      *
      * @var string|null
@@ -105,7 +96,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -124,7 +114,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setTemplateName(?string $templateName): self
     {
-        $this->initialized['templateName'] = true;
         $this->templateName = $templateName;
 
         return $this;
@@ -143,7 +132,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setIsRequested(?bool $isRequested): self
     {
-        $this->initialized['isRequested'] = true;
         $this->isRequested = $isRequested;
 
         return $this;
@@ -162,7 +150,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setHideAccountNumber(?bool $hideAccountNumber): self
     {
-        $this->initialized['hideAccountNumber'] = true;
         $this->hideAccountNumber = $hideAccountNumber;
 
         return $this;
@@ -181,7 +168,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setNumberOfCopies(?float $numberOfCopies): self
     {
-        $this->initialized['numberOfCopies'] = true;
         $this->numberOfCopies = $numberOfCopies;
 
         return $this;
@@ -200,7 +186,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setInvoiceType(?string $invoiceType): self
     {
-        $this->initialized['invoiceType'] = true;
         $this->invoiceType = $invoiceType;
 
         return $this;
@@ -219,7 +204,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setLanguageCode(?string $languageCode): self
     {
-        $this->initialized['languageCode'] = true;
         $this->languageCode = $languageCode;
 
         return $this;
@@ -238,7 +222,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setLanguageCountryCode(?string $languageCountryCode): self
     {
-        $this->initialized['languageCountryCode'] = true;
         $this->languageCountryCode = $languageCountryCode;
 
         return $this;
@@ -257,7 +240,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setEncodingFormat(?string $encodingFormat): self
     {
-        $this->initialized['encodingFormat'] = true;
         $this->encodingFormat = $encodingFormat;
 
         return $this;
@@ -276,7 +258,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setRenderDHLLogo(?bool $renderDHLLogo): self
     {
-        $this->initialized['renderDHLLogo'] = true;
         $this->renderDHLLogo = $renderDHLLogo;
 
         return $this;
@@ -295,7 +276,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setFitLabelsToA4(?bool $fitLabelsToA4): self
     {
-        $this->initialized['fitLabelsToA4'] = true;
         $this->fitLabelsToA4 = $fitLabelsToA4;
 
         return $this;
@@ -314,7 +294,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setLabelFreeText(?string $labelFreeText): self
     {
-        $this->initialized['labelFreeText'] = true;
         $this->labelFreeText = $labelFreeText;
 
         return $this;
@@ -333,7 +312,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
      */
     public function setLabelCustomerDataText(?string $labelCustomerDataText): self
     {
-        $this->initialized['labelCustomerDataText'] = true;
         $this->labelCustomerDataText = $labelCustomerDataText;
 
         return $this;

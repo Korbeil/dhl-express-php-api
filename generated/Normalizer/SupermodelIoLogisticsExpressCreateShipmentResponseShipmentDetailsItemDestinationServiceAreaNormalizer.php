@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDesti
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea' === $data::class;
     }
@@ -60,19 +58,16 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDesti
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('facilityCode') && null !== $object->getFacilityCode()) {
+        if (null !== $object->getFacilityCode()) {
             $data['facilityCode'] = $object->getFacilityCode();
         }
-        if ($object->isInitialized('serviceAreaCode') && null !== $object->getServiceAreaCode()) {
+        if (null !== $object->getServiceAreaCode()) {
             $data['serviceAreaCode'] = $object->getServiceAreaCode();
         }
-        if ($object->isInitialized('inboundSortCode') && null !== $object->getInboundSortCode()) {
+        if (null !== $object->getInboundSortCode()) {
             $data['inboundSortCode'] = $object->getInboundSortCode();
         }
 

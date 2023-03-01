@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsNormalizer
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails' === $data::class;
     }
@@ -85,30 +83,27 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsNormalizer
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['shipperDetails'] = $this->normalizer->normalize($object->getShipperDetails(), 'json', $context);
         $data['receiverDetails'] = $this->normalizer->normalize($object->getReceiverDetails(), 'json', $context);
-        if ($object->isInitialized('buyerDetails') && null !== $object->getBuyerDetails()) {
+        if (null !== $object->getBuyerDetails()) {
             $data['buyerDetails'] = $this->normalizer->normalize($object->getBuyerDetails(), 'json', $context);
         }
-        if ($object->isInitialized('importerDetails') && null !== $object->getImporterDetails()) {
+        if (null !== $object->getImporterDetails()) {
             $data['importerDetails'] = $this->normalizer->normalize($object->getImporterDetails(), 'json', $context);
         }
-        if ($object->isInitialized('exporterDetails') && null !== $object->getExporterDetails()) {
+        if (null !== $object->getExporterDetails()) {
             $data['exporterDetails'] = $this->normalizer->normalize($object->getExporterDetails(), 'json', $context);
         }
-        if ($object->isInitialized('sellerDetails') && null !== $object->getSellerDetails()) {
+        if (null !== $object->getSellerDetails()) {
             $data['sellerDetails'] = $this->normalizer->normalize($object->getSellerDetails(), 'json', $context);
         }
-        if ($object->isInitialized('payerDetails') && null !== $object->getPayerDetails()) {
+        if (null !== $object->getPayerDetails()) {
             $data['payerDetails'] = $this->normalizer->normalize($object->getPayerDetails(), 'json', $context);
         }
-        if ($object->isInitialized('ultimateConsigneeDetails') && null !== $object->getUltimateConsigneeDetails()) {
+        if (null !== $object->getUltimateConsigneeDetails()) {
             $data['ultimateConsigneeDetails'] = $this->normalizer->normalize($object->getUltimateConsigneeDetails(), 'json', $context);
         }
 

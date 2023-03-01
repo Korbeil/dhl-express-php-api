@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $name;
@@ -37,7 +28,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServi
 
     public function setName(?string $name): self
     {
-        $this->initialized['name'] = true;
         $this->name = $name;
 
         return $this;
@@ -56,7 +46,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServi
      */
     public function setPrice(?float $price): self
     {
-        $this->initialized['price'] = true;
         $this->price = $price;
 
         return $this;
@@ -75,7 +64,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServi
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;

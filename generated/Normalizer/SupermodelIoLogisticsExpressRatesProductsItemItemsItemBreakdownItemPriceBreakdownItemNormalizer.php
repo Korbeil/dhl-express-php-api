@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem' === $data::class;
     }
@@ -38,15 +36,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem();
-        if (\array_key_exists('price', $data) && \is_int($data['price'])) {
-            $data['price'] = (float) $data['price'];
-        }
-        if (\array_key_exists('rate', $data) && \is_int($data['rate'])) {
-            $data['rate'] = (float) $data['rate'];
-        }
-        if (\array_key_exists('basePrice', $data) && \is_int($data['basePrice'])) {
-            $data['basePrice'] = (float) $data['basePrice'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -79,25 +68,22 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('priceType') && null !== $object->getPriceType()) {
+        if (null !== $object->getPriceType()) {
             $data['priceType'] = $object->getPriceType();
         }
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
+        if (null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
-        if ($object->isInitialized('price') && null !== $object->getPrice()) {
+        if (null !== $object->getPrice()) {
             $data['price'] = $object->getPrice();
         }
-        if ($object->isInitialized('rate') && null !== $object->getRate()) {
+        if (null !== $object->getRate()) {
             $data['rate'] = $object->getRate();
         }
-        if ($object->isInitialized('basePrice') && null !== $object->getBasePrice()) {
+        if (null !== $object->getBasePrice()) {
             $data['basePrice'] = $object->getBasePrice();
         }
 

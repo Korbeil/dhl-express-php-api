@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRates' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRates' === $data::class;
     }
@@ -72,9 +70,6 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
@@ -83,14 +78,14 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['products'] = $values;
-        if ($object->isInitialized('exchangeRates') && null !== $object->getExchangeRates()) {
+        if (null !== $object->getExchangeRates()) {
             $values_1 = [];
             foreach ($object->getExchangeRates() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['exchangeRates'] = $values_1;
         }
-        if ($object->isInitialized('warnings') && null !== $object->getWarnings()) {
+        if (null !== $object->getWarnings()) {
             $values_2 = [];
             foreach ($object->getWarnings() as $value_2) {
                 $values_2[] = $value_2;

@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * required special service code.
      *
      * @var string|null
@@ -33,7 +24,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setServiceCode(?string $serviceCode): self
     {
-        $this->initialized['serviceCode'] = true;
         $this->serviceCode = $serviceCode;
 
         return $this;

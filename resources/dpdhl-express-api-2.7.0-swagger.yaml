@@ -1626,7 +1626,8 @@ components:
       required: false
       example: true
       schema:
-        type: boolean
+        type: string
+        enum: ['true', 'false']
         default: true
     originCountryCode:
       name: originCountryCode
@@ -2179,7 +2180,8 @@ components:
       required: false
       example: false
       schema:
-        type: boolean
+        type: string
+        enum: ['true', 'false']
         default: false
     getAllValueAddedServices:
       name: getAllValueAddedServices

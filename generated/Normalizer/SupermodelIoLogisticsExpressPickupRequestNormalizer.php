@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressPickupRequestNormalizer implements Denormalize
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequest' === $data::class;
     }
@@ -102,20 +100,17 @@ class SupermodelIoLogisticsExpressPickupRequestNormalizer implements Denormalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['plannedPickupDateAndTime'] = $object->getPlannedPickupDateAndTime();
-        if ($object->isInitialized('closeTime') && null !== $object->getCloseTime()) {
+        if (null !== $object->getCloseTime()) {
             $data['closeTime'] = $object->getCloseTime();
         }
-        if ($object->isInitialized('location') && null !== $object->getLocation()) {
+        if (null !== $object->getLocation()) {
             $data['location'] = $object->getLocation();
         }
-        if ($object->isInitialized('locationType') && null !== $object->getLocationType()) {
+        if (null !== $object->getLocationType()) {
             $data['locationType'] = $object->getLocationType();
         }
         $values = [];
@@ -123,14 +118,14 @@ class SupermodelIoLogisticsExpressPickupRequestNormalizer implements Denormalize
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['accounts'] = $values;
-        if ($object->isInitialized('specialInstructions') && null !== $object->getSpecialInstructions()) {
+        if (null !== $object->getSpecialInstructions()) {
             $values_1 = [];
             foreach ($object->getSpecialInstructions() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['specialInstructions'] = $values_1;
         }
-        if ($object->isInitialized('remark') && null !== $object->getRemark()) {
+        if (null !== $object->getRemark()) {
             $data['remark'] = $object->getRemark();
         }
         $data['customerDetails'] = $this->normalizer->normalize($object->getCustomerDetails(), 'json', $context);

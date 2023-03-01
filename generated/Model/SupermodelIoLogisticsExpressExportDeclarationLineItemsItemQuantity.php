@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemQuantity
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter number of pieces in the line item.
      *
      * @var int|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemQuantity
      */
     public function setValue(?int $value): self
     {
-        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemQuantity
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
-        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;

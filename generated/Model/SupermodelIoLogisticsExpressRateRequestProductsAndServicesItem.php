@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter DHL Express Global Product code.
      *
      * @var string|null
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
      */
     public function setProductCode(?string $productCode): self
     {
-        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -64,7 +54,6 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
-        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -87,7 +76,6 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
-        $this->initialized['valueAddedServices'] = true;
         $this->valueAddedServices = $valueAddedServices;
 
         return $this;

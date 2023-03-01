@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalize
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery' === $data::class;
     }
@@ -95,38 +93,35 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['deliveryOption'] = $object->getDeliveryOption();
-        if ($object->isInitialized('location') && null !== $object->getLocation()) {
+        if (null !== $object->getLocation()) {
             $data['location'] = $object->getLocation();
         }
-        if ($object->isInitialized('specialInstructions') && null !== $object->getSpecialInstructions()) {
+        if (null !== $object->getSpecialInstructions()) {
             $data['specialInstructions'] = $object->getSpecialInstructions();
         }
-        if ($object->isInitialized('gateCode') && null !== $object->getGateCode()) {
+        if (null !== $object->getGateCode()) {
             $data['gateCode'] = $object->getGateCode();
         }
-        if ($object->isInitialized('whereToLeave') && null !== $object->getWhereToLeave()) {
+        if (null !== $object->getWhereToLeave()) {
             $data['whereToLeave'] = $object->getWhereToLeave();
         }
-        if ($object->isInitialized('neighbourName') && null !== $object->getNeighbourName()) {
+        if (null !== $object->getNeighbourName()) {
             $data['neighbourName'] = $object->getNeighbourName();
         }
-        if ($object->isInitialized('neighbourHouseNumber') && null !== $object->getNeighbourHouseNumber()) {
+        if (null !== $object->getNeighbourHouseNumber()) {
             $data['neighbourHouseNumber'] = $object->getNeighbourHouseNumber();
         }
-        if ($object->isInitialized('authorizerName') && null !== $object->getAuthorizerName()) {
+        if (null !== $object->getAuthorizerName()) {
             $data['authorizerName'] = $object->getAuthorizerName();
         }
-        if ($object->isInitialized('servicePointId') && null !== $object->getServicePointId()) {
+        if (null !== $object->getServicePointId()) {
             $data['servicePointId'] = $object->getServicePointId();
         }
-        if ($object->isInitialized('requestedDeliveryDate') && null !== $object->getRequestedDeliveryDate()) {
+        if (null !== $object->getRequestedDeliveryDate()) {
             $data['requestedDeliveryDate'] = $object->getRequestedDeliveryDate();
         }
 

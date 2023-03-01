@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter address and contact details related to shipper.
      *
      * @var SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsShipperDetails|null
@@ -75,7 +66,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setShipperDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsShipperDetails $shipperDetails): self
     {
-        $this->initialized['shipperDetails'] = true;
         $this->shipperDetails = $shipperDetails;
 
         return $this;
@@ -94,7 +84,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setReceiverDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsReceiverDetails $receiverDetails): self
     {
-        $this->initialized['receiverDetails'] = true;
         $this->receiverDetails = $receiverDetails;
 
         return $this;
@@ -113,7 +102,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setBuyerDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetails $buyerDetails): self
     {
-        $this->initialized['buyerDetails'] = true;
         $this->buyerDetails = $buyerDetails;
 
         return $this;
@@ -132,7 +120,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setImporterDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsImporterDetails $importerDetails): self
     {
-        $this->initialized['importerDetails'] = true;
         $this->importerDetails = $importerDetails;
 
         return $this;
@@ -151,7 +138,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setExporterDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDetails $exporterDetails): self
     {
-        $this->initialized['exporterDetails'] = true;
         $this->exporterDetails = $exporterDetails;
 
         return $this;
@@ -170,7 +156,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setSellerDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsSellerDetails $sellerDetails): self
     {
-        $this->initialized['sellerDetails'] = true;
         $this->sellerDetails = $sellerDetails;
 
         return $this;
@@ -189,7 +174,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setPayerDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetails $payerDetails): self
     {
-        $this->initialized['payerDetails'] = true;
         $this->payerDetails = $payerDetails;
 
         return $this;
@@ -208,7 +192,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetails
      */
     public function setUltimateConsigneeDetails(?SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsUltimateConsigneeDetails $ultimateConsigneeDetails): self
     {
-        $this->initialized['ultimateConsigneeDetails'] = true;
         $this->ultimateConsigneeDetails = $ultimateConsigneeDetails;
 
         return $this;

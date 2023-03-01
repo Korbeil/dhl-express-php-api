@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressEPODResponseDocumentsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $encodingFormat;
@@ -33,7 +24,6 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItem
 
     public function setEncodingFormat(?string $encodingFormat): self
     {
-        $this->initialized['encodingFormat'] = true;
         $this->encodingFormat = $encodingFormat;
 
         return $this;
@@ -46,7 +36,6 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItem
 
     public function setContent(?string $content): self
     {
-        $this->initialized['content'] = true;
         $this->content = $content;
 
         return $this;
@@ -59,7 +48,6 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItem
 
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;

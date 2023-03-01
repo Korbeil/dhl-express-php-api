@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $code;
@@ -33,7 +24,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsSer
 
     public function setCode(?string $code): self
     {
-        $this->initialized['code'] = true;
         $this->code = $code;
 
         return $this;
@@ -46,7 +36,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsSer
 
     public function setDescription(?string $description): self
     {
-        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -59,7 +48,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsSer
 
     public function setOutboundSortCode(?string $outboundSortCode): self
     {
-        $this->initialized['outboundSortCode'] = true;
         $this->outboundSortCode = $outboundSortCode;
 
         return $this;

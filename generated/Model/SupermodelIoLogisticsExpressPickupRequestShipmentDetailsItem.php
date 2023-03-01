@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please provide DHL Express Global product code of the shipment.
      *
      * @var string|null
@@ -87,7 +78,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setProductCode(?string $productCode): self
     {
-        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -106,7 +96,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
-        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -129,7 +118,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setAccounts(?array $accounts): self
     {
-        $this->initialized['accounts'] = true;
         $this->accounts = $accounts;
 
         return $this;
@@ -152,7 +140,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
-        $this->initialized['valueAddedServices'] = true;
         $this->valueAddedServices = $valueAddedServices;
 
         return $this;
@@ -171,7 +158,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setIsCustomsDeclarable(?bool $isCustomsDeclarable): self
     {
-        $this->initialized['isCustomsDeclarable'] = true;
         $this->isCustomsDeclarable = $isCustomsDeclarable;
 
         return $this;
@@ -190,7 +176,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setDeclaredValue(?float $declaredValue): self
     {
-        $this->initialized['declaredValue'] = true;
         $this->declaredValue = $declaredValue;
 
         return $this;
@@ -209,7 +194,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setDeclaredValueCurrency(?string $declaredValueCurrency): self
     {
-        $this->initialized['declaredValueCurrency'] = true;
         $this->declaredValueCurrency = $declaredValueCurrency;
 
         return $this;
@@ -228,7 +212,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
-        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;
@@ -247,7 +230,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
     {
-        $this->initialized['shipmentTrackingNumber'] = true;
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
 
         return $this;
@@ -270,7 +252,6 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
      */
     public function setPackages(?array $packages): self
     {
-        $this->initialized['packages'] = true;
         $this->packages = $packages;
 
         return $this;

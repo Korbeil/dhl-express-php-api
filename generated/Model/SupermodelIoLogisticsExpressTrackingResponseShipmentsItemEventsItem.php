@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string|null
      */
     protected $date;
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 
     public function setDate(?string $date): self
     {
-        $this->initialized['date'] = true;
         $this->date = $date;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 
     public function setTime(?string $time): self
     {
-        $this->initialized['time'] = true;
         $this->time = $time;
 
         return $this;
@@ -71,7 +60,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -84,7 +72,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 
     public function setDescription(?string $description): self
     {
-        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -103,7 +90,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
      */
     public function setServiceArea(?array $serviceArea): self
     {
-        $this->initialized['serviceArea'] = true;
         $this->serviceArea = $serviceArea;
 
         return $this;
@@ -116,7 +102,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
 
     public function setSignedBy(?string $signedBy): self
     {
-        $this->initialized['signedBy'] = true;
         $this->signedBy = $signedBy;
 
         return $this;

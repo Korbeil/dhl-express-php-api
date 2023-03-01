@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter remark text.
      *
      * @var string|null
@@ -33,7 +24,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationR
      */
     public function setValue(?string $value): self
     {
-        $this->initialized['value'] = true;
         $this->value = $value;
 
         return $this;

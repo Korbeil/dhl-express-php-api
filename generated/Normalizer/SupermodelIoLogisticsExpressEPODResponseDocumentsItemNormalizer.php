@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer implements
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponseDocumentsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponseDocumentsItem' === $data::class;
     }
@@ -60,19 +58,16 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer implements
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('encodingFormat') && null !== $object->getEncodingFormat()) {
+        if (null !== $object->getEncodingFormat()) {
             $data['encodingFormat'] = $object->getEncodingFormat();
         }
-        if ($object->isInitialized('content') && null !== $object->getContent()) {
+        if (null !== $object->getContent()) {
             $data['content'] = $object->getContent();
         }
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
+        if (null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
 

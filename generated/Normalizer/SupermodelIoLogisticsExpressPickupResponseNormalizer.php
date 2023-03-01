@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressPickupResponseNormalizer implements Denormaliz
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupResponse' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupResponse' === $data::class;
     }
@@ -73,26 +71,23 @@ class SupermodelIoLogisticsExpressPickupResponseNormalizer implements Denormaliz
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('dispatchConfirmationNumbers') && null !== $object->getDispatchConfirmationNumbers()) {
+        if (null !== $object->getDispatchConfirmationNumbers()) {
             $values = [];
             foreach ($object->getDispatchConfirmationNumbers() as $value) {
                 $values[] = $value;
             }
             $data['dispatchConfirmationNumbers'] = $values;
         }
-        if ($object->isInitialized('readyByTime') && null !== $object->getReadyByTime()) {
+        if (null !== $object->getReadyByTime()) {
             $data['readyByTime'] = $object->getReadyByTime();
         }
-        if ($object->isInitialized('nextPickupDate') && null !== $object->getNextPickupDate()) {
+        if (null !== $object->getNextPickupDate()) {
             $data['nextPickupDate'] = $object->getNextPickupDate();
         }
-        if ($object->isInitialized('warnings') && null !== $object->getWarnings()) {
+        if (null !== $object->getWarnings()) {
             $values_1 = [];
             foreach ($object->getWarnings() as $value_1) {
                 $values_1[] = $value_1;

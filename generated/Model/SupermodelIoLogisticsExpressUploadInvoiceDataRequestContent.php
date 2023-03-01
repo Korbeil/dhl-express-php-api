@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Here you can find all details related to export declaration.
      *
      * @var SupermodelIoLogisticsExpressExportDeclaration[]|null
@@ -49,7 +40,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent
      */
     public function setExportDeclaration(?array $exportDeclaration): self
     {
-        $this->initialized['exportDeclaration'] = true;
         $this->exportDeclaration = $exportDeclaration;
 
         return $this;
@@ -68,7 +58,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent
      */
     public function setCurrency(?string $currency): self
     {
-        $this->initialized['currency'] = true;
         $this->currency = $currency;
 
         return $this;
@@ -87,7 +76,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent
      */
     public function setUnitOfMeasurement(?string $unitOfMeasurement): self
     {
-        $this->initialized['unitOfMeasurement'] = true;
         $this->unitOfMeasurement = $unitOfMeasurement;
 
         return $this;

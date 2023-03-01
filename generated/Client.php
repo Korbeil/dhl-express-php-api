@@ -138,7 +138,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *     @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
      *     @var string $cityName Text specifying the city name
      *     @var string $countyName Text specifying the county name
-     *     @var bool $strictValidation If set to true service will return no records when exact valid match not found
+     *     @var string $strictValidation If set to true service will return no records when exact valid match not found
      * }
      *
      * @param array $headerParameters {
@@ -184,7 +184,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *     @var bool $isCustomsDeclarable
      *     @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
      *     @var bool $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
-     *     @var bool $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
+     *     @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
      *     @var bool $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
      *     @var bool $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      *     @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
@@ -220,7 +220,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRateRequest|null $requestBody
      * @param array                                                                      $queryParameters {
      *
-     *     @var bool $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
+     *     @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
      * }
      *
      * @param array $headerParameters {
@@ -298,7 +298,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
 
      *     @var bool $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
 
-     *     @var bool $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
+     *     @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
      *     @var bool $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
      *     @var bool $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      *     @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
@@ -469,7 +469,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequest|null $requestBody
      * @param array                                                                                $queryParameters {
      *
-     *     @var bool $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
+     *     @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
      * }
      *
      * @param array $headerParameters {
@@ -613,7 +613,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
         return $this->executeEndpoint(new \Korbeil\DHLExpress\Api\Endpoint\ExpApiShipmentsDocumentimage($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
     }
 
-    public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [])
+    public static function create($httpClient = null, array $additionalPlugins = [])
     {
         if (null === $httpClient) {
             $httpClient = \Http\Discovery\Psr18ClientDiscovery::find();
@@ -628,11 +628,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
         }
         $requestFactory = \Http\Discovery\Psr17FactoryDiscovery::findRequestFactory();
         $streamFactory = \Http\Discovery\Psr17FactoryDiscovery::findStreamFactory();
-        $normalizers = [new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer(), new \Korbeil\DHLExpress\Api\Normalizer\JaneObjectNormalizer()];
-        if (\count($additionalNormalizers) > 0) {
-            $normalizers = array_merge($normalizers, $additionalNormalizers);
-        }
-        $serializer = new \Symfony\Component\Serializer\Serializer($normalizers, [new \Symfony\Component\Serializer\Encoder\JsonEncoder(new \Symfony\Component\Serializer\Encoder\JsonEncode(), new \Symfony\Component\Serializer\Encoder\JsonDecode(['json_decode_associative' => true]))]);
+        $serializer = new \Symfony\Component\Serializer\Serializer([new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer(), new \Korbeil\DHLExpress\Api\Normalizer\JaneObjectNormalizer()], [new \Symfony\Component\Serializer\Encoder\JsonEncoder(new \Symfony\Component\Serializer\Encoder\JsonEncode(), new \Symfony\Component\Serializer\Encoder\JsonDecode(['json_decode_associative' => true]))]);
 
         return new static($httpClient, $requestFactory, $serializer, $streamFactory);
     }

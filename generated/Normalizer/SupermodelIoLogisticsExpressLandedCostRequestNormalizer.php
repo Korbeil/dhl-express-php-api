@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressLandedCostRequestNormalizer implements Denorma
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequest' === $data::class;
     }
@@ -151,9 +149,6 @@ class SupermodelIoLogisticsExpressLandedCostRequestNormalizer implements Denorma
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
@@ -163,36 +158,36 @@ class SupermodelIoLogisticsExpressLandedCostRequestNormalizer implements Denorma
             $values[] = $this->normalizer->normalize($value, 'json', $context);
         }
         $data['accounts'] = $values;
-        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
+        if (null !== $object->getProductCode()) {
             $data['productCode'] = $object->getProductCode();
         }
-        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
+        if (null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
         $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
         $data['currencyCode'] = $object->getCurrencyCode();
         $data['isCustomsDeclarable'] = $object->getIsCustomsDeclarable();
-        if ($object->isInitialized('isDTPRequested') && null !== $object->getIsDTPRequested()) {
+        if (null !== $object->getIsDTPRequested()) {
             $data['isDTPRequested'] = $object->getIsDTPRequested();
         }
-        if ($object->isInitialized('isInsuranceRequested') && null !== $object->getIsInsuranceRequested()) {
+        if (null !== $object->getIsInsuranceRequested()) {
             $data['isInsuranceRequested'] = $object->getIsInsuranceRequested();
         }
         $data['getCostBreakdown'] = $object->getGetCostBreakdown();
-        if ($object->isInitialized('charges') && null !== $object->getCharges()) {
+        if (null !== $object->getCharges()) {
             $values_1 = [];
             foreach ($object->getCharges() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['charges'] = $values_1;
         }
-        if ($object->isInitialized('shipmentPurpose') && null !== $object->getShipmentPurpose()) {
+        if (null !== $object->getShipmentPurpose()) {
             $data['shipmentPurpose'] = $object->getShipmentPurpose();
         }
-        if ($object->isInitialized('transportationMode') && null !== $object->getTransportationMode()) {
+        if (null !== $object->getTransportationMode()) {
             $data['transportationMode'] = $object->getTransportationMode();
         }
-        if ($object->isInitialized('merchantSelectedCarrierName') && null !== $object->getMerchantSelectedCarrierName()) {
+        if (null !== $object->getMerchantSelectedCarrierName()) {
             $data['merchantSelectedCarrierName'] = $object->getMerchantSelectedCarrierName();
         }
         $values_2 = [];
@@ -205,10 +200,10 @@ class SupermodelIoLogisticsExpressLandedCostRequestNormalizer implements Denorma
             $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
         }
         $data['items'] = $values_3;
-        if ($object->isInitialized('getTariffFormula') && null !== $object->getGetTariffFormula()) {
+        if (null !== $object->getGetTariffFormula()) {
             $data['getTariffFormula'] = $object->getGetTariffFormula();
         }
-        if ($object->isInitialized('getQuotationID') && null !== $object->getGetQuotationID()) {
+        if (null !== $object->getGetQuotationID()) {
             $data['getQuotationID'] = $object->getGetQuotationID();
         }
 

@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * The special service charge code.
      *
      * @var string|null
@@ -33,7 +24,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
      */
     public function setServiceCode(?string $serviceCode): self
     {
-        $this->initialized['serviceCode'] = true;
         $this->serviceCode = $serviceCode;
 
         return $this;

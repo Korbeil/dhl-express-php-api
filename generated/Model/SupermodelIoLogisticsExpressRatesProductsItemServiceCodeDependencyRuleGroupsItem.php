@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Dependent special service charge code where the rule groups are applied.
      *
      * @var string|null
@@ -37,7 +28,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setDependentServiceCode(?string $dependentServiceCode): self
     {
-        $this->initialized['dependentServiceCode'] = true;
         $this->dependentServiceCode = $dependentServiceCode;
 
         return $this;
@@ -56,7 +46,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     public function setDependencyRuleGroup(?array $dependencyRuleGroup): self
     {
-        $this->initialized['dependencyRuleGroup'] = true;
         $this->dependencyRuleGroup = $dependencyRuleGroup;
 
         return $this;

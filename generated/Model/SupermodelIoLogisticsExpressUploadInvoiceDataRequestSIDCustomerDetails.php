@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter address and contact details related to seller.
      *
      * @var SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsSellerDetails|null
@@ -57,7 +48,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
      */
     public function setSellerDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsSellerDetails $sellerDetails): self
     {
-        $this->initialized['sellerDetails'] = true;
         $this->sellerDetails = $sellerDetails;
 
         return $this;
@@ -76,7 +66,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
      */
     public function setBuyerDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsBuyerDetails $buyerDetails): self
     {
-        $this->initialized['buyerDetails'] = true;
         $this->buyerDetails = $buyerDetails;
 
         return $this;
@@ -95,7 +84,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
      */
     public function setImporterDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsImporterDetails $importerDetails): self
     {
-        $this->initialized['importerDetails'] = true;
         $this->importerDetails = $importerDetails;
 
         return $this;
@@ -114,7 +102,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
      */
     public function setExporterDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsExporterDetails $exporterDetails): self
     {
-        $this->initialized['exporterDetails'] = true;
         $this->exporterDetails = $exporterDetails;
 
         return $this;
@@ -133,7 +120,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetails
      */
     public function setUltimateConsigneeDetails(?SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetails $ultimateConsigneeDetails): self
     {
-        $this->initialized['ultimateConsigneeDetails'] = true;
         $this->ultimateConsigneeDetails = $ultimateConsigneeDetails;
 
         return $this;

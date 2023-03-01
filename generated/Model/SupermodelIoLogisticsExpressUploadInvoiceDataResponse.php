@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * @var string[]|null
      */
     protected $warnings;
@@ -37,7 +28,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
      */
     public function setWarnings(?array $warnings): self
     {
-        $this->initialized['warnings'] = true;
         $this->warnings = $warnings;
 
         return $this;
@@ -56,7 +46,6 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
      */
     public function setStatus(?string $status): self
     {
-        $this->initialized['status'] = true;
         $this->status = $status;
 
         return $this;

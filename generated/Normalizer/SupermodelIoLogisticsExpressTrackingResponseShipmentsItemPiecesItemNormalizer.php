@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem' === $data::class;
     }
@@ -38,18 +36,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem();
-        if (\array_key_exists('number', $data) && \is_int($data['number'])) {
-            $data['number'] = (float) $data['number'];
-        }
-        if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
-            $data['weight'] = (float) $data['weight'];
-        }
-        if (\array_key_exists('dimensionalWeight', $data) && \is_int($data['dimensionalWeight'])) {
-            $data['dimensionalWeight'] = (float) $data['dimensionalWeight'];
-        }
-        if (\array_key_exists('actualWeight', $data) && \is_int($data['actualWeight'])) {
-            $data['actualWeight'] = (float) $data['actualWeight'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -130,46 +116,43 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('number') && null !== $object->getNumber()) {
+        if (null !== $object->getNumber()) {
             $data['number'] = $object->getNumber();
         }
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
+        if (null !== $object->getTypeCode()) {
             $data['typeCode'] = $object->getTypeCode();
         }
-        if ($object->isInitialized('shipmentTrackingNumber') && null !== $object->getShipmentTrackingNumber()) {
+        if (null !== $object->getShipmentTrackingNumber()) {
             $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
         }
-        if ($object->isInitialized('trackingNumber') && null !== $object->getTrackingNumber()) {
+        if (null !== $object->getTrackingNumber()) {
             $data['trackingNumber'] = $object->getTrackingNumber();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
+        if (null !== $object->getDescription()) {
             $data['description'] = $object->getDescription();
         }
-        if ($object->isInitialized('weight') && null !== $object->getWeight()) {
+        if (null !== $object->getWeight()) {
             $data['weight'] = $object->getWeight();
         }
-        if ($object->isInitialized('dimensionalWeight') && null !== $object->getDimensionalWeight()) {
+        if (null !== $object->getDimensionalWeight()) {
             $data['dimensionalWeight'] = $object->getDimensionalWeight();
         }
-        if ($object->isInitialized('actualWeight') && null !== $object->getActualWeight()) {
+        if (null !== $object->getActualWeight()) {
             $data['actualWeight'] = $object->getActualWeight();
         }
-        if ($object->isInitialized('dimensions') && null !== $object->getDimensions()) {
+        if (null !== $object->getDimensions()) {
             $data['dimensions'] = $this->normalizer->normalize($object->getDimensions(), 'json', $context);
         }
-        if ($object->isInitialized('actualDimensions') && null !== $object->getActualDimensions()) {
+        if (null !== $object->getActualDimensions()) {
             $data['actualDimensions'] = $this->normalizer->normalize($object->getActualDimensions(), 'json', $context);
         }
-        if ($object->isInitialized('unitOfMeasurements') && null !== $object->getUnitOfMeasurements()) {
+        if (null !== $object->getUnitOfMeasurements()) {
             $data['unitOfMeasurements'] = $object->getUnitOfMeasurements();
         }
-        if ($object->isInitialized('shipperReferences') && null !== $object->getShipperReferences()) {
+        if (null !== $object->getShipperReferences()) {
             $values = [];
             foreach ($object->getShipperReferences() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);

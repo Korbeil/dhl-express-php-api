@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressRateRequestNormalizer implements DenormalizerI
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRateRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRateRequest' === $data::class;
     }
@@ -159,73 +157,70 @@ class SupermodelIoLogisticsExpressRateRequestNormalizer implements DenormalizerI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['customerDetails'] = $this->normalizer->normalize($object->getCustomerDetails(), 'json', $context);
-        if ($object->isInitialized('accounts') && null !== $object->getAccounts()) {
+        if (null !== $object->getAccounts()) {
             $values = [];
             foreach ($object->getAccounts() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['accounts'] = $values;
         }
-        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
+        if (null !== $object->getProductCode()) {
             $data['productCode'] = $object->getProductCode();
         }
-        if ($object->isInitialized('localProductCode') && null !== $object->getLocalProductCode()) {
+        if (null !== $object->getLocalProductCode()) {
             $data['localProductCode'] = $object->getLocalProductCode();
         }
-        if ($object->isInitialized('valueAddedServices') && null !== $object->getValueAddedServices()) {
+        if (null !== $object->getValueAddedServices()) {
             $values_1 = [];
             foreach ($object->getValueAddedServices() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['valueAddedServices'] = $values_1;
         }
-        if ($object->isInitialized('productsAndServices') && null !== $object->getProductsAndServices()) {
+        if (null !== $object->getProductsAndServices()) {
             $values_2 = [];
             foreach ($object->getProductsAndServices() as $value_2) {
                 $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
             }
             $data['productsAndServices'] = $values_2;
         }
-        if ($object->isInitialized('payerCountryCode') && null !== $object->getPayerCountryCode()) {
+        if (null !== $object->getPayerCountryCode()) {
             $data['payerCountryCode'] = $object->getPayerCountryCode();
         }
         $data['plannedShippingDateAndTime'] = $object->getPlannedShippingDateAndTime();
         $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
         $data['isCustomsDeclarable'] = $object->getIsCustomsDeclarable();
-        if ($object->isInitialized('monetaryAmount') && null !== $object->getMonetaryAmount()) {
+        if (null !== $object->getMonetaryAmount()) {
             $values_3 = [];
             foreach ($object->getMonetaryAmount() as $value_3) {
                 $values_3[] = $this->normalizer->normalize($value_3, 'json', $context);
             }
             $data['monetaryAmount'] = $values_3;
         }
-        if ($object->isInitialized('requestAllValueAddedServices') && null !== $object->getRequestAllValueAddedServices()) {
+        if (null !== $object->getRequestAllValueAddedServices()) {
             $data['requestAllValueAddedServices'] = $object->getRequestAllValueAddedServices();
         }
-        if ($object->isInitialized('estimatedDeliveryDate') && null !== $object->getEstimatedDeliveryDate()) {
+        if (null !== $object->getEstimatedDeliveryDate()) {
             $data['estimatedDeliveryDate'] = $this->normalizer->normalize($object->getEstimatedDeliveryDate(), 'json', $context);
         }
-        if ($object->isInitialized('getAdditionalInformation') && null !== $object->getGetAdditionalInformation()) {
+        if (null !== $object->getGetAdditionalInformation()) {
             $values_4 = [];
             foreach ($object->getGetAdditionalInformation() as $value_4) {
                 $values_4[] = $this->normalizer->normalize($value_4, 'json', $context);
             }
             $data['getAdditionalInformation'] = $values_4;
         }
-        if ($object->isInitialized('returnStandardProductsOnly') && null !== $object->getReturnStandardProductsOnly()) {
+        if (null !== $object->getReturnStandardProductsOnly()) {
             $data['returnStandardProductsOnly'] = $object->getReturnStandardProductsOnly();
         }
-        if ($object->isInitialized('nextBusinessDay') && null !== $object->getNextBusinessDay()) {
+        if (null !== $object->getNextBusinessDay()) {
             $data['nextBusinessDay'] = $object->getNextBusinessDay();
         }
-        if ($object->isInitialized('productTypeCode') && null !== $object->getProductTypeCode()) {
+        if (null !== $object->getProductTypeCode()) {
             $data['productTypeCode'] = $object->getProductTypeCode();
         }
         $values_5 = [];

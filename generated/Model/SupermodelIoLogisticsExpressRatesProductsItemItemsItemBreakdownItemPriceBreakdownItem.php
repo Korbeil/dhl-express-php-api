@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Discount or tax type codes as provided by DHL.<BR>                              Example values;<BR>                              For discount;<BR>                              P: promotional<BR>                              S: special.
      *
      * @var string|null
@@ -57,7 +48,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
      */
     public function setPriceType(?string $priceType): self
     {
-        $this->initialized['priceType'] = true;
         $this->priceType = $priceType;
 
         return $this;
@@ -76,7 +66,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -95,7 +84,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
      */
     public function setPrice(?float $price): self
     {
-        $this->initialized['price'] = true;
         $this->price = $price;
 
         return $this;
@@ -114,7 +102,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
      */
     public function setRate(?float $rate): self
     {
-        $this->initialized['rate'] = true;
         $this->rate = $rate;
 
         return $this;
@@ -133,7 +120,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
      */
     public function setBasePrice(?float $basePrice): self
     {
-        $this->initialized['basePrice'] = true;
         $this->basePrice = $basePrice;
 
         return $this;

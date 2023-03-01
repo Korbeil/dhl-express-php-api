@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressAccount
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter DHL Express acount type.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressAccount
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressAccount
      */
     public function setNumber(?string $number): self
     {
-        $this->initialized['number'] = true;
         $this->number = $number;
 
         return $this;

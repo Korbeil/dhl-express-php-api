@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Piece serial number.
      *
      * @var float|null
@@ -57,7 +48,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
      */
     public function setReferenceNumber(?float $referenceNumber): self
     {
-        $this->initialized['referenceNumber'] = true;
         $this->referenceNumber = $referenceNumber;
 
         return $this;
@@ -76,7 +66,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
      */
     public function setTrackingNumber(?string $trackingNumber): self
     {
-        $this->initialized['trackingNumber'] = true;
         $this->trackingNumber = $trackingNumber;
 
         return $this;
@@ -95,7 +84,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
      */
     public function setTrackingUrl(?string $trackingUrl): self
     {
-        $this->initialized['trackingUrl'] = true;
         $this->trackingUrl = $trackingUrl;
 
         return $this;
@@ -114,7 +102,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
      */
     public function setVolumetricWeight(?float $volumetricWeight): self
     {
-        $this->initialized['volumetricWeight'] = true;
         $this->volumetricWeight = $volumetricWeight;
 
         return $this;
@@ -137,7 +124,6 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
      */
     public function setDocuments(?array $documents): self
     {
-        $this->initialized['documents'] = true;
         $this->documents = $documents;
 
         return $this;

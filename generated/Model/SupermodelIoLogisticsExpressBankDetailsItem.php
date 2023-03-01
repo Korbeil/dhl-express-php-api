@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressBankDetailsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * To be mapped in commercial Invoice - Russia Bank Name field.
      *
      * @var string|null
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressBankDetailsItem
      */
     public function setName(?string $name): self
     {
-        $this->initialized['name'] = true;
         $this->name = $name;
 
         return $this;
@@ -64,7 +54,6 @@ class SupermodelIoLogisticsExpressBankDetailsItem
      */
     public function setSettlementLocalCurrency(?string $settlementLocalCurrency): self
     {
-        $this->initialized['settlementLocalCurrency'] = true;
         $this->settlementLocalCurrency = $settlementLocalCurrency;
 
         return $this;
@@ -83,7 +72,6 @@ class SupermodelIoLogisticsExpressBankDetailsItem
      */
     public function setSettlementForeignCurrency(?string $settlementForeignCurrency): self
     {
-        $this->initialized['settlementForeignCurrency'] = true;
         $this->settlementForeignCurrency = $settlementForeignCurrency;
 
         return $this;

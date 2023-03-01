@@ -11,7 +11,7 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
      *
      * @param array $queryParameters {
      *
-     *     @var bool $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
+     *     @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
      * }
      *
      * @param array $headerParameters {
@@ -70,7 +70,7 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
         $optionsResolver->setDefined(['strictValidation']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults(['strictValidation' => false]);
-        $optionsResolver->addAllowedTypes('strictValidation', ['bool']);
+        $optionsResolver->setAllowedTypes('strictValidation', ['string']);
 
         return $optionsResolver;
     }
@@ -81,14 +81,14 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
         $optionsResolver->setDefined(['Message-Reference', 'Message-Reference-Date', 'Plugin-Name', 'Plugin-Version', 'Shipping-System-Platform-Name', 'Shipping-System-Platform-Version', 'Webstore-Platform-Name', 'Webstore-Platform-Version']);
         $optionsResolver->setRequired([]);
         $optionsResolver->setDefaults([]);
-        $optionsResolver->addAllowedTypes('Message-Reference', ['string']);
-        $optionsResolver->addAllowedTypes('Message-Reference-Date', ['string']);
-        $optionsResolver->addAllowedTypes('Plugin-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Plugin-Version', ['string']);
-        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Shipping-System-Platform-Version', ['string']);
-        $optionsResolver->addAllowedTypes('Webstore-Platform-Name', ['string']);
-        $optionsResolver->addAllowedTypes('Webstore-Platform-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Message-Reference', ['string']);
+        $optionsResolver->setAllowedTypes('Message-Reference-Date', ['string']);
+        $optionsResolver->setAllowedTypes('Plugin-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Plugin-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Shipping-System-Platform-Version', ['string']);
+        $optionsResolver->setAllowedTypes('Webstore-Platform-Name', ['string']);
+        $optionsResolver->setAllowedTypes('Webstore-Platform-Version', ['string']);
 
         return $optionsResolver;
     }
@@ -100,21 +100,19 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsUnprocessableEntityException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInternalServerErrorException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(string $body, int $status, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
     {
-        $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
         if ((null === $contentType) === false && (201 === $status && false !== mb_strpos($contentType, 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponse', 'json');
         }
         if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
         }
         if ((null === $contentType) === false && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
         }
         if ((null === $contentType) === false && (500 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInternalServerErrorException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInternalServerErrorException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'));
         }
     }
 

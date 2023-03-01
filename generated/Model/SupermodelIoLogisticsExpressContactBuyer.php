@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressContactBuyer
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter email address.
      *
      * @var string|null
@@ -57,7 +48,6 @@ class SupermodelIoLogisticsExpressContactBuyer
      */
     public function setEmail(?string $email): self
     {
-        $this->initialized['email'] = true;
         $this->email = $email;
 
         return $this;
@@ -76,7 +66,6 @@ class SupermodelIoLogisticsExpressContactBuyer
      */
     public function setPhone(?string $phone): self
     {
-        $this->initialized['phone'] = true;
         $this->phone = $phone;
 
         return $this;
@@ -95,7 +84,6 @@ class SupermodelIoLogisticsExpressContactBuyer
      */
     public function setMobilePhone(?string $mobilePhone): self
     {
-        $this->initialized['mobilePhone'] = true;
         $this->mobilePhone = $mobilePhone;
 
         return $this;
@@ -114,7 +102,6 @@ class SupermodelIoLogisticsExpressContactBuyer
      */
     public function setCompanyName(?string $companyName): self
     {
-        $this->initialized['companyName'] = true;
         $this->companyName = $companyName;
 
         return $this;
@@ -133,7 +120,6 @@ class SupermodelIoLogisticsExpressContactBuyer
      */
     public function setFullName(?string $fullName): self
     {
-        $this->initialized['fullName'] = true;
         $this->fullName = $fullName;
 
         return $this;

@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeightNormalizer implement
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItemWeight' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressProductsProductsItemWeight' === $data::class;
     }
@@ -38,12 +36,6 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeightNormalizer implement
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemWeight();
-        if (\array_key_exists('volumetric', $data) && \is_int($data['volumetric'])) {
-            $data['volumetric'] = (float) $data['volumetric'];
-        }
-        if (\array_key_exists('provided', $data) && \is_int($data['provided'])) {
-            $data['provided'] = (float) $data['provided'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -66,19 +58,16 @@ class SupermodelIoLogisticsExpressProductsProductsItemWeightNormalizer implement
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
-        if ($object->isInitialized('volumetric') && null !== $object->getVolumetric()) {
+        if (null !== $object->getVolumetric()) {
             $data['volumetric'] = $object->getVolumetric();
         }
-        if ($object->isInitialized('provided') && null !== $object->getProvided()) {
+        if (null !== $object->getProvided()) {
             $data['provided'] = $object->getProvided();
         }
-        if ($object->isInitialized('unitOfMeasurement') && null !== $object->getUnitOfMeasurement()) {
+        if (null !== $object->getUnitOfMeasurement()) {
             $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
         }
 

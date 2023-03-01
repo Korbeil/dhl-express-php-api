@@ -4,7 +4,6 @@ namespace Korbeil\DHLExpress\Api\Normalizer;
 
 use Jane\Component\JsonSchemaRuntime\Reference;
 use Korbeil\DHLExpress\Api\Runtime\Normalizer\CheckArray;
-use Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidatorTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareInterface;
 use Symfony\Component\Serializer\Normalizer\DenormalizerAwareTrait;
 use Symfony\Component\Serializer\Normalizer\DenormalizerInterface;
@@ -17,14 +16,13 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
     use CheckArray;
     use DenormalizerAwareTrait;
     use NormalizerAwareTrait;
-    use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null)
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null)
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItem' === $data::class;
     }
@@ -38,21 +36,6 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem();
-        if (\array_key_exists('number', $data) && \is_int($data['number'])) {
-            $data['number'] = (float) $data['number'];
-        }
-        if (\array_key_exists('quantity', $data) && \is_int($data['quantity'])) {
-            $data['quantity'] = (float) $data['quantity'];
-        }
-        if (\array_key_exists('unitPrice', $data) && \is_int($data['unitPrice'])) {
-            $data['unitPrice'] = (float) $data['unitPrice'];
-        }
-        if (\array_key_exists('customsValue', $data) && \is_int($data['customsValue'])) {
-            $data['customsValue'] = (float) $data['customsValue'];
-        }
-        if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
-            $data['weight'] = (float) $data['weight'];
-        }
         if (null === $data || false === \is_array($data)) {
             return $object;
         }
@@ -163,67 +146,64 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
     public function normalize($object, $format = null, array $context = [])
     {
         $data = [];
         $data['number'] = $object->getNumber();
-        if ($object->isInitialized('name') && null !== $object->getName()) {
+        if (null !== $object->getName()) {
             $data['name'] = $object->getName();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
+        if (null !== $object->getDescription()) {
             $data['description'] = $object->getDescription();
         }
-        if ($object->isInitialized('manufacturerCountry') && null !== $object->getManufacturerCountry()) {
+        if (null !== $object->getManufacturerCountry()) {
             $data['manufacturerCountry'] = $object->getManufacturerCountry();
         }
-        if ($object->isInitialized('partNumber') && null !== $object->getPartNumber()) {
+        if (null !== $object->getPartNumber()) {
             $data['partNumber'] = $object->getPartNumber();
         }
         $data['quantity'] = $object->getQuantity();
-        if ($object->isInitialized('quantityType') && null !== $object->getQuantityType()) {
+        if (null !== $object->getQuantityType()) {
             $data['quantityType'] = $object->getQuantityType();
         }
         $data['unitPrice'] = $object->getUnitPrice();
         $data['unitPriceCurrencyCode'] = $object->getUnitPriceCurrencyCode();
-        if ($object->isInitialized('customsValue') && null !== $object->getCustomsValue()) {
+        if (null !== $object->getCustomsValue()) {
             $data['customsValue'] = $object->getCustomsValue();
         }
-        if ($object->isInitialized('customsValueCurrencyCode') && null !== $object->getCustomsValueCurrencyCode()) {
+        if (null !== $object->getCustomsValueCurrencyCode()) {
             $data['customsValueCurrencyCode'] = $object->getCustomsValueCurrencyCode();
         }
-        if ($object->isInitialized('commodityCode') && null !== $object->getCommodityCode()) {
+        if (null !== $object->getCommodityCode()) {
             $data['commodityCode'] = $object->getCommodityCode();
         }
-        if ($object->isInitialized('weight') && null !== $object->getWeight()) {
+        if (null !== $object->getWeight()) {
             $data['weight'] = $object->getWeight();
         }
-        if ($object->isInitialized('weightUnitOfMeasurement') && null !== $object->getWeightUnitOfMeasurement()) {
+        if (null !== $object->getWeightUnitOfMeasurement()) {
             $data['weightUnitOfMeasurement'] = $object->getWeightUnitOfMeasurement();
         }
-        if ($object->isInitialized('category') && null !== $object->getCategory()) {
+        if (null !== $object->getCategory()) {
             $data['category'] = $object->getCategory();
         }
-        if ($object->isInitialized('brand') && null !== $object->getBrand()) {
+        if (null !== $object->getBrand()) {
             $data['brand'] = $object->getBrand();
         }
-        if ($object->isInitialized('goodsCharacteristics') && null !== $object->getGoodsCharacteristics()) {
+        if (null !== $object->getGoodsCharacteristics()) {
             $values = [];
             foreach ($object->getGoodsCharacteristics() as $value) {
                 $values[] = $this->normalizer->normalize($value, 'json', $context);
             }
             $data['goodsCharacteristics'] = $values;
         }
-        if ($object->isInitialized('additionalQuantityDefinitions') && null !== $object->getAdditionalQuantityDefinitions()) {
+        if (null !== $object->getAdditionalQuantityDefinitions()) {
             $values_1 = [];
             foreach ($object->getAdditionalQuantityDefinitions() as $value_1) {
                 $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
             }
             $data['additionalQuantityDefinitions'] = $values_1;
         }
-        if ($object->isInitialized('estimatedTariffRateType') && null !== $object->getEstimatedTariffRateType()) {
+        if (null !== $object->getEstimatedTariffRateType()) {
             $data['estimatedTariffRateType'] = $object->getEstimatedTariffRateType();
         }
 

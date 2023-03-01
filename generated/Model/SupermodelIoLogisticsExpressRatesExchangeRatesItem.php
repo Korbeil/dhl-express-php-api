@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesExchangeRatesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Rate of the currency exchange.
      *
      * @var float|null
@@ -45,7 +36,6 @@ class SupermodelIoLogisticsExpressRatesExchangeRatesItem
      */
     public function setCurrentExchangeRate(?float $currentExchangeRate): self
     {
-        $this->initialized['currentExchangeRate'] = true;
         $this->currentExchangeRate = $currentExchangeRate;
 
         return $this;
@@ -64,7 +54,6 @@ class SupermodelIoLogisticsExpressRatesExchangeRatesItem
      */
     public function setCurrency(?string $currency): self
     {
-        $this->initialized['currency'] = true;
         $this->currency = $currency;
 
         return $this;
@@ -83,7 +72,6 @@ class SupermodelIoLogisticsExpressRatesExchangeRatesItem
      */
     public function setBaseCurrency(?string $baseCurrency): self
     {
-        $this->initialized['baseCurrency'] = true;
         $this->baseCurrency = $baseCurrency;
 
         return $this;

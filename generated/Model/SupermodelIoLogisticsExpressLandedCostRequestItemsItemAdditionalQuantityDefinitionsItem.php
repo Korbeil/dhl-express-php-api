@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Item additional quantity value UOM:<BR> example PFL=percent of alcohol.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDe
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDe
      */
     public function setAmount(?float $amount): self
     {
-        $this->initialized['amount'] = true;
         $this->amount = $amount;
 
         return $this;

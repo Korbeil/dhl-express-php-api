@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Name of the DHL Express product.
      *
      * @var string|null
@@ -109,7 +100,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setProductName(?string $productName): self
     {
-        $this->initialized['productName'] = true;
         $this->productName = $productName;
 
         return $this;
@@ -128,7 +118,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setProductCode(?string $productCode): self
     {
-        $this->initialized['productCode'] = true;
         $this->productCode = $productCode;
 
         return $this;
@@ -147,7 +136,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setLocalProductCode(?string $localProductCode): self
     {
-        $this->initialized['localProductCode'] = true;
         $this->localProductCode = $localProductCode;
 
         return $this;
@@ -166,7 +154,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setLocalProductCountryCode(?string $localProductCountryCode): self
     {
-        $this->initialized['localProductCountryCode'] = true;
         $this->localProductCountryCode = $localProductCountryCode;
 
         return $this;
@@ -185,7 +172,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setNetworkTypeCode(?string $networkTypeCode): self
     {
-        $this->initialized['networkTypeCode'] = true;
         $this->networkTypeCode = $networkTypeCode;
 
         return $this;
@@ -204,7 +190,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setIsCustomerAgreement(?bool $isCustomerAgreement): self
     {
-        $this->initialized['isCustomerAgreement'] = true;
         $this->isCustomerAgreement = $isCustomerAgreement;
 
         return $this;
@@ -217,7 +202,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
 
     public function setWeight(?SupermodelIoLogisticsExpressRatesProductsItemWeight $weight): self
     {
-        $this->initialized['weight'] = true;
         $this->weight = $weight;
 
         return $this;
@@ -236,7 +220,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setTotalPrice(?array $totalPrice): self
     {
-        $this->initialized['totalPrice'] = true;
         $this->totalPrice = $totalPrice;
 
         return $this;
@@ -255,7 +238,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setTotalPriceBreakdown(?array $totalPriceBreakdown): self
     {
-        $this->initialized['totalPriceBreakdown'] = true;
         $this->totalPriceBreakdown = $totalPriceBreakdown;
 
         return $this;
@@ -274,7 +256,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setDetailedPriceBreakdown(?array $detailedPriceBreakdown): self
     {
-        $this->initialized['detailedPriceBreakdown'] = true;
         $this->detailedPriceBreakdown = $detailedPriceBreakdown;
 
         return $this;
@@ -297,7 +278,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setServiceCodeMutuallyExclusiveGroups(?array $serviceCodeMutuallyExclusiveGroups): self
     {
-        $this->initialized['serviceCodeMutuallyExclusiveGroups'] = true;
         $this->serviceCodeMutuallyExclusiveGroups = $serviceCodeMutuallyExclusiveGroups;
 
         return $this;
@@ -320,7 +300,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setServiceCodeDependencyRuleGroups(?array $serviceCodeDependencyRuleGroups): self
     {
-        $this->initialized['serviceCodeDependencyRuleGroups'] = true;
         $this->serviceCodeDependencyRuleGroups = $serviceCodeDependencyRuleGroups;
 
         return $this;
@@ -333,7 +312,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
 
     public function setPickupCapabilities(?SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilities $pickupCapabilities): self
     {
-        $this->initialized['pickupCapabilities'] = true;
         $this->pickupCapabilities = $pickupCapabilities;
 
         return $this;
@@ -346,7 +324,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
 
     public function setDeliveryCapabilities(?SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities $deliveryCapabilities): self
     {
-        $this->initialized['deliveryCapabilities'] = true;
         $this->deliveryCapabilities = $deliveryCapabilities;
 
         return $this;
@@ -365,7 +342,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setItems(?array $items): self
     {
-        $this->initialized['items'] = true;
         $this->items = $items;
 
         return $this;
@@ -384,7 +360,6 @@ class SupermodelIoLogisticsExpressRatesProductsItem
      */
     public function setPricingDate(?string $pricingDate): self
     {
-        $this->initialized['pricingDate'] = true;
         $this->pricingDate = $pricingDate;
 
         return $this;

@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationExporter
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please provide exporter Id.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationE
      */
     public function setId(?string $id): self
     {
-        $this->initialized['id'] = true;
         $this->id = $id;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationE
      */
     public function setCode(?string $code): self
     {
-        $this->initialized['code'] = true;
         $this->code = $code;
 
         return $this;

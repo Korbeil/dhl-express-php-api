@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please enter the net weight value.
      *
      * @var float|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight
      */
     public function setNetValue(?float $netValue): self
     {
-        $this->initialized['netValue'] = true;
         $this->netValue = $netValue;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight
      */
     public function setGrossValue(?float $grossValue): self
     {
-        $this->initialized['grossValue'] = true;
         $this->grossValue = $grossValue;
 
         return $this;

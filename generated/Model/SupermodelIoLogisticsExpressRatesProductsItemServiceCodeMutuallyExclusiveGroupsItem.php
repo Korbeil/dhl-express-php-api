@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Mutually exclusive serviceCode group name.
      *
      * @var string|null
@@ -43,7 +34,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
      */
     public function setServiceCodeRuleName(?string $serviceCodeRuleName): self
     {
-        $this->initialized['serviceCodeRuleName'] = true;
         $this->serviceCodeRuleName = $serviceCodeRuleName;
 
         return $this;
@@ -62,7 +52,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
      */
     public function setDescription(?string $description): self
     {
-        $this->initialized['description'] = true;
         $this->description = $description;
 
         return $this;
@@ -81,7 +70,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
      */
     public function setServiceCodes(?array $serviceCodes): self
     {
-        $this->initialized['serviceCodes'] = true;
         $this->serviceCodes = $serviceCodes;
 
         return $this;

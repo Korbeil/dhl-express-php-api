@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressContactCreateShipmentResponse
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Company name.
      *
      * @var string|null
@@ -39,7 +30,6 @@ class SupermodelIoLogisticsExpressContactCreateShipmentResponse
      */
     public function setCompanyName(?string $companyName): self
     {
-        $this->initialized['companyName'] = true;
         $this->companyName = $companyName;
 
         return $this;
@@ -58,7 +48,6 @@ class SupermodelIoLogisticsExpressContactCreateShipmentResponse
      */
     public function setFullName(?string $fullName): self
     {
-        $this->initialized['fullName'] = true;
         $this->fullName = $fullName;
 
         return $this;

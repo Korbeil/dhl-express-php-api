@@ -5,15 +5,6 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Provide type code of data that can be returned in response. Values can be pickupDetails, optionalShipmentData, transliterateResponse.
      *
      * @var string|null
@@ -37,7 +28,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationI
      */
     public function setTypeCode(?string $typeCode): self
     {
-        $this->initialized['typeCode'] = true;
         $this->typeCode = $typeCode;
 
         return $this;
@@ -50,7 +40,6 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationI
 
     public function setIsRequested(?bool $isRequested): self
     {
-        $this->initialized['isRequested'] = true;
         $this->isRequested = $isRequested;
 
         return $this;
