@@ -13,14 +13,12 @@ class ClientTest extends TestCase
 
     protected function setUp(): void
     {
-        parent::setUp();
         $clientFactory = new ClientFactory('fake-url', 'fake-username', 'fake-password');
         $this->mockClient = $clientFactory->getMockClient();
     }
 
     protected function tearDown(): void
     {
-        unset($this->mockClient);
         parent::tearDown();
     }
 
