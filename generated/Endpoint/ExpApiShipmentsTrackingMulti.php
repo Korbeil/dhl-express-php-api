@@ -11,29 +11,29 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
      *
      * @param array $queryParameters {
      *
-     *     @var array $shipmentTrackingNumber DHL Express shipment identification number
-     *     @var array $pieceTrackingNumber DHL Express shipment piece tracking number
-     *     @var string $shipmentReference Shipment reference which was provided during the shipment label creation
-     *     @var string $shipmentReferenceType Shipment reference type which was provided during the shipment label creation
-     *     @var string $shipperAccountNumber Shipper DHL Express Account number under which the shipment label was created
-     *     @var string $dateRangeFrom When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
-     *     @var string $dateRangeTo When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
-     *     @var string $trackingView
-     *     @var string $levelOfDetail
-     * }
+     * @var array  $shipmentTrackingNumber DHL Express shipment identification number
+     * @var array  $pieceTrackingNumber DHL Express shipment piece tracking number
+     * @var string $shipmentReference Shipment reference which was provided during the shipment label creation
+     * @var string $shipmentReferenceType Shipment reference type which was provided during the shipment label creation
+     * @var string $shipperAccountNumber Shipper DHL Express Account number under which the shipment label was created
+     * @var string $dateRangeFrom When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
+     * @var string $dateRangeTo When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
+     * @var string $trackingView
+     * @var string $levelOfDetail
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Accept-Language
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Accept-Language
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
     {

@@ -11,25 +11,25 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
      *
      * @param array $queryParameters {
      *
-     *     @var string $type
-     *     @var string $countryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $cityName Text specifying the city name
-     *     @var string $countyName Text specifying the county name
-     *     @var string $strictValidation If set to true service will return no records when exact valid match not found
-     * }
+     * @var string $type
+     * @var string $countryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $cityName Text specifying the city name
+     * @var string $countyName Text specifying the county name
+     * @var string $strictValidation If set to true service will return no records when exact valid match not found
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
     {

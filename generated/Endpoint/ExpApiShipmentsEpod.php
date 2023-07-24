@@ -13,21 +13,21 @@ class ExpApiShipmentsEpod extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      * @param array  $queryParameters        {
      *
-     *     @var string $shipperAccountNumber DHL Express customer shipper account number
-     *     @var string $content
-     * }
+     * @var string $shipperAccountNumber DHL Express customer shipper account number
+     * @var string $content
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      */
     public function __construct(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [])
     {

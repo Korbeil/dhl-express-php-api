@@ -11,38 +11,38 @@ class ExpApiRates extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint im
      *
      * @param array $queryParameters {
      *
-     *     @var string $accountNumber DHL Express customer account number
-     *     @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $originCityName Text specifying the city name
-     *     @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $destinationCityName Text specifying the city name
-     *     @var float $weight gross weight of the shipment including packaging
-     *     @var float $length total length of the shipment including packaging
-     *     @var float $width total width of the shipment including packaging
-     *     @var float $height total height of the shipment including packaging
-     *     @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
-     *     @var bool $isCustomsDeclarable
-     *     @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
-     *     @var bool $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
-     *     @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     *     @var bool $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
-     *     @var bool $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
-     *     @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
-     * }
+     * @var string $accountNumber DHL Express customer account number
+     * @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $originCityName Text specifying the city name
+     * @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $destinationCityName Text specifying the city name
+     * @var float  $weight gross weight of the shipment including packaging
+     * @var float  $length total length of the shipment including packaging
+     * @var float  $width total width of the shipment including packaging
+     * @var float  $height total height of the shipment including packaging
+     * @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
+     * @var string $isCustomsDeclarable
+     * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
+     * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
+     * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
+     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
+     * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
@@ -88,7 +88,7 @@ class ExpApiRates extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint im
         $optionsResolver->addAllowedTypes('width', ['float']);
         $optionsResolver->addAllowedTypes('height', ['float']);
         $optionsResolver->addAllowedTypes('plannedShippingDate', ['string']);
-        $optionsResolver->addAllowedTypes('isCustomsDeclarable', ['bool']);
+        $optionsResolver->addAllowedTypes('isCustomsDeclarable', ['string']);
         $optionsResolver->addAllowedTypes('unitOfMeasurement', ['string']);
         $optionsResolver->addAllowedTypes('nextBusinessDay', ['bool']);
         $optionsResolver->addAllowedTypes('strictValidation', ['string']);

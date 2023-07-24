@@ -1902,7 +1902,7 @@ components:
       required: true
       example: false
       schema:
-        type: boolean
+        type: string
         enum:
           - true
           - false

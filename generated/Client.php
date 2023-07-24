@@ -10,21 +10,21 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param string $dispatchConfirmationNumber Shipment pickup confirmation number for example `PRG999126012345`
      * @param array  $queryParameters            {
      *
-     *     @var string $requestorName Name of the person requesting to cancel the scheduled pickup
-     *     @var string $reason Provide why scheduled pickup is being cancelled
-     * }
+     * @var string $requestorName Name of the person requesting to cancel the scheduled pickup
+     * @var string $reason Provide why scheduled pickup is being cancelled
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -45,15 +45,15 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupRequest|null $requestBody
      * @param array                                                                              $headerParameters           {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -74,15 +74,15 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequest|null $requestBody
      * @param array                                                                        $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -100,22 +100,22 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     *     @var string $accountNumber DHL Express customer account number
-     *     @var string $type Type of DHL Express identifier to retrieve
-     *     @var string $size Number of identifiers to be retrieved
-     * }
+     * @var string $accountNumber DHL Express customer account number
+     * @var string $type Type of DHL Express identifier to retrieve
+     * @var string $size Number of identifiers to be retrieved
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -133,25 +133,25 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     *     @var string $type
-     *     @var string $countryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $cityName Text specifying the city name
-     *     @var string $countyName Text specifying the county name
-     *     @var string $strictValidation If set to true service will return no records when exact valid match not found
-     * }
+     * @var string $type
+     * @var string $countryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $cityName Text specifying the city name
+     * @var string $countyName Text specifying the county name
+     * @var string $strictValidation If set to true service will return no records when exact valid match not found
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -169,38 +169,38 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     *     @var string $accountNumber DHL Express customer account number
-     *     @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $originCityName Text specifying the city name
-     *     @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $destinationCityName Text specifying the city name
-     *     @var float $weight gross weight of the shipment including packaging
-     *     @var float $length total length of the shipment including packaging
-     *     @var float $width total width of the shipment including packaging
-     *     @var float $height total height of the shipment including packaging
-     *     @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
-     *     @var bool $isCustomsDeclarable
-     *     @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
-     *     @var bool $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
-     *     @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     *     @var bool $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
-     *     @var bool $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
-     *     @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
-     * }
+     * @var string $accountNumber DHL Express customer account number
+     * @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $originCityName Text specifying the city name
+     * @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $destinationCityName Text specifying the city name
+     * @var float  $weight gross weight of the shipment including packaging
+     * @var float  $length total length of the shipment including packaging
+     * @var float  $width total width of the shipment including packaging
+     * @var float  $height total height of the shipment including packaging
+     * @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
+     * @var string $isCustomsDeclarable
+     * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
+     * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
+     * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
+     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
+     * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -220,20 +220,20 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRateRequest|null $requestBody
      * @param array                                                                      $queryParameters {
      *
-     *     @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
-     * }
+     * @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -253,15 +253,15 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequest|null $requestBody
      * @param array                                                                            $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -280,47 +280,38 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     *     @var string $accountNumber DHL Express customer account number
-     *     @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $originCityName Text specifying the city name
-     *     @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
-     *     @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     *     @var string $destinationCityName Text specifying the city name
-     *     @var float $weight gross weight of the shipment including packaging
-     *     @var float $length total length of the shipment including packaging
-     *     @var float $width total width of the shipment including packaging
-     *     @var float $height total height of the shipment including packaging
-     *     @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
-
-     *     @var bool $isCustomsDeclarable
-     *     @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
-
-     *     @var bool $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
-
-     *     @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     *     @var bool $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
-     *     @var bool $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
-     *     @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
-     * }
+     * @var string $accountNumber DHL Express customer account number
+     * @var string $originCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $originPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $originCityName Text specifying the city name
+     * @var string $destinationCountryCode A short text string code (see values defined in ISO 3166) specifying the shipment destination country. https://gs1.org/voc/Country, Alpha-2 Code
+     * @var string $destinationPostalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     * @var string $destinationCityName Text specifying the city name
+     * @var float  $weight gross weight of the shipment including packaging
+     * @var float  $length total length of the shipment including packaging
+     * @var float  $width total width of the shipment including packaging
+     * @var float  $height total height of the shipment including packaging
+     * @var string $plannedShippingDate Timestamp represents the date you plan to ship your prospected shipment
+     * @var string $isCustomsDeclarable
+     * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
+     * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
+     * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
+     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
+     * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -341,22 +332,22 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      * @param array  $queryParameters        {
      *
-     *     @var string $trackingView
-     *     @var string $levelOfDetail
-     * }
+     * @var string $trackingView
+     * @var string $levelOfDetail
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Accept-Language
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Accept-Language
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -375,29 +366,29 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      *
      * @param array $queryParameters {
      *
-     *     @var array $shipmentTrackingNumber DHL Express shipment identification number
-     *     @var array $pieceTrackingNumber DHL Express shipment piece tracking number
-     *     @var string $shipmentReference Shipment reference which was provided during the shipment label creation
-     *     @var string $shipmentReferenceType Shipment reference type which was provided during the shipment label creation
-     *     @var string $shipperAccountNumber Shipper DHL Express Account number under which the shipment label was created
-     *     @var string $dateRangeFrom When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
-     *     @var string $dateRangeTo When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
-     *     @var string $trackingView
-     *     @var string $levelOfDetail
-     * }
+     * @var array  $shipmentTrackingNumber DHL Express shipment identification number
+     * @var array  $pieceTrackingNumber DHL Express shipment piece tracking number
+     * @var string $shipmentReference Shipment reference which was provided during the shipment label creation
+     * @var string $shipmentReferenceType Shipment reference type which was provided during the shipment label creation
+     * @var string $shipperAccountNumber Shipper DHL Express Account number under which the shipment label was created
+     * @var string $dateRangeFrom When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
+     * @var string $dateRangeTo When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
+     * @var string $trackingView
+     * @var string $levelOfDetail
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Accept-Language
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Accept-Language
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -417,21 +408,21 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      * @param array  $queryParameters        {
      *
-     *     @var string $shipperAccountNumber DHL Express customer shipper account number
-     *     @var string $content
-     * }
+     * @var string $shipperAccountNumber DHL Express customer shipper account number
+     * @var string $content
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
@@ -469,26 +460,20 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequest|null $requestBody
      * @param array                                                                                $queryParameters {
      *
-     *     @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
-     * }
+     * @var string $strictValidation If set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request.
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -511,21 +496,15 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequest|null $requestBody
      * @param array                                                                                   $headerParameters       {
      *
-     *     @var string $Message-Reference Please provide message reference
-
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -546,21 +525,15 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID|null $requestBody
      * @param array                                                                                      $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *
      * }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
@@ -581,25 +554,25 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      * @param array  $queryParameters        {
      *
-     *     @var string $shipperAccountNumber DHL Express customer shipper account number
-     *     @var string $typeCode please provide correct document type
-     *     @var string $pickupYearAndMonth Please provide the pickup's date in YYYY-MM format
-     *     @var string $encodingFormat Please provide the document image encoding format in pdf or tiff format
-     *     @var bool $allInOnePDF Option to return all the document images in a single PDF file
-     *     @var bool $compressedPackage Option to return all the document images in a compressed package
-     * }
+     * @var string $shipperAccountNumber DHL Express customer shipper account number
+     * @var string $typeCode please provide correct document type
+     * @var string $pickupYearAndMonth Please provide the pickup's date in YYYY-MM format
+     * @var string $encodingFormat Please provide the document image encoding format in pdf or tiff format
+     * @var bool   $allInOnePDF Option to return all the document images in a single PDF file
+     * @var bool   $compressedPackage Option to return all the document images in a compressed package
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      *
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *

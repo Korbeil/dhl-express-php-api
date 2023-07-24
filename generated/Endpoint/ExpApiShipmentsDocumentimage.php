@@ -13,25 +13,25 @@ class ExpApiShipmentsDocumentimage extends \Korbeil\DHLExpress\Api\Runtime\Clien
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      * @param array  $queryParameters        {
      *
-     *     @var string $shipperAccountNumber DHL Express customer shipper account number
-     *     @var string $typeCode please provide correct document type
-     *     @var string $pickupYearAndMonth Please provide the pickup's date in YYYY-MM format
-     *     @var string $encodingFormat Please provide the document image encoding format in pdf or tiff format
-     *     @var bool $allInOnePDF Option to return all the document images in a single PDF file
-     *     @var bool $compressedPackage Option to return all the document images in a compressed package
-     * }
+     * @var string $shipperAccountNumber DHL Express customer shipper account number
+     * @var string $typeCode please provide correct document type
+     * @var string $pickupYearAndMonth Please provide the pickup's date in YYYY-MM format
+     * @var string $encodingFormat Please provide the document image encoding format in pdf or tiff format
+     * @var bool   $allInOnePDF Option to return all the document images in a single PDF file
+     * @var bool   $compressedPackage Option to return all the document images in a compressed package
+     *             }
      *
      * @param array $headerParameters {
      *
-     *     @var string $Message-Reference Please provide message reference
-     *     @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     *     @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     *     @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     *     @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     *     @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     * }
+     * @var string $Message-Reference Please provide message reference
+     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
+     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
+     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
+     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
+     *             }
      */
     public function __construct(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [])
     {
