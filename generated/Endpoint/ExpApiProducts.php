@@ -77,7 +77,7 @@ class ExpApiProducts extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint
         $optionsResolver = parent::getQueryOptionsResolver();
         $optionsResolver->setDefined(['accountNumber', 'originCountryCode', 'originPostalCode', 'originCityName', 'destinationCountryCode', 'destinationPostalCode', 'destinationCityName', 'weight', 'length', 'width', 'height', 'plannedShippingDate', 'isCustomsDeclarable', 'unitOfMeasurement', 'nextBusinessDay', 'strictValidation', 'getAllValueAddedServices', 'requestEstimatedDeliveryDate', 'estimatedDeliveryDateType']);
         $optionsResolver->setRequired(['accountNumber', 'originCountryCode', 'originCityName', 'destinationCountryCode', 'destinationCityName', 'weight', 'length', 'width', 'height', 'plannedShippingDate', 'isCustomsDeclarable', 'unitOfMeasurement']);
-        $optionsResolver->setDefaults(['strictValidation' => 'false', 'getAllValueAddedServices' => false, 'requestEstimatedDeliveryDate' => true, 'estimatedDeliveryDateType' => 'QDDF']);
+        $optionsResolver->setDefaults(['strictValidation' => 'false', 'getAllValueAddedServices' => 'false', 'requestEstimatedDeliveryDate' => true, 'estimatedDeliveryDateType' => 'QDDF']);
         $optionsResolver->addAllowedTypes('accountNumber', ['string']);
         $optionsResolver->addAllowedTypes('originCountryCode', ['string']);
         $optionsResolver->addAllowedTypes('originPostalCode', ['string']);

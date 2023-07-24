@@ -2192,7 +2192,7 @@ components:
       example: false
       schema:
         type: string
-        default: false
+        default: 'false'
         enum: ['true', 'false']
     requestEstimatedDeliveryDate:
       name: requestEstimatedDeliveryDate
