@@ -186,7 +186,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
      * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
      * @var string $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
-     * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
+     * @var string $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
      *             }
      *
@@ -298,7 +298,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
      * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
      * @var string $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
-     * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
+     * @var string $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
      *             }
      *

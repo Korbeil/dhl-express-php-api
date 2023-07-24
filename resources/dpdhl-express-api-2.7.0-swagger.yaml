@@ -2200,10 +2200,11 @@ components:
       description: >-
         Option to return Estimated Delivery Date in response
       required: false
-      example: true
+      example: 'true'
       schema:
-        type: boolean
-        default: true
+        type: string
+        default: 'true'
+        enum: ['true', 'false']
     estimatedDeliveryDateType:
       name: estimatedDeliveryDateType
       in: query
