@@ -21,6 +21,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
     protected $plannedShipDate;
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
+     * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @var SupermodelIoLogisticsExpressAccount[]|null
      */
@@ -65,6 +66,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
 
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
+     * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @return SupermodelIoLogisticsExpressAccount[]|null
      */
@@ -75,6 +77,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
 
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
+     * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
      */

@@ -33,6 +33,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
     protected $function;
     /**
      * Please provide the customer references at invoice level.
+     * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @var SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null
      */
@@ -97,6 +98,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
 
     /**
      * Please provide the customer references at invoice level.
+     * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @return SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null
      */
@@ -107,6 +109,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
 
     /**
      * Please provide the customer references at invoice level.
+     * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
      * @param SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null $customerReferences
      */

@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressRatesExchangeRatesItemNormalizer implements De
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesExchangeRatesItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesExchangeRatesItem' === $data::class;
     }
@@ -74,5 +74,10 @@ class SupermodelIoLogisticsExpressRatesExchangeRatesItemNormalizer implements De
         $data['baseCurrency'] = $object->getBaseCurrency();
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesExchangeRatesItem' => false];
     }
 }

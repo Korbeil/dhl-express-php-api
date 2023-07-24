@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem' === $data::class;
     }
@@ -73,5 +73,10 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
         $data['symbologyCode'] = $object->getSymbologyCode();
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem' => false];
     }
 }

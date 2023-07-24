@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem' === $data::class;
     }
@@ -184,5 +184,10 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
         }
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem' => false];
     }
 }

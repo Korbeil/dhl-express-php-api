@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressAddressRatesRequestNormalizer implements Denor
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressRatesRequest' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressRatesRequest' === $data::class;
     }
@@ -111,5 +111,10 @@ class SupermodelIoLogisticsExpressAddressRatesRequestNormalizer implements Denor
         }
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressRatesRequest' => false];
     }
 }

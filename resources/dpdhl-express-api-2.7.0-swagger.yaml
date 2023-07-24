@@ -2191,8 +2191,9 @@ components:
       required: false
       example: false
       schema:
-        type: boolean
+        type: string
         default: false
+        enum: ['true', 'false']
     requestEstimatedDeliveryDate:
       name: requestEstimatedDeliveryDate
       in: query

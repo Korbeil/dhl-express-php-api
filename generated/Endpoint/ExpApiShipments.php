@@ -7,7 +7,9 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
     use \Korbeil\DHLExpress\Api\Runtime\Client\EndpointTrait;
 
     /**
-     * ## Create Shipment.
+     * ## Create Shipment
+     * The ShipmentRequest Operation will allow you to generate an AWB number and piece IDs, generate a shipping label, transmit manifest shipment detail to DHL, and optionally book a courier for the pickup of a shipment. The key elements in the response of the Shipment Request will be a base64 encoded PDF label and the Shipment and Piece identification numbers, which you can use for tracking on the DHL web site.
+     * While the RateRequest and ShipmentRequest services can be used independently, DHL recommends the use of RateRequest to first validate the products available for the shipper/receiver. The global product codes which are output during the RateResponse can be used directly as input into the Shipment Request, as both perform similar validations in terms of service capability.
      *
      * @param array $queryParameters {
      *

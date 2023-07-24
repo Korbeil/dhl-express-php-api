@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressExportDeclarationNormalizer implements Denorma
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclaration' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclaration' === $data::class;
     }
@@ -167,5 +167,10 @@ class SupermodelIoLogisticsExpressExportDeclarationNormalizer implements Denorma
         $data['incoterm'] = $object->getIncoterm();
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclaration' => false];
     }
 }

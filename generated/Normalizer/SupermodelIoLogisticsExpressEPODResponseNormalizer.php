@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressEPODResponseNormalizer implements Denormalizer
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponse' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponse' === $data::class;
     }
@@ -69,5 +69,10 @@ class SupermodelIoLogisticsExpressEPODResponseNormalizer implements Denormalizer
         }
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponse' => false];
     }
 }

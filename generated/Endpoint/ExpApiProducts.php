@@ -8,6 +8,7 @@ class ExpApiProducts extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint
 
     /**
      * The GET Products API will return DHL's product capabilities for a certain set of input data.
+     * Using the shipper and receiver address as well as the dimension and weight of the piece belonging to a shipment, this operation returns the available products.
      *
      * @param array $queryParameters {
      *
@@ -27,7 +28,7 @@ class ExpApiProducts extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint
      * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
      * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
      * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var string $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
      * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
      *             }
@@ -93,7 +94,7 @@ class ExpApiProducts extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoint
         $optionsResolver->addAllowedTypes('unitOfMeasurement', ['string']);
         $optionsResolver->addAllowedTypes('nextBusinessDay', ['bool']);
         $optionsResolver->addAllowedTypes('strictValidation', ['string']);
-        $optionsResolver->addAllowedTypes('getAllValueAddedServices', ['bool']);
+        $optionsResolver->addAllowedTypes('getAllValueAddedServices', ['string']);
         $optionsResolver->addAllowedTypes('requestEstimatedDeliveryDate', ['bool']);
         $optionsResolver->addAllowedTypes('estimatedDeliveryDateType', ['string']);
 

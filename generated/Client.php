@@ -185,7 +185,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
      * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
      * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var string $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
      * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
      *             }
@@ -277,6 +277,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
 
     /**
      * The GET Products API will return DHL's product capabilities for a certain set of input data.
+     * Using the shipper and receiver address as well as the dimension and weight of the piece belonging to a shipment, this operation returns the available products.
      *
      * @param array $queryParameters {
      *
@@ -296,7 +297,7 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
      * @var string $unitOfMeasurement The UnitOfMeasurement node conveys the unit of measurements used in the operation. This single value corresponds to the units of weight and measurement which are used throughout the message processing.
      * @var bool   $nextBusinessDay When set to true and there are no products available for given plannedShippingDate then products available for the next possible pickup date are returned
      * @var string $strictValidation if set to true, indicate strict DCT validation of address details, and validation of product and service(s) combination provided in request
-     * @var bool   $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
+     * @var string $getAllValueAddedServices Option to return list of all value added services and its rule groups if applicable
      * @var bool   $requestEstimatedDeliveryDate Option to return Estimated Delivery Date in response
      * @var string $estimatedDeliveryDateType Estimated Delivery Date Type. QDDF: is the fastest 'docs' transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered. QDDC: constitutes DHL's service commitment as quoted at booking or shipment creation. QDDc builds in clearance time, and potentially other special perational non-transport component(s), when relevant.
      *             }
@@ -455,7 +456,9 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
     }
 
     /**
-     * ## Create Shipment.
+     * ## Create Shipment
+     * The ShipmentRequest Operation will allow you to generate an AWB number and piece IDs, generate a shipping label, transmit manifest shipment detail to DHL, and optionally book a courier for the pickup of a shipment. The key elements in the response of the Shipment Request will be a base64 encoded PDF label and the Shipment and Piece identification numbers, which you can use for tracking on the DHL web site.
+     * While the RateRequest and ShipmentRequest services can be used independently, DHL recommends the use of RateRequest to first validate the products available for the shipper/receiver. The global product codes which are output during the RateResponse can be used directly as input into the Shipment Request, as both perform similar validations in terms of service capability.
      *
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequest|null $requestBody
      * @param array                                                                                $queryParameters {
@@ -490,7 +493,17 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
     }
 
     /**
-     * ## Upload Invoice Data with Shipment ID.
+     * ## Upload Invoice Data with Shipment ID
+     * The upload invoice data service can be used to upload Commerical Invoice data with Shipment Identification Number for your DHL Express shipment.Customer can provide Commercial Invoice data before Shipment Data via Create Shipment flow or vice versa.
+     *
+     * Important Note: UploadInvoiceData service is not enabled by default and must be requested per customer. Use of this service is only enabled on exceptional basis and DHL Express recommends to submit shipment requests together with a commercial invoice data.To enable use of UploadInvoiceData service, please contact your DHL Express IT representative. To use UploadInvoiceData service, it is required that "PM" service code is provided in MyDHL API Create Shipment request. "PM" service code is not enabled by
+     * default for the customers, and needs to be enabled upon request.
+     *
+     * When Shipment is created via MyDHL API Create Shipment service before uploading the Commercial Invoice (CIN) data,it is mandatory to provide the Shipment Identification Number as received in MyDHL API Create Shipment service Response.
+     * When Commercial Invoice (CIN) data is uploaded prior to creating a shipment via MyDHL API Create Shipment service, it is mandatory to provide Invoice Reference Number with Invoice Reference Type value "CU" and Shipper Account Number.
+     *
+     * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
+     * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
      * @param string                                                                                  $shipmentTrackingNumber DHL Express shipment identification number
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequest|null $requestBody
@@ -520,7 +533,18 @@ class Client extends \Korbeil\DHLExpress\Api\Runtime\Client\Client
     }
 
     /**
-     * ## Upload invoice data.
+     * ## Upload invoice data
+     * The upload invoice data service can be used to upload Commerical Invoice data without Shipment Identification Number for your DHL Express shipment. Customer can provide Commercial Invoice data before Shipment Data via Create Shipment flow or vice versa.
+     *
+     * Important Note: UploadInvoiceData service is not enabled by default and must be requested per customer.Use of this service is only enabled on exceptional basis and DHL Express recommends to submit shipment requests together with a commercial invoice data.
+     * To enable use of UploadInvoiceData service, please contact your DHL Express IT representative. To use UploadInvoiceData service, it is required that "PM" service code is provided in MyDHL API Create Shipment request.
+     * "PM" service code is not enabled by default for the customers, and needs to be enabled upon request.
+     *
+     * When Shipment is created via MyDHL API Create Shipment service before uploading the Commercial Invoice (CIN) data,it is mandatory to provide the Shipment Identification Number as received in MyDHL API Create Shipment service Response. When Commercial Invoice (CIN) data is uploaded prior to creating a shipment via MyDHL API Create Shipment service, it is
+     * mandatory to provide Invoice Reference Number with Invoice Reference Type value "CU" and Shipper Account Number.
+     *
+     * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
+     * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
      * @param \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID|null $requestBody
      * @param array                                                                                      $headerParameters {

@@ -19,12 +19,12 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer i
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null): bool
+    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
     {
         return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent' === $type;
     }
 
-    public function supportsNormalization($data, $format = null): bool
+    public function supportsNormalization($data, $format = null, array $context = []): bool
     {
         return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent' === $data::class;
     }
@@ -79,5 +79,10 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer i
         $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
 
         return $data;
+    }
+
+    public function getSupportedTypes(string $format = null): array
+    {
+        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent' => false];
     }
 }
