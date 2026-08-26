@@ -19,25 +19,28 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem();
         if (\array_key_exists('number', $data) && \is_int($data['number'])) {
             $data['number'] = (float) $data['number'];
         }
@@ -49,9 +52,6 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         }
         if (\array_key_exists('actualWeight', $data) && \is_int($data['actualWeight'])) {
             $data['actualWeight'] = (float) $data['actualWeight'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('number', $data) && null !== $data['number']) {
             $object->setNumber($data['number']);
@@ -94,12 +94,12 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
             $object->setActualWeight(null);
         }
         if (\array_key_exists('dimensions', $data) && null !== $data['dimensions']) {
-            $object->setDimensions($this->denormalizer->denormalize($data['dimensions'], 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensions', 'json', $context));
+            $object->setDimensions($this->denormalizer->denormalize($data['dimensions'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensions::class, 'json', $context));
         } elseif (\array_key_exists('dimensions', $data) && null === $data['dimensions']) {
             $object->setDimensions(null);
         }
         if (\array_key_exists('actualDimensions', $data) && null !== $data['actualDimensions']) {
-            $object->setActualDimensions($this->denormalizer->denormalize($data['actualDimensions'], 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemActualDimensions', 'json', $context));
+            $object->setActualDimensions($this->denormalizer->denormalize($data['actualDimensions'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemActualDimensions::class, 'json', $context));
         } elseif (\array_key_exists('actualDimensions', $data) && null === $data['actualDimensions']) {
             $object->setActualDimensions(null);
         }
@@ -111,7 +111,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         if (\array_key_exists('shipperReferences', $data) && null !== $data['shipperReferences']) {
             $values = [];
             foreach ($data['shipperReferences'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressReference', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressReference::class, 'json', $context);
             }
             $object->setShipperReferences($values);
         } elseif (\array_key_exists('shipperReferences', $data) && null === $data['shipperReferences']) {
@@ -120,7 +120,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         if (\array_key_exists('events', $data) && null !== $data['events']) {
             $values_1 = [];
             foreach ($data['events'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem::class, 'json', $context);
             }
             $object->setEvents($values_1);
         } elseif (\array_key_exists('events', $data) && null === $data['events']) {
@@ -130,63 +130,60 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('number') && null !== $object->getNumber()) {
-            $data['number'] = $object->getNumber();
+        $dataArray = [];
+        if ($data->isInitialized('number') && null !== $data->getNumber()) {
+            $dataArray['number'] = $data->getNumber();
         }
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
-            $data['typeCode'] = $object->getTypeCode();
+        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
+            $dataArray['typeCode'] = $data->getTypeCode();
         }
-        if ($object->isInitialized('shipmentTrackingNumber') && null !== $object->getShipmentTrackingNumber()) {
-            $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
+        if ($data->isInitialized('shipmentTrackingNumber') && null !== $data->getShipmentTrackingNumber()) {
+            $dataArray['shipmentTrackingNumber'] = $data->getShipmentTrackingNumber();
         }
-        if ($object->isInitialized('trackingNumber') && null !== $object->getTrackingNumber()) {
-            $data['trackingNumber'] = $object->getTrackingNumber();
+        if ($data->isInitialized('trackingNumber') && null !== $data->getTrackingNumber()) {
+            $dataArray['trackingNumber'] = $data->getTrackingNumber();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
-            $data['description'] = $object->getDescription();
+        if ($data->isInitialized('description') && null !== $data->getDescription()) {
+            $dataArray['description'] = $data->getDescription();
         }
-        if ($object->isInitialized('weight') && null !== $object->getWeight()) {
-            $data['weight'] = $object->getWeight();
+        if ($data->isInitialized('weight') && null !== $data->getWeight()) {
+            $dataArray['weight'] = $data->getWeight();
         }
-        if ($object->isInitialized('dimensionalWeight') && null !== $object->getDimensionalWeight()) {
-            $data['dimensionalWeight'] = $object->getDimensionalWeight();
+        if ($data->isInitialized('dimensionalWeight') && null !== $data->getDimensionalWeight()) {
+            $dataArray['dimensionalWeight'] = $data->getDimensionalWeight();
         }
-        if ($object->isInitialized('actualWeight') && null !== $object->getActualWeight()) {
-            $data['actualWeight'] = $object->getActualWeight();
+        if ($data->isInitialized('actualWeight') && null !== $data->getActualWeight()) {
+            $dataArray['actualWeight'] = $data->getActualWeight();
         }
-        if ($object->isInitialized('dimensions') && null !== $object->getDimensions()) {
-            $data['dimensions'] = $this->normalizer->normalize($object->getDimensions(), 'json', $context);
+        if ($data->isInitialized('dimensions') && null !== $data->getDimensions()) {
+            $dataArray['dimensions'] = null === $data->getDimensions() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getDimensions(), 'json', $context));
         }
-        if ($object->isInitialized('actualDimensions') && null !== $object->getActualDimensions()) {
-            $data['actualDimensions'] = $this->normalizer->normalize($object->getActualDimensions(), 'json', $context);
+        if ($data->isInitialized('actualDimensions') && null !== $data->getActualDimensions()) {
+            $dataArray['actualDimensions'] = null === $data->getActualDimensions() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getActualDimensions(), 'json', $context));
         }
-        if ($object->isInitialized('unitOfMeasurements') && null !== $object->getUnitOfMeasurements()) {
-            $data['unitOfMeasurements'] = $object->getUnitOfMeasurements();
+        if ($data->isInitialized('unitOfMeasurements') && null !== $data->getUnitOfMeasurements()) {
+            $dataArray['unitOfMeasurements'] = $data->getUnitOfMeasurements();
         }
-        if ($object->isInitialized('shipperReferences') && null !== $object->getShipperReferences()) {
+        if ($data->isInitialized('shipperReferences') && null !== $data->getShipperReferences()) {
             $values = [];
-            foreach ($object->getShipperReferences() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data->getShipperReferences() as $value) {
+                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
             }
-            $data['shipperReferences'] = $values;
+            $dataArray['shipperReferences'] = $values;
         }
         $values_1 = [];
-        foreach ($object->getEvents() as $value_1) {
-            $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+        foreach ($data->getEvents() as $value_1) {
+            $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
         }
-        $data['events'] = $values_1;
+        $dataArray['events'] = $values_1;
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem::class => false];
     }
 }

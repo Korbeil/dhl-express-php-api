@@ -16,14 +16,14 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImageProperties
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @var SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem>|null
      */
     protected $imageOptions;
 
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @return SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem>|null
      */
     public function getImageOptions(): ?array
     {
@@ -33,7 +33,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImageProperties
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @param SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem[]|null $imageOptions
+     * @param list<SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem>|null $imageOptions
      */
     public function setImageOptions(?array $imageOptions): self
     {

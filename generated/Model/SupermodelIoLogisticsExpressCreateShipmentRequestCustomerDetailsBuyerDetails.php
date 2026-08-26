@@ -14,19 +14,19 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressAddressCreateShipmentRequest|null
+     * @var Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequest|null
      */
     protected $postalAddress;
     /**
-     * @var SupermodelIoLogisticsExpressContactBuyer|null
+     * @var Shipment\SupermodelIoLogisticsExpressContactBuyer|null
      */
     protected $contactInformation;
     /**
-     * @var SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @var list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     protected $registrationNumbers;
     /**
-     * @var SupermodelIoLogisticsExpressBankDetailsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressBankDetailsItem>|null
      */
     protected $bankDetails;
     /**
@@ -36,12 +36,12 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
      */
     protected $typeCode;
 
-    public function getPostalAddress(): ?SupermodelIoLogisticsExpressAddressCreateShipmentRequest
+    public function getPostalAddress(): ?Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequest
     {
         return $this->postalAddress;
     }
 
-    public function setPostalAddress(?SupermodelIoLogisticsExpressAddressCreateShipmentRequest $postalAddress): self
+    public function setPostalAddress(?Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequest $postalAddress): self
     {
         $this->initialized['postalAddress'] = true;
         $this->postalAddress = $postalAddress;
@@ -49,12 +49,12 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
         return $this;
     }
 
-    public function getContactInformation(): ?SupermodelIoLogisticsExpressContactBuyer
+    public function getContactInformation(): ?Shipment\SupermodelIoLogisticsExpressContactBuyer
     {
         return $this->contactInformation;
     }
 
-    public function setContactInformation(?SupermodelIoLogisticsExpressContactBuyer $contactInformation): self
+    public function setContactInformation(?Shipment\SupermodelIoLogisticsExpressContactBuyer $contactInformation): self
     {
         $this->initialized['contactInformation'] = true;
         $this->contactInformation = $contactInformation;
@@ -63,7 +63,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @return list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     public function getRegistrationNumbers(): ?array
     {
@@ -71,7 +71,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRegistrationNumbers[]|null $registrationNumbers
+     * @param list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {
@@ -82,7 +82,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressBankDetailsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressBankDetailsItem>|null
      */
     public function getBankDetails(): ?array
     {
@@ -90,7 +90,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetai
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressBankDetailsItem[]|null $bankDetails
+     * @param list<SupermodelIoLogisticsExpressBankDetailsItem>|null $bankDetails
      */
     public function setBankDetails(?array $bankDetails): self
     {

@@ -40,7 +40,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
     /**
      * Here you can find all documents created for the piece's QRcode.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem>|null
      */
     protected $documents;
 
@@ -123,7 +123,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
     /**
      * Here you can find all documents created for the piece's QRcode.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem>|null
      */
     public function getDocuments(): ?array
     {
@@ -133,7 +133,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem
     /**
      * Here you can find all documents created for the piece's QRcode.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem[]|null $documents
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItem>|null $documents
      */
     public function setDocuments(?array $documents): self
     {

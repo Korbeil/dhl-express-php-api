@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('dependentServiceCode', $data) && null !== $data['dependentServiceCode']) {
             $object->setDependentServiceCode($data['dependentServiceCode']);
@@ -49,7 +49,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
         if (\array_key_exists('dependencyRuleGroup', $data) && null !== $data['dependencyRuleGroup']) {
             $values = [];
             foreach ($data['dependencyRuleGroup'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem::class, 'json', $context);
             }
             $object->setDependencyRuleGroup($values);
         } elseif (\array_key_exists('dependencyRuleGroup', $data) && null === $data['dependencyRuleGroup']) {
@@ -59,28 +59,25 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('dependentServiceCode') && null !== $object->getDependentServiceCode()) {
-            $data['dependentServiceCode'] = $object->getDependentServiceCode();
+        $dataArray = [];
+        if ($data->isInitialized('dependentServiceCode') && null !== $data->getDependentServiceCode()) {
+            $dataArray['dependentServiceCode'] = $data->getDependentServiceCode();
         }
-        if ($object->isInitialized('dependencyRuleGroup') && null !== $object->getDependencyRuleGroup()) {
+        if ($data->isInitialized('dependencyRuleGroup') && null !== $data->getDependencyRuleGroup()) {
             $values = [];
-            foreach ($object->getDependencyRuleGroup() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data->getDependencyRuleGroup() as $value) {
+                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
             }
-            $data['dependencyRuleGroup'] = $values;
+            $dataArray['dependencyRuleGroup'] = $values;
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItem::class => false];
     }
 }

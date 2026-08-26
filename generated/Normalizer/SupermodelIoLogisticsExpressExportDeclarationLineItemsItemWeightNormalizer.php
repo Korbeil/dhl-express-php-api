@@ -19,33 +19,33 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightNormalizer
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight();
         if (\array_key_exists('netValue', $data) && \is_int($data['netValue'])) {
             $data['netValue'] = (float) $data['netValue'];
         }
         if (\array_key_exists('grossValue', $data) && \is_int($data['grossValue'])) {
             $data['grossValue'] = (float) $data['grossValue'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('netValue', $data) && null !== $data['netValue']) {
             $object->setNetValue($data['netValue']);
@@ -61,24 +61,21 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightNormalizer
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('netValue') && null !== $object->getNetValue()) {
-            $data['netValue'] = $object->getNetValue();
+        $dataArray = [];
+        if ($data->isInitialized('netValue') && null !== $data->getNetValue()) {
+            $dataArray['netValue'] = $data->getNetValue();
         }
-        if ($object->isInitialized('grossValue') && null !== $object->getGrossValue()) {
-            $data['grossValue'] = $object->getGrossValue();
+        if ($data->isInitialized('grossValue') && null !== $data->getGrossValue()) {
+            $dataArray['grossValue'] = $data->getGrossValue();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight::class => false];
     }
 }

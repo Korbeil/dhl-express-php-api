@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('localCutoffDateAndTime', $data) && null !== $data['localCutoffDateAndTime']) {
             $object->setLocalCutoffDateAndTime($data['localCutoffDateAndTime']);
@@ -95,48 +95,45 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPicku
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('localCutoffDateAndTime') && null !== $object->getLocalCutoffDateAndTime()) {
-            $data['localCutoffDateAndTime'] = $object->getLocalCutoffDateAndTime();
+        $dataArray = [];
+        if ($data->isInitialized('localCutoffDateAndTime') && null !== $data->getLocalCutoffDateAndTime()) {
+            $dataArray['localCutoffDateAndTime'] = $data->getLocalCutoffDateAndTime();
         }
-        if ($object->isInitialized('gmtCutoffTime') && null !== $object->getGmtCutoffTime()) {
-            $data['gmtCutoffTime'] = $object->getGmtCutoffTime();
+        if ($data->isInitialized('gmtCutoffTime') && null !== $data->getGmtCutoffTime()) {
+            $dataArray['gmtCutoffTime'] = $data->getGmtCutoffTime();
         }
-        if ($object->isInitialized('cutoffTimeOffset') && null !== $object->getCutoffTimeOffset()) {
-            $data['cutoffTimeOffset'] = $object->getCutoffTimeOffset();
+        if ($data->isInitialized('cutoffTimeOffset') && null !== $data->getCutoffTimeOffset()) {
+            $dataArray['cutoffTimeOffset'] = $data->getCutoffTimeOffset();
         }
-        if ($object->isInitialized('pickupEarliest') && null !== $object->getPickupEarliest()) {
-            $data['pickupEarliest'] = $object->getPickupEarliest();
+        if ($data->isInitialized('pickupEarliest') && null !== $data->getPickupEarliest()) {
+            $dataArray['pickupEarliest'] = $data->getPickupEarliest();
         }
-        if ($object->isInitialized('pickupLatest') && null !== $object->getPickupLatest()) {
-            $data['pickupLatest'] = $object->getPickupLatest();
+        if ($data->isInitialized('pickupLatest') && null !== $data->getPickupLatest()) {
+            $dataArray['pickupLatest'] = $data->getPickupLatest();
         }
-        if ($object->isInitialized('totalTransitDays') && null !== $object->getTotalTransitDays()) {
-            $data['totalTransitDays'] = $object->getTotalTransitDays();
+        if ($data->isInitialized('totalTransitDays') && null !== $data->getTotalTransitDays()) {
+            $dataArray['totalTransitDays'] = $data->getTotalTransitDays();
         }
-        if ($object->isInitialized('pickupAdditionalDays') && null !== $object->getPickupAdditionalDays()) {
-            $data['pickupAdditionalDays'] = $object->getPickupAdditionalDays();
+        if ($data->isInitialized('pickupAdditionalDays') && null !== $data->getPickupAdditionalDays()) {
+            $dataArray['pickupAdditionalDays'] = $data->getPickupAdditionalDays();
         }
-        if ($object->isInitialized('deliveryAdditionalDays') && null !== $object->getDeliveryAdditionalDays()) {
-            $data['deliveryAdditionalDays'] = $object->getDeliveryAdditionalDays();
+        if ($data->isInitialized('deliveryAdditionalDays') && null !== $data->getDeliveryAdditionalDays()) {
+            $dataArray['deliveryAdditionalDays'] = $data->getDeliveryAdditionalDays();
         }
-        if ($object->isInitialized('pickupDayOfWeek') && null !== $object->getPickupDayOfWeek()) {
-            $data['pickupDayOfWeek'] = $object->getPickupDayOfWeek();
+        if ($data->isInitialized('pickupDayOfWeek') && null !== $data->getPickupDayOfWeek()) {
+            $dataArray['pickupDayOfWeek'] = $data->getPickupDayOfWeek();
         }
-        if ($object->isInitialized('deliveryDayOfWeek') && null !== $object->getDeliveryDayOfWeek()) {
-            $data['deliveryDayOfWeek'] = $object->getDeliveryDayOfWeek();
+        if ($data->isInitialized('deliveryDayOfWeek') && null !== $data->getDeliveryDayOfWeek()) {
+            $dataArray['deliveryDayOfWeek'] = $data->getDeliveryDayOfWeek();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails::class => false];
     }
 }

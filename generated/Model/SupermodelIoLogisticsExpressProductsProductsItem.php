@@ -54,19 +54,19 @@ class SupermodelIoLogisticsExpressProductsProductsItem
      */
     protected $weight;
     /**
-     * @var SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem[]|null
+     * @var list<SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem>|null
      */
     protected $breakdown;
     /**
      * Group of serviceCodes that are mutually exclusive.  Only one serviceCode among the list must be applied for a shipment.
      *
-     * @var SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem>|null
      */
     protected $serviceCodeMutuallyExclusiveGroups;
     /**
      * Dependency rule groups for a particular serviceCode.
      *
-     * @var SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem>|null
      */
     protected $serviceCodeDependencyRuleGroups;
     /**
@@ -206,7 +206,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem[]|null
+     * @return list<SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem>|null
      */
     public function getBreakdown(): ?array
     {
@@ -214,7 +214,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem[]|null $breakdown
+     * @param list<SupermodelIoLogisticsExpressProductsProductsItemBreakdownItem>|null $breakdown
      */
     public function setBreakdown(?array $breakdown): self
     {
@@ -227,7 +227,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     /**
      * Group of serviceCodes that are mutually exclusive.  Only one serviceCode among the list must be applied for a shipment.
      *
-     * @return SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem>|null
      */
     public function getServiceCodeMutuallyExclusiveGroups(): ?array
     {
@@ -237,7 +237,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     /**
      * Group of serviceCodes that are mutually exclusive.  Only one serviceCode among the list must be applied for a shipment.
      *
-     * @param SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem[]|null $serviceCodeMutuallyExclusiveGroups
+     * @param list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItem>|null $serviceCodeMutuallyExclusiveGroups
      */
     public function setServiceCodeMutuallyExclusiveGroups(?array $serviceCodeMutuallyExclusiveGroups): self
     {
@@ -250,7 +250,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     /**
      * Dependency rule groups for a particular serviceCode.
      *
-     * @return SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem>|null
      */
     public function getServiceCodeDependencyRuleGroups(): ?array
     {
@@ -260,7 +260,7 @@ class SupermodelIoLogisticsExpressProductsProductsItem
     /**
      * Dependency rule groups for a particular serviceCode.
      *
-     * @param SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem[]|null $serviceCodeDependencyRuleGroups
+     * @param list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItem>|null $serviceCodeDependencyRuleGroups
      */
     public function setServiceCodeDependencyRuleGroups(?array $serviceCodeDependencyRuleGroups): self
     {

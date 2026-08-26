@@ -19,27 +19,30 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperti
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
+        if (\array_key_exists('isRequested', $data) && \is_int($data['isRequested'])) {
+            $data['isRequested'] = (bool) $data['isRequested'];
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
             $object->setTypeCode($data['typeCode']);
@@ -60,25 +63,22 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperti
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['typeCode'] = $object->getTypeCode();
-        if ($object->isInitialized('templateName') && null !== $object->getTemplateName()) {
-            $data['templateName'] = $object->getTemplateName();
+        $dataArray = [];
+        $dataArray['typeCode'] = $data->getTypeCode();
+        if ($data->isInitialized('templateName') && null !== $data->getTemplateName()) {
+            $dataArray['templateName'] = $data->getTemplateName();
         }
-        if ($object->isInitialized('isRequested') && null !== $object->getIsRequested()) {
-            $data['isRequested'] = $object->getIsRequested();
+        if ($data->isInitialized('isRequested') && null !== $data->getIsRequested()) {
+            $dataArray['isRequested'] = $data->getIsRequested();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem::class => false];
     }
 }

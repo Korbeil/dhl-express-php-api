@@ -19,25 +19,28 @@ class SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalize
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities();
         if (\array_key_exists('deliveryAdditionalDays', $data) && \is_int($data['deliveryAdditionalDays'])) {
             $data['deliveryAdditionalDays'] = (float) $data['deliveryAdditionalDays'];
         }
@@ -46,9 +49,6 @@ class SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalize
         }
         if (\array_key_exists('totalTransitDays', $data) && \is_int($data['totalTransitDays'])) {
             $data['totalTransitDays'] = (float) $data['totalTransitDays'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('deliveryTypeCode', $data) && null !== $data['deliveryTypeCode']) {
             $object->setDeliveryTypeCode($data['deliveryTypeCode']);
@@ -89,39 +89,36 @@ class SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('deliveryTypeCode') && null !== $object->getDeliveryTypeCode()) {
-            $data['deliveryTypeCode'] = $object->getDeliveryTypeCode();
+        $dataArray = [];
+        if ($data->isInitialized('deliveryTypeCode') && null !== $data->getDeliveryTypeCode()) {
+            $dataArray['deliveryTypeCode'] = $data->getDeliveryTypeCode();
         }
-        if ($object->isInitialized('estimatedDeliveryDateAndTime') && null !== $object->getEstimatedDeliveryDateAndTime()) {
-            $data['estimatedDeliveryDateAndTime'] = $object->getEstimatedDeliveryDateAndTime();
+        if ($data->isInitialized('estimatedDeliveryDateAndTime') && null !== $data->getEstimatedDeliveryDateAndTime()) {
+            $dataArray['estimatedDeliveryDateAndTime'] = $data->getEstimatedDeliveryDateAndTime();
         }
-        if ($object->isInitialized('destinationServiceAreaCode') && null !== $object->getDestinationServiceAreaCode()) {
-            $data['destinationServiceAreaCode'] = $object->getDestinationServiceAreaCode();
+        if ($data->isInitialized('destinationServiceAreaCode') && null !== $data->getDestinationServiceAreaCode()) {
+            $dataArray['destinationServiceAreaCode'] = $data->getDestinationServiceAreaCode();
         }
-        if ($object->isInitialized('destinationFacilityAreaCode') && null !== $object->getDestinationFacilityAreaCode()) {
-            $data['destinationFacilityAreaCode'] = $object->getDestinationFacilityAreaCode();
+        if ($data->isInitialized('destinationFacilityAreaCode') && null !== $data->getDestinationFacilityAreaCode()) {
+            $dataArray['destinationFacilityAreaCode'] = $data->getDestinationFacilityAreaCode();
         }
-        if ($object->isInitialized('deliveryAdditionalDays') && null !== $object->getDeliveryAdditionalDays()) {
-            $data['deliveryAdditionalDays'] = $object->getDeliveryAdditionalDays();
+        if ($data->isInitialized('deliveryAdditionalDays') && null !== $data->getDeliveryAdditionalDays()) {
+            $dataArray['deliveryAdditionalDays'] = $data->getDeliveryAdditionalDays();
         }
-        if ($object->isInitialized('deliveryDayOfWeek') && null !== $object->getDeliveryDayOfWeek()) {
-            $data['deliveryDayOfWeek'] = $object->getDeliveryDayOfWeek();
+        if ($data->isInitialized('deliveryDayOfWeek') && null !== $data->getDeliveryDayOfWeek()) {
+            $dataArray['deliveryDayOfWeek'] = $data->getDeliveryDayOfWeek();
         }
-        if ($object->isInitialized('totalTransitDays') && null !== $object->getTotalTransitDays()) {
-            $data['totalTransitDays'] = $object->getTotalTransitDays();
+        if ($data->isInitialized('totalTransitDays') && null !== $data->getTotalTransitDays()) {
+            $dataArray['totalTransitDays'] = $data->getTotalTransitDays();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class => false];
     }
 }

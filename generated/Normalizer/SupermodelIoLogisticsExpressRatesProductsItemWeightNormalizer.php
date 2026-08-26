@@ -19,33 +19,33 @@ class SupermodelIoLogisticsExpressRatesProductsItemWeightNormalizer implements D
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemWeight' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemWeight::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemWeight' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemWeight::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemWeight();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemWeight();
         if (\array_key_exists('volumetric', $data) && \is_int($data['volumetric'])) {
             $data['volumetric'] = (float) $data['volumetric'];
         }
         if (\array_key_exists('provided', $data) && \is_int($data['provided'])) {
             $data['provided'] = (float) $data['provided'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('volumetric', $data) && null !== $data['volumetric']) {
             $object->setVolumetric($data['volumetric']);
@@ -66,27 +66,24 @@ class SupermodelIoLogisticsExpressRatesProductsItemWeightNormalizer implements D
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('volumetric') && null !== $object->getVolumetric()) {
-            $data['volumetric'] = $object->getVolumetric();
+        $dataArray = [];
+        if ($data->isInitialized('volumetric') && null !== $data->getVolumetric()) {
+            $dataArray['volumetric'] = $data->getVolumetric();
         }
-        if ($object->isInitialized('provided') && null !== $object->getProvided()) {
-            $data['provided'] = $object->getProvided();
+        if ($data->isInitialized('provided') && null !== $data->getProvided()) {
+            $dataArray['provided'] = $data->getProvided();
         }
-        if ($object->isInitialized('unitOfMeasurement') && null !== $object->getUnitOfMeasurement()) {
-            $data['unitOfMeasurement'] = $object->getUnitOfMeasurement();
+        if ($data->isInitialized('unitOfMeasurement') && null !== $data->getUnitOfMeasurement()) {
+            $dataArray['unitOfMeasurement'] = $data->getUnitOfMeasurement();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressRatesProductsItemWeight' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemWeight::class => false];
     }
 }

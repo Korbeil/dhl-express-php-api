@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('cityName', $data) && null !== $data['cityName']) {
             $object->setCityName($data['cityName']);
@@ -70,33 +70,30 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('cityName') && null !== $object->getCityName()) {
-            $data['cityName'] = $object->getCityName();
+        $dataArray = [];
+        if ($data->isInitialized('cityName') && null !== $data->getCityName()) {
+            $dataArray['cityName'] = $data->getCityName();
         }
-        if ($object->isInitialized('countyName') && null !== $object->getCountyName()) {
-            $data['countyName'] = $object->getCountyName();
+        if ($data->isInitialized('countyName') && null !== $data->getCountyName()) {
+            $dataArray['countyName'] = $data->getCountyName();
         }
-        if ($object->isInitialized('postalCode') && null !== $object->getPostalCode()) {
-            $data['postalCode'] = $object->getPostalCode();
+        if ($data->isInitialized('postalCode') && null !== $data->getPostalCode()) {
+            $dataArray['postalCode'] = $data->getPostalCode();
         }
-        if ($object->isInitialized('provinceCode') && null !== $object->getProvinceCode()) {
-            $data['provinceCode'] = $object->getProvinceCode();
+        if ($data->isInitialized('provinceCode') && null !== $data->getProvinceCode()) {
+            $dataArray['provinceCode'] = $data->getProvinceCode();
         }
-        if ($object->isInitialized('countryCode') && null !== $object->getCountryCode()) {
-            $data['countryCode'] = $object->getCountryCode();
+        if ($data->isInitialized('countryCode') && null !== $data->getCountryCode()) {
+            $dataArray['countryCode'] = $data->getCountryCode();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class => false];
     }
 }

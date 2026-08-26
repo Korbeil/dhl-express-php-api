@@ -32,7 +32,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
      */
     protected $dependencyCondition;
     /**
-     * @var SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem>|null
      */
     protected $requiredServiceCodes;
 
@@ -94,7 +94,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem>|null
      */
     public function getRequiredServiceCodes(): ?array
     {
@@ -102,7 +102,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem[]|null $requiredServiceCodes
+     * @param list<SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem>|null $requiredServiceCodes
      */
     public function setRequiredServiceCodes(?array $requiredServiceCodes): self
     {

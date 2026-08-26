@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalize
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('deliveryOption', $data) && null !== $data['deliveryOption']) {
             $object->setDeliveryOption($data['deliveryOption']);
@@ -95,46 +95,43 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalize
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['deliveryOption'] = $object->getDeliveryOption();
-        if ($object->isInitialized('location') && null !== $object->getLocation()) {
-            $data['location'] = $object->getLocation();
+        $dataArray = [];
+        $dataArray['deliveryOption'] = $data->getDeliveryOption();
+        if ($data->isInitialized('location') && null !== $data->getLocation()) {
+            $dataArray['location'] = $data->getLocation();
         }
-        if ($object->isInitialized('specialInstructions') && null !== $object->getSpecialInstructions()) {
-            $data['specialInstructions'] = $object->getSpecialInstructions();
+        if ($data->isInitialized('specialInstructions') && null !== $data->getSpecialInstructions()) {
+            $dataArray['specialInstructions'] = $data->getSpecialInstructions();
         }
-        if ($object->isInitialized('gateCode') && null !== $object->getGateCode()) {
-            $data['gateCode'] = $object->getGateCode();
+        if ($data->isInitialized('gateCode') && null !== $data->getGateCode()) {
+            $dataArray['gateCode'] = $data->getGateCode();
         }
-        if ($object->isInitialized('whereToLeave') && null !== $object->getWhereToLeave()) {
-            $data['whereToLeave'] = $object->getWhereToLeave();
+        if ($data->isInitialized('whereToLeave') && null !== $data->getWhereToLeave()) {
+            $dataArray['whereToLeave'] = $data->getWhereToLeave();
         }
-        if ($object->isInitialized('neighbourName') && null !== $object->getNeighbourName()) {
-            $data['neighbourName'] = $object->getNeighbourName();
+        if ($data->isInitialized('neighbourName') && null !== $data->getNeighbourName()) {
+            $dataArray['neighbourName'] = $data->getNeighbourName();
         }
-        if ($object->isInitialized('neighbourHouseNumber') && null !== $object->getNeighbourHouseNumber()) {
-            $data['neighbourHouseNumber'] = $object->getNeighbourHouseNumber();
+        if ($data->isInitialized('neighbourHouseNumber') && null !== $data->getNeighbourHouseNumber()) {
+            $dataArray['neighbourHouseNumber'] = $data->getNeighbourHouseNumber();
         }
-        if ($object->isInitialized('authorizerName') && null !== $object->getAuthorizerName()) {
-            $data['authorizerName'] = $object->getAuthorizerName();
+        if ($data->isInitialized('authorizerName') && null !== $data->getAuthorizerName()) {
+            $dataArray['authorizerName'] = $data->getAuthorizerName();
         }
-        if ($object->isInitialized('servicePointId') && null !== $object->getServicePointId()) {
-            $data['servicePointId'] = $object->getServicePointId();
+        if ($data->isInitialized('servicePointId') && null !== $data->getServicePointId()) {
+            $dataArray['servicePointId'] = $data->getServicePointId();
         }
-        if ($object->isInitialized('requestedDeliveryDate') && null !== $object->getRequestedDeliveryDate()) {
-            $data['requestedDeliveryDate'] = $object->getRequestedDeliveryDate();
+        if ($data->isInitialized('requestedDeliveryDate') && null !== $data->getRequestedDeliveryDate()) {
+            $dataArray['requestedDeliveryDate'] = $data->getRequestedDeliveryDate();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDelivery::class => false];
     }
 }

@@ -16,20 +16,20 @@ class SupermodelIoLogisticsExpressLandedCostRequestCustomerDetails
     /**
      * Address defintion for rating related services.
      *
-     * @var SupermodelIoLogisticsExpressAddressRatesRequest|null
+     * @var Rating\SupermodelIoLogisticsExpressAddressRatesRequest|null
      */
     protected $shipperDetails;
     /**
      * Address defintion for rating related services.
      *
-     * @var SupermodelIoLogisticsExpressAddressRatesRequest|null
+     * @var Rating\SupermodelIoLogisticsExpressAddressRatesRequest|null
      */
     protected $receiverDetails;
 
     /**
      * Address defintion for rating related services.
      */
-    public function getShipperDetails(): ?SupermodelIoLogisticsExpressAddressRatesRequest
+    public function getShipperDetails(): ?Rating\SupermodelIoLogisticsExpressAddressRatesRequest
     {
         return $this->shipperDetails;
     }
@@ -37,7 +37,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestCustomerDetails
     /**
      * Address defintion for rating related services.
      */
-    public function setShipperDetails(?SupermodelIoLogisticsExpressAddressRatesRequest $shipperDetails): self
+    public function setShipperDetails(?Rating\SupermodelIoLogisticsExpressAddressRatesRequest $shipperDetails): self
     {
         $this->initialized['shipperDetails'] = true;
         $this->shipperDetails = $shipperDetails;
@@ -48,7 +48,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestCustomerDetails
     /**
      * Address defintion for rating related services.
      */
-    public function getReceiverDetails(): ?SupermodelIoLogisticsExpressAddressRatesRequest
+    public function getReceiverDetails(): ?Rating\SupermodelIoLogisticsExpressAddressRatesRequest
     {
         return $this->receiverDetails;
     }
@@ -56,7 +56,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestCustomerDetails
     /**
      * Address defintion for rating related services.
      */
-    public function setReceiverDetails(?SupermodelIoLogisticsExpressAddressRatesRequest $receiverDetails): self
+    public function setReceiverDetails(?Rating\SupermodelIoLogisticsExpressAddressRatesRequest $receiverDetails): self
     {
         $this->initialized['receiverDetails'] = true;
         $this->receiverDetails = $receiverDetails;

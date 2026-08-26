@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDesti
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('facilityCode', $data) && null !== $data['facilityCode']) {
             $object->setFacilityCode($data['facilityCode']);
@@ -60,27 +60,24 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDesti
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('facilityCode') && null !== $object->getFacilityCode()) {
-            $data['facilityCode'] = $object->getFacilityCode();
+        $dataArray = [];
+        if ($data->isInitialized('facilityCode') && null !== $data->getFacilityCode()) {
+            $dataArray['facilityCode'] = $data->getFacilityCode();
         }
-        if ($object->isInitialized('serviceAreaCode') && null !== $object->getServiceAreaCode()) {
-            $data['serviceAreaCode'] = $object->getServiceAreaCode();
+        if ($data->isInitialized('serviceAreaCode') && null !== $data->getServiceAreaCode()) {
+            $dataArray['serviceAreaCode'] = $data->getServiceAreaCode();
         }
-        if ($object->isInitialized('inboundSortCode') && null !== $object->getInboundSortCode()) {
-            $data['inboundSortCode'] = $object->getInboundSortCode();
+        if ($data->isInitialized('inboundSortCode') && null !== $data->getInboundSortCode()) {
+            $dataArray['inboundSortCode'] = $data->getInboundSortCode();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea::class => false];
     }
 }

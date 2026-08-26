@@ -14,22 +14,10 @@ abstract class Client
 {
     public const FETCH_RESPONSE = 'response';
     public const FETCH_OBJECT = 'object';
-    /**
-     * @var ClientInterface
-     */
-    protected $httpClient;
-    /**
-     * @var RequestFactoryInterface
-     */
-    protected $requestFactory;
-    /**
-     * @var SerializerInterface
-     */
-    protected $serializer;
-    /**
-     * @var StreamFactoryInterface
-     */
-    protected $streamFactory;
+    protected ClientInterface $httpClient;
+    protected RequestFactoryInterface $requestFactory;
+    protected SerializerInterface $serializer;
+    protected StreamFactoryInterface $streamFactory;
 
     public function __construct(ClientInterface $httpClient, RequestFactoryInterface $requestFactory, SerializerInterface $serializer, StreamFactoryInterface $streamFactory)
     {
@@ -75,7 +63,7 @@ abstract class Client
             }
         }
         foreach ($endpoint->getHeaders($bodyHeaders) as $name => $value) {
-            $request = $request->withHeader($name, $value);
+            $request = $request->withHeader($name, !\is_bool($value) ? $value : ($value ? 'true' : 'false'));
         }
         if (\count($endpoint->getAuthenticationScopes()) > 0) {
             $scopes = [];

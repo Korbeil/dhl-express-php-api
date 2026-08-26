@@ -14,20 +14,20 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCusto
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressAddressCreateShipmentResponse|null
+     * @var Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponse|null
      */
     protected $postalAddress;
     /**
-     * @var SupermodelIoLogisticsExpressContactCreateShipmentResponse|null
+     * @var Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponse|null
      */
     protected $contactInformation;
 
-    public function getPostalAddress(): ?SupermodelIoLogisticsExpressAddressCreateShipmentResponse
+    public function getPostalAddress(): ?Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponse
     {
         return $this->postalAddress;
     }
 
-    public function setPostalAddress(?SupermodelIoLogisticsExpressAddressCreateShipmentResponse $postalAddress): self
+    public function setPostalAddress(?Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponse $postalAddress): self
     {
         $this->initialized['postalAddress'] = true;
         $this->postalAddress = $postalAddress;
@@ -35,12 +35,12 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCusto
         return $this;
     }
 
-    public function getContactInformation(): ?SupermodelIoLogisticsExpressContactCreateShipmentResponse
+    public function getContactInformation(): ?Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponse
     {
         return $this->contactInformation;
     }
 
-    public function setContactInformation(?SupermodelIoLogisticsExpressContactCreateShipmentResponse $contactInformation): self
+    public function setContactInformation(?Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponse $contactInformation): self
     {
         $this->initialized['contactInformation'] = true;
         $this->contactInformation = $contactInformation;

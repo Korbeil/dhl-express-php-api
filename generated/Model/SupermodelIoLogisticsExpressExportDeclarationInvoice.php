@@ -35,7 +35,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      * Please provide the customer references at invoice level.
      * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem>|null
      */
     protected $customerReferences;
 
@@ -100,7 +100,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      * Please provide the customer references at invoice level.
      * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -111,7 +111,7 @@ class SupermodelIoLogisticsExpressExportDeclarationInvoice
      * Please provide the customer references at invoice level.
      * Note: customerReference/0/value with typeCode 'CU' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItem>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {

@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter details for each export line item.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem>|null
      */
     protected $lineItems;
     /**
@@ -28,13 +28,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter up to three remarks. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_04, the invoice can only print the first remarks field. The recommended max length is 20 characters. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_L_10 or COMMERCIAL_INVOICE_P_10, the invoice can print all three remraks fields.  The recommended max length is 45 characters.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem>|null
      */
     protected $remarks;
     /**
      * Please enter additional charge to appear on the invoice<BR>              admin, Administration Charge<BR>              delivery, Delivery Charge<BR>              documentation, Documentation Charge<BR>              expedite, Expedite Charge<BR>              export, Export Charge<BR> freight, Freight Charge<BR>              fuel_surcharge, Fuel Surcharge<BR>              logistic, Logistic Charge<BR>              other, Other Charge<BR> packaging, Packaging Charge<BR>              pickup, Pickup Charge<BR>              handling, Handling Charge<BR>              vat, VAT Charge<BR> insurance, Insurance Cost<BR>              reverse_charge, Reverse Charge.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem>|null
      */
     protected $additionalCharges;
     /**
@@ -76,7 +76,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide up to three dcelaration notes.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem>|null
      */
     protected $declarationNotes;
     /**
@@ -100,7 +100,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide details about export and import licenses.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem>|null
      */
     protected $licenses;
     /**
@@ -112,14 +112,14 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem>|null
      */
     protected $customsDocuments;
 
     /**
      * Please enter details for each export line item.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem>|null
      */
     public function getLineItems(): ?array
     {
@@ -129,7 +129,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter details for each export line item.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem[]|null $lineItems
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItem>|null $lineItems
      */
     public function setLineItems(?array $lineItems): self
     {
@@ -161,7 +161,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter up to three remarks. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_04, the invoice can only print the first remarks field. The recommended max length is 20 characters. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_L_10 or COMMERCIAL_INVOICE_P_10, the invoice can print all three remraks fields.  The recommended max length is 45 characters.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem>|null
      */
     public function getRemarks(): ?array
     {
@@ -171,7 +171,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter up to three remarks. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_04, the invoice can only print the first remarks field. The recommended max length is 20 characters. <BR>              If using Customs Invoice template COMMERCIAL_INVOICE_L_10 or COMMERCIAL_INVOICE_P_10, the invoice can print all three remraks fields.  The recommended max length is 45 characters.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem[]|null $remarks
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItem>|null $remarks
      */
     public function setRemarks(?array $remarks): self
     {
@@ -184,7 +184,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter additional charge to appear on the invoice<BR>              admin, Administration Charge<BR>              delivery, Delivery Charge<BR>              documentation, Documentation Charge<BR>              expedite, Expedite Charge<BR>              export, Export Charge<BR> freight, Freight Charge<BR>              fuel_surcharge, Fuel Surcharge<BR>              logistic, Logistic Charge<BR>              other, Other Charge<BR> packaging, Packaging Charge<BR>              pickup, Pickup Charge<BR>              handling, Handling Charge<BR>              vat, VAT Charge<BR> insurance, Insurance Cost<BR>              reverse_charge, Reverse Charge.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem>|null
      */
     public function getAdditionalCharges(): ?array
     {
@@ -194,7 +194,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please enter additional charge to appear on the invoice<BR>              admin, Administration Charge<BR>              delivery, Delivery Charge<BR>              documentation, Documentation Charge<BR>              expedite, Expedite Charge<BR>              export, Export Charge<BR> freight, Freight Charge<BR>              fuel_surcharge, Fuel Surcharge<BR>              logistic, Logistic Charge<BR>              other, Other Charge<BR> packaging, Packaging Charge<BR>              pickup, Pickup Charge<BR>              handling, Handling Charge<BR>              vat, VAT Charge<BR> insurance, Insurance Cost<BR>              reverse_charge, Reverse Charge.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem[]|null $additionalCharges
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem>|null $additionalCharges
      */
     public function setAdditionalCharges(?array $additionalCharges): self
     {
@@ -321,7 +321,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide up to three dcelaration notes.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem>|null
      */
     public function getDeclarationNotes(): ?array
     {
@@ -331,7 +331,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide up to three dcelaration notes.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem[]|null $declarationNotes
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItem>|null $declarationNotes
      */
     public function setDeclarationNotes(?array $declarationNotes): self
     {
@@ -401,7 +401,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide details about export and import licenses.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem>|null
      */
     public function getLicenses(): ?array
     {
@@ -411,7 +411,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide details about export and import licenses.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem[]|null $licenses
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItem>|null $licenses
      */
     public function setLicenses(?array $licenses): self
     {
@@ -443,7 +443,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem>|null
      */
     public function getCustomsDocuments(): ?array
     {
@@ -453,7 +453,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem[]|null $customsDocuments
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItem>|null $customsDocuments
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {

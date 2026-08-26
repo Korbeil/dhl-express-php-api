@@ -26,7 +26,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
      */
     protected $description;
     /**
-     * @var SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem>|null
      */
     protected $serviceCodes;
 
@@ -69,7 +69,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem>|null
      */
     public function getServiceCodes(): ?array
     {
@@ -77,7 +77,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem[]|null $serviceCodes
+     * @param list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem>|null $serviceCodes
      */
     public function setServiceCodes(?array $serviceCodes): self
     {

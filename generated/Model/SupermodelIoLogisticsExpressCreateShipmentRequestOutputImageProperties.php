@@ -22,13 +22,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Customer barcodes to be printed on supported transport label templates.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem>|null
      */
     protected $customerBarcodes;
     /**
      * Customer Logo Image to be printed on transport label.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem>|null
      */
     protected $customerLogos;
     /**
@@ -40,7 +40,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem>|null
      */
     protected $imageOptions;
     /**
@@ -96,7 +96,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Customer barcodes to be printed on supported transport label templates.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem>|null
      */
     public function getCustomerBarcodes(): ?array
     {
@@ -106,7 +106,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Customer barcodes to be printed on supported transport label templates.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem[]|null $customerBarcodes
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem>|null $customerBarcodes
      */
     public function setCustomerBarcodes(?array $customerBarcodes): self
     {
@@ -119,7 +119,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Customer Logo Image to be printed on transport label.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem>|null
      */
     public function getCustomerLogos(): ?array
     {
@@ -129,7 +129,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Customer Logo Image to be printed on transport label.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem[]|null $customerLogos
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem>|null $customerLogos
      */
     public function setCustomerLogos(?array $customerLogos): self
     {
@@ -161,7 +161,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem>|null
      */
     public function getImageOptions(): ?array
     {
@@ -171,7 +171,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties
     /**
      * Here the image options are defined for label, waybillDoc, invoice, receipt and QRcode.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem[]|null $imageOptions
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem>|null $imageOptions
      */
     public function setImageOptions(?array $imageOptions): self
     {

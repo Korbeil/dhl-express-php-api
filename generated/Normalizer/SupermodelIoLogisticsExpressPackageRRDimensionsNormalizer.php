@@ -19,25 +19,28 @@ class SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer implements Denor
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackageRRDimensions' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackageRRDimensions' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions();
         if (\array_key_exists('length', $data) && \is_int($data['length'])) {
             $data['length'] = (float) $data['length'];
         }
@@ -46,9 +49,6 @@ class SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer implements Denor
         }
         if (\array_key_exists('height', $data) && \is_int($data['height'])) {
             $data['height'] = (float) $data['height'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('length', $data) && null !== $data['length']) {
             $object->setLength($data['length']);
@@ -69,21 +69,18 @@ class SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer implements Denor
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['length'] = $object->getLength();
-        $data['width'] = $object->getWidth();
-        $data['height'] = $object->getHeight();
+        $dataArray = [];
+        $dataArray['length'] = $data->getLength();
+        $dataArray['width'] = $data->getWidth();
+        $dataArray['height'] = $data->getHeight();
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPackageRRDimensions' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class => false];
     }
 }

@@ -74,7 +74,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
      */
     protected $isBillingServiceIndicator;
     /**
-     * @var SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem>|null
      */
     protected $priceBreakdown;
     /**
@@ -275,7 +275,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem>|null
      */
     public function getPriceBreakdown(): ?array
     {
@@ -283,7 +283,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBre
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem[]|null $priceBreakdown
+     * @param list<SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItem>|null $priceBreakdown
      */
     public function setPriceBreakdown(?array $priceBreakdown): self
     {

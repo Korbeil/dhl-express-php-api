@@ -22,7 +22,7 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem
     /**
      * List of identifers.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $list;
 
@@ -48,7 +48,7 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem
     /**
      * List of identifers.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getList(): ?array
     {
@@ -58,7 +58,7 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem
     /**
      * List of identifers.
      *
-     * @param string[]|null $list
+     * @param list<string>|null $list
      */
     public function setList(?array $list): self
     {

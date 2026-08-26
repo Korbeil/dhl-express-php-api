@@ -15,7 +15,7 @@ class BasicAuthAuthentication implements \Jane\Component\OpenApiRuntime\Client\A
 
     public function authentication(\Psr\Http\Message\RequestInterface $request): \Psr\Http\Message\RequestInterface
     {
-        $header = sprintf('Basic %s', base64_encode(sprintf('%s:%s', $this->{'username'}, $this->{'password'})));
+        $header = \sprintf('Basic %s', base64_encode(\sprintf('%s:%s', $this->{'username'}, $this->{'password'})));
         $request = $request->withHeader('Authorization', $header);
 
         return $request;

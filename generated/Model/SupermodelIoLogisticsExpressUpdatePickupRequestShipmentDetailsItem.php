@@ -26,11 +26,11 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
      */
     protected $localProductCode;
     /**
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<Common\SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
-     * @var SupermodelIoLogisticsExpressValueAddedServicesRates[]|null
+     * @var list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     protected $valueAddedServices;
     /**
@@ -64,7 +64,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
      */
     protected $shipmentTrackingNumber;
     /**
-     * @var SupermodelIoLogisticsExpressPackageRR[]|null
+     * @var list<Common\SupermodelIoLogisticsExpressPackageRR>|null
      */
     protected $packages;
 
@@ -107,7 +107,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<Common\SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -115,7 +115,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<Common\SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -126,7 +126,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressValueAddedServicesRates[]|null
+     * @return list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     public function getValueAddedServices(): ?array
     {
@@ -134,7 +134,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressValueAddedServicesRates[]|null $valueAddedServices
+     * @param list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null $valueAddedServices
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
@@ -240,7 +240,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressPackageRR[]|null
+     * @return list<Common\SupermodelIoLogisticsExpressPackageRR>|null
      */
     public function getPackages(): ?array
     {
@@ -248,7 +248,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressPackageRR[]|null $packages
+     * @param list<Common\SupermodelIoLogisticsExpressPackageRR>|null $packages
      */
     public function setPackages(?array $packages): self
     {
