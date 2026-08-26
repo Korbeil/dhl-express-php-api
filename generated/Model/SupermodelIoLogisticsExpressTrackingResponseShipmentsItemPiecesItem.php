@@ -68,7 +68,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
      */
     protected $unitOfMeasurements;
     /**
-     * @var list<SupermodelIoLogisticsExpressReference>|null
+     * @var list<Common\SupermodelIoLogisticsExpressReference>|null
      */
     protected $shipperReferences;
     /**
@@ -250,7 +250,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @return list<SupermodelIoLogisticsExpressReference>|null
+     * @return list<Common\SupermodelIoLogisticsExpressReference>|null
      */
     public function getShipperReferences(): ?array
     {
@@ -258,7 +258,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @param list<SupermodelIoLogisticsExpressReference>|null $shipperReferences
+     * @param list<Common\SupermodelIoLogisticsExpressReference>|null $shipperReferences
      */
     public function setShipperReferences(?array $shipperReferences): self
     {

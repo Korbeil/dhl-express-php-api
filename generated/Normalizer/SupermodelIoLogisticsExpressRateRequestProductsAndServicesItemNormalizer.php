@@ -54,7 +54,7 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItemNormalizer i
         if (\array_key_exists('valueAddedServices', $data) && null !== $data['valueAddedServices']) {
             $values = [];
             foreach ($data['valueAddedServices'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class, 'json', $context);
             }
             $object->setValueAddedServices($values);
         } elseif (\array_key_exists('valueAddedServices', $data) && null === $data['valueAddedServices']) {

@@ -31,7 +31,7 @@ class Client extends Runtime\Client\Client
      */
     public function expApiPickupsCancel(string $dispatchConfirmationNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiPickupsCancel($dispatchConfirmationNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsCancel($dispatchConfirmationNumber, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -50,15 +50,15 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressUpdatePickupResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiPickupsUpdateBadRequestException
      * @throws Exception\ExpApiPickupsUpdateNotFoundException
      * @throws Exception\ExpApiPickupsUpdateUnprocessableEntityException
      */
-    public function expApiPickupsUpdate(string $dispatchConfirmationNumber, Model\SupermodelIoLogisticsExpressUpdatePickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiPickupsUpdate(string $dispatchConfirmationNumber, Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiPickupsUpdate($dispatchConfirmationNumber, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsUpdate($dispatchConfirmationNumber, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -76,13 +76,13 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressPickupResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Pickup\SupermodelIoLogisticsExpressPickupResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiPickupsBadRequestException
      */
-    public function expApiPickups(Model\SupermodelIoLogisticsExpressPickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiPickups(Model\Pickup\SupermodelIoLogisticsExpressPickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiPickups($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickups($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -105,13 +105,13 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressIdentifierResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Identifier\SupermodelIoLogisticsExpressIdentifierResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiIdentifiersBadRequestException
      */
     public function expApiIdentifiers(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiIdentifiers($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Identifier\ExpApiIdentifiers($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -137,13 +137,13 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressAddressValidateResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Address\SupermodelIoLogisticsExpressAddressValidateResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiAddressValidateBadRequestException
      */
     public function expApiAddressValidate(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiAddressValidate($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Address\ExpApiAddressValidate($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -182,14 +182,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiRatesBadRequestException
      * @throws Exception\ExpApiRatesInternalServerErrorException
      */
     public function expApiRates(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiRates($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRates($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -210,14 +210,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiRatesManyBadRequestException
      * @throws Exception\ExpApiRatesManyInternalServerErrorException
      */
-    public function expApiRatesMany(Model\SupermodelIoLogisticsExpressRateRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiRatesMany(Model\Rating\SupermodelIoLogisticsExpressRateRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiRatesMany($requestBody, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRatesMany($requestBody, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -235,14 +235,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiLandedCostBadRequestException
      * @throws Exception\ExpApiLandedCostInternalServerErrorException
      */
-    public function expApiLandedCost(Model\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiLandedCost(Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiLandedCost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiLandedCost($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -282,14 +282,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressProducts|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Product\SupermodelIoLogisticsExpressProducts|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiProductsBadRequestException
      * @throws Exception\ExpApiProductsInternalServerErrorException
      */
     public function expApiProducts(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiProducts($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Product\ExpApiProducts($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -313,14 +313,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsTrackingBadRequestException
      * @throws Exception\ExpApiShipmentsTrackingNotFoundException
      */
     public function expApiShipmentsTracking(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsTracking($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTracking($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -350,14 +350,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsTrackingMultiBadRequestException
      * @throws Exception\ExpApiShipmentsTrackingMultiNotFoundException
      */
     public function expApiShipmentsTrackingMulti(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsTrackingMulti($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTrackingMulti($queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -380,14 +380,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressEPODResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsEpodBadRequestException
      * @throws Exception\ExpApiShipmentsEpodNotFoundException
      */
     public function expApiShipmentsEpod(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsEpod($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsEpod($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -402,9 +402,9 @@ class Client extends Runtime\Client\Client
      * @throws Exception\ExpApiShipmentsImgUploadNotFoundException
      * @throws Exception\ExpApiShipmentsImgUploadUnprocessableEntityException
      */
-    public function expApiShipmentsImgUpload(string $shipmentTrackingNumber, Model\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsImgUpload(string $shipmentTrackingNumber, Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsImgUpload($shipmentTrackingNumber, $requestBody), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsImgUpload($shipmentTrackingNumber, $requestBody), $fetch);
     }
 
     /**
@@ -427,15 +427,15 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressCreateShipmentResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsBadRequestException
      * @throws Exception\ExpApiShipmentsUnprocessableEntityException
      * @throws Exception\ExpApiShipmentsInternalServerErrorException
      */
-    public function expApiShipments(Model\SupermodelIoLogisticsExpressCreateShipmentRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipments(Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipments($requestBody, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\ExpApiShipments($requestBody, $queryParameters, $headerParameters), $fetch);
     }
 
     /**
@@ -469,9 +469,9 @@ class Client extends Runtime\Client\Client
      * @throws Exception\ExpApiShipmentsInvoiceDataAwbBadRequestException
      * @throws Exception\ExpApiShipmentsInvoiceDataAwbUnprocessableEntityException
      */
-    public function expApiShipmentsInvoiceDataAwb(string $shipmentTrackingNumber, Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsInvoiceDataAwb(string $shipmentTrackingNumber, Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsInvoiceDataAwb($shipmentTrackingNumber, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceDataAwb($shipmentTrackingNumber, $requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -500,14 +500,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsInvoiceDataBadRequestException
      * @throws Exception\ExpApiShipmentsInvoiceDataInternalServerErrorException
      */
-    public function expApiShipmentsInvoiceData(Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsInvoiceData(Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsInvoiceData($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceData($requestBody, $headerParameters), $fetch);
     }
 
     /**
@@ -534,14 +534,14 @@ class Client extends Runtime\Client\Client
      * } $headerParameters
      * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\SupermodelIoLogisticsExpressDocumentImageResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return ($fetch is 'object' ? Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse|null : \Psr\Http\Message\ResponseInterface)
      *
      * @throws Exception\ExpApiShipmentsDocumentimageBadRequestException
      * @throws Exception\ExpApiShipmentsDocumentimageNotFoundException
      */
     public function expApiShipmentsDocumentimage(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
     {
-        return $this->executeEndpoint(new Endpoint\ExpApiShipmentsDocumentimage($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsDocumentimage($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
     }
 
     public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [], bool $applyServerPlugins = true)

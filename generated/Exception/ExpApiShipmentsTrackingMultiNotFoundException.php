@@ -5,7 +5,7 @@ namespace Korbeil\DHLExpress\Api\Exception;
 class ExpApiShipmentsTrackingMultiNotFoundException extends NotFoundException
 {
     /**
-     * @var \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse
+     * @var \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse
      */
     private $supermodelIoLogisticsExpressErrorResponse;
     /**
@@ -13,14 +13,14 @@ class ExpApiShipmentsTrackingMultiNotFoundException extends NotFoundException
      */
     private $response;
 
-    public function __construct(\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse $supermodelIoLogisticsExpressErrorResponse, \Psr\Http\Message\ResponseInterface $response)
+    public function __construct(\Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse $supermodelIoLogisticsExpressErrorResponse, \Psr\Http\Message\ResponseInterface $response)
     {
         parent::__construct('No data found');
         $this->supermodelIoLogisticsExpressErrorResponse = $supermodelIoLogisticsExpressErrorResponse;
         $this->response = $response;
     }
 
-    public function getSupermodelIoLogisticsExpressErrorResponse(): \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse
+    public function getSupermodelIoLogisticsExpressErrorResponse(): \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse
     {
         return $this->supermodelIoLogisticsExpressErrorResponse;
     }

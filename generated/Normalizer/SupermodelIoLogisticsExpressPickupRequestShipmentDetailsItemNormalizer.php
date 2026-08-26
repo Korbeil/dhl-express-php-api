@@ -60,7 +60,7 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
         if (\array_key_exists('accounts', $data) && null !== $data['accounts']) {
             $values = [];
             foreach ($data['accounts'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAccount::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressAccount::class, 'json', $context);
             }
             $object->setAccounts($values);
         } elseif (\array_key_exists('accounts', $data) && null === $data['accounts']) {
@@ -69,7 +69,7 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
         if (\array_key_exists('valueAddedServices', $data) && null !== $data['valueAddedServices']) {
             $values_1 = [];
             foreach ($data['valueAddedServices'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class, 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class, 'json', $context);
             }
             $object->setValueAddedServices($values_1);
         } elseif (\array_key_exists('valueAddedServices', $data) && null === $data['valueAddedServices']) {
@@ -103,7 +103,7 @@ class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer imp
         if (\array_key_exists('packages', $data) && null !== $data['packages']) {
             $values_2 = [];
             foreach ($data['packages'] as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRR::class, 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressPackageRR::class, 'json', $context);
             }
             $object->setPackages($values_2);
         } elseif (\array_key_exists('packages', $data) && null === $data['packages']) {

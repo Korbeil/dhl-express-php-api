@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent
     /**
      * Here you can find all details related to export declaration.
      *
-     * @var list<SupermodelIoLogisticsExpressExportDeclaration>|null
+     * @var list<Common\SupermodelIoLogisticsExpressExportDeclaration>|null
      */
     protected $exportDeclaration;
     /**
@@ -35,7 +35,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent
     /**
      * Here you can find all details related to export declaration.
      *
-     * @return list<SupermodelIoLogisticsExpressExportDeclaration>|null
+     * @return list<Common\SupermodelIoLogisticsExpressExportDeclaration>|null
      */
     public function getExportDeclaration(): ?array
     {
@@ -45,7 +45,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent
     /**
      * Here you can find all details related to export declaration.
      *
-     * @param list<SupermodelIoLogisticsExpressExportDeclaration>|null $exportDeclaration
+     * @param list<Common\SupermodelIoLogisticsExpressExportDeclaration>|null $exportDeclaration
      */
     public function setExportDeclaration(?array $exportDeclaration): self
     {

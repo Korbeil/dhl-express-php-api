@@ -42,12 +42,12 @@ class SupermodelIoLogisticsExpressRateRequestCustomerDetailsNormalizer implement
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('shipperDetails', $data) && null !== $data['shipperDetails']) {
-            $object->setShipperDetails($this->denormalizer->denormalize($data['shipperDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressRatesRequest::class, 'json', $context));
+            $object->setShipperDetails($this->denormalizer->denormalize($data['shipperDetails'], \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressAddressRatesRequest::class, 'json', $context));
         } elseif (\array_key_exists('shipperDetails', $data) && null === $data['shipperDetails']) {
             $object->setShipperDetails(null);
         }
         if (\array_key_exists('receiverDetails', $data) && null !== $data['receiverDetails']) {
-            $object->setReceiverDetails($this->denormalizer->denormalize($data['receiverDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressRatesRequest::class, 'json', $context));
+            $object->setReceiverDetails($this->denormalizer->denormalize($data['receiverDetails'], \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressAddressRatesRequest::class, 'json', $context));
         } elseif (\array_key_exists('receiverDetails', $data) && null === $data['receiverDetails']) {
             $object->setReceiverDetails(null);
         }

@@ -44,7 +44,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer i
         if (\array_key_exists('exportDeclaration', $data) && null !== $data['exportDeclaration']) {
             $values = [];
             foreach ($data['exportDeclaration'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclaration::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressExportDeclaration::class, 'json', $context);
             }
             $object->setExportDeclaration($values);
         } elseif (\array_key_exists('exportDeclaration', $data) && null === $data['exportDeclaration']) {

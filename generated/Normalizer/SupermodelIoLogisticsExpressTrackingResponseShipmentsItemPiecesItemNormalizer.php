@@ -111,7 +111,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormali
         if (\array_key_exists('shipperReferences', $data) && null !== $data['shipperReferences']) {
             $values = [];
             foreach ($data['shipperReferences'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressReference::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressReference::class, 'json', $context);
             }
             $object->setShipperReferences($values);
         } elseif (\array_key_exists('shipperReferences', $data) && null === $data['shipperReferences']) {

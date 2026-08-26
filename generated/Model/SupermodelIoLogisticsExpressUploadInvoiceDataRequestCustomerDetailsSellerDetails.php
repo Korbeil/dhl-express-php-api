@@ -14,11 +14,11 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressAddress|null
+     * @var Common\SupermodelIoLogisticsExpressAddress|null
      */
     protected $postalAddress;
     /**
-     * @var SupermodelIoLogisticsExpressContact|null
+     * @var Common\SupermodelIoLogisticsExpressContact|null
      */
     protected $contactInformation;
     /**
@@ -28,16 +28,16 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
      */
     protected $typeCode;
     /**
-     * @var list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
+     * @var list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     protected $registrationNumbers;
 
-    public function getPostalAddress(): ?SupermodelIoLogisticsExpressAddress
+    public function getPostalAddress(): ?Common\SupermodelIoLogisticsExpressAddress
     {
         return $this->postalAddress;
     }
 
-    public function setPostalAddress(?SupermodelIoLogisticsExpressAddress $postalAddress): self
+    public function setPostalAddress(?Common\SupermodelIoLogisticsExpressAddress $postalAddress): self
     {
         $this->initialized['postalAddress'] = true;
         $this->postalAddress = $postalAddress;
@@ -45,12 +45,12 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
         return $this;
     }
 
-    public function getContactInformation(): ?SupermodelIoLogisticsExpressContact
+    public function getContactInformation(): ?Common\SupermodelIoLogisticsExpressContact
     {
         return $this->contactInformation;
     }
 
-    public function setContactInformation(?SupermodelIoLogisticsExpressContact $contactInformation): self
+    public function setContactInformation(?Common\SupermodelIoLogisticsExpressContact $contactInformation): self
     {
         $this->initialized['contactInformation'] = true;
         $this->contactInformation = $contactInformation;
@@ -78,7 +78,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
     }
 
     /**
-     * @return list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
+     * @return list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     public function getRegistrationNumbers(): ?array
     {
@@ -86,7 +86,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
     }
 
     /**
-     * @param list<SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
+     * @param list<Common\SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {

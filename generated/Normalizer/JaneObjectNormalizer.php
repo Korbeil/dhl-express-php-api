@@ -18,17 +18,17 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
     use NormalizerAwareTrait;
     use ValidatorTrait;
     protected $normalizers = [
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAccount::class => SupermodelIoLogisticsExpressAccountNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressAccount::class => Common\SupermodelIoLogisticsExpressAccountNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddress::class => SupermodelIoLogisticsExpressAddressNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressAddress::class => Common\SupermodelIoLogisticsExpressAddressNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressCreateShipmentRequest::class => SupermodelIoLogisticsExpressAddressCreateShipmentRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequest::class => Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequestNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressCreateShipmentResponse::class => SupermodelIoLogisticsExpressAddressCreateShipmentResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponse::class => Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressRatesRequest::class => SupermodelIoLogisticsExpressAddressRatesRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressAddressRatesRequest::class => Rating\SupermodelIoLogisticsExpressAddressRatesRequestNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponse::class => SupermodelIoLogisticsExpressAddressValidateResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Address\SupermodelIoLogisticsExpressAddressValidateResponse::class => Address\SupermodelIoLogisticsExpressAddressValidateResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem::class => SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer::class,
 
@@ -36,13 +36,13 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class => SupermodelIoLogisticsExpressBankDetailsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressContact::class => SupermodelIoLogisticsExpressContactNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressContact::class => Common\SupermodelIoLogisticsExpressContactNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressContactBuyer::class => SupermodelIoLogisticsExpressContactBuyerNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressContactBuyer::class => Shipment\SupermodelIoLogisticsExpressContactBuyerNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressContactCreateShipmentResponse::class => SupermodelIoLogisticsExpressContactCreateShipmentResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponse::class => Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequest::class => SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentRequest::class => Shipment\SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickup::class => SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer::class,
 
@@ -124,7 +124,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment::class => SupermodelIoLogisticsExpressCreateShipmentRequestParentShipmentNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponse::class => SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentResponse::class => Shipment\SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem::class => SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemNormalizer::class,
 
@@ -158,15 +158,15 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate::class => SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDateNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponse::class => SupermodelIoLogisticsExpressDocumentImageResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse::class => Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem::class => SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItemNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem::class => SupermodelIoLogisticsExpressDocumentImagesItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse::class => SupermodelIoLogisticsExpressErrorResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse::class => Common\SupermodelIoLogisticsExpressErrorResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclaration::class => SupermodelIoLogisticsExpressExportDeclarationNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressExportDeclaration::class => Common\SupermodelIoLogisticsExpressExportDeclarationNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItem::class => SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer::class,
 
@@ -192,15 +192,15 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem::class => SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifier::class => SupermodelIoLogisticsExpressIdentifierNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressIdentifier::class => Shipment\SupermodelIoLogisticsExpressIdentifierNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponse::class => SupermodelIoLogisticsExpressIdentifierResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Identifier\SupermodelIoLogisticsExpressIdentifierResponse::class => Identifier\SupermodelIoLogisticsExpressIdentifierResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem::class => SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest::class => SupermodelIoLogisticsExpressImageUploadRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest::class => Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequestNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequest::class => SupermodelIoLogisticsExpressLandedCostRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest::class => Rating\SupermodelIoLogisticsExpressLandedCostRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestCustomerDetails::class => SupermodelIoLogisticsExpressLandedCostRequestCustomerDetailsNormalizer::class,
 
@@ -212,7 +212,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem::class => SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackage::class => SupermodelIoLogisticsExpressPackageNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressPackage::class => Shipment\SupermodelIoLogisticsExpressPackageNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageDimensions::class => SupermodelIoLogisticsExpressPackageDimensionsNormalizer::class,
 
@@ -220,13 +220,13 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageLabelTextItem::class => SupermodelIoLogisticsExpressPackageLabelTextItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRR::class => SupermodelIoLogisticsExpressPackageRRNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressPackageRR::class => Common\SupermodelIoLogisticsExpressPackageRRNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class => SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageReference::class => SupermodelIoLogisticsExpressPackageReferenceNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressPackageReference::class => Shipment\SupermodelIoLogisticsExpressPackageReferenceNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequest::class => SupermodelIoLogisticsExpressPickupRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressPickupRequest::class => Pickup\SupermodelIoLogisticsExpressPickupRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItem::class => SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItemNormalizer::class,
 
@@ -242,9 +242,9 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem::class => SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupResponse::class => SupermodelIoLogisticsExpressPickupResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressPickupResponse::class => Pickup\SupermodelIoLogisticsExpressPickupResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProducts::class => SupermodelIoLogisticsExpressProductsNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Product\SupermodelIoLogisticsExpressProducts::class => Product\SupermodelIoLogisticsExpressProductsNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItem::class => SupermodelIoLogisticsExpressProductsProductsItemNormalizer::class,
 
@@ -266,7 +266,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilities::class => SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilitiesNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRateRequest::class => SupermodelIoLogisticsExpressRateRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRateRequest::class => Rating\SupermodelIoLogisticsExpressRateRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRateRequestCustomerDetails::class => SupermodelIoLogisticsExpressRateRequestCustomerDetailsNormalizer::class,
 
@@ -278,7 +278,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem::class => SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRates::class => SupermodelIoLogisticsExpressRatesNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates::class => Rating\SupermodelIoLogisticsExpressRatesNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItem::class => SupermodelIoLogisticsExpressRatesProductsItemNormalizer::class,
 
@@ -318,11 +318,11 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesExchangeRatesItem::class => SupermodelIoLogisticsExpressRatesExchangeRatesItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressReference::class => SupermodelIoLogisticsExpressReferenceNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressReference::class => Common\SupermodelIoLogisticsExpressReferenceNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRegistrationNumbers::class => SupermodelIoLogisticsExpressRegistrationNumbersNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressRegistrationNumbers::class => Common\SupermodelIoLogisticsExpressRegistrationNumbersNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponse::class => SupermodelIoLogisticsExpressTrackingResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse::class => Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItem::class => SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer::class,
 
@@ -352,7 +352,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItem::class => SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupRequest::class => SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupRequest::class => Pickup\SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem::class => SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItemNormalizer::class,
 
@@ -368,9 +368,9 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem::class => SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse::class => SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse::class => Pickup\SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequest::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest::class => Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestContent::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestContentNormalizer::class,
 
@@ -390,7 +390,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsUltimateConsigneeDetails::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsUltimateConsigneeDetailsNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID::class => Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer::class,
 
@@ -410,15 +410,15 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetails::class => SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetailsNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class => SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class => Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServices::class => SupermodelIoLogisticsExpressValueAddedServicesNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressValueAddedServices::class => Shipment\SupermodelIoLogisticsExpressValueAddedServicesNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class => SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class => SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class => Common\SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer::class,
 
-        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponse::class => SupermodelIoLogisticsExpressEPODResponseNormalizer::class,
+        \Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponse::class => Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponseNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponseDocumentsItem::class => SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer::class,
 

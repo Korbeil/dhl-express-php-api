@@ -42,12 +42,12 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('postalAddress', $data) && null !== $data['postalAddress']) {
-            $object->setPostalAddress($this->denormalizer->denormalize($data['postalAddress'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddress::class, 'json', $context));
+            $object->setPostalAddress($this->denormalizer->denormalize($data['postalAddress'], \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressAddress::class, 'json', $context));
         } elseif (\array_key_exists('postalAddress', $data) && null === $data['postalAddress']) {
             $object->setPostalAddress(null);
         }
         if (\array_key_exists('contactInformation', $data) && null !== $data['contactInformation']) {
-            $object->setContactInformation($this->denormalizer->denormalize($data['contactInformation'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressContact::class, 'json', $context));
+            $object->setContactInformation($this->denormalizer->denormalize($data['contactInformation'], \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressContact::class, 'json', $context));
         } elseif (\array_key_exists('contactInformation', $data) && null === $data['contactInformation']) {
             $object->setContactInformation(null);
         }
@@ -59,7 +59,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerD
         if (\array_key_exists('registrationNumbers', $data) && null !== $data['registrationNumbers']) {
             $values = [];
             foreach ($data['registrationNumbers'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRegistrationNumbers::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressRegistrationNumbers::class, 'json', $context);
             }
             $object->setRegistrationNumbers($values);
         } elseif (\array_key_exists('registrationNumbers', $data) && null === $data['registrationNumbers']) {

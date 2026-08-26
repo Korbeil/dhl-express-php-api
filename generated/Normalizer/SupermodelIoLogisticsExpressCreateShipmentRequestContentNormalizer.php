@@ -50,7 +50,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentNormalizer impleme
         if (\array_key_exists('packages', $data) && null !== $data['packages']) {
             $values = [];
             foreach ($data['packages'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackage::class, 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressPackage::class, 'json', $context);
             }
             $object->setPackages($values);
         } elseif (\array_key_exists('packages', $data) && null === $data['packages']) {

@@ -3,7 +3,7 @@
 namespace Korbeil\DHLExpress\Tests;
 
 use Korbeil\DHLExpress\Api\Client;
-use Korbeil\DHLExpress\Api\Endpoint\ExpApiAddressValidate;
+use Korbeil\DHLExpress\Api\Endpoint\Address\ExpApiAddressValidate;
 use Korbeil\DHLExpress\ClientFactory;
 use PHPUnit\Framework\TestCase;
 

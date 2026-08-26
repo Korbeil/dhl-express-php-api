@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
     /**
      * Here you can define properties per package.
      *
-     * @var list<SupermodelIoLogisticsExpressPackage>|null
+     * @var list<Shipment\SupermodelIoLogisticsExpressPackage>|null
      */
     protected $packages;
     /**
@@ -71,7 +71,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
     /**
      * Here you can define properties per package.
      *
-     * @return list<SupermodelIoLogisticsExpressPackage>|null
+     * @return list<Shipment\SupermodelIoLogisticsExpressPackage>|null
      */
     public function getPackages(): ?array
     {
@@ -81,7 +81,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContent
     /**
      * Here you can define properties per package.
      *
-     * @param list<SupermodelIoLogisticsExpressPackage>|null $packages
+     * @param list<Shipment\SupermodelIoLogisticsExpressPackage>|null $packages
      */
     public function setPackages(?array $packages): self
     {

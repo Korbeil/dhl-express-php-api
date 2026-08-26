@@ -28,7 +28,7 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @var list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null
+     * @var list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     protected $valueAddedServices;
 
@@ -73,7 +73,7 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @return list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null
+     * @return list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     public function getValueAddedServices(): ?array
     {
@@ -83,7 +83,7 @@ class SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @param list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null $valueAddedServices
+     * @param list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null $valueAddedServices
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
