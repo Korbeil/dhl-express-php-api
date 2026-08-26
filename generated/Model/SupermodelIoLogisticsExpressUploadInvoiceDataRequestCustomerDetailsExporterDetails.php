@@ -22,7 +22,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsExporte
      */
     protected $contactInformation;
     /**
-     * @var SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @var list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     protected $registrationNumbers;
     /**
@@ -59,7 +59,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsExporte
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @return list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     public function getRegistrationNumbers(): ?array
     {
@@ -67,7 +67,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsExporte
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRegistrationNumbers[]|null $registrationNumbers
+     * @param list<SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {

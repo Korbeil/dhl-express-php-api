@@ -19,30 +19,45 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties();
         if (\array_key_exists('printerDPI', $data) && \is_int($data['printerDPI'])) {
             $data['printerDPI'] = (float) $data['printerDPI'];
         }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
+        if (\array_key_exists('splitTransportAndWaybillDocLabels', $data) && \is_int($data['splitTransportAndWaybillDocLabels'])) {
+            $data['splitTransportAndWaybillDocLabels'] = (bool) $data['splitTransportAndWaybillDocLabels'];
+        }
+        if (\array_key_exists('allDocumentsInOneImage', $data) && \is_int($data['allDocumentsInOneImage'])) {
+            $data['allDocumentsInOneImage'] = (bool) $data['allDocumentsInOneImage'];
+        }
+        if (\array_key_exists('splitDocumentsByPages', $data) && \is_int($data['splitDocumentsByPages'])) {
+            $data['splitDocumentsByPages'] = (bool) $data['splitDocumentsByPages'];
+        }
+        if (\array_key_exists('splitInvoiceAndReceipt', $data) && \is_int($data['splitInvoiceAndReceipt'])) {
+            $data['splitInvoiceAndReceipt'] = (bool) $data['splitInvoiceAndReceipt'];
+        }
+        if (\array_key_exists('receiptAndLabelsInOneImage', $data) && \is_int($data['receiptAndLabelsInOneImage'])) {
+            $data['receiptAndLabelsInOneImage'] = (bool) $data['receiptAndLabelsInOneImage'];
         }
         if (\array_key_exists('printerDPI', $data) && null !== $data['printerDPI']) {
             $object->setPrinterDPI($data['printerDPI']);
@@ -52,7 +67,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
         if (\array_key_exists('customerBarcodes', $data) && null !== $data['customerBarcodes']) {
             $values = [];
             foreach ($data['customerBarcodes'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItem::class, 'json', $context);
             }
             $object->setCustomerBarcodes($values);
         } elseif (\array_key_exists('customerBarcodes', $data) && null === $data['customerBarcodes']) {
@@ -61,7 +76,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
         if (\array_key_exists('customerLogos', $data) && null !== $data['customerLogos']) {
             $values_1 = [];
             foreach ($data['customerLogos'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem::class, 'json', $context);
             }
             $object->setCustomerLogos($values_1);
         } elseif (\array_key_exists('customerLogos', $data) && null === $data['customerLogos']) {
@@ -75,7 +90,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
         if (\array_key_exists('imageOptions', $data) && null !== $data['imageOptions']) {
             $values_2 = [];
             foreach ($data['imageOptions'] as $value_2) {
-                $values_2[] = $this->denormalizer->denormalize($value_2, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem', 'json', $context);
+                $values_2[] = $this->denormalizer->denormalize($value_2, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem::class, 'json', $context);
             }
             $object->setImageOptions($values_2);
         } elseif (\array_key_exists('imageOptions', $data) && null === $data['imageOptions']) {
@@ -110,60 +125,57 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNorm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('printerDPI') && null !== $object->getPrinterDPI()) {
-            $data['printerDPI'] = $object->getPrinterDPI();
+        $dataArray = [];
+        if ($data->isInitialized('printerDPI') && null !== $data->getPrinterDPI()) {
+            $dataArray['printerDPI'] = $data->getPrinterDPI();
         }
-        if ($object->isInitialized('customerBarcodes') && null !== $object->getCustomerBarcodes()) {
+        if ($data->isInitialized('customerBarcodes') && null !== $data->getCustomerBarcodes()) {
             $values = [];
-            foreach ($object->getCustomerBarcodes() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data->getCustomerBarcodes() as $value) {
+                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
             }
-            $data['customerBarcodes'] = $values;
+            $dataArray['customerBarcodes'] = $values;
         }
-        if ($object->isInitialized('customerLogos') && null !== $object->getCustomerLogos()) {
+        if ($data->isInitialized('customerLogos') && null !== $data->getCustomerLogos()) {
             $values_1 = [];
-            foreach ($object->getCustomerLogos() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            foreach ($data->getCustomerLogos() as $value_1) {
+                $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
             }
-            $data['customerLogos'] = $values_1;
+            $dataArray['customerLogos'] = $values_1;
         }
-        if ($object->isInitialized('encodingFormat') && null !== $object->getEncodingFormat()) {
-            $data['encodingFormat'] = $object->getEncodingFormat();
+        if ($data->isInitialized('encodingFormat') && null !== $data->getEncodingFormat()) {
+            $dataArray['encodingFormat'] = $data->getEncodingFormat();
         }
-        if ($object->isInitialized('imageOptions') && null !== $object->getImageOptions()) {
+        if ($data->isInitialized('imageOptions') && null !== $data->getImageOptions()) {
             $values_2 = [];
-            foreach ($object->getImageOptions() as $value_2) {
-                $values_2[] = $this->normalizer->normalize($value_2, 'json', $context);
+            foreach ($data->getImageOptions() as $value_2) {
+                $values_2[] = null === $value_2 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_2, 'json', $context));
             }
-            $data['imageOptions'] = $values_2;
+            $dataArray['imageOptions'] = $values_2;
         }
-        if ($object->isInitialized('splitTransportAndWaybillDocLabels') && null !== $object->getSplitTransportAndWaybillDocLabels()) {
-            $data['splitTransportAndWaybillDocLabels'] = $object->getSplitTransportAndWaybillDocLabels();
+        if ($data->isInitialized('splitTransportAndWaybillDocLabels') && null !== $data->getSplitTransportAndWaybillDocLabels()) {
+            $dataArray['splitTransportAndWaybillDocLabels'] = $data->getSplitTransportAndWaybillDocLabels();
         }
-        if ($object->isInitialized('allDocumentsInOneImage') && null !== $object->getAllDocumentsInOneImage()) {
-            $data['allDocumentsInOneImage'] = $object->getAllDocumentsInOneImage();
+        if ($data->isInitialized('allDocumentsInOneImage') && null !== $data->getAllDocumentsInOneImage()) {
+            $dataArray['allDocumentsInOneImage'] = $data->getAllDocumentsInOneImage();
         }
-        if ($object->isInitialized('splitDocumentsByPages') && null !== $object->getSplitDocumentsByPages()) {
-            $data['splitDocumentsByPages'] = $object->getSplitDocumentsByPages();
+        if ($data->isInitialized('splitDocumentsByPages') && null !== $data->getSplitDocumentsByPages()) {
+            $dataArray['splitDocumentsByPages'] = $data->getSplitDocumentsByPages();
         }
-        if ($object->isInitialized('splitInvoiceAndReceipt') && null !== $object->getSplitInvoiceAndReceipt()) {
-            $data['splitInvoiceAndReceipt'] = $object->getSplitInvoiceAndReceipt();
+        if ($data->isInitialized('splitInvoiceAndReceipt') && null !== $data->getSplitInvoiceAndReceipt()) {
+            $dataArray['splitInvoiceAndReceipt'] = $data->getSplitInvoiceAndReceipt();
         }
-        if ($object->isInitialized('receiptAndLabelsInOneImage') && null !== $object->getReceiptAndLabelsInOneImage()) {
-            $data['receiptAndLabelsInOneImage'] = $object->getReceiptAndLabelsInOneImage();
+        if ($data->isInitialized('receiptAndLabelsInOneImage') && null !== $data->getReceiptAndLabelsInOneImage()) {
+            $dataArray['receiptAndLabelsInOneImage'] = $data->getReceiptAndLabelsInOneImage();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImageProperties::class => false];
     }
 }

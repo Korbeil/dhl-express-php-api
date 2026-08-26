@@ -40,7 +40,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
     /**
      * The DangerousGoods section indicates if there is dangerous good content within the shipment.
      *
-     * @var SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem>|null
      */
     protected $dangerousGoods;
 
@@ -123,7 +123,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
     /**
      * The DangerousGoods section indicates if there is dangerous good content within the shipment.
      *
-     * @return SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem>|null
      */
     public function getDangerousGoods(): ?array
     {
@@ -133,7 +133,7 @@ class SupermodelIoLogisticsExpressValueAddedServices
     /**
      * The DangerousGoods section indicates if there is dangerous good content within the shipment.
      *
-     * @param SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem[]|null $dangerousGoods
+     * @param list<SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem>|null $dangerousGoods
      */
     public function setDangerousGoods(?array $dangerousGoods): self
     {

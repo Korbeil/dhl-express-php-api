@@ -20,18 +20,16 @@ class ExpApiShipmentsInvoiceData extends \Korbeil\DHLExpress\Api\Runtime\Client\
      * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
      * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
-     * @param array $headerParameters {
-     *
-     * @var string $Message-Reference Please provide message reference
-     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     *
-     * }
+     * @param array{
+     *    "Message-Reference"?: string, //Please provide message reference
+     *    "Message-Reference-Date"?: string, //Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     *    "Plugin-Name"?: string, //Please provide name of the plugin (applicable to 3PV only)
+     *    "Plugin-Version"?: string, //Please provide version of the plugin (applicable to 3PV only)
+     *    "Shipping-System-Platform-Name"?: string, //Please provide name of the shipping platform(applicable to 3PV only)
+     *    "Shipping-System-Platform-Version"?: string, //Please provide version of the shipping platform (applicable to 3PV only)
+     *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
+     *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
+     * } $headerParameters
      */
     public function __construct(\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID $requestBody = null, array $headerParameters = [])
     {
@@ -52,7 +50,7 @@ class ExpApiShipmentsInvoiceData extends \Korbeil\DHLExpress\Api\Runtime\Client\
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID) {
-            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
+            return [['Content-Type' => ['application/json']], \Korbeil\DHLExpress\Api\Runtime\Client\JsonPayload::encode($serializer, $this->body)];
         }
 
         return [[], null];
@@ -91,14 +89,14 @@ class ExpApiShipmentsInvoiceData extends \Korbeil\DHLExpress\Api\Runtime\Client\
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataResponse', 'json');
+        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (500 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataInternalServerErrorException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (500 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataInternalServerErrorException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

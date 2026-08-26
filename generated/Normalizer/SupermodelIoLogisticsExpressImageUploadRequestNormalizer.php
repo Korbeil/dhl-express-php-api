@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressImageUploadRequestNormalizer implements Denorm
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressImageUploadRequest' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressImageUploadRequest' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('shipmentTrackingNumber', $data) && null !== $data['shipmentTrackingNumber']) {
             $object->setShipmentTrackingNumber($data['shipmentTrackingNumber']);
@@ -54,7 +54,7 @@ class SupermodelIoLogisticsExpressImageUploadRequestNormalizer implements Denorm
         if (\array_key_exists('accounts', $data) && null !== $data['accounts']) {
             $values = [];
             foreach ($data['accounts'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAccount', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAccount::class, 'json', $context);
             }
             $object->setAccounts($values);
         } elseif (\array_key_exists('accounts', $data) && null === $data['accounts']) {
@@ -68,7 +68,7 @@ class SupermodelIoLogisticsExpressImageUploadRequestNormalizer implements Denorm
         if (\array_key_exists('documentImages', $data) && null !== $data['documentImages']) {
             $values_1 = [];
             foreach ($data['documentImages'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressDocumentImagesItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem::class, 'json', $context);
             }
             $object->setDocumentImages($values_1);
         } elseif (\array_key_exists('documentImages', $data) && null === $data['documentImages']) {
@@ -78,31 +78,28 @@ class SupermodelIoLogisticsExpressImageUploadRequestNormalizer implements Denorm
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['shipmentTrackingNumber'] = $object->getShipmentTrackingNumber();
-        $data['originalPlannedShippingDate'] = $object->getOriginalPlannedShippingDate();
+        $dataArray = [];
+        $dataArray['shipmentTrackingNumber'] = $data->getShipmentTrackingNumber();
+        $dataArray['originalPlannedShippingDate'] = $data->getOriginalPlannedShippingDate();
         $values = [];
-        foreach ($object->getAccounts() as $value) {
-            $values[] = $this->normalizer->normalize($value, 'json', $context);
+        foreach ($data->getAccounts() as $value) {
+            $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
         }
-        $data['accounts'] = $values;
-        $data['productCode'] = $object->getProductCode();
+        $dataArray['accounts'] = $values;
+        $dataArray['productCode'] = $data->getProductCode();
         $values_1 = [];
-        foreach ($object->getDocumentImages() as $value_1) {
-            $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+        foreach ($data->getDocumentImages() as $value_1) {
+            $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
         }
-        $data['documentImages'] = $values_1;
+        $dataArray['documentImages'] = $values_1;
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressImageUploadRequest' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest::class => false];
     }
 }

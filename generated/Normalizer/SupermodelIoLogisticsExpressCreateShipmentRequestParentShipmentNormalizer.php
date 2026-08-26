@@ -19,30 +19,30 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestParentShipmentNormalizer 
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment();
         if (\array_key_exists('packagesCount', $data) && \is_int($data['packagesCount'])) {
             $data['packagesCount'] = (float) $data['packagesCount'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('productCode', $data) && null !== $data['productCode']) {
             $object->setProductCode($data['productCode']);
@@ -58,24 +58,21 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestParentShipmentNormalizer 
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('productCode') && null !== $object->getProductCode()) {
-            $data['productCode'] = $object->getProductCode();
+        $dataArray = [];
+        if ($data->isInitialized('productCode') && null !== $data->getProductCode()) {
+            $dataArray['productCode'] = $data->getProductCode();
         }
-        if ($object->isInitialized('packagesCount') && null !== $object->getPackagesCount()) {
-            $data['packagesCount'] = $object->getPackagesCount();
+        if ($data->isInitialized('packagesCount') && null !== $data->getPackagesCount()) {
+            $dataArray['packagesCount'] = $data->getPackagesCount();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestParentShipment::class => false];
     }
 }

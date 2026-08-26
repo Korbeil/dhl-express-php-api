@@ -19,25 +19,28 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem();
         if (\array_key_exists('number', $data) && \is_int($data['number'])) {
             $data['number'] = (float) $data['number'];
         }
@@ -52,9 +55,6 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
         }
         if (\array_key_exists('weight', $data) && \is_int($data['weight'])) {
             $data['weight'] = (float) $data['weight'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('number', $data) && null !== $data['number']) {
             $object->setNumber($data['number']);
@@ -139,7 +139,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
         if (\array_key_exists('goodsCharacteristics', $data) && null !== $data['goodsCharacteristics']) {
             $values = [];
             foreach ($data['goodsCharacteristics'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem::class, 'json', $context);
             }
             $object->setGoodsCharacteristics($values);
         } elseif (\array_key_exists('goodsCharacteristics', $data) && null === $data['goodsCharacteristics']) {
@@ -148,7 +148,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
         if (\array_key_exists('additionalQuantityDefinitions', $data) && null !== $data['additionalQuantityDefinitions']) {
             $values_1 = [];
             foreach ($data['additionalQuantityDefinitions'] as $value_1) {
-                $values_1[] = $this->denormalizer->denormalize($value_1, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem', 'json', $context);
+                $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem::class, 'json', $context);
             }
             $object->setAdditionalQuantityDefinitions($values_1);
         } elseif (\array_key_exists('additionalQuantityDefinitions', $data) && null === $data['additionalQuantityDefinitions']) {
@@ -163,75 +163,72 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['number'] = $object->getNumber();
-        if ($object->isInitialized('name') && null !== $object->getName()) {
-            $data['name'] = $object->getName();
+        $dataArray = [];
+        $dataArray['number'] = $data->getNumber();
+        if ($data->isInitialized('name') && null !== $data->getName()) {
+            $dataArray['name'] = $data->getName();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
-            $data['description'] = $object->getDescription();
+        if ($data->isInitialized('description') && null !== $data->getDescription()) {
+            $dataArray['description'] = $data->getDescription();
         }
-        if ($object->isInitialized('manufacturerCountry') && null !== $object->getManufacturerCountry()) {
-            $data['manufacturerCountry'] = $object->getManufacturerCountry();
+        if ($data->isInitialized('manufacturerCountry') && null !== $data->getManufacturerCountry()) {
+            $dataArray['manufacturerCountry'] = $data->getManufacturerCountry();
         }
-        if ($object->isInitialized('partNumber') && null !== $object->getPartNumber()) {
-            $data['partNumber'] = $object->getPartNumber();
+        if ($data->isInitialized('partNumber') && null !== $data->getPartNumber()) {
+            $dataArray['partNumber'] = $data->getPartNumber();
         }
-        $data['quantity'] = $object->getQuantity();
-        if ($object->isInitialized('quantityType') && null !== $object->getQuantityType()) {
-            $data['quantityType'] = $object->getQuantityType();
+        $dataArray['quantity'] = $data->getQuantity();
+        if ($data->isInitialized('quantityType') && null !== $data->getQuantityType()) {
+            $dataArray['quantityType'] = $data->getQuantityType();
         }
-        $data['unitPrice'] = $object->getUnitPrice();
-        $data['unitPriceCurrencyCode'] = $object->getUnitPriceCurrencyCode();
-        if ($object->isInitialized('customsValue') && null !== $object->getCustomsValue()) {
-            $data['customsValue'] = $object->getCustomsValue();
+        $dataArray['unitPrice'] = $data->getUnitPrice();
+        $dataArray['unitPriceCurrencyCode'] = $data->getUnitPriceCurrencyCode();
+        if ($data->isInitialized('customsValue') && null !== $data->getCustomsValue()) {
+            $dataArray['customsValue'] = $data->getCustomsValue();
         }
-        if ($object->isInitialized('customsValueCurrencyCode') && null !== $object->getCustomsValueCurrencyCode()) {
-            $data['customsValueCurrencyCode'] = $object->getCustomsValueCurrencyCode();
+        if ($data->isInitialized('customsValueCurrencyCode') && null !== $data->getCustomsValueCurrencyCode()) {
+            $dataArray['customsValueCurrencyCode'] = $data->getCustomsValueCurrencyCode();
         }
-        if ($object->isInitialized('commodityCode') && null !== $object->getCommodityCode()) {
-            $data['commodityCode'] = $object->getCommodityCode();
+        if ($data->isInitialized('commodityCode') && null !== $data->getCommodityCode()) {
+            $dataArray['commodityCode'] = $data->getCommodityCode();
         }
-        if ($object->isInitialized('weight') && null !== $object->getWeight()) {
-            $data['weight'] = $object->getWeight();
+        if ($data->isInitialized('weight') && null !== $data->getWeight()) {
+            $dataArray['weight'] = $data->getWeight();
         }
-        if ($object->isInitialized('weightUnitOfMeasurement') && null !== $object->getWeightUnitOfMeasurement()) {
-            $data['weightUnitOfMeasurement'] = $object->getWeightUnitOfMeasurement();
+        if ($data->isInitialized('weightUnitOfMeasurement') && null !== $data->getWeightUnitOfMeasurement()) {
+            $dataArray['weightUnitOfMeasurement'] = $data->getWeightUnitOfMeasurement();
         }
-        if ($object->isInitialized('category') && null !== $object->getCategory()) {
-            $data['category'] = $object->getCategory();
+        if ($data->isInitialized('category') && null !== $data->getCategory()) {
+            $dataArray['category'] = $data->getCategory();
         }
-        if ($object->isInitialized('brand') && null !== $object->getBrand()) {
-            $data['brand'] = $object->getBrand();
+        if ($data->isInitialized('brand') && null !== $data->getBrand()) {
+            $dataArray['brand'] = $data->getBrand();
         }
-        if ($object->isInitialized('goodsCharacteristics') && null !== $object->getGoodsCharacteristics()) {
+        if ($data->isInitialized('goodsCharacteristics') && null !== $data->getGoodsCharacteristics()) {
             $values = [];
-            foreach ($object->getGoodsCharacteristics() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data->getGoodsCharacteristics() as $value) {
+                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
             }
-            $data['goodsCharacteristics'] = $values;
+            $dataArray['goodsCharacteristics'] = $values;
         }
-        if ($object->isInitialized('additionalQuantityDefinitions') && null !== $object->getAdditionalQuantityDefinitions()) {
+        if ($data->isInitialized('additionalQuantityDefinitions') && null !== $data->getAdditionalQuantityDefinitions()) {
             $values_1 = [];
-            foreach ($object->getAdditionalQuantityDefinitions() as $value_1) {
-                $values_1[] = $this->normalizer->normalize($value_1, 'json', $context);
+            foreach ($data->getAdditionalQuantityDefinitions() as $value_1) {
+                $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
             }
-            $data['additionalQuantityDefinitions'] = $values_1;
+            $dataArray['additionalQuantityDefinitions'] = $values_1;
         }
-        if ($object->isInitialized('estimatedTariffRateType') && null !== $object->getEstimatedTariffRateType()) {
-            $data['estimatedTariffRateType'] = $object->getEstimatedTariffRateType();
+        if ($data->isInitialized('estimatedTariffRateType') && null !== $data->getEstimatedTariffRateType()) {
+            $dataArray['estimatedTariffRateType'] = $data->getEstimatedTariffRateType();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressLandedCostRequestItemsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class => false];
     }
 }

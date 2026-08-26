@@ -9,31 +9,28 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
     /**
      * The Tracking service retrieves tracking statuses for a single or multiple DHL Express Shipments.
      *
-     * @param array $queryParameters {
-     *
-     * @var array  $shipmentTrackingNumber DHL Express shipment identification number
-     * @var array  $pieceTrackingNumber DHL Express shipment piece tracking number
-     * @var string $shipmentReference Shipment reference which was provided during the shipment label creation
-     * @var string $shipmentReferenceType Shipment reference type which was provided during the shipment label creation
-     * @var string $shipperAccountNumber Shipper DHL Express Account number under which the shipment label was created
-     * @var string $dateRangeFrom When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
-     * @var string $dateRangeTo When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
-     * @var string $trackingView
-     * @var string $levelOfDetail
-     *             }
-     *
-     * @param array $headerParameters {
-     *
-     * @var string $Message-Reference Please provide message reference
-     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     * @var string $Accept-Language
-     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     *             }
+     * @param array{
+     *    "shipmentTrackingNumber"?: array, //DHL Express shipment identification number
+     *    "pieceTrackingNumber"?: array, //DHL Express shipment piece tracking number
+     *    "shipmentReference"?: string, //Shipment reference which was provided during the shipment label creation
+     *    "shipmentReferenceType"?: string, //Shipment reference type which was provided during the shipment label creation
+     *    "shipperAccountNumber"?: string, //Shipper DHL Express Account number under which the shipment label was created
+     *    "dateRangeFrom"?: string, //When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the start of the period.
+     *    "dateRangeTo"?: string, //When tracking by Shipment reference you need to restrict the search by timeframe. Please provide the end of the period.
+     *    "trackingView"?: string,
+     *    "levelOfDetail"?: string,
+     * } $queryParameters
+     * @param array{
+     *    "Message-Reference"?: string, //Please provide message reference
+     *    "Message-Reference-Date"?: string, //Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     *    "Accept-Language"?: string,
+     *    "Plugin-Name"?: string, //Please provide name of the plugin (applicable to 3PV only)
+     *    "Plugin-Version"?: string, //Please provide version of the plugin (applicable to 3PV only)
+     *    "Shipping-System-Platform-Name"?: string, //Please provide name of the shipping platform(applicable to 3PV only)
+     *    "Shipping-System-Platform-Version"?: string, //Please provide version of the shipping platform (applicable to 3PV only)
+     *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
+     *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
+     * } $headerParameters
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
@@ -99,6 +96,11 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
         return $optionsResolver;
     }
 
+    protected function getQueryStyles(): array
+    {
+        return ['shipmentTrackingNumber' => ['style' => 'form', 'explode' => true], 'pieceTrackingNumber' => ['style' => 'form', 'explode' => true]];
+    }
+
     /**
      * @return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponse|null
      *
@@ -109,14 +111,14 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponse', 'json');
+        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

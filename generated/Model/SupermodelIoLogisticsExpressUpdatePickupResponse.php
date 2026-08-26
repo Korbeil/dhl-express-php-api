@@ -28,7 +28,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
      */
     protected $nextPickupDate;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
 
@@ -78,7 +78,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -86,7 +86,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

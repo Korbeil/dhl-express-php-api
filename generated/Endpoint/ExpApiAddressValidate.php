@@ -9,27 +9,24 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
     /**
      * Validates if DHL Express has got pickup/delivery capabilities at origin/destination.
      *
-     * @param array $queryParameters {
-     *
-     * @var string $type
-     * @var string $countryCode A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
-     * @var string $postalCode Text specifying the postal code for an address. https://gs1.org/voc/postalCode
-     * @var string $cityName Text specifying the city name
-     * @var string $countyName Text specifying the county name
-     * @var string $strictValidation If set to true service will return no records when exact valid match not found
-     *             }
-     *
-     * @param array $headerParameters {
-     *
-     * @var string $Message-Reference Please provide message reference
-     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     *             }
+     * @param array{
+     *    "type": string,
+     *    "countryCode": string, //A short text string code (see values defined in ISO 3166) specifying the shipment origin country. https://gs1.org/voc/Country, Alpha-2 Code
+     *    "postalCode"?: string, //Text specifying the postal code for an address. https://gs1.org/voc/postalCode
+     *    "cityName"?: string, //Text specifying the city name
+     *    "countyName"?: string, //Text specifying the county name
+     *    "strictValidation"?: string, //If set to true service will return no records when exact valid match not found
+     * } $queryParameters
+     * @param array{
+     *    "Message-Reference"?: string, //Please provide message reference
+     *    "Message-Reference-Date"?: string, //Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     *    "Plugin-Name"?: string, //Please provide name of the plugin (applicable to 3PV only)
+     *    "Plugin-Version"?: string, //Please provide version of the plugin (applicable to 3PV only)
+     *    "Shipping-System-Platform-Name"?: string, //Please provide name of the shipping platform(applicable to 3PV only)
+     *    "Shipping-System-Platform-Version"?: string, //Please provide version of the shipping platform (applicable to 3PV only)
+     *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
+     *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
+     * } $headerParameters
      */
     public function __construct(array $queryParameters = [], array $headerParameters = [])
     {
@@ -100,11 +97,11 @@ class ExpApiAddressValidate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseE
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddressValidateResponse', 'json');
+        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiAddressValidateBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiAddressValidateBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

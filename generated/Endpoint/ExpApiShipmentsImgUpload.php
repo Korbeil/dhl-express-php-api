@@ -31,7 +31,7 @@ class ExpApiShipmentsImgUpload extends \Korbeil\DHLExpress\Api\Runtime\Client\Ba
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
     {
         if ($this->body instanceof \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressImageUploadRequest) {
-            return [['Content-Type' => ['application/json']], $serializer->serialize($this->body, 'json')];
+            return [['Content-Type' => ['application/json']], \Korbeil\DHLExpress\Api\Runtime\Client\JsonPayload::encode($serializer, $this->body)];
         }
 
         return [[], null];
@@ -56,14 +56,14 @@ class ExpApiShipmentsImgUpload extends \Korbeil\DHLExpress\Api\Runtime\Client\Ba
         if (200 === $status) {
             return null;
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (422 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (422 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

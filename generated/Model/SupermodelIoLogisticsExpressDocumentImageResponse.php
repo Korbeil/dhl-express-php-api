@@ -16,14 +16,14 @@ class SupermodelIoLogisticsExpressDocumentImageResponse
     /**
      * Here you can find all document images from search query.
      *
-     * @var SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem>|null
      */
     protected $documents;
 
     /**
      * Here you can find all document images from search query.
      *
-     * @return SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem>|null
      */
     public function getDocuments(): ?array
     {
@@ -33,7 +33,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponse
     /**
      * Here you can find all document images from search query.
      *
-     * @param SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem[]|null $documents
+     * @param list<SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem>|null $documents
      */
     public function setDocuments(?array $documents): self
     {

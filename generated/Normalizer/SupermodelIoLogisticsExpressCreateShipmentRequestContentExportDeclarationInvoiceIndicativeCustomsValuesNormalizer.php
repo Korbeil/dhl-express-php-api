@@ -19,33 +19,33 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues();
         if (\array_key_exists('importCustomsDutyValue', $data) && \is_int($data['importCustomsDutyValue'])) {
             $data['importCustomsDutyValue'] = (float) $data['importCustomsDutyValue'];
         }
         if (\array_key_exists('importTaxesValue', $data) && \is_int($data['importTaxesValue'])) {
             $data['importTaxesValue'] = (float) $data['importTaxesValue'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('importCustomsDutyValue', $data) && null !== $data['importCustomsDutyValue']) {
             $object->setImportCustomsDutyValue($data['importCustomsDutyValue']);
@@ -61,24 +61,21 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('importCustomsDutyValue') && null !== $object->getImportCustomsDutyValue()) {
-            $data['importCustomsDutyValue'] = $object->getImportCustomsDutyValue();
+        $dataArray = [];
+        if ($data->isInitialized('importCustomsDutyValue') && null !== $data->getImportCustomsDutyValue()) {
+            $dataArray['importCustomsDutyValue'] = $data->getImportCustomsDutyValue();
         }
-        if ($object->isInitialized('importTaxesValue') && null !== $object->getImportTaxesValue()) {
-            $data['importTaxesValue'] = $object->getImportTaxesValue();
+        if ($data->isInitialized('importTaxesValue') && null !== $data->getImportTaxesValue()) {
+            $dataArray['importTaxesValue'] = $data->getImportTaxesValue();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class => false];
     }
 }

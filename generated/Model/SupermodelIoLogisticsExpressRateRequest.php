@@ -20,7 +20,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
@@ -38,13 +38,13 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @var SupermodelIoLogisticsExpressValueAddedServicesRates[]|null
+     * @var list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     protected $valueAddedServices;
     /**
      * Please use if you wish to filter the response by product(s) and/or value added services.
      *
-     * @var SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem>|null
      */
     protected $productsAndServices;
     /**
@@ -74,7 +74,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please provide monetary amount related to your shipment, for example shipment declared value.
      *
-     * @var SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem>|null
      */
     protected $monetaryAmount;
     /**
@@ -92,7 +92,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Provides additional information in the response like all value added services, and rule groups.
      *
-     * @var SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem>|null
      */
     protected $getAdditionalInformation;
     /**
@@ -116,7 +116,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Here you can define properties per package.
      *
-     * @var SupermodelIoLogisticsExpressPackageRR[]|null
+     * @var list<SupermodelIoLogisticsExpressPackageRR>|null
      */
     protected $packages;
 
@@ -136,7 +136,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -146,7 +146,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -197,7 +197,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @return SupermodelIoLogisticsExpressValueAddedServicesRates[]|null
+     * @return list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
     public function getValueAddedServices(): ?array
     {
@@ -207,7 +207,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please use if you wish to filter the response by value added services.
      *
-     * @param SupermodelIoLogisticsExpressValueAddedServicesRates[]|null $valueAddedServices
+     * @param list<SupermodelIoLogisticsExpressValueAddedServicesRates>|null $valueAddedServices
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
@@ -220,7 +220,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please use if you wish to filter the response by product(s) and/or value added services.
      *
-     * @return SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem>|null
      */
     public function getProductsAndServices(): ?array
     {
@@ -230,7 +230,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please use if you wish to filter the response by product(s) and/or value added services.
      *
-     * @param SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem[]|null $productsAndServices
+     * @param list<SupermodelIoLogisticsExpressRateRequestProductsAndServicesItem>|null $productsAndServices
      */
     public function setProductsAndServices(?array $productsAndServices): self
     {
@@ -319,7 +319,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please provide monetary amount related to your shipment, for example shipment declared value.
      *
-     * @return SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem>|null
      */
     public function getMonetaryAmount(): ?array
     {
@@ -329,7 +329,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Please provide monetary amount related to your shipment, for example shipment declared value.
      *
-     * @param SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem[]|null $monetaryAmount
+     * @param list<SupermodelIoLogisticsExpressRateRequestMonetaryAmountItem>|null $monetaryAmount
      */
     public function setMonetaryAmount(?array $monetaryAmount): self
     {
@@ -380,7 +380,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Provides additional information in the response like all value added services, and rule groups.
      *
-     * @return SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem>|null
      */
     public function getGetAdditionalInformation(): ?array
     {
@@ -390,7 +390,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Provides additional information in the response like all value added services, and rule groups.
      *
-     * @param SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem[]|null $getAdditionalInformation
+     * @param list<SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItem>|null $getAdditionalInformation
      */
     public function setGetAdditionalInformation(?array $getAdditionalInformation): self
     {
@@ -460,7 +460,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Here you can define properties per package.
      *
-     * @return SupermodelIoLogisticsExpressPackageRR[]|null
+     * @return list<SupermodelIoLogisticsExpressPackageRR>|null
      */
     public function getPackages(): ?array
     {
@@ -470,7 +470,7 @@ class SupermodelIoLogisticsExpressRateRequest
     /**
      * Here you can define properties per package.
      *
-     * @param SupermodelIoLogisticsExpressPackageRR[]|null $packages
+     * @param list<SupermodelIoLogisticsExpressPackageRR>|null $packages
      */
     public function setPackages(?array $packages): self
     {

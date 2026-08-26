@@ -11,23 +11,20 @@ class ExpApiShipmentsEpod extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
      * The electronic proof of delivery service can be used to retrieve proof of delivery for certain delivered DHL Express shipments.
      *
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
-     * @param array  $queryParameters        {
-     *
-     * @var string $shipperAccountNumber DHL Express customer shipper account number
-     * @var string $content
-     *             }
-     *
-     * @param array $headerParameters {
-     *
-     * @var string $Message-Reference Please provide message reference
-     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     *             }
+     * @param array{
+     *    "shipperAccountNumber"?: string, //DHL Express customer shipper account number
+     *    "content"?: string,
+     * } $queryParameters
+     * @param array{
+     *    "Message-Reference"?: string, //Please provide message reference
+     *    "Message-Reference-Date"?: string, //Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     *    "Plugin-Name"?: string, //Please provide name of the plugin (applicable to 3PV only)
+     *    "Plugin-Version"?: string, //Please provide version of the plugin (applicable to 3PV only)
+     *    "Shipping-System-Platform-Name"?: string, //Please provide name of the shipping platform(applicable to 3PV only)
+     *    "Shipping-System-Platform-Version"?: string, //Please provide version of the shipping platform (applicable to 3PV only)
+     *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
+     *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
+     * } $headerParameters
      */
     public function __construct(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [])
     {
@@ -96,14 +93,14 @@ class ExpApiShipmentsEpod extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            return $serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressEPODResponse', 'json');
+        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

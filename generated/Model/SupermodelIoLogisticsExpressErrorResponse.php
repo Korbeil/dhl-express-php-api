@@ -30,7 +30,7 @@ class SupermodelIoLogisticsExpressErrorResponse
      */
     protected $message;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $additionalDetails;
     /**
@@ -91,7 +91,7 @@ class SupermodelIoLogisticsExpressErrorResponse
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getAdditionalDetails(): ?array
     {
@@ -99,7 +99,7 @@ class SupermodelIoLogisticsExpressErrorResponse
     }
 
     /**
-     * @param string[]|null $additionalDetails
+     * @param list<string>|null $additionalDetails
      */
     public function setAdditionalDetails(?array $additionalDetails): self
     {

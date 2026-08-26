@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer implements
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataResponse' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataResponse' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('warnings', $data) && null !== $data['warnings']) {
             $values = [];
@@ -59,28 +59,25 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer implements
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('warnings') && null !== $object->getWarnings()) {
+        $dataArray = [];
+        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
             $values = [];
-            foreach ($object->getWarnings() as $value) {
+            foreach ($data->getWarnings() as $value) {
                 $values[] = $value;
             }
-            $data['warnings'] = $values;
+            $dataArray['warnings'] = $values;
         }
-        if ($object->isInitialized('status') && null !== $object->getStatus()) {
-            $data['status'] = $object->getStatus();
+        if ($data->isInitialized('status') && null !== $data->getStatus()) {
+            $dataArray['status'] = $data->getStatus();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUploadInvoiceDataResponse' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class => false];
     }
 }

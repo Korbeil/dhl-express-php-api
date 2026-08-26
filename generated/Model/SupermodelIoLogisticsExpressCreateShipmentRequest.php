@@ -44,13 +44,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
      * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
      *
-     * @var SupermodelIoLogisticsExpressValueAddedServices[]|null
+     * @var list<SupermodelIoLogisticsExpressValueAddedServices>|null
      */
     protected $valueAddedServices;
     /**
@@ -62,13 +62,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Here you can declare your customer references.
      *
-     * @var SupermodelIoLogisticsExpressReference[]|null
+     * @var list<SupermodelIoLogisticsExpressReference>|null
      */
     protected $customerReferences;
     /**
      * Identifiers section is on the shipment level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @var SupermodelIoLogisticsExpressIdentifier[]|null
+     * @var list<SupermodelIoLogisticsExpressIdentifier>|null
      */
     protected $identifiers;
     /**
@@ -86,7 +86,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @var SupermodelIoLogisticsExpressDocumentImagesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressDocumentImagesItem>|null
      */
     protected $documentImages;
     /**
@@ -104,13 +104,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This is to support sending email notification once the shipment is created. The email will contain the basic information on the shipper, recipient, waybill number, and shipment information.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem>|null
      */
     protected $shipmentNotification;
     /**
      * Please provide any charges you have already paid for this shipment, like freight paid upfront. To allow using this section please contact your DHL Express representative.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem>|null
      */
     protected $prepaidCharges;
     /**
@@ -128,7 +128,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Provides additional information in the response like service area details, routing code and pickup-related information.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem>|null
      */
     protected $getAdditionalInformation;
     /**
@@ -230,7 +230,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -240,7 +240,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -253,7 +253,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
      *
-     * @return SupermodelIoLogisticsExpressValueAddedServices[]|null
+     * @return list<SupermodelIoLogisticsExpressValueAddedServices>|null
      */
     public function getValueAddedServices(): ?array
     {
@@ -263,7 +263,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
      *
-     * @param SupermodelIoLogisticsExpressValueAddedServices[]|null $valueAddedServices
+     * @param list<SupermodelIoLogisticsExpressValueAddedServices>|null $valueAddedServices
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {
@@ -295,7 +295,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Here you can declare your customer references.
      *
-     * @return SupermodelIoLogisticsExpressReference[]|null
+     * @return list<SupermodelIoLogisticsExpressReference>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -305,7 +305,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Here you can declare your customer references.
      *
-     * @param SupermodelIoLogisticsExpressReference[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressReference>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
@@ -318,7 +318,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Identifiers section is on the shipment level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @return SupermodelIoLogisticsExpressIdentifier[]|null
+     * @return list<SupermodelIoLogisticsExpressIdentifier>|null
      */
     public function getIdentifiers(): ?array
     {
@@ -328,7 +328,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Identifiers section is on the shipment level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @param SupermodelIoLogisticsExpressIdentifier[]|null $identifiers
+     * @param list<SupermodelIoLogisticsExpressIdentifier>|null $identifiers
      */
     public function setIdentifiers(?array $identifiers): self
     {
@@ -379,7 +379,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @return SupermodelIoLogisticsExpressDocumentImagesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressDocumentImagesItem>|null
      */
     public function getDocumentImages(): ?array
     {
@@ -389,7 +389,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @param SupermodelIoLogisticsExpressDocumentImagesItem[]|null $documentImages
+     * @param list<SupermodelIoLogisticsExpressDocumentImagesItem>|null $documentImages
      */
     public function setDocumentImages(?array $documentImages): self
     {
@@ -440,7 +440,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This is to support sending email notification once the shipment is created. The email will contain the basic information on the shipper, recipient, waybill number, and shipment information.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem>|null
      */
     public function getShipmentNotification(): ?array
     {
@@ -450,7 +450,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * This is to support sending email notification once the shipment is created. The email will contain the basic information on the shipper, recipient, waybill number, and shipment information.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem[]|null $shipmentNotification
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem>|null $shipmentNotification
      */
     public function setShipmentNotification(?array $shipmentNotification): self
     {
@@ -463,7 +463,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Please provide any charges you have already paid for this shipment, like freight paid upfront. To allow using this section please contact your DHL Express representative.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem>|null
      */
     public function getPrepaidCharges(): ?array
     {
@@ -473,7 +473,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Please provide any charges you have already paid for this shipment, like freight paid upfront. To allow using this section please contact your DHL Express representative.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem[]|null $prepaidCharges
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItem>|null $prepaidCharges
      */
     public function setPrepaidCharges(?array $prepaidCharges): self
     {
@@ -524,7 +524,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Provides additional information in the response like service area details, routing code and pickup-related information.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem>|null
      */
     public function getGetAdditionalInformation(): ?array
     {
@@ -534,7 +534,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequest
     /**
      * Provides additional information in the response like service area details, routing code and pickup-related information.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem[]|null $getAdditionalInformation
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItem>|null $getAdditionalInformation
      */
     public function setGetAdditionalInformation(?array $getAdditionalInformation): self
     {

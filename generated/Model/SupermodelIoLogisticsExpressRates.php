@@ -14,20 +14,20 @@ class SupermodelIoLogisticsExpressRates
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressRatesProductsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesProductsItem>|null
      */
     protected $products;
     /**
-     * @var SupermodelIoLogisticsExpressRatesExchangeRatesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesExchangeRatesItem>|null
      */
     protected $exchangeRates;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesProductsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesProductsItem>|null
      */
     public function getProducts(): ?array
     {
@@ -35,7 +35,7 @@ class SupermodelIoLogisticsExpressRates
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesProductsItem[]|null $products
+     * @param list<SupermodelIoLogisticsExpressRatesProductsItem>|null $products
      */
     public function setProducts(?array $products): self
     {
@@ -46,7 +46,7 @@ class SupermodelIoLogisticsExpressRates
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesExchangeRatesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesExchangeRatesItem>|null
      */
     public function getExchangeRates(): ?array
     {
@@ -54,7 +54,7 @@ class SupermodelIoLogisticsExpressRates
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesExchangeRatesItem[]|null $exchangeRates
+     * @param list<SupermodelIoLogisticsExpressRatesExchangeRatesItem>|null $exchangeRates
      */
     public function setExchangeRates(?array $exchangeRates): self
     {
@@ -65,7 +65,7 @@ class SupermodelIoLogisticsExpressRates
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -73,7 +73,7 @@ class SupermodelIoLogisticsExpressRates
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

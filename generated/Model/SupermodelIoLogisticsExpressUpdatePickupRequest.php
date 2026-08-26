@@ -50,13 +50,13 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
      */
     protected $locationType;
     /**
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @var SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem>|null
      */
     protected $specialInstructions;
     /**
@@ -72,7 +72,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     /**
      * Please provide updated details related to shipment you want update the pickup for.
      *
-     * @var SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem>|null
      */
     protected $shipmentDetails;
 
@@ -191,7 +191,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -199,7 +199,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -212,7 +212,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @return SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem>|null
      */
     public function getSpecialInstructions(): ?array
     {
@@ -222,7 +222,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @param SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem[]|null $specialInstructions
+     * @param list<SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItem>|null $specialInstructions
      */
     public function setSpecialInstructions(?array $specialInstructions): self
     {
@@ -267,7 +267,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     /**
      * Please provide updated details related to shipment you want update the pickup for.
      *
-     * @return SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem>|null
      */
     public function getShipmentDetails(): ?array
     {
@@ -277,7 +277,7 @@ class SupermodelIoLogisticsExpressUpdatePickupRequest
     /**
      * Please provide updated details related to shipment you want update the pickup for.
      *
-     * @param SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem[]|null $shipmentDetails
+     * @param list<SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItem>|null $shipmentDetails
      */
     public function setShipmentDetails(?array $shipmentDetails): self
     {

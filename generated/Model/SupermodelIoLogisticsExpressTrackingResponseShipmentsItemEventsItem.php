@@ -30,7 +30,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
      */
     protected $description;
     /**
-     * @var SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem[]|null
+     * @var list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem>|null
      */
     protected $serviceArea;
     /**
@@ -91,7 +91,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem[]|null
+     * @return list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem>|null
      */
     public function getServiceArea(): ?array
     {
@@ -99,7 +99,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem[]|null $serviceArea
+     * @param list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem>|null $serviceArea
      */
     public function setServiceArea(?array $serviceArea): self
     {

@@ -34,7 +34,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem>|null
      */
     protected $specialInstructions;
     /**
@@ -110,7 +110,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem>|null
      */
     public function getSpecialInstructions(): ?array
     {
@@ -120,7 +120,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickup
     /**
      * Details special pickup instructions you may wish to send to the DHL Courier.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem[]|null $specialInstructions
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem>|null $specialInstructions
      */
     public function setSpecialInstructions(?array $specialInstructions): self
     {

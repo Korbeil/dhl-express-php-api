@@ -34,13 +34,13 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * Here you can declare your customer references for each package.
      *
-     * @var SupermodelIoLogisticsExpressPackageReference[]|null
+     * @var list<SupermodelIoLogisticsExpressPackageReference>|null
      */
     protected $customerReferences;
     /**
      * Identifiers section is on the package level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @var SupermodelIoLogisticsExpressIdentifier[]|null
+     * @var list<SupermodelIoLogisticsExpressIdentifier>|null
      */
     protected $identifiers;
     /**
@@ -52,13 +52,13 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * This allows you to define up to two bespoke barcodes on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @var SupermodelIoLogisticsExpressPackageLabelBarcodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressPackageLabelBarcodesItem>|null
      */
     protected $labelBarcodes;
     /**
      * This allows you to enter up to two bespoke texts on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @var SupermodelIoLogisticsExpressPackageLabelTextItem[]|null
+     * @var list<SupermodelIoLogisticsExpressPackageLabelTextItem>|null
      */
     protected $labelText;
     /**
@@ -128,7 +128,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * Here you can declare your customer references for each package.
      *
-     * @return SupermodelIoLogisticsExpressPackageReference[]|null
+     * @return list<SupermodelIoLogisticsExpressPackageReference>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -138,7 +138,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * Here you can declare your customer references for each package.
      *
-     * @param SupermodelIoLogisticsExpressPackageReference[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressPackageReference>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
@@ -151,7 +151,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * Identifiers section is on the package level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @return SupermodelIoLogisticsExpressIdentifier[]|null
+     * @return list<SupermodelIoLogisticsExpressIdentifier>|null
      */
     public function getIdentifiers(): ?array
     {
@@ -161,7 +161,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * Identifiers section is on the package level where you can optionaly provide a DHL Express waybill number. This has to be enabled by your DHL Express IT contact.
      *
-     * @param SupermodelIoLogisticsExpressIdentifier[]|null $identifiers
+     * @param list<SupermodelIoLogisticsExpressIdentifier>|null $identifiers
      */
     public function setIdentifiers(?array $identifiers): self
     {
@@ -193,7 +193,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * This allows you to define up to two bespoke barcodes on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @return SupermodelIoLogisticsExpressPackageLabelBarcodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressPackageLabelBarcodesItem>|null
      */
     public function getLabelBarcodes(): ?array
     {
@@ -203,7 +203,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * This allows you to define up to two bespoke barcodes on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @param SupermodelIoLogisticsExpressPackageLabelBarcodesItem[]|null $labelBarcodes
+     * @param list<SupermodelIoLogisticsExpressPackageLabelBarcodesItem>|null $labelBarcodes
      */
     public function setLabelBarcodes(?array $labelBarcodes): self
     {
@@ -216,7 +216,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * This allows you to enter up to two bespoke texts on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @return SupermodelIoLogisticsExpressPackageLabelTextItem[]|null
+     * @return list<SupermodelIoLogisticsExpressPackageLabelTextItem>|null
      */
     public function getLabelText(): ?array
     {
@@ -226,7 +226,7 @@ class SupermodelIoLogisticsExpressPackage
     /**
      * This allows you to enter up to two bespoke texts on the DHL Express Tranport label. To use this feature please set outputImageProperties/imageOptions/templateName as ECOM26_84CI_003 for typeCode=label.
      *
-     * @param SupermodelIoLogisticsExpressPackageLabelTextItem[]|null $labelText
+     * @param list<SupermodelIoLogisticsExpressPackageLabelTextItem>|null $labelText
      */
     public function setLabelText(?array $labelText): self
     {

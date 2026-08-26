@@ -14,12 +14,12 @@ class SupermodelIoLogisticsExpressTrackingResponse
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressTrackingResponseShipmentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItem>|null
      */
     protected $shipments;
 
     /**
-     * @return SupermodelIoLogisticsExpressTrackingResponseShipmentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItem>|null
      */
     public function getShipments(): ?array
     {
@@ -27,7 +27,7 @@ class SupermodelIoLogisticsExpressTrackingResponse
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressTrackingResponseShipmentsItem[]|null $shipments
+     * @param list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItem>|null $shipments
      */
     public function setShipments(?array $shipments): self
     {

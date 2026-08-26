@@ -20,7 +20,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
      */
     protected $number;
     /**
-     * @var SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem>|null
      */
     protected $breakdown;
 
@@ -44,7 +44,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem>|null
      */
     public function getBreakdown(): ?array
     {
@@ -52,7 +52,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem[]|null $breakdown
+     * @param list<SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItem>|null $breakdown
      */
     public function setBreakdown(?array $breakdown): self
     {

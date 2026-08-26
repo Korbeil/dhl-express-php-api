@@ -28,7 +28,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUlti
      */
     protected $typeCode;
     /**
-     * @var SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @var list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     protected $registrationNumbers;
 
@@ -78,7 +78,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUlti
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @return list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     public function getRegistrationNumbers(): ?array
     {
@@ -86,7 +86,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUlti
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRegistrationNumbers[]|null $registrationNumbers
+     * @param list<SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {

@@ -46,13 +46,13 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Shipment instructions for customs invoice printing purposes. Printed only when using Customs Invoice template COMMERCIAL_INVOICE_04. If using Customs Invoice template 			COMMERCIAL_INVOICE_04, recommended max length is 120 characters.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $instructions;
     /**
      * Customer data text to be printed in<BR> customs invoice.<BR>                  Printed only when using Customs<BR>                  Invoice template<BR>                  COMMERCIAL_INVOICE_04.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $customerDataTextEntries;
     /**
@@ -70,7 +70,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Please provide the customer references at invoice level.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem>|null
      */
     protected $customerReferences;
     /**
@@ -184,7 +184,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Shipment instructions for customs invoice printing purposes. Printed only when using Customs Invoice template COMMERCIAL_INVOICE_04. If using Customs Invoice template 			COMMERCIAL_INVOICE_04, recommended max length is 120 characters.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getInstructions(): ?array
     {
@@ -194,7 +194,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Shipment instructions for customs invoice printing purposes. Printed only when using Customs Invoice template COMMERCIAL_INVOICE_04. If using Customs Invoice template 			COMMERCIAL_INVOICE_04, recommended max length is 120 characters.
      *
-     * @param string[]|null $instructions
+     * @param list<string>|null $instructions
      */
     public function setInstructions(?array $instructions): self
     {
@@ -207,7 +207,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Customer data text to be printed in<BR> customs invoice.<BR>                  Printed only when using Customs<BR>                  Invoice template<BR>                  COMMERCIAL_INVOICE_04.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getCustomerDataTextEntries(): ?array
     {
@@ -217,7 +217,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Customer data text to be printed in<BR> customs invoice.<BR>                  Printed only when using Customs<BR>                  Invoice template<BR>                  COMMERCIAL_INVOICE_04.
      *
-     * @param string[]|null $customerDataTextEntries
+     * @param list<string>|null $customerDataTextEntries
      */
     public function setCustomerDataTextEntries(?array $customerDataTextEntries): self
     {
@@ -268,7 +268,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Please provide the customer references at invoice level.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -278,7 +278,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     /**
      * Please provide the customer references at invoice level.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {

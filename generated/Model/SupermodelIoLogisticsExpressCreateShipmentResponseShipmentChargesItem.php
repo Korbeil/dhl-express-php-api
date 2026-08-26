@@ -32,7 +32,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem
      */
     protected $price;
     /**
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem>|null
      */
     protected $serviceBreakdown;
 
@@ -94,7 +94,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem>|null
      */
     public function getServiceBreakdown(): ?array
     {
@@ -102,7 +102,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem[]|null $serviceBreakdown
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItem>|null $serviceBreakdown
      */
     public function setServiceBreakdown(?array $serviceBreakdown): self
     {

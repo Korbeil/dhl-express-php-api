@@ -14,12 +14,12 @@ class SupermodelIoLogisticsExpressEPODResponse
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressEPODResponseDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressEPODResponseDocumentsItem>|null
      */
     protected $documents;
 
     /**
-     * @return SupermodelIoLogisticsExpressEPODResponseDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressEPODResponseDocumentsItem>|null
      */
     public function getDocuments(): ?array
     {
@@ -27,7 +27,7 @@ class SupermodelIoLogisticsExpressEPODResponse
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressEPODResponseDocumentsItem[]|null $documents
+     * @param list<SupermodelIoLogisticsExpressEPODResponseDocumentsItem>|null $documents
      */
     public function setDocuments(?array $documents): self
     {

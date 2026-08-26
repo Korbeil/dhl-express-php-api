@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
     /**
      * This array contains all the DHL Express special handling feature codes.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $serviceHandlingFeatureCodes;
     /**
@@ -82,7 +82,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
      */
     protected $productShortName;
     /**
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem>|null
      */
     protected $valueAddedServices;
     /**
@@ -95,7 +95,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
     /**
      * This array contains all the DHL Express special handling feature codes.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getServiceHandlingFeatureCodes(): ?array
     {
@@ -105,7 +105,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
     /**
      * This array contains all the DHL Express special handling feature codes.
      *
-     * @param string[]|null $serviceHandlingFeatureCodes
+     * @param list<string>|null $serviceHandlingFeatureCodes
      */
     public function setServiceHandlingFeatureCodes(?array $serviceHandlingFeatureCodes): self
     {
@@ -313,7 +313,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem>|null
      */
     public function getValueAddedServices(): ?array
     {
@@ -321,7 +321,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem[]|null $valueAddedServices
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem>|null $valueAddedServices
      */
     public function setValueAddedServices(?array $valueAddedServices): self
     {

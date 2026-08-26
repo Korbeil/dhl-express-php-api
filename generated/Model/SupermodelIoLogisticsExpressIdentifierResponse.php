@@ -14,16 +14,16 @@ class SupermodelIoLogisticsExpressIdentifierResponse
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
     /**
-     * @var SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem[]|null
+     * @var list<SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem>|null
      */
     protected $identifiers;
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -31,7 +31,7 @@ class SupermodelIoLogisticsExpressIdentifierResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {
@@ -42,7 +42,7 @@ class SupermodelIoLogisticsExpressIdentifierResponse
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem[]|null
+     * @return list<SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem>|null
      */
     public function getIdentifiers(): ?array
     {
@@ -50,7 +50,7 @@ class SupermodelIoLogisticsExpressIdentifierResponse
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem[]|null $identifiers
+     * @param list<SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem>|null $identifiers
      */
     public function setIdentifiers(?array $identifiers): self
     {

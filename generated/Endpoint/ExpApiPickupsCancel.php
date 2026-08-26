@@ -11,23 +11,20 @@ class ExpApiPickupsCancel extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
      * The Cancel Pickup service can be used to cancel a DHL Express pickup booking request.
      *
      * @param string $dispatchConfirmationNumber Shipment pickup confirmation number for example `PRG999126012345`
-     * @param array  $queryParameters            {
-     *
-     * @var string $requestorName Name of the person requesting to cancel the scheduled pickup
-     * @var string $reason Provide why scheduled pickup is being cancelled
-     *             }
-     *
-     * @param array $headerParameters {
-     *
-     * @var string $Message-Reference Please provide message reference
-     * @var string $Message-Reference-Date Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
-     * @var string $Plugin-Name Please provide name of the plugin (applicable to 3PV only)
-     * @var string $Plugin-Version Please provide version of the plugin (applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Name Please provide name of the shipping platform(applicable to 3PV only)
-     * @var string $Shipping-System-Platform-Version Please provide version of the shipping platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Name Please provide name of the webstore platform (applicable to 3PV only)
-     * @var string $Webstore-Platform-Version Please provide version of the webstore platform (applicable to 3PV only)
-     *             }
+     * @param array{
+     *    "requestorName": string, //Name of the person requesting to cancel the scheduled pickup
+     *    "reason": string, //Provide why scheduled pickup is being cancelled
+     * } $queryParameters
+     * @param array{
+     *    "Message-Reference"?: string, //Please provide message reference
+     *    "Message-Reference-Date"?: string, //Optional reference date in the  HTTP-date format https://tools.ietf.org/html/rfc7231#section-7.1.1.2
+     *    "Plugin-Name"?: string, //Please provide name of the plugin (applicable to 3PV only)
+     *    "Plugin-Version"?: string, //Please provide version of the plugin (applicable to 3PV only)
+     *    "Shipping-System-Platform-Name"?: string, //Please provide name of the shipping platform(applicable to 3PV only)
+     *    "Shipping-System-Platform-Version"?: string, //Please provide version of the shipping platform (applicable to 3PV only)
+     *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
+     *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
+     * } $headerParameters
      */
     public function __construct(string $dispatchConfirmationNumber, array $queryParameters = [], array $headerParameters = [])
     {
@@ -99,11 +96,11 @@ class ExpApiPickupsCancel extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
         if (200 === $status) {
             return null;
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelBadRequestException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos($contentType, 'application/json'))) {
-            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelNotFoundException($serializer->deserialize($body, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
+        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+            throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsCancelNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
 

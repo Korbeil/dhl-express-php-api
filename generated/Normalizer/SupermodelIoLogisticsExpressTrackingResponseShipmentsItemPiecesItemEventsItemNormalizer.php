@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsI
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('date', $data) && null !== $data['date']) {
             $object->setDate($data['date']);
@@ -64,7 +64,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsI
         if (\array_key_exists('serviceArea', $data) && null !== $data['serviceArea']) {
             $values = [];
             foreach ($data['serviceArea'] as $value) {
-                $values[] = $this->denormalizer->denormalize($value, 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItem', 'json', $context);
+                $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItem::class, 'json', $context);
             }
             $object->setServiceArea($values);
         } elseif (\array_key_exists('serviceArea', $data) && null === $data['serviceArea']) {
@@ -79,40 +79,37 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsI
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('date') && null !== $object->getDate()) {
-            $data['date'] = $object->getDate();
+        $dataArray = [];
+        if ($data->isInitialized('date') && null !== $data->getDate()) {
+            $dataArray['date'] = $data->getDate();
         }
-        if ($object->isInitialized('time') && null !== $object->getTime()) {
-            $data['time'] = $object->getTime();
+        if ($data->isInitialized('time') && null !== $data->getTime()) {
+            $dataArray['time'] = $data->getTime();
         }
-        if ($object->isInitialized('typeCode') && null !== $object->getTypeCode()) {
-            $data['typeCode'] = $object->getTypeCode();
+        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
+            $dataArray['typeCode'] = $data->getTypeCode();
         }
-        if ($object->isInitialized('description') && null !== $object->getDescription()) {
-            $data['description'] = $object->getDescription();
+        if ($data->isInitialized('description') && null !== $data->getDescription()) {
+            $dataArray['description'] = $data->getDescription();
         }
-        if ($object->isInitialized('serviceArea') && null !== $object->getServiceArea()) {
+        if ($data->isInitialized('serviceArea') && null !== $data->getServiceArea()) {
             $values = [];
-            foreach ($object->getServiceArea() as $value) {
-                $values[] = $this->normalizer->normalize($value, 'json', $context);
+            foreach ($data->getServiceArea() as $value) {
+                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
             }
-            $data['serviceArea'] = $values;
+            $dataArray['serviceArea'] = $values;
         }
-        if ($object->isInitialized('signedBy') && null !== $object->getSignedBy()) {
-            $data['signedBy'] = $object->getSignedBy();
+        if ($data->isInitialized('signedBy') && null !== $data->getSignedBy()) {
+            $dataArray['signedBy'] = $data->getSignedBy();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem::class => false];
     }
 }

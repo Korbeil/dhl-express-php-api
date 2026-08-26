@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressPickupResponse
     /**
      * List of Dispatch Confirmation Numbers which identifies the scheduled pickup.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $dispatchConfirmationNumbers;
     /**
@@ -28,14 +28,14 @@ class SupermodelIoLogisticsExpressPickupResponse
      */
     protected $nextPickupDate;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
 
     /**
      * List of Dispatch Confirmation Numbers which identifies the scheduled pickup.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getDispatchConfirmationNumbers(): ?array
     {
@@ -45,7 +45,7 @@ class SupermodelIoLogisticsExpressPickupResponse
     /**
      * List of Dispatch Confirmation Numbers which identifies the scheduled pickup.
      *
-     * @param string[]|null $dispatchConfirmationNumbers
+     * @param list<string>|null $dispatchConfirmationNumbers
      */
     public function setDispatchConfirmationNumbers(?array $dispatchConfirmationNumbers): self
     {
@@ -82,7 +82,7 @@ class SupermodelIoLogisticsExpressPickupResponse
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -90,7 +90,7 @@ class SupermodelIoLogisticsExpressPickupResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

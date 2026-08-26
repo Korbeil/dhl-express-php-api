@@ -14,7 +14,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
     /**
@@ -25,7 +25,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
     protected $status;
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -33,7 +33,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

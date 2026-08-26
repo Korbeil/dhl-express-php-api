@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
             $object->setTypeCode($data['typeCode']);
@@ -70,29 +70,26 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['typeCode'] = $object->getTypeCode();
-        $data['receiverId'] = $object->getReceiverId();
-        if ($object->isInitialized('languageCode') && null !== $object->getLanguageCode()) {
-            $data['languageCode'] = $object->getLanguageCode();
+        $dataArray = [];
+        $dataArray['typeCode'] = $data->getTypeCode();
+        $dataArray['receiverId'] = $data->getReceiverId();
+        if ($data->isInitialized('languageCode') && null !== $data->getLanguageCode()) {
+            $dataArray['languageCode'] = $data->getLanguageCode();
         }
-        if ($object->isInitialized('languageCountryCode') && null !== $object->getLanguageCountryCode()) {
-            $data['languageCountryCode'] = $object->getLanguageCountryCode();
+        if ($data->isInitialized('languageCountryCode') && null !== $data->getLanguageCountryCode()) {
+            $dataArray['languageCountryCode'] = $data->getLanguageCountryCode();
         }
-        if ($object->isInitialized('bespokeMessage') && null !== $object->getBespokeMessage()) {
-            $data['bespokeMessage'] = $object->getBespokeMessage();
+        if ($data->isInitialized('bespokeMessage') && null !== $data->getBespokeMessage()) {
+            $dataArray['bespokeMessage'] = $data->getBespokeMessage();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class => false];
     }
 }

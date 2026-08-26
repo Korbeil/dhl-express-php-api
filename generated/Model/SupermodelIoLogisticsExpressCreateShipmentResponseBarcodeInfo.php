@@ -34,7 +34,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
     /**
      * Here you can find barcode details for each piece.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem>|null
      */
     protected $trackingNumberBarcodes;
 
@@ -98,7 +98,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
     /**
      * Here you can find barcode details for each piece.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem>|null
      */
     public function getTrackingNumberBarcodes(): ?array
     {
@@ -108,7 +108,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfo
     /**
      * Here you can find barcode details for each piece.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem[]|null $trackingNumberBarcodes
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItem>|null $trackingNumberBarcodes
      */
     public function setTrackingNumberBarcodes(?array $trackingNumberBarcodes): self
     {

@@ -23,7 +23,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
@@ -68,7 +68,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -79,7 +79,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequest
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      * Note: accounts/0/number with typeCode 'shipper' is mandatory if using POST method and no shipmentTrackingNumber is provided in request.
      *
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {

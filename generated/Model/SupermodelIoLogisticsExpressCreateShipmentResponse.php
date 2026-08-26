@@ -46,13 +46,13 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find information for all pieces your shipment is having like Piece Identification Number.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem>|null
      */
     protected $packages;
     /**
      * Here you can find all documents created for the shipment like Transport and WaybillDoc labels, Invoice, Receipt.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem>|null
      */
     protected $documents;
     /**
@@ -64,13 +64,13 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find additional information related to your shipment when you ask for it in the request.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem>|null
      */
     protected $shipmentDetails;
     /**
      * Here you can find rates related to your shipment.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem>|null
      */
     protected $shipmentCharges;
     /**
@@ -86,7 +86,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
      */
     protected $estimatedDeliveryDate;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
 
@@ -188,7 +188,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find information for all pieces your shipment is having like Piece Identification Number.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem>|null
      */
     public function getPackages(): ?array
     {
@@ -198,7 +198,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find information for all pieces your shipment is having like Piece Identification Number.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem[]|null $packages
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItem>|null $packages
      */
     public function setPackages(?array $packages): self
     {
@@ -211,7 +211,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find all documents created for the shipment like Transport and WaybillDoc labels, Invoice, Receipt.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem>|null
      */
     public function getDocuments(): ?array
     {
@@ -221,7 +221,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find all documents created for the shipment like Transport and WaybillDoc labels, Invoice, Receipt.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem[]|null $documents
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItem>|null $documents
      */
     public function setDocuments(?array $documents): self
     {
@@ -253,7 +253,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find additional information related to your shipment when you ask for it in the request.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem>|null
      */
     public function getShipmentDetails(): ?array
     {
@@ -263,7 +263,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find additional information related to your shipment when you ask for it in the request.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem[]|null $shipmentDetails
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem>|null $shipmentDetails
      */
     public function setShipmentDetails(?array $shipmentDetails): self
     {
@@ -276,7 +276,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find rates related to your shipment.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem>|null
      */
     public function getShipmentCharges(): ?array
     {
@@ -286,7 +286,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     /**
      * Here you can find rates related to your shipment.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem[]|null $shipmentCharges
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItem>|null $shipmentCharges
      */
     public function setShipmentCharges(?array $shipmentCharges): self
     {
@@ -335,7 +335,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -343,7 +343,7 @@ class SupermodelIoLogisticsExpressCreateShipmentResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

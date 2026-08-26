@@ -20,7 +20,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
      */
     protected $dependentServiceCode;
     /**
-     * @var SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem[]|null
+     * @var list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem>|null
      */
     protected $dependencyRuleGroup;
 
@@ -44,7 +44,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem[]|null
+     * @return list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem>|null
      */
     public function getDependencyRuleGroup(): ?array
     {
@@ -52,7 +52,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGrou
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem[]|null $dependencyRuleGroup
+     * @param list<SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem>|null $dependencyRuleGroup
      */
     public function setDependencyRuleGroup(?array $dependencyRuleGroup): self
     {

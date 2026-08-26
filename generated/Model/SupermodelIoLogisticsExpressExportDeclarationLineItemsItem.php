@@ -40,7 +40,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem>|null
      */
     protected $commodityCodes;
     /**
@@ -70,13 +70,13 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide the Customer References for the line item.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem>|null
      */
     protected $customerReferences;
     /**
      * Please provide the customs documents details.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem>|null
      */
     protected $customsDocuments;
 
@@ -159,7 +159,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem>|null
      */
     public function getCommodityCodes(): ?array
     {
@@ -169,7 +169,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem[]|null $commodityCodes
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItem>|null $commodityCodes
      */
     public function setCommodityCodes(?array $commodityCodes): self
     {
@@ -258,7 +258,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide the Customer References for the line item.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -268,7 +268,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide the Customer References for the line item.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
@@ -281,7 +281,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide the customs documents details.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem>|null
      */
     public function getCustomsDocuments(): ?array
     {
@@ -291,7 +291,7 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItem
     /**
      * Please provide the customs documents details.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem[]|null $customsDocuments
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem>|null $customsDocuments
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {

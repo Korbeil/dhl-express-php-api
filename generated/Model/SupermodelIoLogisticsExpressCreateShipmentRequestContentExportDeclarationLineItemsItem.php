@@ -40,7 +40,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem>|null
      */
     protected $commodityCodes;
     /**
@@ -76,19 +76,19 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the additional information.
      *
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $additionalInformation;
     /**
      * Please provide the Customer References for the line item.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem>|null
      */
     protected $customerReferences;
     /**
      * Please provide the customs documents details.
      *
-     * @var SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem>|null
      */
     protected $customsDocuments;
 
@@ -171,7 +171,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem>|null
      */
     public function getCommodityCodes(): ?array
     {
@@ -181,7 +181,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide Commodity codes for the shipment at item line level.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem[]|null $commodityCodes
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItem>|null $commodityCodes
      */
     public function setCommodityCodes(?array $commodityCodes): self
     {
@@ -289,7 +289,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the additional information.
      *
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getAdditionalInformation(): ?array
     {
@@ -299,7 +299,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the additional information.
      *
-     * @param string[]|null $additionalInformation
+     * @param list<string>|null $additionalInformation
      */
     public function setAdditionalInformation(?array $additionalInformation): self
     {
@@ -312,7 +312,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the Customer References for the line item.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem>|null
      */
     public function getCustomerReferences(): ?array
     {
@@ -322,7 +322,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the Customer References for the line item.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem[]|null $customerReferences
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItem>|null $customerReferences
      */
     public function setCustomerReferences(?array $customerReferences): self
     {
@@ -335,7 +335,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the customs documents details.
      *
-     * @return SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem>|null
      */
     public function getCustomsDocuments(): ?array
     {
@@ -345,7 +345,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     /**
      * Please provide the customs documents details.
      *
-     * @param SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem[]|null $customsDocuments
+     * @param list<SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItem>|null $customsDocuments
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {

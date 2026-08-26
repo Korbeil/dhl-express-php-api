@@ -19,30 +19,30 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem();
         if (\array_key_exists('dryIceTotalNetWeight', $data) && \is_int($data['dryIceTotalNetWeight'])) {
             $data['dryIceTotalNetWeight'] = (float) $data['dryIceTotalNetWeight'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('contentId', $data) && null !== $data['contentId']) {
             $object->setContentId($data['contentId']);
@@ -68,28 +68,25 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['contentId'] = $object->getContentId();
-        if ($object->isInitialized('dryIceTotalNetWeight') && null !== $object->getDryIceTotalNetWeight()) {
-            $data['dryIceTotalNetWeight'] = $object->getDryIceTotalNetWeight();
+        $dataArray = [];
+        $dataArray['contentId'] = $data->getContentId();
+        if ($data->isInitialized('dryIceTotalNetWeight') && null !== $data->getDryIceTotalNetWeight()) {
+            $dataArray['dryIceTotalNetWeight'] = $data->getDryIceTotalNetWeight();
         }
-        if ($object->isInitialized('unCode') && null !== $object->getUnCode()) {
-            $data['unCode'] = $object->getUnCode();
+        if ($data->isInitialized('unCode') && null !== $data->getUnCode()) {
+            $dataArray['unCode'] = $data->getUnCode();
         }
-        if ($object->isInitialized('customDescription') && null !== $object->getCustomDescription()) {
-            $data['customDescription'] = $object->getCustomDescription();
+        if ($data->isInitialized('customDescription') && null !== $data->getCustomDescription()) {
+            $dataArray['customDescription'] = $data->getCustomDescription();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class => false];
     }
 }

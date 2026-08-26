@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressBankDetailsItemNormalizer implements Denormali
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressBankDetailsItem' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressBankDetailsItem' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('name', $data) && null !== $data['name']) {
             $object->setName($data['name']);
@@ -60,27 +60,24 @@ class SupermodelIoLogisticsExpressBankDetailsItemNormalizer implements Denormali
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('name') && null !== $object->getName()) {
-            $data['name'] = $object->getName();
+        $dataArray = [];
+        if ($data->isInitialized('name') && null !== $data->getName()) {
+            $dataArray['name'] = $data->getName();
         }
-        if ($object->isInitialized('settlementLocalCurrency') && null !== $object->getSettlementLocalCurrency()) {
-            $data['settlementLocalCurrency'] = $object->getSettlementLocalCurrency();
+        if ($data->isInitialized('settlementLocalCurrency') && null !== $data->getSettlementLocalCurrency()) {
+            $dataArray['settlementLocalCurrency'] = $data->getSettlementLocalCurrency();
         }
-        if ($object->isInitialized('settlementForeignCurrency') && null !== $object->getSettlementForeignCurrency()) {
-            $data['settlementForeignCurrency'] = $object->getSettlementForeignCurrency();
+        if ($data->isInitialized('settlementForeignCurrency') && null !== $data->getSettlementForeignCurrency()) {
+            $dataArray['settlementForeignCurrency'] = $data->getSettlementForeignCurrency();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressBankDetailsItem' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class => false];
     }
 }

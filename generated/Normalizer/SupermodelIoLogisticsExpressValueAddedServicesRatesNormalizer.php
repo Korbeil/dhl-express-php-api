@@ -19,30 +19,30 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesRates' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesRates' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates();
         if (\array_key_exists('value', $data) && \is_int($data['value'])) {
             $data['value'] = (float) $data['value'];
-        }
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('serviceCode', $data) && null !== $data['serviceCode']) {
             $object->setServiceCode($data['serviceCode']);
@@ -73,31 +73,28 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['serviceCode'] = $object->getServiceCode();
-        if ($object->isInitialized('localServiceCode') && null !== $object->getLocalServiceCode()) {
-            $data['localServiceCode'] = $object->getLocalServiceCode();
+        $dataArray = [];
+        $dataArray['serviceCode'] = $data->getServiceCode();
+        if ($data->isInitialized('localServiceCode') && null !== $data->getLocalServiceCode()) {
+            $dataArray['localServiceCode'] = $data->getLocalServiceCode();
         }
-        if ($object->isInitialized('value') && null !== $object->getValue()) {
-            $data['value'] = $object->getValue();
+        if ($data->isInitialized('value') && null !== $data->getValue()) {
+            $dataArray['value'] = $data->getValue();
         }
-        if ($object->isInitialized('currency') && null !== $object->getCurrency()) {
-            $data['currency'] = $object->getCurrency();
+        if ($data->isInitialized('currency') && null !== $data->getCurrency()) {
+            $dataArray['currency'] = $data->getCurrency();
         }
-        if ($object->isInitialized('method') && null !== $object->getMethod()) {
-            $data['method'] = $object->getMethod();
+        if ($data->isInitialized('method') && null !== $data->getMethod()) {
+            $dataArray['method'] = $data->getMethod();
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressValueAddedServicesRates' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesRates::class => false];
     }
 }

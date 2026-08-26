@@ -22,7 +22,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
@@ -76,7 +76,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please provide any additional charges you would like to include in total cost calculation.
      *
-     * @var SupermodelIoLogisticsExpressLandedCostRequestChargesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressLandedCostRequestChargesItem>|null
      */
     protected $charges;
     /**
@@ -98,11 +98,11 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Here you can define properties per package.
      *
-     * @var SupermodelIoLogisticsExpressPackageRR[]|null
+     * @var list<SupermodelIoLogisticsExpressPackageRR>|null
      */
     protected $packages;
     /**
-     * @var SupermodelIoLogisticsExpressLandedCostRequestItemsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressLandedCostRequestItemsItem>|null
      */
     protected $items;
     /**
@@ -140,7 +140,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -150,7 +150,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -315,7 +315,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please provide any additional charges you would like to include in total cost calculation.
      *
-     * @return SupermodelIoLogisticsExpressLandedCostRequestChargesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressLandedCostRequestChargesItem>|null
      */
     public function getCharges(): ?array
     {
@@ -325,7 +325,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Please provide any additional charges you would like to include in total cost calculation.
      *
-     * @param SupermodelIoLogisticsExpressLandedCostRequestChargesItem[]|null $charges
+     * @param list<SupermodelIoLogisticsExpressLandedCostRequestChargesItem>|null $charges
      */
     public function setCharges(?array $charges): self
     {
@@ -389,7 +389,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Here you can define properties per package.
      *
-     * @return SupermodelIoLogisticsExpressPackageRR[]|null
+     * @return list<SupermodelIoLogisticsExpressPackageRR>|null
      */
     public function getPackages(): ?array
     {
@@ -399,7 +399,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     /**
      * Here you can define properties per package.
      *
-     * @param SupermodelIoLogisticsExpressPackageRR[]|null $packages
+     * @param list<SupermodelIoLogisticsExpressPackageRR>|null $packages
      */
     public function setPackages(?array $packages): self
     {
@@ -410,7 +410,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressLandedCostRequestItemsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressLandedCostRequestItemsItem>|null
      */
     public function getItems(): ?array
     {
@@ -418,7 +418,7 @@ class SupermodelIoLogisticsExpressLandedCostRequest
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressLandedCostRequestItemsItem[]|null $items
+     * @param list<SupermodelIoLogisticsExpressLandedCostRequestItemsItem>|null $items
      */
     public function setItems(?array $items): self
     {

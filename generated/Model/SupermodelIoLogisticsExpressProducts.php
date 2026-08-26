@@ -14,16 +14,16 @@ class SupermodelIoLogisticsExpressProducts
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var SupermodelIoLogisticsExpressProductsProductsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressProductsProductsItem>|null
      */
     protected $products;
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
 
     /**
-     * @return SupermodelIoLogisticsExpressProductsProductsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressProductsProductsItem>|null
      */
     public function getProducts(): ?array
     {
@@ -31,7 +31,7 @@ class SupermodelIoLogisticsExpressProducts
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressProductsProductsItem[]|null $products
+     * @param list<SupermodelIoLogisticsExpressProductsProductsItem>|null $products
      */
     public function setProducts(?array $products): self
     {
@@ -42,7 +42,7 @@ class SupermodelIoLogisticsExpressProducts
     }
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -50,7 +50,7 @@ class SupermodelIoLogisticsExpressProducts
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {

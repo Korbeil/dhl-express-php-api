@@ -26,7 +26,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @var SupermodelIoLogisticsExpressAccount[]|null
+     * @var list<SupermodelIoLogisticsExpressAccount>|null
      */
     protected $accounts;
     /**
@@ -38,7 +38,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @var SupermodelIoLogisticsExpressDocumentImagesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressDocumentImagesItem>|null
      */
     protected $documentImages;
 
@@ -77,7 +77,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @return SupermodelIoLogisticsExpressAccount[]|null
+     * @return list<SupermodelIoLogisticsExpressAccount>|null
      */
     public function getAccounts(): ?array
     {
@@ -87,7 +87,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * Please enter all the DHL Express accounts and types to be used for this shipment.
      *
-     * @param SupermodelIoLogisticsExpressAccount[]|null $accounts
+     * @param list<SupermodelIoLogisticsExpressAccount>|null $accounts
      */
     public function setAccounts(?array $accounts): self
     {
@@ -119,7 +119,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @return SupermodelIoLogisticsExpressDocumentImagesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressDocumentImagesItem>|null
      */
     public function getDocumentImages(): ?array
     {
@@ -129,7 +129,7 @@ class SupermodelIoLogisticsExpressImageUploadRequest
     /**
      * This section is to support multiple base64 encoded string with the image of export documentation for Paperless Trade images. When an invalid base64 encoded string is provided, an error message will be returned.
      *
-     * @param SupermodelIoLogisticsExpressDocumentImagesItem[]|null $documentImages
+     * @param list<SupermodelIoLogisticsExpressDocumentImagesItem>|null $documentImages
      */
     public function setDocumentImages(?array $documentImages): self
     {

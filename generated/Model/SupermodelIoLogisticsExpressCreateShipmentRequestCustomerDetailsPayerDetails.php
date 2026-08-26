@@ -22,11 +22,11 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetai
      */
     protected $contactInformation;
     /**
-     * @var SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @var list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     protected $registrationNumbers;
     /**
-     * @var SupermodelIoLogisticsExpressBankDetailsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressBankDetailsItem>|null
      */
     protected $bankDetails;
     /**
@@ -63,7 +63,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetai
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressRegistrationNumbers[]|null
+     * @return list<SupermodelIoLogisticsExpressRegistrationNumbers>|null
      */
     public function getRegistrationNumbers(): ?array
     {
@@ -71,7 +71,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetai
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressRegistrationNumbers[]|null $registrationNumbers
+     * @param list<SupermodelIoLogisticsExpressRegistrationNumbers>|null $registrationNumbers
      */
     public function setRegistrationNumbers(?array $registrationNumbers): self
     {
@@ -82,7 +82,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetai
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressBankDetailsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressBankDetailsItem>|null
      */
     public function getBankDetails(): ?array
     {
@@ -90,7 +90,7 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetai
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressBankDetailsItem[]|null $bankDetails
+     * @param list<SupermodelIoLogisticsExpressBankDetailsItem>|null $bankDetails
      */
     public function setBankDetails(?array $bankDetails): self
     {

@@ -68,11 +68,11 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
      */
     protected $unitOfMeasurements;
     /**
-     * @var SupermodelIoLogisticsExpressReference[]|null
+     * @var list<SupermodelIoLogisticsExpressReference>|null
      */
     protected $shipperReferences;
     /**
-     * @var SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem>|null
      */
     protected $events;
 
@@ -250,7 +250,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressReference[]|null
+     * @return list<SupermodelIoLogisticsExpressReference>|null
      */
     public function getShipperReferences(): ?array
     {
@@ -258,7 +258,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressReference[]|null $shipperReferences
+     * @param list<SupermodelIoLogisticsExpressReference>|null $shipperReferences
      */
     public function setShipperReferences(?array $shipperReferences): self
     {
@@ -269,7 +269,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem>|null
      */
     public function getEvents(): ?array
     {
@@ -277,7 +277,7 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem[]|null $events
+     * @param list<SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItem>|null $events
      */
     public function setEvents(?array $events): self
     {

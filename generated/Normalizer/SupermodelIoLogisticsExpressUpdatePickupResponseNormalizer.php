@@ -19,27 +19,27 @@ class SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer implements Deno
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupResponse' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupResponse' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
-        }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
         }
         if (\array_key_exists('dispatchConfirmationNumber', $data) && null !== $data['dispatchConfirmationNumber']) {
             $object->setDispatchConfirmationNumber($data['dispatchConfirmationNumber']);
@@ -69,34 +69,31 @@ class SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer implements Deno
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        if ($object->isInitialized('dispatchConfirmationNumber') && null !== $object->getDispatchConfirmationNumber()) {
-            $data['dispatchConfirmationNumber'] = $object->getDispatchConfirmationNumber();
+        $dataArray = [];
+        if ($data->isInitialized('dispatchConfirmationNumber') && null !== $data->getDispatchConfirmationNumber()) {
+            $dataArray['dispatchConfirmationNumber'] = $data->getDispatchConfirmationNumber();
         }
-        if ($object->isInitialized('readyByTime') && null !== $object->getReadyByTime()) {
-            $data['readyByTime'] = $object->getReadyByTime();
+        if ($data->isInitialized('readyByTime') && null !== $data->getReadyByTime()) {
+            $dataArray['readyByTime'] = $data->getReadyByTime();
         }
-        if ($object->isInitialized('nextPickupDate') && null !== $object->getNextPickupDate()) {
-            $data['nextPickupDate'] = $object->getNextPickupDate();
+        if ($data->isInitialized('nextPickupDate') && null !== $data->getNextPickupDate()) {
+            $dataArray['nextPickupDate'] = $data->getNextPickupDate();
         }
-        if ($object->isInitialized('warnings') && null !== $object->getWarnings()) {
+        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
             $values = [];
-            foreach ($object->getWarnings() as $value) {
+            foreach ($data->getWarnings() as $value) {
                 $values[] = $value;
             }
-            $data['warnings'] = $values;
+            $dataArray['warnings'] = $values;
         }
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressUpdatePickupResponse' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUpdatePickupResponse::class => false];
     }
 }

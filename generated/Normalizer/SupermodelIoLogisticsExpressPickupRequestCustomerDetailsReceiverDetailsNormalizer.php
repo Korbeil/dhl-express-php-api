@@ -19,35 +19,35 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetailsNor
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization($data, $type, $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
     {
-        return 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails' === $type;
+        return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails::class === $type;
     }
 
-    public function supportsNormalization($data, $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
     {
-        return \is_object($data) && 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails' === $data::class;
+        return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails::class === $data::class;
     }
 
-    public function denormalize($data, $class, $format = null, array $context = [])
+    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
     {
-        if (isset($data['$ref'])) {
+        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails();
+        if (null === $data || false === \is_array($data)) {
+            return $object;
+        }
+        if (isset($data['$ref']) && !isset($data['type']) && !isset($data['properties']) && !isset($data['allOf'])) {
             return new Reference($data['$ref'], $context['document-origin']);
         }
         if (isset($data['$recursiveRef'])) {
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
-        $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails();
-        if (null === $data || false === \is_array($data)) {
-            return $object;
-        }
         if (\array_key_exists('postalAddress', $data) && null !== $data['postalAddress']) {
-            $object->setPostalAddress($this->denormalizer->denormalize($data['postalAddress'], 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressAddress', 'json', $context));
+            $object->setPostalAddress($this->denormalizer->denormalize($data['postalAddress'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddress::class, 'json', $context));
         } elseif (\array_key_exists('postalAddress', $data) && null === $data['postalAddress']) {
             $object->setPostalAddress(null);
         }
         if (\array_key_exists('contactInformation', $data) && null !== $data['contactInformation']) {
-            $object->setContactInformation($this->denormalizer->denormalize($data['contactInformation'], 'Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressContact', 'json', $context));
+            $object->setContactInformation($this->denormalizer->denormalize($data['contactInformation'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressContact::class, 'json', $context));
         } elseif (\array_key_exists('contactInformation', $data) && null === $data['contactInformation']) {
             $object->setContactInformation(null);
         }
@@ -55,20 +55,17 @@ class SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetailsNor
         return $object;
     }
 
-    /**
-     * @return array|string|int|float|bool|\ArrayObject|null
-     */
-    public function normalize($object, $format = null, array $context = [])
+    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
-        $data = [];
-        $data['postalAddress'] = $this->normalizer->normalize($object->getPostalAddress(), 'json', $context);
-        $data['contactInformation'] = $this->normalizer->normalize($object->getContactInformation(), 'json', $context);
+        $dataArray = [];
+        $dataArray['postalAddress'] = null === $data->getPostalAddress() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getPostalAddress(), 'json', $context));
+        $dataArray['contactInformation'] = null === $data->getContactInformation() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getContactInformation(), 'json', $context));
 
-        return $data;
+        return $dataArray;
     }
 
     public function getSupportedTypes(string $format = null): array
     {
-        return ['Korbeil\\DHLExpress\\Api\\Model\\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails' => false];
+        return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetails::class => false];
     }
 }

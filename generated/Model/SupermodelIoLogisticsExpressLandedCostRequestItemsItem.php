@@ -110,11 +110,11 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
      */
     protected $brand;
     /**
-     * @var SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem>|null
      */
     protected $goodsCharacteristics;
     /**
-     * @var SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem>|null
      */
     protected $additionalQuantityDefinitions;
     /**
@@ -429,7 +429,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem>|null
      */
     public function getGoodsCharacteristics(): ?array
     {
@@ -437,7 +437,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem[]|null $goodsCharacteristics
+     * @param list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem>|null $goodsCharacteristics
      */
     public function setGoodsCharacteristics(?array $goodsCharacteristics): self
     {
@@ -448,7 +448,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem>|null
      */
     public function getAdditionalQuantityDefinitions(): ?array
     {
@@ -456,7 +456,7 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItem
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem[]|null $additionalQuantityDefinitions
+     * @param list<SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem>|null $additionalQuantityDefinitions
      */
     public function setAdditionalQuantityDefinitions(?array $additionalQuantityDefinitions): self
     {

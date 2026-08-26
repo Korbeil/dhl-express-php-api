@@ -14,16 +14,16 @@ class SupermodelIoLogisticsExpressAddressValidateResponse
         return \array_key_exists($property, $this->initialized);
     }
     /**
-     * @var string[]|null
+     * @var list<string>|null
      */
     protected $warnings;
     /**
-     * @var SupermodelIoLogisticsExpressAddressValidateResponseAddressItem[]|null
+     * @var list<SupermodelIoLogisticsExpressAddressValidateResponseAddressItem>|null
      */
     protected $address;
 
     /**
-     * @return string[]|null
+     * @return list<string>|null
      */
     public function getWarnings(): ?array
     {
@@ -31,7 +31,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponse
     }
 
     /**
-     * @param string[]|null $warnings
+     * @param list<string>|null $warnings
      */
     public function setWarnings(?array $warnings): self
     {
@@ -42,7 +42,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponse
     }
 
     /**
-     * @return SupermodelIoLogisticsExpressAddressValidateResponseAddressItem[]|null
+     * @return list<SupermodelIoLogisticsExpressAddressValidateResponseAddressItem>|null
      */
     public function getAddress(): ?array
     {
@@ -50,7 +50,7 @@ class SupermodelIoLogisticsExpressAddressValidateResponse
     }
 
     /**
-     * @param SupermodelIoLogisticsExpressAddressValidateResponseAddressItem[]|null $address
+     * @param list<SupermodelIoLogisticsExpressAddressValidateResponseAddressItem>|null $address
      */
     public function setAddress(?array $address): self
     {

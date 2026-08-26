@@ -16,7 +16,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter details for each export line item.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationLineItemsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItem>|null
      */
     protected $lineItems;
     /**
@@ -28,13 +28,13 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter up to three remarks.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationRemarksItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationRemarksItem>|null
      */
     protected $remarks;
     /**
      * Please enter additional charge to appear on the invoice<BR>      admin, Administration Charge<BR>      delivery, Delivery Charge<BR> documentation, Documentation Charge<BR>      expedite, Expedite Charge<BR>      freight, Freight Charge<BR>      fuel surcharge, Fuel Surcharge<BR>      logistic, Logistic Charge<BR>      other, Other Charge<BR>      packaging, Packaging Charge<BR>      pickup, Pickup Charge<BR>      handling, Handling Charge<BR>      vat, VAT Charge<BR>      insurance, Insurance Cost.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem>|null
      */
     protected $additionalCharges;
     /**
@@ -70,7 +70,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @var SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem[]|null
+     * @var list<SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem>|null
      */
     protected $customsDocuments;
     /**
@@ -83,7 +83,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter details for each export line item.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationLineItemsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItem>|null
      */
     public function getLineItems(): ?array
     {
@@ -93,7 +93,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter details for each export line item.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationLineItemsItem[]|null $lineItems
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationLineItemsItem>|null $lineItems
      */
     public function setLineItems(?array $lineItems): self
     {
@@ -125,7 +125,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter up to three remarks.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationRemarksItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationRemarksItem>|null
      */
     public function getRemarks(): ?array
     {
@@ -135,7 +135,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter up to three remarks.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationRemarksItem[]|null $remarks
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationRemarksItem>|null $remarks
      */
     public function setRemarks(?array $remarks): self
     {
@@ -148,7 +148,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter additional charge to appear on the invoice<BR>      admin, Administration Charge<BR>      delivery, Delivery Charge<BR> documentation, Documentation Charge<BR>      expedite, Expedite Charge<BR>      freight, Freight Charge<BR>      fuel surcharge, Fuel Surcharge<BR>      logistic, Logistic Charge<BR>      other, Other Charge<BR>      packaging, Packaging Charge<BR>      pickup, Pickup Charge<BR>      handling, Handling Charge<BR>      vat, VAT Charge<BR>      insurance, Insurance Cost.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem>|null
      */
     public function getAdditionalCharges(): ?array
     {
@@ -158,7 +158,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please enter additional charge to appear on the invoice<BR>      admin, Administration Charge<BR>      delivery, Delivery Charge<BR> documentation, Documentation Charge<BR>      expedite, Expedite Charge<BR>      freight, Freight Charge<BR>      fuel surcharge, Fuel Surcharge<BR>      logistic, Logistic Charge<BR>      other, Other Charge<BR>      packaging, Packaging Charge<BR>      pickup, Pickup Charge<BR>      handling, Handling Charge<BR>      vat, VAT Charge<BR>      insurance, Insurance Cost.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem[]|null $additionalCharges
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItem>|null $additionalCharges
      */
     public function setAdditionalCharges(?array $additionalCharges): self
     {
@@ -266,7 +266,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @return SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem[]|null
+     * @return list<SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem>|null
      */
     public function getCustomsDocuments(): ?array
     {
@@ -276,7 +276,7 @@ class SupermodelIoLogisticsExpressExportDeclaration
     /**
      * Please provide the Customs Documents at invoice level.
      *
-     * @param SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem[]|null $customsDocuments
+     * @param list<SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItem>|null $customsDocuments
      */
     public function setCustomsDocuments(?array $customsDocuments): self
     {
