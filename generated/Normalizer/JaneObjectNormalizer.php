@@ -176,6 +176,8 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeight::class => SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightNormalizer::class,
 
+        \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightAnyOf::class => SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightAnyOfNormalizer::class,
+
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItem::class => SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItemNormalizer::class,
 
         \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItem::class => SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItemNormalizer::class,

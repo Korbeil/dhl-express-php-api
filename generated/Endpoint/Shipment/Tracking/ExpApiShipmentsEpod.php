@@ -40,7 +40,7 @@ class ExpApiShipmentsEpod extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
 
     public function getUri(): string
     {
-        return str_replace(['{shipmentTrackingNumber}'], [$this->shipmentTrackingNumber], '/shipments/{shipmentTrackingNumber}/proof-of-delivery');
+        return str_replace(['{shipmentTrackingNumber}'], [rawurlencode($this->shipmentTrackingNumber)], '/shipments/{shipmentTrackingNumber}/proof-of-delivery');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -93,13 +93,13 @@ class ExpApiShipmentsEpod extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsEpodNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }

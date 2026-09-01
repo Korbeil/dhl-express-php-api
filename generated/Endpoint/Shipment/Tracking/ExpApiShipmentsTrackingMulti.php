@@ -111,13 +111,13 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }

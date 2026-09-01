@@ -96,16 +96,16 @@ class ExpApiShipments extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoin
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (201 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (201 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (422 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (500 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (500 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInternalServerErrorException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }

@@ -36,7 +36,7 @@ class ExpApiPickupsUpdate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
 
     public function getUri(): string
     {
-        return str_replace(['{dispatchConfirmationNumber}'], [$this->dispatchConfirmationNumber], '/pickups/{dispatchConfirmationNumber}');
+        return str_replace(['{dispatchConfirmationNumber}'], [rawurlencode($this->dispatchConfirmationNumber)], '/pickups/{dispatchConfirmationNumber}');
     }
 
     public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
@@ -82,16 +82,16 @@ class ExpApiPickupsUpdate extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEnd
     {
         $status = $response->getStatusCode();
         $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsUpdateBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsUpdateNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (422 === $status && false !== mb_strpos(strtolower($contentType), 'application/json'))) {
+        if ((null === $contentType) === false && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiPickupsUpdateUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
     }
