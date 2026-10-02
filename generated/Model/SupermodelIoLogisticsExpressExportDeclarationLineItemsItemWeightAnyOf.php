@@ -9,42 +9,12 @@ class SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightAnyOf impl
 {
     use AdditionalAndPatternProperties;
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
-     * Please enter the gross weight value.
-     *
-     * @var float|null
-     */
-    protected $grossValue;
-
-    /**
      * Please enter the gross weight value.
      */
-    public function getGrossValue(): ?float
-    {
-        return $this->grossValue;
-    }
-
-    /**
-     * Please enter the gross weight value.
-     */
-    public function setGrossValue(?float $grossValue): self
-    {
-        $this->initialized['grossValue'] = true;
-        $this->grossValue = $grossValue;
-
-        return $this;
-    }
+    public ?float $grossValue;
 
     public function definedProperties(): array
     {
-        return ['grossValue' => ['grossValue', 'getGrossValue', 'setGrossValue']];
+        return ['grossValue' => 'grossValue'];
     }
 }

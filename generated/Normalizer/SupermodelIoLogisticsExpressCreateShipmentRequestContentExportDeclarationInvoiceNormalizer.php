@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice();
         if (null === $data || false === \is_array($data)) {
@@ -48,137 +48,139 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
             $data['totalGrossWeight'] = (float) $data['totalGrossWeight'];
         }
         if (\array_key_exists('number', $data) && null !== $data['number']) {
-            $object->setNumber($data['number']);
-        } elseif (\array_key_exists('number', $data) && null === $data['number']) {
-            $object->setNumber(null);
+            $object->number = $data['number'];
+        } elseif (\array_key_exists('number', $data)) {
+            $object->number = null;
         }
         if (\array_key_exists('date', $data) && null !== $data['date']) {
             $date = \DateTime::createFromFormat('Y-m-d', $data['date']);
             if (false === $date) {
                 throw new \Korbeil\DHLExpress\Api\Runtime\Normalizer\InvalidDateException($data['date'], 'Y-m-d');
             }
-            $object->setDate($date->setTime(0, 0, 0));
-        } elseif (\array_key_exists('date', $data) && null === $data['date']) {
-            $object->setDate(null);
+            $object->date = $date->setTime(0, 0, 0);
+        } elseif (\array_key_exists('date', $data)) {
+            $object->date = null;
         }
         if (\array_key_exists('signatureName', $data) && null !== $data['signatureName']) {
-            $object->setSignatureName($data['signatureName']);
-        } elseif (\array_key_exists('signatureName', $data) && null === $data['signatureName']) {
-            $object->setSignatureName(null);
+            $object->signatureName = $data['signatureName'];
+        } elseif (\array_key_exists('signatureName', $data)) {
+            $object->signatureName = null;
         }
         if (\array_key_exists('signatureTitle', $data) && null !== $data['signatureTitle']) {
-            $object->setSignatureTitle($data['signatureTitle']);
-        } elseif (\array_key_exists('signatureTitle', $data) && null === $data['signatureTitle']) {
-            $object->setSignatureTitle(null);
+            $object->signatureTitle = $data['signatureTitle'];
+        } elseif (\array_key_exists('signatureTitle', $data)) {
+            $object->signatureTitle = null;
         }
         if (\array_key_exists('signatureImage', $data) && null !== $data['signatureImage']) {
-            $object->setSignatureImage($data['signatureImage']);
-        } elseif (\array_key_exists('signatureImage', $data) && null === $data['signatureImage']) {
-            $object->setSignatureImage(null);
+            $object->signatureImage = $data['signatureImage'];
+        } elseif (\array_key_exists('signatureImage', $data)) {
+            $object->signatureImage = null;
         }
         if (\array_key_exists('instructions', $data) && null !== $data['instructions']) {
             $values = [];
             foreach ($data['instructions'] as $value) {
                 $values[] = $value;
             }
-            $object->setInstructions($values);
-        } elseif (\array_key_exists('instructions', $data) && null === $data['instructions']) {
-            $object->setInstructions(null);
+            $object->instructions = $values;
+        } elseif (\array_key_exists('instructions', $data)) {
+            $object->instructions = null;
         }
         if (\array_key_exists('customerDataTextEntries', $data) && null !== $data['customerDataTextEntries']) {
             $values_1 = [];
             foreach ($data['customerDataTextEntries'] as $value_1) {
                 $values_1[] = $value_1;
             }
-            $object->setCustomerDataTextEntries($values_1);
-        } elseif (\array_key_exists('customerDataTextEntries', $data) && null === $data['customerDataTextEntries']) {
-            $object->setCustomerDataTextEntries(null);
+            $object->customerDataTextEntries = $values_1;
+        } elseif (\array_key_exists('customerDataTextEntries', $data)) {
+            $object->customerDataTextEntries = null;
         }
         if (\array_key_exists('totalNetWeight', $data) && null !== $data['totalNetWeight']) {
-            $object->setTotalNetWeight($data['totalNetWeight']);
-        } elseif (\array_key_exists('totalNetWeight', $data) && null === $data['totalNetWeight']) {
-            $object->setTotalNetWeight(null);
+            $object->totalNetWeight = $data['totalNetWeight'];
+        } elseif (\array_key_exists('totalNetWeight', $data)) {
+            $object->totalNetWeight = null;
         }
         if (\array_key_exists('totalGrossWeight', $data) && null !== $data['totalGrossWeight']) {
-            $object->setTotalGrossWeight($data['totalGrossWeight']);
-        } elseif (\array_key_exists('totalGrossWeight', $data) && null === $data['totalGrossWeight']) {
-            $object->setTotalGrossWeight(null);
+            $object->totalGrossWeight = $data['totalGrossWeight'];
+        } elseif (\array_key_exists('totalGrossWeight', $data)) {
+            $object->totalGrossWeight = null;
         }
         if (\array_key_exists('customerReferences', $data) && null !== $data['customerReferences']) {
             $values_2 = [];
             foreach ($data['customerReferences'] as $value_2) {
                 $values_2[] = $this->denormalizer->denormalize($value_2, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItem::class, 'json', $context);
             }
-            $object->setCustomerReferences($values_2);
-        } elseif (\array_key_exists('customerReferences', $data) && null === $data['customerReferences']) {
-            $object->setCustomerReferences(null);
+            $object->customerReferences = $values_2;
+        } elseif (\array_key_exists('customerReferences', $data)) {
+            $object->customerReferences = null;
         }
         if (\array_key_exists('termsOfPayment', $data) && null !== $data['termsOfPayment']) {
-            $object->setTermsOfPayment($data['termsOfPayment']);
-        } elseif (\array_key_exists('termsOfPayment', $data) && null === $data['termsOfPayment']) {
-            $object->setTermsOfPayment(null);
+            $object->termsOfPayment = $data['termsOfPayment'];
+        } elseif (\array_key_exists('termsOfPayment', $data)) {
+            $object->termsOfPayment = null;
         }
         if (\array_key_exists('indicativeCustomsValues', $data) && null !== $data['indicativeCustomsValues']) {
-            $object->setIndicativeCustomsValues($this->denormalizer->denormalize($data['indicativeCustomsValues'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class, 'json', $context));
-        } elseif (\array_key_exists('indicativeCustomsValues', $data) && null === $data['indicativeCustomsValues']) {
-            $object->setIndicativeCustomsValues(null);
+            $object->indicativeCustomsValues = $this->denormalizer->denormalize($data['indicativeCustomsValues'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class, 'json', $context);
+        } elseif (\array_key_exists('indicativeCustomsValues', $data)) {
+            $object->indicativeCustomsValues = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['number'] = $data->getNumber();
-        $dataArray['date'] = $data->getDate()->format('Y-m-d');
-        if ($data->isInitialized('signatureName') && null !== $data->getSignatureName()) {
-            $dataArray['signatureName'] = $data->getSignatureName();
+        $dataArray['number'] = $data->number;
+        $dataArray['date'] = $data->date->format('Y-m-d');
+        if (\array_key_exists('signatureName', get_object_vars($data)) && null !== ($data->signatureName ?? null)) {
+            $dataArray['signatureName'] = $data->signatureName;
         }
-        if ($data->isInitialized('signatureTitle') && null !== $data->getSignatureTitle()) {
-            $dataArray['signatureTitle'] = $data->getSignatureTitle();
+        if (\array_key_exists('signatureTitle', get_object_vars($data)) && null !== ($data->signatureTitle ?? null)) {
+            $dataArray['signatureTitle'] = $data->signatureTitle;
         }
-        if ($data->isInitialized('signatureImage') && null !== $data->getSignatureImage()) {
-            $dataArray['signatureImage'] = $data->getSignatureImage();
+        if (\array_key_exists('signatureImage', get_object_vars($data)) && null !== ($data->signatureImage ?? null)) {
+            $dataArray['signatureImage'] = $data->signatureImage;
         }
-        if ($data->isInitialized('instructions') && null !== $data->getInstructions()) {
+        if (\array_key_exists('instructions', get_object_vars($data)) && null !== ($data->instructions ?? null)) {
             $values = [];
-            foreach ($data->getInstructions() as $value) {
+            foreach ($data->instructions as $value) {
                 $values[] = $value;
             }
             $dataArray['instructions'] = $values;
         }
-        if ($data->isInitialized('customerDataTextEntries') && null !== $data->getCustomerDataTextEntries()) {
+        if (\array_key_exists('customerDataTextEntries', get_object_vars($data)) && null !== ($data->customerDataTextEntries ?? null)) {
             $values_1 = [];
-            foreach ($data->getCustomerDataTextEntries() as $value_1) {
+            foreach ($data->customerDataTextEntries as $value_1) {
                 $values_1[] = $value_1;
             }
             $dataArray['customerDataTextEntries'] = $values_1;
         }
-        if ($data->isInitialized('totalNetWeight') && null !== $data->getTotalNetWeight()) {
-            $dataArray['totalNetWeight'] = $data->getTotalNetWeight();
+        if (\array_key_exists('totalNetWeight', get_object_vars($data)) && null !== ($data->totalNetWeight ?? null)) {
+            $dataArray['totalNetWeight'] = $data->totalNetWeight;
         }
-        if ($data->isInitialized('totalGrossWeight') && null !== $data->getTotalGrossWeight()) {
-            $dataArray['totalGrossWeight'] = $data->getTotalGrossWeight();
+        if (\array_key_exists('totalGrossWeight', get_object_vars($data)) && null !== ($data->totalGrossWeight ?? null)) {
+            $dataArray['totalGrossWeight'] = $data->totalGrossWeight;
         }
-        if ($data->isInitialized('customerReferences') && null !== $data->getCustomerReferences()) {
+        if (\array_key_exists('customerReferences', get_object_vars($data)) && null !== ($data->customerReferences ?? null)) {
             $values_2 = [];
-            foreach ($data->getCustomerReferences() as $value_2) {
-                $values_2[] = null === $value_2 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_2, 'json', $context));
+            foreach ($data->customerReferences as $value_2) {
+                $normalized = null === $value_2 ? null : $this->normalizer->normalize($value_2, 'json', $context);
+                $values_2[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['customerReferences'] = $values_2;
         }
-        if ($data->isInitialized('termsOfPayment') && null !== $data->getTermsOfPayment()) {
-            $dataArray['termsOfPayment'] = $data->getTermsOfPayment();
+        if (\array_key_exists('termsOfPayment', get_object_vars($data)) && null !== ($data->termsOfPayment ?? null)) {
+            $dataArray['termsOfPayment'] = $data->termsOfPayment;
         }
-        if ($data->isInitialized('indicativeCustomsValues') && null !== $data->getIndicativeCustomsValues()) {
-            $dataArray['indicativeCustomsValues'] = null === $data->getIndicativeCustomsValues() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getIndicativeCustomsValues(), 'json', $context));
+        if (\array_key_exists('indicativeCustomsValues', get_object_vars($data)) && null !== ($data->indicativeCustomsValues ?? null)) {
+            $normalized_1 = $this->normalizer->normalize($data->indicativeCustomsValues, 'json', $context);
+            $dataArray['indicativeCustomsValues'] = is_iterable($normalized_1) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_1) : $normalized_1;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoice::class => false];
     }

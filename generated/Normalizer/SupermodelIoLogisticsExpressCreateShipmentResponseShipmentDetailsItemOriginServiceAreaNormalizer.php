@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOrigi
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea();
         if (null === $data || false === \is_array($data)) {
@@ -42,41 +42,41 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOrigi
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('facilityCode', $data) && null !== $data['facilityCode']) {
-            $object->setFacilityCode($data['facilityCode']);
-        } elseif (\array_key_exists('facilityCode', $data) && null === $data['facilityCode']) {
-            $object->setFacilityCode(null);
+            $object->facilityCode = $data['facilityCode'];
+        } elseif (\array_key_exists('facilityCode', $data)) {
+            $object->facilityCode = null;
         }
         if (\array_key_exists('serviceAreaCode', $data) && null !== $data['serviceAreaCode']) {
-            $object->setServiceAreaCode($data['serviceAreaCode']);
-        } elseif (\array_key_exists('serviceAreaCode', $data) && null === $data['serviceAreaCode']) {
-            $object->setServiceAreaCode(null);
+            $object->serviceAreaCode = $data['serviceAreaCode'];
+        } elseif (\array_key_exists('serviceAreaCode', $data)) {
+            $object->serviceAreaCode = null;
         }
         if (\array_key_exists('outboundSortCode', $data) && null !== $data['outboundSortCode']) {
-            $object->setOutboundSortCode($data['outboundSortCode']);
-        } elseif (\array_key_exists('outboundSortCode', $data) && null === $data['outboundSortCode']) {
-            $object->setOutboundSortCode(null);
+            $object->outboundSortCode = $data['outboundSortCode'];
+        } elseif (\array_key_exists('outboundSortCode', $data)) {
+            $object->outboundSortCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('facilityCode') && null !== $data->getFacilityCode()) {
-            $dataArray['facilityCode'] = $data->getFacilityCode();
+        if (\array_key_exists('facilityCode', get_object_vars($data)) && null !== ($data->facilityCode ?? null)) {
+            $dataArray['facilityCode'] = $data->facilityCode;
         }
-        if ($data->isInitialized('serviceAreaCode') && null !== $data->getServiceAreaCode()) {
-            $dataArray['serviceAreaCode'] = $data->getServiceAreaCode();
+        if (\array_key_exists('serviceAreaCode', get_object_vars($data)) && null !== ($data->serviceAreaCode ?? null)) {
+            $dataArray['serviceAreaCode'] = $data->serviceAreaCode;
         }
-        if ($data->isInitialized('outboundSortCode') && null !== $data->getOutboundSortCode()) {
-            $dataArray['outboundSortCode'] = $data->getOutboundSortCode();
+        if (\array_key_exists('outboundSortCode', get_object_vars($data)) && null !== ($data->outboundSortCode ?? null)) {
+            $dataArray['outboundSortCode'] = $data->outboundSortCode;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea::class => false];
     }

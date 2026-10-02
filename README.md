@@ -11,7 +11,7 @@ Express REST API.
 
 ## Requirements
 
-- PHP >= 8.1
+- PHP >= 8.4
 
 ## Installation
 
@@ -85,9 +85,23 @@ $request = new SupermodelIoLogisticsExpressLandedCostRequest();
 $response = $client->expApiLandedCost($request);
 ```
 
-Every endpoint method also accepts a `$fetch` argument — pass
-`Korbeil\DHLExpress\Api\Client::FETCH_RESPONSE` if you want the raw PSR-7 response instead of a deserialized
-model.
+### Fetch modes & raw responses
+
+On PHP 8.4+, GET endpoints (tracking, rates, address validation, products, ...) send their request
+immediately and return a **lazy ghost proxy** of the response model: the model materializes on the
+first property access — iterate it as usual. Endpoints taking a payload (shipment creation, pickups,
+...) behave as before and block until parsed.
+
+```php
+// The HTTP request is fired now, the response is parsed when you first touch $response:
+$response = $client->expApiShipmentsTracking('1234567890');
+
+// Need the raw HTTP response instead of a model?
+use Korbeil\DHLExpress\Api\Endpoint\Shipment\Tracking\ExpApiShipmentsTracking;
+
+$raw = $client->executeRawEndpoint(new ExpApiShipmentsTracking('1234567890'));
+$statusCode = $raw->getStatusCode(); // Symfony\Contracts\HttpClient\ResponseInterface
+```
 
 ## Error handling
 
@@ -101,9 +115,12 @@ try {
     $response = $client->expApiAddressValidate([...]);
 } catch (ExpApiAddressValidateBadRequestException $e) {
     $errorResponse = $e->getSupermodelIoLogisticsExpressErrorResponse(); // SupermodelIoLogisticsExpressErrorResponse
-    $psr7Response = $e->getResponse();
+    $response = $e->getResponse(); // Symfony\Contracts\HttpClient\ResponseInterface
 }
 ```
+
+A status or content type the API specification does not declare makes the client throw
+`Korbeil\DHLExpress\Api\Exception\BadResponseException` (also carrying the raw response).
 
 Invalid query or header parameters throw `Korbeil\DHLExpress\Api\Runtime\Normalizer\ValidationException`
 before any HTTP call is made.

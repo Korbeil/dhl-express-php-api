@@ -22,16 +22,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? null : \Psr\Http\Message\ResponseInterface)
+     * @return null
      *
      * @throws Exception\ExpApiPickupsCancelBadRequestException
      * @throws Exception\ExpApiPickupsCancelNotFoundException
+     * @throws Exception\BadResponseException
      */
-    public function expApiPickupsCancel(string $dispatchConfirmationNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiPickupsCancel(string $dispatchConfirmationNumber, array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsCancel($dispatchConfirmationNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsCancel($dispatchConfirmationNumber, $queryParameters, $headerParameters));
     }
 
     /**
@@ -48,17 +48,17 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse
      *
      * @throws Exception\ExpApiPickupsUpdateBadRequestException
      * @throws Exception\ExpApiPickupsUpdateNotFoundException
      * @throws Exception\ExpApiPickupsUpdateUnprocessableEntityException
+     * @throws Exception\BadResponseException
      */
-    public function expApiPickupsUpdate(string $dispatchConfirmationNumber, Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiPickupsUpdate(string $dispatchConfirmationNumber, ?Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupRequest $requestBody = null, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsUpdate($dispatchConfirmationNumber, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickupsUpdate($dispatchConfirmationNumber, $requestBody, $headerParameters));
     }
 
     /**
@@ -74,15 +74,15 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Pickup\SupermodelIoLogisticsExpressPickupResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Pickup\SupermodelIoLogisticsExpressPickupResponse
      *
      * @throws Exception\ExpApiPickupsBadRequestException
+     * @throws Exception\BadResponseException
      */
-    public function expApiPickups(Model\Pickup\SupermodelIoLogisticsExpressPickupRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiPickups(?Model\Pickup\SupermodelIoLogisticsExpressPickupRequest $requestBody = null, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickups($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Pickup\ExpApiPickups($requestBody, $headerParameters));
     }
 
     /**
@@ -103,15 +103,15 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Identifier\SupermodelIoLogisticsExpressIdentifierResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Identifier\SupermodelIoLogisticsExpressIdentifierResponse
      *
      * @throws Exception\ExpApiIdentifiersBadRequestException
+     * @throws Exception\BadResponseException
      */
-    public function expApiIdentifiers(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiIdentifiers(array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Identifier\ExpApiIdentifiers($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Identifier\ExpApiIdentifiers($queryParameters, $headerParameters));
     }
 
     /**
@@ -135,15 +135,15 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Address\SupermodelIoLogisticsExpressAddressValidateResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Address\SupermodelIoLogisticsExpressAddressValidateResponse
      *
      * @throws Exception\ExpApiAddressValidateBadRequestException
+     * @throws Exception\BadResponseException
      */
-    public function expApiAddressValidate(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiAddressValidate(array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Address\ExpApiAddressValidate($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Address\ExpApiAddressValidate($queryParameters, $headerParameters));
     }
 
     /**
@@ -180,16 +180,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Rating\SupermodelIoLogisticsExpressRates
      *
      * @throws Exception\ExpApiRatesBadRequestException
      * @throws Exception\ExpApiRatesInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiRates(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiRates(array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRates($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRates($queryParameters, $headerParameters));
     }
 
     /**
@@ -208,16 +208,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Rating\SupermodelIoLogisticsExpressRates
      *
      * @throws Exception\ExpApiRatesManyBadRequestException
      * @throws Exception\ExpApiRatesManyInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiRatesMany(Model\Rating\SupermodelIoLogisticsExpressRateRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiRatesMany(?Model\Rating\SupermodelIoLogisticsExpressRateRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRatesMany($requestBody, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiRatesMany($requestBody, $queryParameters, $headerParameters));
     }
 
     /**
@@ -233,16 +233,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Rating\SupermodelIoLogisticsExpressRates|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Rating\SupermodelIoLogisticsExpressRates
      *
      * @throws Exception\ExpApiLandedCostBadRequestException
      * @throws Exception\ExpApiLandedCostInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiLandedCost(Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiLandedCost(?Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Rating\ExpApiLandedCost($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Rating\ExpApiLandedCost($requestBody, $headerParameters));
     }
 
     /**
@@ -280,16 +280,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Product\SupermodelIoLogisticsExpressProducts|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Product\SupermodelIoLogisticsExpressProducts
      *
      * @throws Exception\ExpApiProductsBadRequestException
      * @throws Exception\ExpApiProductsInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiProducts(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiProducts(array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Product\ExpApiProducts($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Product\ExpApiProducts($queryParameters, $headerParameters));
     }
 
     /**
@@ -311,16 +311,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse
      *
      * @throws Exception\ExpApiShipmentsTrackingBadRequestException
      * @throws Exception\ExpApiShipmentsTrackingNotFoundException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsTracking(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsTracking(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTracking($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTracking($shipmentTrackingNumber, $queryParameters, $headerParameters));
     }
 
     /**
@@ -348,16 +348,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse
      *
      * @throws Exception\ExpApiShipmentsTrackingMultiBadRequestException
      * @throws Exception\ExpApiShipmentsTrackingMultiNotFoundException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsTrackingMulti(array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsTrackingMulti(array $queryParameters = [], array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTrackingMulti($queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsTrackingMulti($queryParameters, $headerParameters));
     }
 
     /**
@@ -378,33 +378,33 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponse
      *
      * @throws Exception\ExpApiShipmentsEpodBadRequestException
      * @throws Exception\ExpApiShipmentsEpodNotFoundException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsEpod(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsEpod(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsEpod($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Tracking\ExpApiShipmentsEpod($shipmentTrackingNumber, $queryParameters, $headerParameters));
     }
 
     /**
      * The upload-image service can be used to upload PLT images to a previously created shipment. The PLT images for the shipment can be uploaded before the shipment has been physically collected by DHL courier. However, the original shipment must contain WY as the special service otherwise, an error will be returned when the customer wants to use the reupload function in this upload-image service. IMPORTANT: Please note that at least 10mins must be given between the initial createShipment request and then the upload-image request (including subsequent upload-image request).
      *
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
-     * @param string $fetch                  Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? null : \Psr\Http\Message\ResponseInterface)
+     * @return null
      *
      * @throws Exception\ExpApiShipmentsImgUploadBadRequestException
      * @throws Exception\ExpApiShipmentsImgUploadNotFoundException
      * @throws Exception\ExpApiShipmentsImgUploadUnprocessableEntityException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsImgUpload(string $shipmentTrackingNumber, Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null, string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsImgUpload(string $shipmentTrackingNumber, ?Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null)
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsImgUpload($shipmentTrackingNumber, $requestBody), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsImgUpload($shipmentTrackingNumber, $requestBody));
     }
 
     /**
@@ -425,29 +425,26 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentResponse
      *
      * @throws Exception\ExpApiShipmentsBadRequestException
      * @throws Exception\ExpApiShipmentsUnprocessableEntityException
      * @throws Exception\ExpApiShipmentsInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipments(Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipments(?Model\Shipment\SupermodelIoLogisticsExpressCreateShipmentRequest $requestBody = null, array $queryParameters = [], array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\ExpApiShipments($requestBody, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\ExpApiShipments($requestBody, $queryParameters, $headerParameters));
     }
 
     /**
      * ## Upload Invoice Data with Shipment ID
      * The upload invoice data service can be used to upload Commerical Invoice data with Shipment Identification Number for your DHL Express shipment.Customer can provide Commercial Invoice data before Shipment Data via Create Shipment flow or vice versa.
-     *
      * Important Note: UploadInvoiceData service is not enabled by default and must be requested per customer. Use of this service is only enabled on exceptional basis and DHL Express recommends to submit shipment requests together with a commercial invoice data.To enable use of UploadInvoiceData service, please contact your DHL Express IT representative. To use UploadInvoiceData service, it is required that "PM" service code is provided in MyDHL API Create Shipment request. "PM" service code is not enabled by
      * default for the customers, and needs to be enabled upon request.
-     *
      * When Shipment is created via MyDHL API Create Shipment service before uploading the Commercial Invoice (CIN) data,it is mandatory to provide the Shipment Identification Number as received in MyDHL API Create Shipment service Response.
      * When Commercial Invoice (CIN) data is uploaded prior to creating a shipment via MyDHL API Create Shipment service, it is mandatory to provide Invoice Reference Number with Invoice Reference Type value "CU" and Shipper Account Number.
-     *
      * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
      * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
@@ -462,29 +459,26 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? null : \Psr\Http\Message\ResponseInterface)
+     * @return null
      *
      * @throws Exception\ExpApiShipmentsInvoiceDataAwbBadRequestException
      * @throws Exception\ExpApiShipmentsInvoiceDataAwbUnprocessableEntityException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsInvoiceDataAwb(string $shipmentTrackingNumber, Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsInvoiceDataAwb(string $shipmentTrackingNumber, ?Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceDataAwb($shipmentTrackingNumber, $requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceDataAwb($shipmentTrackingNumber, $requestBody, $headerParameters));
     }
 
     /**
      * ## Upload invoice data
      * The upload invoice data service can be used to upload Commerical Invoice data without Shipment Identification Number for your DHL Express shipment. Customer can provide Commercial Invoice data before Shipment Data via Create Shipment flow or vice versa.
-     *
      * Important Note: UploadInvoiceData service is not enabled by default and must be requested per customer.Use of this service is only enabled on exceptional basis and DHL Express recommends to submit shipment requests together with a commercial invoice data.
      * To enable use of UploadInvoiceData service, please contact your DHL Express IT representative. To use UploadInvoiceData service, it is required that "PM" service code is provided in MyDHL API Create Shipment request.
      * "PM" service code is not enabled by default for the customers, and needs to be enabled upon request.
-     *
      * When Shipment is created via MyDHL API Create Shipment service before uploading the Commercial Invoice (CIN) data,it is mandatory to provide the Shipment Identification Number as received in MyDHL API Create Shipment service Response. When Commercial Invoice (CIN) data is uploaded prior to creating a shipment via MyDHL API Create Shipment service, it is
      * mandatory to provide Invoice Reference Number with Invoice Reference Type value "CU" and Shipper Account Number.
-     *
      * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
      * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
@@ -498,16 +492,16 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse
      *
      * @throws Exception\ExpApiShipmentsInvoiceDataBadRequestException
      * @throws Exception\ExpApiShipmentsInvoiceDataInternalServerErrorException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsInvoiceData(Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID $requestBody = null, array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsInvoiceData(?Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSID $requestBody = null, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceData($requestBody, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Invoice\ExpApiShipmentsInvoiceData($requestBody, $headerParameters));
     }
 
     /**
@@ -532,41 +526,43 @@ class Client extends Runtime\Client\Client
      *    "Webstore-Platform-Name"?: string, //Please provide name of the webstore platform (applicable to 3PV only)
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
-     * @param string $fetch Fetch mode to use (can be OBJECT or RESPONSE)
      *
-     * @return ($fetch is 'object' ? Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse|null : \Psr\Http\Message\ResponseInterface)
+     * @return Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse
      *
      * @throws Exception\ExpApiShipmentsDocumentimageBadRequestException
      * @throws Exception\ExpApiShipmentsDocumentimageNotFoundException
+     * @throws Exception\BadResponseException
      */
-    public function expApiShipmentsDocumentimage(string $shipmentTrackingNumber, array $queryParameters = [], array $headerParameters = [], string $fetch = self::FETCH_OBJECT)
+    public function expApiShipmentsDocumentimage(string $shipmentTrackingNumber, array $queryParameters, array $headerParameters = [])
     {
-        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsDocumentimage($shipmentTrackingNumber, $queryParameters, $headerParameters), $fetch);
+        return $this->executeEndpoint(new Endpoint\Shipment\Documents\ExpApiShipmentsDocumentimage($shipmentTrackingNumber, $queryParameters, $headerParameters));
     }
 
-    public static function create($httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [], bool $applyServerPlugins = true)
+    /**
+     * @param list<callable(\Symfony\Contracts\HttpClient\HttpClientInterface): \Symfony\Contracts\HttpClient\HttpClientInterface>              $additionalPlugins     HttpClientInterface decorator factories, applied left-to-right after the server URL decorator
+     * @param list<\Symfony\Component\Serializer\Normalizer\NormalizerInterface|\Symfony\Component\Serializer\Normalizer\DenormalizerInterface> $additionalNormalizers
+     */
+    public static function create(?\Symfony\Contracts\HttpClient\HttpClientInterface $httpClient = null, array $additionalPlugins = [], array $additionalNormalizers = [], bool $applyServerPlugins = true)
     {
         $plugins = [];
         if (null === $httpClient) {
-            $httpClient = \Http\Discovery\Psr18ClientDiscovery::find();
+            $httpClient = \Symfony\Component\HttpClient\HttpClient::create();
         }
         if ($applyServerPlugins) {
-            $uri = \Http\Discovery\Psr17FactoryDiscovery::findUriFactory()->createUri('https://api-mock.dhl.com/mydhlapi');
-            $plugins[] = new \Http\Client\Common\Plugin\AddHostPlugin($uri);
-            $plugins[] = new \Http\Client\Common\Plugin\AddPathPlugin($uri);
+            $plugins[] = new \Jane\Component\OpenApiRuntime\Client\Plugin\ServerUrlHttpClient('https://api-mock.dhl.com/mydhlapi');
         }
         if (\count($additionalPlugins) > 0) {
             $plugins = array_merge($plugins, $additionalPlugins);
         }
-        $httpClient = new \Http\Client\Common\PluginClient($httpClient, $plugins);
-        $requestFactory = \Http\Discovery\Psr17FactoryDiscovery::findRequestFactory();
-        $streamFactory = \Http\Discovery\Psr17FactoryDiscovery::findStreamFactory();
+        foreach ($plugins as $plugin) {
+            $httpClient = $plugin($httpClient);
+        }
         $normalizers = [new \Symfony\Component\Serializer\Normalizer\ArrayDenormalizer(), new Normalizer\JaneObjectNormalizer()];
         if (\count($additionalNormalizers) > 0) {
             $normalizers = array_merge($normalizers, $additionalNormalizers);
         }
         $serializer = new \Symfony\Component\Serializer\Serializer($normalizers, [new \Symfony\Component\Serializer\Encoder\JsonEncoder(new \Symfony\Component\Serializer\Encoder\JsonEncode(), new \Symfony\Component\Serializer\Encoder\JsonDecode(['json_decode_associative' => true])), new Runtime\Client\FormEncoder()]);
 
-        return new static($httpClient, $requestFactory, $serializer, $streamFactory);
+        return new static($httpClient, $serializer);
     }
 }

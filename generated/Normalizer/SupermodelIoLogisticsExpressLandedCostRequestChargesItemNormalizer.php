@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressLandedCostRequestChargesItemNormalizer impleme
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestChargesItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestChargesItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestChargesItem();
         if (null === $data || false === \is_array($data)) {
@@ -45,35 +45,35 @@ class SupermodelIoLogisticsExpressLandedCostRequestChargesItemNormalizer impleme
             $data['amount'] = (float) $data['amount'];
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('amount', $data) && null !== $data['amount']) {
-            $object->setAmount($data['amount']);
-        } elseif (\array_key_exists('amount', $data) && null === $data['amount']) {
-            $object->setAmount(null);
+            $object->amount = $data['amount'];
+        } elseif (\array_key_exists('amount', $data)) {
+            $object->amount = null;
         }
         if (\array_key_exists('currencyCode', $data) && null !== $data['currencyCode']) {
-            $object->setCurrencyCode($data['currencyCode']);
-        } elseif (\array_key_exists('currencyCode', $data) && null === $data['currencyCode']) {
-            $object->setCurrencyCode(null);
+            $object->currencyCode = $data['currencyCode'];
+        } elseif (\array_key_exists('currencyCode', $data)) {
+            $object->currencyCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
-        $dataArray['amount'] = $data->getAmount();
-        $dataArray['currencyCode'] = $data->getCurrencyCode();
+        $dataArray['typeCode'] = $data->typeCode;
+        $dataArray['amount'] = $data->amount;
+        $dataArray['currencyCode'] = $data->currencyCode;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestChargesItem::class => false];
     }

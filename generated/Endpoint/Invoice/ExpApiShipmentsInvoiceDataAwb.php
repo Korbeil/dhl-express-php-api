@@ -10,13 +10,10 @@ class ExpApiShipmentsInvoiceDataAwb extends \Korbeil\DHLExpress\Api\Runtime\Clie
     /**
      * ## Upload Invoice Data with Shipment ID
      * The upload invoice data service can be used to upload Commerical Invoice data with Shipment Identification Number for your DHL Express shipment.Customer can provide Commercial Invoice data before Shipment Data via Create Shipment flow or vice versa.
-     *
      * Important Note: UploadInvoiceData service is not enabled by default and must be requested per customer. Use of this service is only enabled on exceptional basis and DHL Express recommends to submit shipment requests together with a commercial invoice data.To enable use of UploadInvoiceData service, please contact your DHL Express IT representative. To use UploadInvoiceData service, it is required that "PM" service code is provided in MyDHL API Create Shipment request. "PM" service code is not enabled by
      * default for the customers, and needs to be enabled upon request.
-     *
      * When Shipment is created via MyDHL API Create Shipment service before uploading the Commercial Invoice (CIN) data,it is mandatory to provide the Shipment Identification Number as received in MyDHL API Create Shipment service Response.
      * When Commercial Invoice (CIN) data is uploaded prior to creating a shipment via MyDHL API Create Shipment service, it is mandatory to provide Invoice Reference Number with Invoice Reference Type value "CU" and Shipper Account Number.
-     *
      * These elements are mandatory to facilitate an effective data merge of the Commercial Invoice (CIN) data with Shipment Data. As an output customer will receive Notification element value '0' on successful upload of Commercial Invoice (CIN) data.
      * DHL backend application performs the subsequent data merging process of the Shipment Data and Commercial Invoice data.
      *
@@ -32,7 +29,7 @@ class ExpApiShipmentsInvoiceDataAwb extends \Korbeil\DHLExpress\Api\Runtime\Clie
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
      */
-    public function __construct(string $shipmentTrackingNumber, \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [])
+    public function __construct(string $shipmentTrackingNumber, ?\Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest $requestBody = null, array $headerParameters = [])
     {
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
         $this->body = $requestBody;
@@ -49,7 +46,7 @@ class ExpApiShipmentsInvoiceDataAwb extends \Korbeil\DHLExpress\Api\Runtime\Clie
         return str_replace(['{shipmentTrackingNumber}'], [rawurlencode($this->shipmentTrackingNumber)], '/shipments/{shipmentTrackingNumber}/upload-invoice-data');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer): array
     {
         if ($this->body instanceof \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequest) {
             return [['Content-Type' => ['application/json']], \Korbeil\DHLExpress\Api\Runtime\Client\JsonPayload::encode($serializer, $this->body)];
@@ -86,24 +83,36 @@ class ExpApiShipmentsInvoiceDataAwb extends \Korbeil\DHLExpress\Api\Runtime\Clie
      *
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataAwbBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataAwbUnprocessableEntityException
+     * @throws \Korbeil\DHLExpress\Api\Exception\BadResponseException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Symfony\Contracts\HttpClient\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
+        $body = $response->getContent(false);
         if (200 === $status) {
             return null;
         }
-        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataAwbBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsInvoiceDataAwbUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
+        throw new \Korbeil\DHLExpress\Api\Exception\BadResponseException($status, $body, $response);
     }
 
     public function getAuthenticationScopes(): array
     {
         return ['basicAuth'];
+    }
+
+    public function getFetchMode(): string
+    {
+        return \Jane\Component\OpenApiRuntime\Client\FetchMode::Eager->value;
+    }
+
+    public function getTargetClass(): ?string
+    {
+        return null;
     }
 }

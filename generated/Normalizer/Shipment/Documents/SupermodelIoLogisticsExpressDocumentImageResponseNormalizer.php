@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressDocumentImageResponseNormalizer implements Den
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse();
         if (null === $data || false === \is_array($data)) {
@@ -46,21 +46,22 @@ class SupermodelIoLogisticsExpressDocumentImageResponseNormalizer implements Den
             foreach ($data['documents'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem::class, 'json', $context);
             }
-            $object->setDocuments($values);
-        } elseif (\array_key_exists('documents', $data) && null === $data['documents']) {
-            $object->setDocuments(null);
+            $object->documents = $values;
+        } elseif (\array_key_exists('documents', $data)) {
+            $object->documents = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('documents') && null !== $data->getDocuments()) {
+        if (\array_key_exists('documents', get_object_vars($data)) && null !== ($data->documents ?? null)) {
             $values = [];
-            foreach ($data->getDocuments() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->documents as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['documents'] = $values;
         }
@@ -68,7 +69,7 @@ class SupermodelIoLogisticsExpressDocumentImageResponseNormalizer implements Den
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponse::class => false];
     }

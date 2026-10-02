@@ -48,7 +48,7 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
         return '/tracking';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer): array
     {
         return [[], null];
     }
@@ -102,28 +102,40 @@ class ExpApiShipmentsTrackingMulti extends \Korbeil\DHLExpress\Api\Runtime\Clien
     }
 
     /**
-     * @return \Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse|null
+     * @return \Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse
      *
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiNotFoundException
+     * @throws \Korbeil\DHLExpress\Api\Exception\BadResponseException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Symfony\Contracts\HttpClient\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        $body = $response->getContent(false);
+        if (null !== $contentType && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsTrackingMultiNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
+        throw new \Korbeil\DHLExpress\Api\Exception\BadResponseException($status, $body, $response);
     }
 
     public function getAuthenticationScopes(): array
     {
         return ['basicAuth'];
+    }
+
+    public function getFetchMode(): string
+    {
+        return \Jane\Component\OpenApiRuntime\Client\FetchMode::Preload->value;
+    }
+
+    public function getTargetClass(): ?string
+    {
+        return \Korbeil\DHLExpress\Api\Model\Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponse::class;
     }
 }

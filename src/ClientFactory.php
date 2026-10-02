@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace Korbeil\DHLExpress;
 
-use Http\Client\Common\Plugin\AddHostPlugin;
-use Http\Client\Common\Plugin\AddPathPlugin;
-use Http\Client\Common\PluginClient;
-use Http\Discovery\Psr17FactoryDiscovery;
 use Jane\Component\OpenApiRuntime\Client\Plugin\AuthenticationRegistry;
+use Jane\Component\OpenApiRuntime\Client\Plugin\ServerUrlHttpClient;
 use Korbeil\DHLExpress\Api\Authentication\BasicAuthAuthentication;
 use Korbeil\DHLExpress\Api\Client;
 use Symfony\Component\HttpClient\CurlHttpClient;
-use Symfony\Component\HttpClient\Psr18Client;
 
 final class ClientFactory
 {
@@ -37,14 +33,18 @@ final class ClientFactory
 
     private function buildClient(string $apiUrl): Client
     {
-        $dhlExpressUri = Psr17FactoryDiscovery::findUriFactory()->createUri($apiUrl);
-
-        $httpClient = new PluginClient(new Psr18Client(new CurlHttpClient()), [
-            new AddHostPlugin($dhlExpressUri),
-            new AddPathPlugin($dhlExpressUri),
-            new AuthenticationRegistry([new BasicAuthAuthentication($this->dhlExpressUsername, $this->dhlExpressPassword)]),
-        ]);
-
-        return Client::create($httpClient);
+        return Client::create(
+            new CurlHttpClient(),
+            [
+                // The spec's first servers entry is the mock URL: rewrite every request
+                // to the URL chosen here instead of the one baked into the client.
+                new ServerUrlHttpClient($apiUrl),
+                new AuthenticationRegistry([
+                    new BasicAuthAuthentication($this->dhlExpressUsername, $this->dhlExpressPassword),
+                ]),
+            ],
+            [],
+            false,
+        );
     }
 }

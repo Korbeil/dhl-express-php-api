@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer implements
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponseDocumentsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponseDocumentsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponseDocumentsItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,41 +42,41 @@ class SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer implements
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('encodingFormat', $data) && null !== $data['encodingFormat']) {
-            $object->setEncodingFormat($data['encodingFormat']);
-        } elseif (\array_key_exists('encodingFormat', $data) && null === $data['encodingFormat']) {
-            $object->setEncodingFormat(null);
+            $object->encodingFormat = $data['encodingFormat'];
+        } elseif (\array_key_exists('encodingFormat', $data)) {
+            $object->encodingFormat = null;
         }
         if (\array_key_exists('content', $data) && null !== $data['content']) {
-            $object->setContent($data['content']);
-        } elseif (\array_key_exists('content', $data) && null === $data['content']) {
-            $object->setContent(null);
+            $object->content = $data['content'];
+        } elseif (\array_key_exists('content', $data)) {
+            $object->content = null;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('encodingFormat') && null !== $data->getEncodingFormat()) {
-            $dataArray['encodingFormat'] = $data->getEncodingFormat();
+        if (\array_key_exists('encodingFormat', get_object_vars($data)) && null !== ($data->encodingFormat ?? null)) {
+            $dataArray['encodingFormat'] = $data->encodingFormat;
         }
-        if ($data->isInitialized('content') && null !== $data->getContent()) {
-            $dataArray['content'] = $data->getContent();
+        if (\array_key_exists('content', get_object_vars($data)) && null !== ($data->content ?? null)) {
+            $dataArray['content'] = $data->content;
         }
-        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
-            $dataArray['typeCode'] = $data->getTypeCode();
+        if (\array_key_exists('typeCode', get_object_vars($data)) && null !== ($data->typeCode ?? null)) {
+            $dataArray['typeCode'] = $data->typeCode;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressEPODResponseDocumentsItem::class => false];
     }

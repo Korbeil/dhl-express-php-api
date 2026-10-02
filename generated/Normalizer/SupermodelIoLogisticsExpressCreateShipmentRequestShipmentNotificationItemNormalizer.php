@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,53 +42,53 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemN
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('receiverId', $data) && null !== $data['receiverId']) {
-            $object->setReceiverId($data['receiverId']);
-        } elseif (\array_key_exists('receiverId', $data) && null === $data['receiverId']) {
-            $object->setReceiverId(null);
+            $object->receiverId = $data['receiverId'];
+        } elseif (\array_key_exists('receiverId', $data)) {
+            $object->receiverId = null;
         }
         if (\array_key_exists('languageCode', $data) && null !== $data['languageCode']) {
-            $object->setLanguageCode($data['languageCode']);
-        } elseif (\array_key_exists('languageCode', $data) && null === $data['languageCode']) {
-            $object->setLanguageCode(null);
+            $object->languageCode = $data['languageCode'];
+        } elseif (\array_key_exists('languageCode', $data)) {
+            $object->languageCode = null;
         }
         if (\array_key_exists('languageCountryCode', $data) && null !== $data['languageCountryCode']) {
-            $object->setLanguageCountryCode($data['languageCountryCode']);
-        } elseif (\array_key_exists('languageCountryCode', $data) && null === $data['languageCountryCode']) {
-            $object->setLanguageCountryCode(null);
+            $object->languageCountryCode = $data['languageCountryCode'];
+        } elseif (\array_key_exists('languageCountryCode', $data)) {
+            $object->languageCountryCode = null;
         }
         if (\array_key_exists('bespokeMessage', $data) && null !== $data['bespokeMessage']) {
-            $object->setBespokeMessage($data['bespokeMessage']);
-        } elseif (\array_key_exists('bespokeMessage', $data) && null === $data['bespokeMessage']) {
-            $object->setBespokeMessage(null);
+            $object->bespokeMessage = $data['bespokeMessage'];
+        } elseif (\array_key_exists('bespokeMessage', $data)) {
+            $object->bespokeMessage = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
-        $dataArray['receiverId'] = $data->getReceiverId();
-        if ($data->isInitialized('languageCode') && null !== $data->getLanguageCode()) {
-            $dataArray['languageCode'] = $data->getLanguageCode();
+        $dataArray['typeCode'] = $data->typeCode;
+        $dataArray['receiverId'] = $data->receiverId;
+        if (\array_key_exists('languageCode', get_object_vars($data)) && null !== ($data->languageCode ?? null)) {
+            $dataArray['languageCode'] = $data->languageCode;
         }
-        if ($data->isInitialized('languageCountryCode') && null !== $data->getLanguageCountryCode()) {
-            $dataArray['languageCountryCode'] = $data->getLanguageCountryCode();
+        if (\array_key_exists('languageCountryCode', get_object_vars($data)) && null !== ($data->languageCountryCode ?? null)) {
+            $dataArray['languageCountryCode'] = $data->languageCountryCode;
         }
-        if ($data->isInitialized('bespokeMessage') && null !== $data->getBespokeMessage()) {
-            $dataArray['bespokeMessage'] = $data->getBespokeMessage();
+        if (\array_key_exists('bespokeMessage', get_object_vars($data)) && null !== ($data->bespokeMessage ?? null)) {
+            $dataArray['bespokeMessage'] = $data->bespokeMessage;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItem::class => false];
     }

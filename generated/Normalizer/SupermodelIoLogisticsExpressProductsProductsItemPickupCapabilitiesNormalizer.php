@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilitiesNormaliz
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilities::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilities::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilities();
         if (null === $data || false === \is_array($data)) {
@@ -51,89 +51,89 @@ class SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilitiesNormaliz
             $data['nextBusinessDay'] = (bool) $data['nextBusinessDay'];
         }
         if (\array_key_exists('nextBusinessDay', $data) && null !== $data['nextBusinessDay']) {
-            $object->setNextBusinessDay($data['nextBusinessDay']);
-        } elseif (\array_key_exists('nextBusinessDay', $data) && null === $data['nextBusinessDay']) {
-            $object->setNextBusinessDay(null);
+            $object->nextBusinessDay = $data['nextBusinessDay'];
+        } elseif (\array_key_exists('nextBusinessDay', $data)) {
+            $object->nextBusinessDay = null;
         }
         if (\array_key_exists('localCutoffDateAndTime', $data) && null !== $data['localCutoffDateAndTime']) {
-            $object->setLocalCutoffDateAndTime($data['localCutoffDateAndTime']);
-        } elseif (\array_key_exists('localCutoffDateAndTime', $data) && null === $data['localCutoffDateAndTime']) {
-            $object->setLocalCutoffDateAndTime(null);
+            $object->localCutoffDateAndTime = $data['localCutoffDateAndTime'];
+        } elseif (\array_key_exists('localCutoffDateAndTime', $data)) {
+            $object->localCutoffDateAndTime = null;
         }
         if (\array_key_exists('GMTCutoffTime', $data) && null !== $data['GMTCutoffTime']) {
-            $object->setGMTCutoffTime($data['GMTCutoffTime']);
-        } elseif (\array_key_exists('GMTCutoffTime', $data) && null === $data['GMTCutoffTime']) {
-            $object->setGMTCutoffTime(null);
+            $object->gMTCutoffTime = $data['GMTCutoffTime'];
+        } elseif (\array_key_exists('GMTCutoffTime', $data)) {
+            $object->gMTCutoffTime = null;
         }
         if (\array_key_exists('pickupEarliest', $data) && null !== $data['pickupEarliest']) {
-            $object->setPickupEarliest($data['pickupEarliest']);
-        } elseif (\array_key_exists('pickupEarliest', $data) && null === $data['pickupEarliest']) {
-            $object->setPickupEarliest(null);
+            $object->pickupEarliest = $data['pickupEarliest'];
+        } elseif (\array_key_exists('pickupEarliest', $data)) {
+            $object->pickupEarliest = null;
         }
         if (\array_key_exists('pickupLatest', $data) && null !== $data['pickupLatest']) {
-            $object->setPickupLatest($data['pickupLatest']);
-        } elseif (\array_key_exists('pickupLatest', $data) && null === $data['pickupLatest']) {
-            $object->setPickupLatest(null);
+            $object->pickupLatest = $data['pickupLatest'];
+        } elseif (\array_key_exists('pickupLatest', $data)) {
+            $object->pickupLatest = null;
         }
         if (\array_key_exists('originServiceAreaCode', $data) && null !== $data['originServiceAreaCode']) {
-            $object->setOriginServiceAreaCode($data['originServiceAreaCode']);
-        } elseif (\array_key_exists('originServiceAreaCode', $data) && null === $data['originServiceAreaCode']) {
-            $object->setOriginServiceAreaCode(null);
+            $object->originServiceAreaCode = $data['originServiceAreaCode'];
+        } elseif (\array_key_exists('originServiceAreaCode', $data)) {
+            $object->originServiceAreaCode = null;
         }
         if (\array_key_exists('originFacilityAreaCode', $data) && null !== $data['originFacilityAreaCode']) {
-            $object->setOriginFacilityAreaCode($data['originFacilityAreaCode']);
-        } elseif (\array_key_exists('originFacilityAreaCode', $data) && null === $data['originFacilityAreaCode']) {
-            $object->setOriginFacilityAreaCode(null);
+            $object->originFacilityAreaCode = $data['originFacilityAreaCode'];
+        } elseif (\array_key_exists('originFacilityAreaCode', $data)) {
+            $object->originFacilityAreaCode = null;
         }
         if (\array_key_exists('pickupAdditionalDays', $data) && null !== $data['pickupAdditionalDays']) {
-            $object->setPickupAdditionalDays($data['pickupAdditionalDays']);
-        } elseif (\array_key_exists('pickupAdditionalDays', $data) && null === $data['pickupAdditionalDays']) {
-            $object->setPickupAdditionalDays(null);
+            $object->pickupAdditionalDays = $data['pickupAdditionalDays'];
+        } elseif (\array_key_exists('pickupAdditionalDays', $data)) {
+            $object->pickupAdditionalDays = null;
         }
         if (\array_key_exists('pickupDayOfWeek', $data) && null !== $data['pickupDayOfWeek']) {
-            $object->setPickupDayOfWeek($data['pickupDayOfWeek']);
-        } elseif (\array_key_exists('pickupDayOfWeek', $data) && null === $data['pickupDayOfWeek']) {
-            $object->setPickupDayOfWeek(null);
+            $object->pickupDayOfWeek = $data['pickupDayOfWeek'];
+        } elseif (\array_key_exists('pickupDayOfWeek', $data)) {
+            $object->pickupDayOfWeek = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('nextBusinessDay') && null !== $data->getNextBusinessDay()) {
-            $dataArray['nextBusinessDay'] = $data->getNextBusinessDay();
+        if (\array_key_exists('nextBusinessDay', get_object_vars($data)) && null !== ($data->nextBusinessDay ?? null)) {
+            $dataArray['nextBusinessDay'] = $data->nextBusinessDay;
         }
-        if ($data->isInitialized('localCutoffDateAndTime') && null !== $data->getLocalCutoffDateAndTime()) {
-            $dataArray['localCutoffDateAndTime'] = $data->getLocalCutoffDateAndTime();
+        if (\array_key_exists('localCutoffDateAndTime', get_object_vars($data)) && null !== ($data->localCutoffDateAndTime ?? null)) {
+            $dataArray['localCutoffDateAndTime'] = $data->localCutoffDateAndTime;
         }
-        if ($data->isInitialized('gMTCutoffTime') && null !== $data->getGMTCutoffTime()) {
-            $dataArray['GMTCutoffTime'] = $data->getGMTCutoffTime();
+        if (\array_key_exists('gMTCutoffTime', get_object_vars($data)) && null !== ($data->gMTCutoffTime ?? null)) {
+            $dataArray['GMTCutoffTime'] = $data->gMTCutoffTime;
         }
-        if ($data->isInitialized('pickupEarliest') && null !== $data->getPickupEarliest()) {
-            $dataArray['pickupEarliest'] = $data->getPickupEarliest();
+        if (\array_key_exists('pickupEarliest', get_object_vars($data)) && null !== ($data->pickupEarliest ?? null)) {
+            $dataArray['pickupEarliest'] = $data->pickupEarliest;
         }
-        if ($data->isInitialized('pickupLatest') && null !== $data->getPickupLatest()) {
-            $dataArray['pickupLatest'] = $data->getPickupLatest();
+        if (\array_key_exists('pickupLatest', get_object_vars($data)) && null !== ($data->pickupLatest ?? null)) {
+            $dataArray['pickupLatest'] = $data->pickupLatest;
         }
-        if ($data->isInitialized('originServiceAreaCode') && null !== $data->getOriginServiceAreaCode()) {
-            $dataArray['originServiceAreaCode'] = $data->getOriginServiceAreaCode();
+        if (\array_key_exists('originServiceAreaCode', get_object_vars($data)) && null !== ($data->originServiceAreaCode ?? null)) {
+            $dataArray['originServiceAreaCode'] = $data->originServiceAreaCode;
         }
-        if ($data->isInitialized('originFacilityAreaCode') && null !== $data->getOriginFacilityAreaCode()) {
-            $dataArray['originFacilityAreaCode'] = $data->getOriginFacilityAreaCode();
+        if (\array_key_exists('originFacilityAreaCode', get_object_vars($data)) && null !== ($data->originFacilityAreaCode ?? null)) {
+            $dataArray['originFacilityAreaCode'] = $data->originFacilityAreaCode;
         }
-        if ($data->isInitialized('pickupAdditionalDays') && null !== $data->getPickupAdditionalDays()) {
-            $dataArray['pickupAdditionalDays'] = $data->getPickupAdditionalDays();
+        if (\array_key_exists('pickupAdditionalDays', get_object_vars($data)) && null !== ($data->pickupAdditionalDays ?? null)) {
+            $dataArray['pickupAdditionalDays'] = $data->pickupAdditionalDays;
         }
-        if ($data->isInitialized('pickupDayOfWeek') && null !== $data->getPickupDayOfWeek()) {
-            $dataArray['pickupDayOfWeek'] = $data->getPickupDayOfWeek();
+        if (\array_key_exists('pickupDayOfWeek', get_object_vars($data)) && null !== ($data->pickupDayOfWeek ?? null)) {
+            $dataArray['pickupDayOfWeek'] = $data->pickupDayOfWeek;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilities::class => false];
     }

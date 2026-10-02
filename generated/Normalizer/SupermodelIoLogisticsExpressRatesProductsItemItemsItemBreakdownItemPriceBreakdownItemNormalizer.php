@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem();
         if (null === $data || false === \is_array($data)) {
@@ -51,57 +51,57 @@ class SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBr
             $data['basePrice'] = (float) $data['basePrice'];
         }
         if (\array_key_exists('priceType', $data) && null !== $data['priceType']) {
-            $object->setPriceType($data['priceType']);
-        } elseif (\array_key_exists('priceType', $data) && null === $data['priceType']) {
-            $object->setPriceType(null);
+            $object->priceType = $data['priceType'];
+        } elseif (\array_key_exists('priceType', $data)) {
+            $object->priceType = null;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('price', $data) && null !== $data['price']) {
-            $object->setPrice($data['price']);
-        } elseif (\array_key_exists('price', $data) && null === $data['price']) {
-            $object->setPrice(null);
+            $object->price = $data['price'];
+        } elseif (\array_key_exists('price', $data)) {
+            $object->price = null;
         }
         if (\array_key_exists('rate', $data) && null !== $data['rate']) {
-            $object->setRate($data['rate']);
-        } elseif (\array_key_exists('rate', $data) && null === $data['rate']) {
-            $object->setRate(null);
+            $object->rate = $data['rate'];
+        } elseif (\array_key_exists('rate', $data)) {
+            $object->rate = null;
         }
         if (\array_key_exists('basePrice', $data) && null !== $data['basePrice']) {
-            $object->setBasePrice($data['basePrice']);
-        } elseif (\array_key_exists('basePrice', $data) && null === $data['basePrice']) {
-            $object->setBasePrice(null);
+            $object->basePrice = $data['basePrice'];
+        } elseif (\array_key_exists('basePrice', $data)) {
+            $object->basePrice = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('priceType') && null !== $data->getPriceType()) {
-            $dataArray['priceType'] = $data->getPriceType();
+        if (\array_key_exists('priceType', get_object_vars($data)) && null !== ($data->priceType ?? null)) {
+            $dataArray['priceType'] = $data->priceType;
         }
-        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
-            $dataArray['typeCode'] = $data->getTypeCode();
+        if (\array_key_exists('typeCode', get_object_vars($data)) && null !== ($data->typeCode ?? null)) {
+            $dataArray['typeCode'] = $data->typeCode;
         }
-        if ($data->isInitialized('price') && null !== $data->getPrice()) {
-            $dataArray['price'] = $data->getPrice();
+        if (\array_key_exists('price', get_object_vars($data)) && null !== ($data->price ?? null)) {
+            $dataArray['price'] = $data->price;
         }
-        if ($data->isInitialized('rate') && null !== $data->getRate()) {
-            $dataArray['rate'] = $data->getRate();
+        if (\array_key_exists('rate', get_object_vars($data)) && null !== ($data->rate ?? null)) {
+            $dataArray['rate'] = $data->rate;
         }
-        if ($data->isInitialized('basePrice') && null !== $data->getBasePrice()) {
-            $dataArray['basePrice'] = $data->getBasePrice();
+        if (\array_key_exists('basePrice', get_object_vars($data)) && null !== ($data->basePrice ?? null)) {
+            $dataArray['basePrice'] = $data->basePrice;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItem::class => false];
     }

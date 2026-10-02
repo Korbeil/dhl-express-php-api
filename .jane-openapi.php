@@ -6,6 +6,7 @@ return [
     'directory' => __DIR__ . '/generated/',
     'strict' => false,
     'clean-generated' => true,
+    'default-fetch-mode' => 'preload',
     'use-fixer' => true,
     'fixer-config-file' => __DIR__ . '/.php-cs-fixer.dist.php',
 ];

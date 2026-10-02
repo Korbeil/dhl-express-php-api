@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer implements Deno
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse();
         if (null === $data || false === \is_array($data)) {
@@ -42,48 +42,48 @@ class SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer implements Deno
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('dispatchConfirmationNumber', $data) && null !== $data['dispatchConfirmationNumber']) {
-            $object->setDispatchConfirmationNumber($data['dispatchConfirmationNumber']);
-        } elseif (\array_key_exists('dispatchConfirmationNumber', $data) && null === $data['dispatchConfirmationNumber']) {
-            $object->setDispatchConfirmationNumber(null);
+            $object->dispatchConfirmationNumber = $data['dispatchConfirmationNumber'];
+        } elseif (\array_key_exists('dispatchConfirmationNumber', $data)) {
+            $object->dispatchConfirmationNumber = null;
         }
         if (\array_key_exists('readyByTime', $data) && null !== $data['readyByTime']) {
-            $object->setReadyByTime($data['readyByTime']);
-        } elseif (\array_key_exists('readyByTime', $data) && null === $data['readyByTime']) {
-            $object->setReadyByTime(null);
+            $object->readyByTime = $data['readyByTime'];
+        } elseif (\array_key_exists('readyByTime', $data)) {
+            $object->readyByTime = null;
         }
         if (\array_key_exists('nextPickupDate', $data) && null !== $data['nextPickupDate']) {
-            $object->setNextPickupDate($data['nextPickupDate']);
-        } elseif (\array_key_exists('nextPickupDate', $data) && null === $data['nextPickupDate']) {
-            $object->setNextPickupDate(null);
+            $object->nextPickupDate = $data['nextPickupDate'];
+        } elseif (\array_key_exists('nextPickupDate', $data)) {
+            $object->nextPickupDate = null;
         }
         if (\array_key_exists('warnings', $data) && null !== $data['warnings']) {
             $values = [];
             foreach ($data['warnings'] as $value) {
                 $values[] = $value;
             }
-            $object->setWarnings($values);
-        } elseif (\array_key_exists('warnings', $data) && null === $data['warnings']) {
-            $object->setWarnings(null);
+            $object->warnings = $values;
+        } elseif (\array_key_exists('warnings', $data)) {
+            $object->warnings = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('dispatchConfirmationNumber') && null !== $data->getDispatchConfirmationNumber()) {
-            $dataArray['dispatchConfirmationNumber'] = $data->getDispatchConfirmationNumber();
+        if (\array_key_exists('dispatchConfirmationNumber', get_object_vars($data)) && null !== ($data->dispatchConfirmationNumber ?? null)) {
+            $dataArray['dispatchConfirmationNumber'] = $data->dispatchConfirmationNumber;
         }
-        if ($data->isInitialized('readyByTime') && null !== $data->getReadyByTime()) {
-            $dataArray['readyByTime'] = $data->getReadyByTime();
+        if (\array_key_exists('readyByTime', get_object_vars($data)) && null !== ($data->readyByTime ?? null)) {
+            $dataArray['readyByTime'] = $data->readyByTime;
         }
-        if ($data->isInitialized('nextPickupDate') && null !== $data->getNextPickupDate()) {
-            $dataArray['nextPickupDate'] = $data->getNextPickupDate();
+        if (\array_key_exists('nextPickupDate', get_object_vars($data)) && null !== ($data->nextPickupDate ?? null)) {
+            $dataArray['nextPickupDate'] = $data->nextPickupDate;
         }
-        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
+        if (\array_key_exists('warnings', get_object_vars($data)) && null !== ($data->warnings ?? null)) {
             $values = [];
-            foreach ($data->getWarnings() as $value) {
+            foreach ($data->warnings as $value) {
                 $values[] = $value;
             }
             $dataArray['warnings'] = $values;
@@ -92,7 +92,7 @@ class SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer implements Deno
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Pickup\SupermodelIoLogisticsExpressUpdatePickupResponse::class => false];
     }

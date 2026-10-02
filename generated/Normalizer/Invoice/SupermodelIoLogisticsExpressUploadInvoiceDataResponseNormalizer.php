@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer implements
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse();
         if (null === $data || false === \is_array($data)) {
@@ -46,37 +46,37 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer implements
             foreach ($data['warnings'] as $value) {
                 $values[] = $value;
             }
-            $object->setWarnings($values);
-        } elseif (\array_key_exists('warnings', $data) && null === $data['warnings']) {
-            $object->setWarnings(null);
+            $object->warnings = $values;
+        } elseif (\array_key_exists('warnings', $data)) {
+            $object->warnings = null;
         }
         if (\array_key_exists('status', $data) && null !== $data['status']) {
-            $object->setStatus($data['status']);
-        } elseif (\array_key_exists('status', $data) && null === $data['status']) {
-            $object->setStatus(null);
+            $object->status = $data['status'];
+        } elseif (\array_key_exists('status', $data)) {
+            $object->status = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
+        if (\array_key_exists('warnings', get_object_vars($data)) && null !== ($data->warnings ?? null)) {
             $values = [];
-            foreach ($data->getWarnings() as $value) {
+            foreach ($data->warnings as $value) {
                 $values[] = $value;
             }
             $dataArray['warnings'] = $values;
         }
-        if ($data->isInitialized('status') && null !== $data->getStatus()) {
-            $dataArray['status'] = $data->getStatus();
+        if (\array_key_exists('status', get_object_vars($data)) && null !== ($data->status ?? null)) {
+            $dataArray['status'] = $data->status;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponse::class => false];
     }

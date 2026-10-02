@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressIdentifierNormalizer implements DenormalizerIn
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressIdentifier::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressIdentifier::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressIdentifier();
         if (null === $data || false === \is_array($data)) {
@@ -42,37 +42,37 @@ class SupermodelIoLogisticsExpressIdentifierNormalizer implements DenormalizerIn
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('value', $data) && null !== $data['value']) {
-            $object->setValue($data['value']);
-        } elseif (\array_key_exists('value', $data) && null === $data['value']) {
-            $object->setValue(null);
+            $object->value = $data['value'];
+        } elseif (\array_key_exists('value', $data)) {
+            $object->value = null;
         }
         if (\array_key_exists('dataIdentifier', $data) && null !== $data['dataIdentifier']) {
-            $object->setDataIdentifier($data['dataIdentifier']);
-        } elseif (\array_key_exists('dataIdentifier', $data) && null === $data['dataIdentifier']) {
-            $object->setDataIdentifier(null);
+            $object->dataIdentifier = $data['dataIdentifier'];
+        } elseif (\array_key_exists('dataIdentifier', $data)) {
+            $object->dataIdentifier = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
-        $dataArray['value'] = $data->getValue();
-        if ($data->isInitialized('dataIdentifier') && null !== $data->getDataIdentifier()) {
-            $dataArray['dataIdentifier'] = $data->getDataIdentifier();
+        $dataArray['typeCode'] = $data->typeCode;
+        $dataArray['value'] = $data->value;
+        if (\array_key_exists('dataIdentifier', get_object_vars($data)) && null !== ($data->dataIdentifier ?? null)) {
+            $dataArray['dataIdentifier'] = $data->dataIdentifier;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Shipment\SupermodelIoLogisticsExpressIdentifier::class => false];
     }

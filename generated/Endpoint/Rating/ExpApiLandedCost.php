@@ -20,7 +20,7 @@ class ExpApiLandedCost extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoi
      *    "Webstore-Platform-Version"?: string, //Please provide version of the webstore platform (applicable to 3PV only)
      * } $headerParameters
      */
-    public function __construct(\Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [])
+    public function __construct(?\Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest $requestBody = null, array $headerParameters = [])
     {
         $this->body = $requestBody;
         $this->headerParameters = $headerParameters;
@@ -36,7 +36,7 @@ class ExpApiLandedCost extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoi
         return '/landed-cost';
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer): array
     {
         if ($this->body instanceof \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressLandedCostRequest) {
             return [['Content-Type' => ['application/json']], \Korbeil\DHLExpress\Api\Runtime\Client\JsonPayload::encode($serializer, $this->body)];
@@ -69,28 +69,40 @@ class ExpApiLandedCost extends \Korbeil\DHLExpress\Api\Runtime\Client\BaseEndpoi
     }
 
     /**
-     * @return \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates|null
+     * @return \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates
      *
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiLandedCostBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiLandedCostInternalServerErrorException
+     * @throws \Korbeil\DHLExpress\Api\Exception\BadResponseException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Symfony\Contracts\HttpClient\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
-        if ((null === $contentType) === false && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        $body = $response->getContent(false);
+        if (null !== $contentType && (200 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             return $serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates', 'json');
         }
-        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiLandedCostBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (500 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (500 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiLandedCostInternalServerErrorException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
+        throw new \Korbeil\DHLExpress\Api\Exception\BadResponseException($status, $body, $response);
     }
 
     public function getAuthenticationScopes(): array
     {
         return ['basicAuth'];
+    }
+
+    public function getFetchMode(): string
+    {
+        return \Jane\Component\OpenApiRuntime\Client\FetchMode::Eager->value;
+    }
+
+    public function getTargetClass(): ?string
+    {
+        return null;
     }
 }

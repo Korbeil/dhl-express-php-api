@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,49 +42,50 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('dependencyRuleName', $data) && null !== $data['dependencyRuleName']) {
-            $object->setDependencyRuleName($data['dependencyRuleName']);
-        } elseif (\array_key_exists('dependencyRuleName', $data) && null === $data['dependencyRuleName']) {
-            $object->setDependencyRuleName(null);
+            $object->dependencyRuleName = $data['dependencyRuleName'];
+        } elseif (\array_key_exists('dependencyRuleName', $data)) {
+            $object->dependencyRuleName = null;
         }
         if (\array_key_exists('dependencyDescription', $data) && null !== $data['dependencyDescription']) {
-            $object->setDependencyDescription($data['dependencyDescription']);
-        } elseif (\array_key_exists('dependencyDescription', $data) && null === $data['dependencyDescription']) {
-            $object->setDependencyDescription(null);
+            $object->dependencyDescription = $data['dependencyDescription'];
+        } elseif (\array_key_exists('dependencyDescription', $data)) {
+            $object->dependencyDescription = null;
         }
         if (\array_key_exists('dependencyCondition', $data) && null !== $data['dependencyCondition']) {
-            $object->setDependencyCondition($data['dependencyCondition']);
-        } elseif (\array_key_exists('dependencyCondition', $data) && null === $data['dependencyCondition']) {
-            $object->setDependencyCondition(null);
+            $object->dependencyCondition = $data['dependencyCondition'];
+        } elseif (\array_key_exists('dependencyCondition', $data)) {
+            $object->dependencyCondition = null;
         }
         if (\array_key_exists('requiredServiceCodes', $data) && null !== $data['requiredServiceCodes']) {
             $values = [];
             foreach ($data['requiredServiceCodes'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItem::class, 'json', $context);
             }
-            $object->setRequiredServiceCodes($values);
-        } elseif (\array_key_exists('requiredServiceCodes', $data) && null === $data['requiredServiceCodes']) {
-            $object->setRequiredServiceCodes(null);
+            $object->requiredServiceCodes = $values;
+        } elseif (\array_key_exists('requiredServiceCodes', $data)) {
+            $object->requiredServiceCodes = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('dependencyRuleName') && null !== $data->getDependencyRuleName()) {
-            $dataArray['dependencyRuleName'] = $data->getDependencyRuleName();
+        if (\array_key_exists('dependencyRuleName', get_object_vars($data)) && null !== ($data->dependencyRuleName ?? null)) {
+            $dataArray['dependencyRuleName'] = $data->dependencyRuleName;
         }
-        if ($data->isInitialized('dependencyDescription') && null !== $data->getDependencyDescription()) {
-            $dataArray['dependencyDescription'] = $data->getDependencyDescription();
+        if (\array_key_exists('dependencyDescription', get_object_vars($data)) && null !== ($data->dependencyDescription ?? null)) {
+            $dataArray['dependencyDescription'] = $data->dependencyDescription;
         }
-        if ($data->isInitialized('dependencyCondition') && null !== $data->getDependencyCondition()) {
-            $dataArray['dependencyCondition'] = $data->getDependencyCondition();
+        if (\array_key_exists('dependencyCondition', get_object_vars($data)) && null !== ($data->dependencyCondition ?? null)) {
+            $dataArray['dependencyCondition'] = $data->dependencyCondition;
         }
-        if ($data->isInitialized('requiredServiceCodes') && null !== $data->getRequiredServiceCodes()) {
+        if (\array_key_exists('requiredServiceCodes', get_object_vars($data)) && null !== ($data->requiredServiceCodes ?? null)) {
             $values = [];
-            foreach ($data->getRequiredServiceCodes() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->requiredServiceCodes as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['requiredServiceCodes'] = $values;
         }
@@ -92,7 +93,7 @@ class SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleG
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItem::class => false];
     }

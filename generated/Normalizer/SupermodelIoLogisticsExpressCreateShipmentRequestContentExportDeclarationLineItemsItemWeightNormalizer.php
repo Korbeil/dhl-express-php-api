@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight();
         if (null === $data || false === \is_array($data)) {
@@ -48,29 +48,29 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationL
             $data['grossValue'] = (float) $data['grossValue'];
         }
         if (\array_key_exists('netValue', $data) && null !== $data['netValue']) {
-            $object->setNetValue($data['netValue']);
-        } elseif (\array_key_exists('netValue', $data) && null === $data['netValue']) {
-            $object->setNetValue(null);
+            $object->netValue = $data['netValue'];
+        } elseif (\array_key_exists('netValue', $data)) {
+            $object->netValue = null;
         }
         if (\array_key_exists('grossValue', $data) && null !== $data['grossValue']) {
-            $object->setGrossValue($data['grossValue']);
-        } elseif (\array_key_exists('grossValue', $data) && null === $data['grossValue']) {
-            $object->setGrossValue(null);
+            $object->grossValue = $data['grossValue'];
+        } elseif (\array_key_exists('grossValue', $data)) {
+            $object->grossValue = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['netValue'] = $data->getNetValue();
-        $dataArray['grossValue'] = $data->getGrossValue();
+        $dataArray['netValue'] = $data->netValue;
+        $dataArray['grossValue'] = $data->grossValue;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeight::class => false];
     }

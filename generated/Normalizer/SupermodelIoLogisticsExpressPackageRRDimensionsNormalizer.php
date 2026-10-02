@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer implements Denor
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions();
         if (null === $data || false === \is_array($data)) {
@@ -51,35 +51,35 @@ class SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer implements Denor
             $data['height'] = (float) $data['height'];
         }
         if (\array_key_exists('length', $data) && null !== $data['length']) {
-            $object->setLength($data['length']);
-        } elseif (\array_key_exists('length', $data) && null === $data['length']) {
-            $object->setLength(null);
+            $object->length = $data['length'];
+        } elseif (\array_key_exists('length', $data)) {
+            $object->length = null;
         }
         if (\array_key_exists('width', $data) && null !== $data['width']) {
-            $object->setWidth($data['width']);
-        } elseif (\array_key_exists('width', $data) && null === $data['width']) {
-            $object->setWidth(null);
+            $object->width = $data['width'];
+        } elseif (\array_key_exists('width', $data)) {
+            $object->width = null;
         }
         if (\array_key_exists('height', $data) && null !== $data['height']) {
-            $object->setHeight($data['height']);
-        } elseif (\array_key_exists('height', $data) && null === $data['height']) {
-            $object->setHeight(null);
+            $object->height = $data['height'];
+        } elseif (\array_key_exists('height', $data)) {
+            $object->height = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['length'] = $data->getLength();
-        $dataArray['width'] = $data->getWidth();
-        $dataArray['height'] = $data->getHeight();
+        $dataArray['length'] = $data->length;
+        $dataArray['width'] = $data->width;
+        $dataArray['height'] = $data->height;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressPackageRRDimensions::class => false];
     }

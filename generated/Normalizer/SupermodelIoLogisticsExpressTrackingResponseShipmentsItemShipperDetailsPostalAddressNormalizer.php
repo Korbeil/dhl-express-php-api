@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress();
         if (null === $data || false === \is_array($data)) {
@@ -42,57 +42,57 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPos
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('cityName', $data) && null !== $data['cityName']) {
-            $object->setCityName($data['cityName']);
-        } elseif (\array_key_exists('cityName', $data) && null === $data['cityName']) {
-            $object->setCityName(null);
+            $object->cityName = $data['cityName'];
+        } elseif (\array_key_exists('cityName', $data)) {
+            $object->cityName = null;
         }
         if (\array_key_exists('countyName', $data) && null !== $data['countyName']) {
-            $object->setCountyName($data['countyName']);
-        } elseif (\array_key_exists('countyName', $data) && null === $data['countyName']) {
-            $object->setCountyName(null);
+            $object->countyName = $data['countyName'];
+        } elseif (\array_key_exists('countyName', $data)) {
+            $object->countyName = null;
         }
         if (\array_key_exists('postalCode', $data) && null !== $data['postalCode']) {
-            $object->setPostalCode($data['postalCode']);
-        } elseif (\array_key_exists('postalCode', $data) && null === $data['postalCode']) {
-            $object->setPostalCode(null);
+            $object->postalCode = $data['postalCode'];
+        } elseif (\array_key_exists('postalCode', $data)) {
+            $object->postalCode = null;
         }
         if (\array_key_exists('provinceCode', $data) && null !== $data['provinceCode']) {
-            $object->setProvinceCode($data['provinceCode']);
-        } elseif (\array_key_exists('provinceCode', $data) && null === $data['provinceCode']) {
-            $object->setProvinceCode(null);
+            $object->provinceCode = $data['provinceCode'];
+        } elseif (\array_key_exists('provinceCode', $data)) {
+            $object->provinceCode = null;
         }
         if (\array_key_exists('countryCode', $data) && null !== $data['countryCode']) {
-            $object->setCountryCode($data['countryCode']);
-        } elseif (\array_key_exists('countryCode', $data) && null === $data['countryCode']) {
-            $object->setCountryCode(null);
+            $object->countryCode = $data['countryCode'];
+        } elseif (\array_key_exists('countryCode', $data)) {
+            $object->countryCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('cityName') && null !== $data->getCityName()) {
-            $dataArray['cityName'] = $data->getCityName();
+        if (\array_key_exists('cityName', get_object_vars($data)) && null !== ($data->cityName ?? null)) {
+            $dataArray['cityName'] = $data->cityName;
         }
-        if ($data->isInitialized('countyName') && null !== $data->getCountyName()) {
-            $dataArray['countyName'] = $data->getCountyName();
+        if (\array_key_exists('countyName', get_object_vars($data)) && null !== ($data->countyName ?? null)) {
+            $dataArray['countyName'] = $data->countyName;
         }
-        if ($data->isInitialized('postalCode') && null !== $data->getPostalCode()) {
-            $dataArray['postalCode'] = $data->getPostalCode();
+        if (\array_key_exists('postalCode', get_object_vars($data)) && null !== ($data->postalCode ?? null)) {
+            $dataArray['postalCode'] = $data->postalCode;
         }
-        if ($data->isInitialized('provinceCode') && null !== $data->getProvinceCode()) {
-            $dataArray['provinceCode'] = $data->getProvinceCode();
+        if (\array_key_exists('provinceCode', get_object_vars($data)) && null !== ($data->provinceCode ?? null)) {
+            $dataArray['provinceCode'] = $data->provinceCode;
         }
-        if ($data->isInitialized('countryCode') && null !== $data->getCountryCode()) {
-            $dataArray['countryCode'] = $data->getCountryCode();
+        if (\array_key_exists('countryCode', get_object_vars($data)) && null !== ($data->countryCode ?? null)) {
+            $dataArray['countryCode'] = $data->countryCode;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddress::class => false];
     }

@@ -5,87 +5,15 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
-     * Please provide the charge value.
-     *
-     * @var float|null
-     */
-    protected $value;
-    /**
-     * Please enter charge caption.
-     *
-     * @var string|null
-     */
-    protected $caption;
-    /**
-     * Please enter charge type.
-     *
-     * @var string|null
-     */
-    protected $typeCode;
-
-    /**
      * Please provide the charge value.
      */
-    public function getValue(): ?float
-    {
-        return $this->value;
-    }
-
-    /**
-     * Please provide the charge value.
-     */
-    public function setValue(?float $value): self
-    {
-        $this->initialized['value'] = true;
-        $this->value = $value;
-
-        return $this;
-    }
-
+    public ?float $value;
     /**
      * Please enter charge caption.
      */
-    public function getCaption(): ?string
-    {
-        return $this->caption;
-    }
-
-    /**
-     * Please enter charge caption.
-     */
-    public function setCaption(?string $caption): self
-    {
-        $this->initialized['caption'] = true;
-        $this->caption = $caption;
-
-        return $this;
-    }
-
+    public ?string $caption;
     /**
      * Please enter charge type.
      */
-    public function getTypeCode(): ?string
-    {
-        return $this->typeCode;
-    }
-
-    /**
-     * Please enter charge type.
-     */
-    public function setTypeCode(?string $typeCode): self
-    {
-        $this->initialized['typeCode'] = true;
-        $this->typeCode = $typeCode;
-
-        return $this;
-    }
+    public ?string $typeCode;
 }

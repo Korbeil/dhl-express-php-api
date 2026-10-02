@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressBankDetailsItemNormalizer implements Denormali
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,41 +42,41 @@ class SupermodelIoLogisticsExpressBankDetailsItemNormalizer implements Denormali
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('name', $data) && null !== $data['name']) {
-            $object->setName($data['name']);
-        } elseif (\array_key_exists('name', $data) && null === $data['name']) {
-            $object->setName(null);
+            $object->name = $data['name'];
+        } elseif (\array_key_exists('name', $data)) {
+            $object->name = null;
         }
         if (\array_key_exists('settlementLocalCurrency', $data) && null !== $data['settlementLocalCurrency']) {
-            $object->setSettlementLocalCurrency($data['settlementLocalCurrency']);
-        } elseif (\array_key_exists('settlementLocalCurrency', $data) && null === $data['settlementLocalCurrency']) {
-            $object->setSettlementLocalCurrency(null);
+            $object->settlementLocalCurrency = $data['settlementLocalCurrency'];
+        } elseif (\array_key_exists('settlementLocalCurrency', $data)) {
+            $object->settlementLocalCurrency = null;
         }
         if (\array_key_exists('settlementForeignCurrency', $data) && null !== $data['settlementForeignCurrency']) {
-            $object->setSettlementForeignCurrency($data['settlementForeignCurrency']);
-        } elseif (\array_key_exists('settlementForeignCurrency', $data) && null === $data['settlementForeignCurrency']) {
-            $object->setSettlementForeignCurrency(null);
+            $object->settlementForeignCurrency = $data['settlementForeignCurrency'];
+        } elseif (\array_key_exists('settlementForeignCurrency', $data)) {
+            $object->settlementForeignCurrency = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('name') && null !== $data->getName()) {
-            $dataArray['name'] = $data->getName();
+        if (\array_key_exists('name', get_object_vars($data)) && null !== ($data->name ?? null)) {
+            $dataArray['name'] = $data->name;
         }
-        if ($data->isInitialized('settlementLocalCurrency') && null !== $data->getSettlementLocalCurrency()) {
-            $dataArray['settlementLocalCurrency'] = $data->getSettlementLocalCurrency();
+        if (\array_key_exists('settlementLocalCurrency', get_object_vars($data)) && null !== ($data->settlementLocalCurrency ?? null)) {
+            $dataArray['settlementLocalCurrency'] = $data->settlementLocalCurrency;
         }
-        if ($data->isInitialized('settlementForeignCurrency') && null !== $data->getSettlementForeignCurrency()) {
-            $dataArray['settlementForeignCurrency'] = $data->getSettlementForeignCurrency();
+        if (\array_key_exists('settlementForeignCurrency', get_object_vars($data)) && null !== ($data->settlementForeignCurrency ?? null)) {
+            $dataArray['settlementForeignCurrency'] = $data->settlementForeignCurrency;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressBankDetailsItem::class => false];
     }
