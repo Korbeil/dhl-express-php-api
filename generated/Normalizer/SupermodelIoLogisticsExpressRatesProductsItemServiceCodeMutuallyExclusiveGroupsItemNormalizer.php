@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,41 +42,42 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('serviceCodeRuleName', $data) && null !== $data['serviceCodeRuleName']) {
-            $object->setServiceCodeRuleName($data['serviceCodeRuleName']);
-        } elseif (\array_key_exists('serviceCodeRuleName', $data) && null === $data['serviceCodeRuleName']) {
-            $object->setServiceCodeRuleName(null);
+            $object->serviceCodeRuleName = $data['serviceCodeRuleName'];
+        } elseif (\array_key_exists('serviceCodeRuleName', $data)) {
+            $object->serviceCodeRuleName = null;
         }
         if (\array_key_exists('description', $data) && null !== $data['description']) {
-            $object->setDescription($data['description']);
-        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-            $object->setDescription(null);
+            $object->description = $data['description'];
+        } elseif (\array_key_exists('description', $data)) {
+            $object->description = null;
         }
         if (\array_key_exists('serviceCodes', $data) && null !== $data['serviceCodes']) {
             $values = [];
             foreach ($data['serviceCodes'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItem::class, 'json', $context);
             }
-            $object->setServiceCodes($values);
-        } elseif (\array_key_exists('serviceCodes', $data) && null === $data['serviceCodes']) {
-            $object->setServiceCodes(null);
+            $object->serviceCodes = $values;
+        } elseif (\array_key_exists('serviceCodes', $data)) {
+            $object->serviceCodes = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('serviceCodeRuleName') && null !== $data->getServiceCodeRuleName()) {
-            $dataArray['serviceCodeRuleName'] = $data->getServiceCodeRuleName();
+        if (\array_key_exists('serviceCodeRuleName', get_object_vars($data)) && null !== ($data->serviceCodeRuleName ?? null)) {
+            $dataArray['serviceCodeRuleName'] = $data->serviceCodeRuleName;
         }
-        if ($data->isInitialized('description') && null !== $data->getDescription()) {
-            $dataArray['description'] = $data->getDescription();
+        if (\array_key_exists('description', get_object_vars($data)) && null !== ($data->description ?? null)) {
+            $dataArray['description'] = $data->description;
         }
-        if ($data->isInitialized('serviceCodes') && null !== $data->getServiceCodes()) {
+        if (\array_key_exists('serviceCodes', get_object_vars($data)) && null !== ($data->serviceCodes ?? null)) {
             $values = [];
-            foreach ($data->getServiceCodes() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->serviceCodes as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['serviceCodes'] = $values;
         }
@@ -84,7 +85,7 @@ class SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveG
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItem::class => false];
     }

@@ -7,7 +7,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 class ReferenceNormalizer implements NormalizerInterface
 {
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $ref = [];
         $ref['$ref'] = (string) $data->getReferenceUri();
@@ -15,7 +15,7 @@ class ReferenceNormalizer implements NormalizerInterface
         return $ref;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return $data instanceof Reference;
     }

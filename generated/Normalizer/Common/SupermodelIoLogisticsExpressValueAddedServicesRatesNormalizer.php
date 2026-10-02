@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates();
         if (null === $data || false === \is_array($data)) {
@@ -45,55 +45,55 @@ class SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer implements D
             $data['value'] = (float) $data['value'];
         }
         if (\array_key_exists('serviceCode', $data) && null !== $data['serviceCode']) {
-            $object->setServiceCode($data['serviceCode']);
-        } elseif (\array_key_exists('serviceCode', $data) && null === $data['serviceCode']) {
-            $object->setServiceCode(null);
+            $object->serviceCode = $data['serviceCode'];
+        } elseif (\array_key_exists('serviceCode', $data)) {
+            $object->serviceCode = null;
         }
         if (\array_key_exists('localServiceCode', $data) && null !== $data['localServiceCode']) {
-            $object->setLocalServiceCode($data['localServiceCode']);
-        } elseif (\array_key_exists('localServiceCode', $data) && null === $data['localServiceCode']) {
-            $object->setLocalServiceCode(null);
+            $object->localServiceCode = $data['localServiceCode'];
+        } elseif (\array_key_exists('localServiceCode', $data)) {
+            $object->localServiceCode = null;
         }
         if (\array_key_exists('value', $data) && null !== $data['value']) {
-            $object->setValue($data['value']);
-        } elseif (\array_key_exists('value', $data) && null === $data['value']) {
-            $object->setValue(null);
+            $object->value = $data['value'];
+        } elseif (\array_key_exists('value', $data)) {
+            $object->value = null;
         }
         if (\array_key_exists('currency', $data) && null !== $data['currency']) {
-            $object->setCurrency($data['currency']);
-        } elseif (\array_key_exists('currency', $data) && null === $data['currency']) {
-            $object->setCurrency(null);
+            $object->currency = $data['currency'];
+        } elseif (\array_key_exists('currency', $data)) {
+            $object->currency = null;
         }
         if (\array_key_exists('method', $data) && null !== $data['method']) {
-            $object->setMethod($data['method']);
-        } elseif (\array_key_exists('method', $data) && null === $data['method']) {
-            $object->setMethod(null);
+            $object->method = $data['method'];
+        } elseif (\array_key_exists('method', $data)) {
+            $object->method = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['serviceCode'] = $data->getServiceCode();
-        if ($data->isInitialized('localServiceCode') && null !== $data->getLocalServiceCode()) {
-            $dataArray['localServiceCode'] = $data->getLocalServiceCode();
+        $dataArray['serviceCode'] = $data->serviceCode;
+        if (\array_key_exists('localServiceCode', get_object_vars($data)) && null !== ($data->localServiceCode ?? null)) {
+            $dataArray['localServiceCode'] = $data->localServiceCode;
         }
-        if ($data->isInitialized('value') && null !== $data->getValue()) {
-            $dataArray['value'] = $data->getValue();
+        if (\array_key_exists('value', get_object_vars($data)) && null !== ($data->value ?? null)) {
+            $dataArray['value'] = $data->value;
         }
-        if ($data->isInitialized('currency') && null !== $data->getCurrency()) {
-            $dataArray['currency'] = $data->getCurrency();
+        if (\array_key_exists('currency', get_object_vars($data)) && null !== ($data->currency ?? null)) {
+            $dataArray['currency'] = $data->currency;
         }
-        if ($data->isInitialized('method') && null !== $data->getMethod()) {
-            $dataArray['method'] = $data->getMethod();
+        if (\array_key_exists('method', get_object_vars($data)) && null !== ($data->method ?? null)) {
+            $dataArray['method'] = $data->method;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressValueAddedServicesRates::class => false];
     }

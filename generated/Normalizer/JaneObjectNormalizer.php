@@ -428,17 +428,17 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
     ];
     protected $normalizersCache = [];
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \array_key_exists($type, $this->normalizers);
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \array_key_exists($data::class, $this->normalizers);
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $normalizerClass = $this->normalizers[$data::class];
         $normalizer = $this->getNormalizer($normalizerClass);
@@ -446,7 +446,7 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
         return $normalizer->normalize($data, $format, $context);
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $denormalizerClass = $this->normalizers[$type];
         $denormalizer = $this->getNormalizer($denormalizerClass);
@@ -461,15 +461,225 @@ class JaneObjectNormalizer implements DenormalizerInterface, NormalizerInterface
 
     private function initNormalizer(string $normalizerClass)
     {
-        $normalizer = new $normalizerClass();
-        $normalizer->setNormalizer($this->normalizer);
-        $normalizer->setDenormalizer($this->denormalizer);
+        $normalizer = match ($normalizerClass) {
+            Common\SupermodelIoLogisticsExpressAccountNormalizer::class => new Common\SupermodelIoLogisticsExpressAccountNormalizer(),
+            Common\SupermodelIoLogisticsExpressAddressNormalizer::class => new Common\SupermodelIoLogisticsExpressAddressNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequestNormalizer::class => new Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentRequestNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponseNormalizer::class => new Shipment\SupermodelIoLogisticsExpressAddressCreateShipmentResponseNormalizer(),
+            Rating\SupermodelIoLogisticsExpressAddressRatesRequestNormalizer::class => new Rating\SupermodelIoLogisticsExpressAddressRatesRequestNormalizer(),
+            Address\SupermodelIoLogisticsExpressAddressValidateResponseNormalizer::class => new Address\SupermodelIoLogisticsExpressAddressValidateResponseNormalizer(),
+            SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer::class => new SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer(),
+            SupermodelIoLogisticsExpressAddressValidateResponseAddressItemServiceAreaNormalizer::class => new SupermodelIoLogisticsExpressAddressValidateResponseAddressItemServiceAreaNormalizer(),
+            SupermodelIoLogisticsExpressBankDetailsItemNormalizer::class => new SupermodelIoLogisticsExpressBankDetailsItemNormalizer(),
+            Common\SupermodelIoLogisticsExpressContactNormalizer::class => new Common\SupermodelIoLogisticsExpressContactNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressContactBuyerNormalizer::class => new Shipment\SupermodelIoLogisticsExpressContactBuyerNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponseNormalizer::class => new Shipment\SupermodelIoLogisticsExpressContactCreateShipmentResponseNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer::class => new Shipment\SupermodelIoLogisticsExpressCreateShipmentRequestNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupRequestorDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupRequestorDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerBarcodesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsShipperDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsShipperDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsReceiverDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsReceiverDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsBuyerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsImporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsImporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsExporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsSellerDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsSellerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsPayerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsUltimateConsigneeDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestCustomerDetailsUltimateConsigneeDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemQuantityNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemQuantityNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCommodityCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeightNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemWeightNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomerReferencesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLineItemsItemCustomsDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceCustomerReferencesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValuesNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValuesNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationRemarksItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationExporterNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationExporterNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationDeclarationNotesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationLicensesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationCustomsDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestOnDemandDeliveryNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestShipmentNotificationItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestPrepaidChargesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestEstimatedDeliveryDateNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestEstimatedDeliveryDateNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestGetAdditionalInformationItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentRequestParentShipmentNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentRequestParentShipmentNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer::class => new Shipment\SupermodelIoLogisticsExpressCreateShipmentResponseNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponsePackagesItemDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsShipperDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsShipperDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsReceiverDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetailsReceiverDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceAreaNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceAreaNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceAreaNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceAreaNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetailsNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetailsNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseShipmentChargesItemServiceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItemNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseBarcodeInfoTrackingNumberBarcodesItemNormalizer(),
+            SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDateNormalizer::class => new SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDateNormalizer(),
+            Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponseNormalizer::class => new Shipment\Documents\SupermodelIoLogisticsExpressDocumentImageResponseNormalizer(),
+            SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressDocumentImagesItemNormalizer::class => new SupermodelIoLogisticsExpressDocumentImagesItemNormalizer(),
+            Common\SupermodelIoLogisticsExpressErrorResponseNormalizer::class => new Common\SupermodelIoLogisticsExpressErrorResponseNormalizer(),
+            Common\SupermodelIoLogisticsExpressExportDeclarationNormalizer::class => new Common\SupermodelIoLogisticsExpressExportDeclarationNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemQuantityNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemQuantityNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCommodityCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightAnyOfNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemWeightAnyOfNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomerReferencesItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationLineItemsItemCustomsDocumentsItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationInvoiceNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationInvoiceNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationInvoiceCustomerReferencesItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationRemarksItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationRemarksItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationAdditionalChargesItemNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationExporterNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationExporterNormalizer(),
+            SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressExportDeclarationCustomsDocumentsItemNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressIdentifierNormalizer::class => new Shipment\SupermodelIoLogisticsExpressIdentifierNormalizer(),
+            Identifier\SupermodelIoLogisticsExpressIdentifierResponseNormalizer::class => new Identifier\SupermodelIoLogisticsExpressIdentifierResponseNormalizer(),
+            SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer::class => new SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer(),
+            Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequestNormalizer::class => new Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequestNormalizer(),
+            Rating\SupermodelIoLogisticsExpressLandedCostRequestNormalizer::class => new Rating\SupermodelIoLogisticsExpressLandedCostRequestNormalizer(),
+            SupermodelIoLogisticsExpressLandedCostRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressLandedCostRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressLandedCostRequestChargesItemNormalizer::class => new SupermodelIoLogisticsExpressLandedCostRequestChargesItemNormalizer(),
+            SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer::class => new SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer(),
+            SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItemNormalizer::class => new SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItemNormalizer(),
+            SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItemNormalizer::class => new SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItemNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressPackageNormalizer::class => new Shipment\SupermodelIoLogisticsExpressPackageNormalizer(),
+            SupermodelIoLogisticsExpressPackageDimensionsNormalizer::class => new SupermodelIoLogisticsExpressPackageDimensionsNormalizer(),
+            SupermodelIoLogisticsExpressPackageLabelBarcodesItemNormalizer::class => new SupermodelIoLogisticsExpressPackageLabelBarcodesItemNormalizer(),
+            SupermodelIoLogisticsExpressPackageLabelTextItemNormalizer::class => new SupermodelIoLogisticsExpressPackageLabelTextItemNormalizer(),
+            Common\SupermodelIoLogisticsExpressPackageRRNormalizer::class => new Common\SupermodelIoLogisticsExpressPackageRRNormalizer(),
+            SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer::class => new SupermodelIoLogisticsExpressPackageRRDimensionsNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressPackageReferenceNormalizer::class => new Shipment\SupermodelIoLogisticsExpressPackageReferenceNormalizer(),
+            Pickup\SupermodelIoLogisticsExpressPickupRequestNormalizer::class => new Pickup\SupermodelIoLogisticsExpressPickupRequestNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItemNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestSpecialInstructionsItemNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestCustomerDetailsShipperDetailsNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestCustomerDetailsShipperDetailsNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetailsNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestCustomerDetailsReceiverDetailsNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestCustomerDetailsBookingRequestorDetailsNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestCustomerDetailsBookingRequestorDetailsNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestCustomerDetailsPickupDetailsNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestCustomerDetailsPickupDetailsNormalizer(),
+            SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer::class => new SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItemNormalizer(),
+            Pickup\SupermodelIoLogisticsExpressPickupResponseNormalizer::class => new Pickup\SupermodelIoLogisticsExpressPickupResponseNormalizer(),
+            Product\SupermodelIoLogisticsExpressProductsNormalizer::class => new Product\SupermodelIoLogisticsExpressProductsNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemWeightNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemWeightNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItemNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilitiesNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemPickupCapabilitiesNormalizer(),
+            SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilitiesNormalizer::class => new SupermodelIoLogisticsExpressProductsProductsItemDeliveryCapabilitiesNormalizer(),
+            Rating\SupermodelIoLogisticsExpressRateRequestNormalizer::class => new Rating\SupermodelIoLogisticsExpressRateRequestNormalizer(),
+            SupermodelIoLogisticsExpressRateRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressRateRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressRateRequestProductsAndServicesItemNormalizer::class => new SupermodelIoLogisticsExpressRateRequestProductsAndServicesItemNormalizer(),
+            SupermodelIoLogisticsExpressRateRequestMonetaryAmountItemNormalizer::class => new SupermodelIoLogisticsExpressRateRequestMonetaryAmountItemNormalizer(),
+            SupermodelIoLogisticsExpressRateRequestEstimatedDeliveryDateNormalizer::class => new SupermodelIoLogisticsExpressRateRequestEstimatedDeliveryDateNormalizer(),
+            SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItemNormalizer::class => new SupermodelIoLogisticsExpressRateRequestGetAdditionalInformationItemNormalizer(),
+            Rating\SupermodelIoLogisticsExpressRatesNormalizer::class => new Rating\SupermodelIoLogisticsExpressRatesNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemWeightNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemWeightNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemTotalPriceItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemPriceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemTotalPriceBreakdownItemPriceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemDetailedPriceBreakdownItemBreakdownItemPriceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemServiceCodeMutuallyExclusiveGroupsItemServiceCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemServiceCodeDependencyRuleGroupsItemDependencyRuleGroupItemRequiredServiceCodesItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilitiesNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemPickupCapabilitiesNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemItemsItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemItemsItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItemNormalizer::class => new SupermodelIoLogisticsExpressRatesProductsItemItemsItemBreakdownItemPriceBreakdownItemNormalizer(),
+            SupermodelIoLogisticsExpressRatesExchangeRatesItemNormalizer::class => new SupermodelIoLogisticsExpressRatesExchangeRatesItemNormalizer(),
+            Common\SupermodelIoLogisticsExpressReferenceNormalizer::class => new Common\SupermodelIoLogisticsExpressReferenceNormalizer(),
+            Common\SupermodelIoLogisticsExpressRegistrationNumbersNormalizer::class => new Common\SupermodelIoLogisticsExpressRegistrationNumbersNormalizer(),
+            Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponseNormalizer::class => new Shipment\Tracking\SupermodelIoLogisticsExpressTrackingResponseNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddressNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsPostalAddressNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsPostalAddressNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsPostalAddressNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsServiceAreaItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemReceiverDetailsServiceAreaItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensionsNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemDimensionsNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemActualDimensionsNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemActualDimensionsNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemNormalizer(),
+            SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItemNormalizer::class => new SupermodelIoLogisticsExpressTrackingResponseShipmentsItemPiecesItemEventsItemServiceAreaItemNormalizer(),
+            Pickup\SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer::class => new Pickup\SupermodelIoLogisticsExpressUpdatePickupRequestNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItemNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestSpecialInstructionsItemNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsShipperDetailsNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsShipperDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsReceiverDetailsNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsReceiverDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsBookingRequestorDetailsNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsBookingRequestorDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsPickupDetailsNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestCustomerDetailsPickupDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItemNormalizer::class => new SupermodelIoLogisticsExpressUpdatePickupRequestShipmentDetailsItemNormalizer(),
+            Pickup\SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer::class => new Pickup\SupermodelIoLogisticsExpressUpdatePickupResponseNormalizer(),
+            Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestNormalizer::class => new Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestContentNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestContentNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItemNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItemNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsSellerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsBuyerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsBuyerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsImporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsImporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsExporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsExporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsUltimateConsigneeDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestCustomerDetailsUltimateConsigneeDetailsNormalizer(),
+            Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDNormalizer::class => new Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItemNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItemNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsSellerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsSellerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsBuyerDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsBuyerDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsImporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsImporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsExporterDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsExporterDetailsNormalizer(),
+            SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetailsNormalizer::class => new SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDCustomerDetailsUltimateConsigneeDetailsNormalizer(),
+            Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer::class => new Invoice\SupermodelIoLogisticsExpressUploadInvoiceDataResponseNormalizer(),
+            Shipment\SupermodelIoLogisticsExpressValueAddedServicesNormalizer::class => new Shipment\SupermodelIoLogisticsExpressValueAddedServicesNormalizer(),
+            SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer::class => new SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer(),
+            Common\SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer::class => new Common\SupermodelIoLogisticsExpressValueAddedServicesRatesNormalizer(),
+            Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponseNormalizer::class => new Shipment\Tracking\SupermodelIoLogisticsExpressEPODResponseNormalizer(),
+            SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer::class => new SupermodelIoLogisticsExpressEPODResponseDocumentsItemNormalizer(),
+            \Korbeil\DHLExpress\Api\Runtime\Normalizer\ReferenceNormalizer::class => new \Korbeil\DHLExpress\Api\Runtime\Normalizer\ReferenceNormalizer(),
+            default => throw new \InvalidArgumentException('Unknown normalizer class: '.$normalizerClass),
+        };
+        if ($normalizer instanceof NormalizerAwareInterface) {
+            $normalizer->setNormalizer($this->normalizer);
+        }
+        if ($normalizer instanceof DenormalizerAwareInterface) {
+            $normalizer->setDenormalizer($this->denormalizer);
+        }
         $this->normalizersCache[$normalizerClass] = $normalizer;
 
         return $normalizer;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return array_combine(array_keys($this->normalizers), array_fill(0, \count($this->normalizers), false));
     }

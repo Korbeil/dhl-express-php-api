@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem();
         if (null === $data || false === \is_array($data)) {
@@ -57,119 +57,119 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImag
             $data['fitLabelsToA4'] = (bool) $data['fitLabelsToA4'];
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('templateName', $data) && null !== $data['templateName']) {
-            $object->setTemplateName($data['templateName']);
-        } elseif (\array_key_exists('templateName', $data) && null === $data['templateName']) {
-            $object->setTemplateName(null);
+            $object->templateName = $data['templateName'];
+        } elseif (\array_key_exists('templateName', $data)) {
+            $object->templateName = null;
         }
         if (\array_key_exists('isRequested', $data) && null !== $data['isRequested']) {
-            $object->setIsRequested($data['isRequested']);
-        } elseif (\array_key_exists('isRequested', $data) && null === $data['isRequested']) {
-            $object->setIsRequested(null);
+            $object->isRequested = $data['isRequested'];
+        } elseif (\array_key_exists('isRequested', $data)) {
+            $object->isRequested = null;
         }
         if (\array_key_exists('hideAccountNumber', $data) && null !== $data['hideAccountNumber']) {
-            $object->setHideAccountNumber($data['hideAccountNumber']);
-        } elseif (\array_key_exists('hideAccountNumber', $data) && null === $data['hideAccountNumber']) {
-            $object->setHideAccountNumber(null);
+            $object->hideAccountNumber = $data['hideAccountNumber'];
+        } elseif (\array_key_exists('hideAccountNumber', $data)) {
+            $object->hideAccountNumber = null;
         }
         if (\array_key_exists('numberOfCopies', $data) && null !== $data['numberOfCopies']) {
-            $object->setNumberOfCopies($data['numberOfCopies']);
-        } elseif (\array_key_exists('numberOfCopies', $data) && null === $data['numberOfCopies']) {
-            $object->setNumberOfCopies(null);
+            $object->numberOfCopies = $data['numberOfCopies'];
+        } elseif (\array_key_exists('numberOfCopies', $data)) {
+            $object->numberOfCopies = null;
         }
         if (\array_key_exists('invoiceType', $data) && null !== $data['invoiceType']) {
-            $object->setInvoiceType($data['invoiceType']);
-        } elseif (\array_key_exists('invoiceType', $data) && null === $data['invoiceType']) {
-            $object->setInvoiceType(null);
+            $object->invoiceType = $data['invoiceType'];
+        } elseif (\array_key_exists('invoiceType', $data)) {
+            $object->invoiceType = null;
         }
         if (\array_key_exists('languageCode', $data) && null !== $data['languageCode']) {
-            $object->setLanguageCode($data['languageCode']);
-        } elseif (\array_key_exists('languageCode', $data) && null === $data['languageCode']) {
-            $object->setLanguageCode(null);
+            $object->languageCode = $data['languageCode'];
+        } elseif (\array_key_exists('languageCode', $data)) {
+            $object->languageCode = null;
         }
         if (\array_key_exists('languageCountryCode', $data) && null !== $data['languageCountryCode']) {
-            $object->setLanguageCountryCode($data['languageCountryCode']);
-        } elseif (\array_key_exists('languageCountryCode', $data) && null === $data['languageCountryCode']) {
-            $object->setLanguageCountryCode(null);
+            $object->languageCountryCode = $data['languageCountryCode'];
+        } elseif (\array_key_exists('languageCountryCode', $data)) {
+            $object->languageCountryCode = null;
         }
         if (\array_key_exists('encodingFormat', $data) && null !== $data['encodingFormat']) {
-            $object->setEncodingFormat($data['encodingFormat']);
-        } elseif (\array_key_exists('encodingFormat', $data) && null === $data['encodingFormat']) {
-            $object->setEncodingFormat(null);
+            $object->encodingFormat = $data['encodingFormat'];
+        } elseif (\array_key_exists('encodingFormat', $data)) {
+            $object->encodingFormat = null;
         }
         if (\array_key_exists('renderDHLLogo', $data) && null !== $data['renderDHLLogo']) {
-            $object->setRenderDHLLogo($data['renderDHLLogo']);
-        } elseif (\array_key_exists('renderDHLLogo', $data) && null === $data['renderDHLLogo']) {
-            $object->setRenderDHLLogo(null);
+            $object->renderDHLLogo = $data['renderDHLLogo'];
+        } elseif (\array_key_exists('renderDHLLogo', $data)) {
+            $object->renderDHLLogo = null;
         }
         if (\array_key_exists('fitLabelsToA4', $data) && null !== $data['fitLabelsToA4']) {
-            $object->setFitLabelsToA4($data['fitLabelsToA4']);
-        } elseif (\array_key_exists('fitLabelsToA4', $data) && null === $data['fitLabelsToA4']) {
-            $object->setFitLabelsToA4(null);
+            $object->fitLabelsToA4 = $data['fitLabelsToA4'];
+        } elseif (\array_key_exists('fitLabelsToA4', $data)) {
+            $object->fitLabelsToA4 = null;
         }
         if (\array_key_exists('labelFreeText', $data) && null !== $data['labelFreeText']) {
-            $object->setLabelFreeText($data['labelFreeText']);
-        } elseif (\array_key_exists('labelFreeText', $data) && null === $data['labelFreeText']) {
-            $object->setLabelFreeText(null);
+            $object->labelFreeText = $data['labelFreeText'];
+        } elseif (\array_key_exists('labelFreeText', $data)) {
+            $object->labelFreeText = null;
         }
         if (\array_key_exists('labelCustomerDataText', $data) && null !== $data['labelCustomerDataText']) {
-            $object->setLabelCustomerDataText($data['labelCustomerDataText']);
-        } elseif (\array_key_exists('labelCustomerDataText', $data) && null === $data['labelCustomerDataText']) {
-            $object->setLabelCustomerDataText(null);
+            $object->labelCustomerDataText = $data['labelCustomerDataText'];
+        } elseif (\array_key_exists('labelCustomerDataText', $data)) {
+            $object->labelCustomerDataText = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
-        if ($data->isInitialized('templateName') && null !== $data->getTemplateName()) {
-            $dataArray['templateName'] = $data->getTemplateName();
+        $dataArray['typeCode'] = $data->typeCode;
+        if (\array_key_exists('templateName', get_object_vars($data)) && null !== ($data->templateName ?? null)) {
+            $dataArray['templateName'] = $data->templateName;
         }
-        if ($data->isInitialized('isRequested') && null !== $data->getIsRequested()) {
-            $dataArray['isRequested'] = $data->getIsRequested();
+        if (\array_key_exists('isRequested', get_object_vars($data)) && null !== ($data->isRequested ?? null)) {
+            $dataArray['isRequested'] = $data->isRequested;
         }
-        if ($data->isInitialized('hideAccountNumber') && null !== $data->getHideAccountNumber()) {
-            $dataArray['hideAccountNumber'] = $data->getHideAccountNumber();
+        if (\array_key_exists('hideAccountNumber', get_object_vars($data)) && null !== ($data->hideAccountNumber ?? null)) {
+            $dataArray['hideAccountNumber'] = $data->hideAccountNumber;
         }
-        if ($data->isInitialized('numberOfCopies') && null !== $data->getNumberOfCopies()) {
-            $dataArray['numberOfCopies'] = $data->getNumberOfCopies();
+        if (\array_key_exists('numberOfCopies', get_object_vars($data)) && null !== ($data->numberOfCopies ?? null)) {
+            $dataArray['numberOfCopies'] = $data->numberOfCopies;
         }
-        if ($data->isInitialized('invoiceType') && null !== $data->getInvoiceType()) {
-            $dataArray['invoiceType'] = $data->getInvoiceType();
+        if (\array_key_exists('invoiceType', get_object_vars($data)) && null !== ($data->invoiceType ?? null)) {
+            $dataArray['invoiceType'] = $data->invoiceType;
         }
-        if ($data->isInitialized('languageCode') && null !== $data->getLanguageCode()) {
-            $dataArray['languageCode'] = $data->getLanguageCode();
+        if (\array_key_exists('languageCode', get_object_vars($data)) && null !== ($data->languageCode ?? null)) {
+            $dataArray['languageCode'] = $data->languageCode;
         }
-        if ($data->isInitialized('languageCountryCode') && null !== $data->getLanguageCountryCode()) {
-            $dataArray['languageCountryCode'] = $data->getLanguageCountryCode();
+        if (\array_key_exists('languageCountryCode', get_object_vars($data)) && null !== ($data->languageCountryCode ?? null)) {
+            $dataArray['languageCountryCode'] = $data->languageCountryCode;
         }
-        if ($data->isInitialized('encodingFormat') && null !== $data->getEncodingFormat()) {
-            $dataArray['encodingFormat'] = $data->getEncodingFormat();
+        if (\array_key_exists('encodingFormat', get_object_vars($data)) && null !== ($data->encodingFormat ?? null)) {
+            $dataArray['encodingFormat'] = $data->encodingFormat;
         }
-        if ($data->isInitialized('renderDHLLogo') && null !== $data->getRenderDHLLogo()) {
-            $dataArray['renderDHLLogo'] = $data->getRenderDHLLogo();
+        if (\array_key_exists('renderDHLLogo', get_object_vars($data)) && null !== ($data->renderDHLLogo ?? null)) {
+            $dataArray['renderDHLLogo'] = $data->renderDHLLogo;
         }
-        if ($data->isInitialized('fitLabelsToA4') && null !== $data->getFitLabelsToA4()) {
-            $dataArray['fitLabelsToA4'] = $data->getFitLabelsToA4();
+        if (\array_key_exists('fitLabelsToA4', get_object_vars($data)) && null !== ($data->fitLabelsToA4 ?? null)) {
+            $dataArray['fitLabelsToA4'] = $data->fitLabelsToA4;
         }
-        if ($data->isInitialized('labelFreeText') && null !== $data->getLabelFreeText()) {
-            $dataArray['labelFreeText'] = $data->getLabelFreeText();
+        if (\array_key_exists('labelFreeText', get_object_vars($data)) && null !== ($data->labelFreeText ?? null)) {
+            $dataArray['labelFreeText'] = $data->labelFreeText;
         }
-        if ($data->isInitialized('labelCustomerDataText') && null !== $data->getLabelCustomerDataText()) {
-            $dataArray['labelCustomerDataText'] = $data->getLabelCustomerDataText();
+        if (\array_key_exists('labelCustomerDataText', get_object_vars($data)) && null !== ($data->labelCustomerDataText ?? null)) {
+            $dataArray['labelCustomerDataText'] = $data->labelCustomerDataText;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesImageOptionsItem::class => false];
     }

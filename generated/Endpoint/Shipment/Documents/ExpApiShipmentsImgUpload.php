@@ -12,7 +12,7 @@ class ExpApiShipmentsImgUpload extends \Korbeil\DHLExpress\Api\Runtime\Client\Ba
      *
      * @param string $shipmentTrackingNumber DHL Express shipment identification number
      */
-    public function __construct(string $shipmentTrackingNumber, \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null)
+    public function __construct(string $shipmentTrackingNumber, ?\Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest $requestBody = null)
     {
         $this->shipmentTrackingNumber = $shipmentTrackingNumber;
         $this->body = $requestBody;
@@ -28,7 +28,7 @@ class ExpApiShipmentsImgUpload extends \Korbeil\DHLExpress\Api\Runtime\Client\Ba
         return str_replace(['{shipmentTrackingNumber}'], [rawurlencode($this->shipmentTrackingNumber)], '/shipments/{shipmentTrackingNumber}/upload-image');
     }
 
-    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer, $streamFactory = null): array
+    public function getBody(\Symfony\Component\Serializer\SerializerInterface $serializer): array
     {
         if ($this->body instanceof \Korbeil\DHLExpress\Api\Model\Shipment\Documents\SupermodelIoLogisticsExpressImageUploadRequest) {
             return [['Content-Type' => ['application/json']], \Korbeil\DHLExpress\Api\Runtime\Client\JsonPayload::encode($serializer, $this->body)];
@@ -48,27 +48,39 @@ class ExpApiShipmentsImgUpload extends \Korbeil\DHLExpress\Api\Runtime\Client\Ba
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadBadRequestException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadNotFoundException
      * @throws \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadUnprocessableEntityException
+     * @throws \Korbeil\DHLExpress\Api\Exception\BadResponseException
      */
-    protected function transformResponseBody(\Psr\Http\Message\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, string $contentType = null)
+    protected function transformResponseBody(\Symfony\Contracts\HttpClient\ResponseInterface $response, \Symfony\Component\Serializer\SerializerInterface $serializer, ?string $contentType = null)
     {
         $status = $response->getStatusCode();
-        $body = (string) $response->getBody();
+        $body = $response->getContent(false);
         if (200 === $status) {
             return null;
         }
-        if ((null === $contentType) === false && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (400 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadBadRequestException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (404 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadNotFoundException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
-        if ((null === $contentType) === false && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
+        if (null !== $contentType && (422 === $status && false !== stripos(strtolower($contentType), 'application/json'))) {
             throw new \Korbeil\DHLExpress\Api\Exception\ExpApiShipmentsImgUploadUnprocessableEntityException($serializer->deserialize($body, 'Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse', 'json'), $response);
         }
+        throw new \Korbeil\DHLExpress\Api\Exception\BadResponseException($status, $body, $response);
     }
 
     public function getAuthenticationScopes(): array
     {
         return ['basicAuth'];
+    }
+
+    public function getFetchMode(): string
+    {
+        return \Jane\Component\OpenApiRuntime\Client\FetchMode::Eager->value;
+    }
+
+    public function getTargetClass(): ?string
+    {
+        return null;
     }
 }

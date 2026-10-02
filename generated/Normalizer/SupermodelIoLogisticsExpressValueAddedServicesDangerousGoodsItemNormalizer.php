@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem();
         if (null === $data || false === \is_array($data)) {
@@ -45,47 +45,47 @@ class SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItemNormalizer
             $data['dryIceTotalNetWeight'] = (float) $data['dryIceTotalNetWeight'];
         }
         if (\array_key_exists('contentId', $data) && null !== $data['contentId']) {
-            $object->setContentId($data['contentId']);
-        } elseif (\array_key_exists('contentId', $data) && null === $data['contentId']) {
-            $object->setContentId(null);
+            $object->contentId = $data['contentId'];
+        } elseif (\array_key_exists('contentId', $data)) {
+            $object->contentId = null;
         }
         if (\array_key_exists('dryIceTotalNetWeight', $data) && null !== $data['dryIceTotalNetWeight']) {
-            $object->setDryIceTotalNetWeight($data['dryIceTotalNetWeight']);
-        } elseif (\array_key_exists('dryIceTotalNetWeight', $data) && null === $data['dryIceTotalNetWeight']) {
-            $object->setDryIceTotalNetWeight(null);
+            $object->dryIceTotalNetWeight = $data['dryIceTotalNetWeight'];
+        } elseif (\array_key_exists('dryIceTotalNetWeight', $data)) {
+            $object->dryIceTotalNetWeight = null;
         }
         if (\array_key_exists('unCode', $data) && null !== $data['unCode']) {
-            $object->setUnCode($data['unCode']);
-        } elseif (\array_key_exists('unCode', $data) && null === $data['unCode']) {
-            $object->setUnCode(null);
+            $object->unCode = $data['unCode'];
+        } elseif (\array_key_exists('unCode', $data)) {
+            $object->unCode = null;
         }
         if (\array_key_exists('customDescription', $data) && null !== $data['customDescription']) {
-            $object->setCustomDescription($data['customDescription']);
-        } elseif (\array_key_exists('customDescription', $data) && null === $data['customDescription']) {
-            $object->setCustomDescription(null);
+            $object->customDescription = $data['customDescription'];
+        } elseif (\array_key_exists('customDescription', $data)) {
+            $object->customDescription = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['contentId'] = $data->getContentId();
-        if ($data->isInitialized('dryIceTotalNetWeight') && null !== $data->getDryIceTotalNetWeight()) {
-            $dataArray['dryIceTotalNetWeight'] = $data->getDryIceTotalNetWeight();
+        $dataArray['contentId'] = $data->contentId;
+        if (\array_key_exists('dryIceTotalNetWeight', get_object_vars($data)) && null !== ($data->dryIceTotalNetWeight ?? null)) {
+            $dataArray['dryIceTotalNetWeight'] = $data->dryIceTotalNetWeight;
         }
-        if ($data->isInitialized('unCode') && null !== $data->getUnCode()) {
-            $dataArray['unCode'] = $data->getUnCode();
+        if (\array_key_exists('unCode', get_object_vars($data)) && null !== ($data->unCode ?? null)) {
+            $dataArray['unCode'] = $data->unCode;
         }
-        if ($data->isInitialized('customDescription') && null !== $data->getCustomDescription()) {
-            $dataArray['customDescription'] = $data->getCustomDescription();
+        if (\array_key_exists('customDescription', get_object_vars($data)) && null !== ($data->customDescription ?? null)) {
+            $dataArray['customDescription'] = $data->customDescription;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressValueAddedServicesDangerousGoodsItem::class => false];
     }

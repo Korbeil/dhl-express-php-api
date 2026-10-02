@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer im
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,29 +42,29 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer im
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('list', $data) && null !== $data['list']) {
             $values = [];
             foreach ($data['list'] as $value) {
                 $values[] = $value;
             }
-            $object->setList($values);
-        } elseif (\array_key_exists('list', $data) && null === $data['list']) {
-            $object->setList(null);
+            $object->list = $values;
+        } elseif (\array_key_exists('list', $data)) {
+            $object->list = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
+        $dataArray['typeCode'] = $data->typeCode;
         $values = [];
-        foreach ($data->getList() as $value) {
+        foreach ($data->list as $value) {
             $values[] = $value;
         }
         $dataArray['list'] = $values;
@@ -72,7 +72,7 @@ class SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItemNormalizer im
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressIdentifierResponseIdentifiersItem::class => false];
     }

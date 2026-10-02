@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer i
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent();
         if (null === $data || false === \is_array($data)) {
@@ -46,39 +46,40 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContentNormalizer i
             foreach ($data['exportDeclaration'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressExportDeclaration::class, 'json', $context);
             }
-            $object->setExportDeclaration($values);
-        } elseif (\array_key_exists('exportDeclaration', $data) && null === $data['exportDeclaration']) {
-            $object->setExportDeclaration(null);
+            $object->exportDeclaration = $values;
+        } elseif (\array_key_exists('exportDeclaration', $data)) {
+            $object->exportDeclaration = null;
         }
         if (\array_key_exists('currency', $data) && null !== $data['currency']) {
-            $object->setCurrency($data['currency']);
-        } elseif (\array_key_exists('currency', $data) && null === $data['currency']) {
-            $object->setCurrency(null);
+            $object->currency = $data['currency'];
+        } elseif (\array_key_exists('currency', $data)) {
+            $object->currency = null;
         }
         if (\array_key_exists('unitOfMeasurement', $data) && null !== $data['unitOfMeasurement']) {
-            $object->setUnitOfMeasurement($data['unitOfMeasurement']);
-        } elseif (\array_key_exists('unitOfMeasurement', $data) && null === $data['unitOfMeasurement']) {
-            $object->setUnitOfMeasurement(null);
+            $object->unitOfMeasurement = $data['unitOfMeasurement'];
+        } elseif (\array_key_exists('unitOfMeasurement', $data)) {
+            $object->unitOfMeasurement = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
         $values = [];
-        foreach ($data->getExportDeclaration() as $value) {
-            $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+        foreach ($data->exportDeclaration as $value) {
+            $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+            $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
         }
         $dataArray['exportDeclaration'] = $values;
-        $dataArray['currency'] = $data->getCurrency();
-        $dataArray['unitOfMeasurement'] = $data->getUnitOfMeasurement();
+        $dataArray['currency'] = $data->currency;
+        $dataArray['unitOfMeasurement'] = $data->unitOfMeasurement;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDContent::class => false];
     }

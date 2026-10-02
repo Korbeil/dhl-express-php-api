@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem();
         if (null === $data || false === \is_array($data)) {
@@ -57,177 +57,179 @@ class SupermodelIoLogisticsExpressLandedCostRequestItemsItemNormalizer implement
             $data['weight'] = (float) $data['weight'];
         }
         if (\array_key_exists('number', $data) && null !== $data['number']) {
-            $object->setNumber($data['number']);
-        } elseif (\array_key_exists('number', $data) && null === $data['number']) {
-            $object->setNumber(null);
+            $object->number = $data['number'];
+        } elseif (\array_key_exists('number', $data)) {
+            $object->number = null;
         }
         if (\array_key_exists('name', $data) && null !== $data['name']) {
-            $object->setName($data['name']);
-        } elseif (\array_key_exists('name', $data) && null === $data['name']) {
-            $object->setName(null);
+            $object->name = $data['name'];
+        } elseif (\array_key_exists('name', $data)) {
+            $object->name = null;
         }
         if (\array_key_exists('description', $data) && null !== $data['description']) {
-            $object->setDescription($data['description']);
-        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-            $object->setDescription(null);
+            $object->description = $data['description'];
+        } elseif (\array_key_exists('description', $data)) {
+            $object->description = null;
         }
         if (\array_key_exists('manufacturerCountry', $data) && null !== $data['manufacturerCountry']) {
-            $object->setManufacturerCountry($data['manufacturerCountry']);
-        } elseif (\array_key_exists('manufacturerCountry', $data) && null === $data['manufacturerCountry']) {
-            $object->setManufacturerCountry(null);
+            $object->manufacturerCountry = $data['manufacturerCountry'];
+        } elseif (\array_key_exists('manufacturerCountry', $data)) {
+            $object->manufacturerCountry = null;
         }
         if (\array_key_exists('partNumber', $data) && null !== $data['partNumber']) {
-            $object->setPartNumber($data['partNumber']);
-        } elseif (\array_key_exists('partNumber', $data) && null === $data['partNumber']) {
-            $object->setPartNumber(null);
+            $object->partNumber = $data['partNumber'];
+        } elseif (\array_key_exists('partNumber', $data)) {
+            $object->partNumber = null;
         }
         if (\array_key_exists('quantity', $data) && null !== $data['quantity']) {
-            $object->setQuantity($data['quantity']);
-        } elseif (\array_key_exists('quantity', $data) && null === $data['quantity']) {
-            $object->setQuantity(null);
+            $object->quantity = $data['quantity'];
+        } elseif (\array_key_exists('quantity', $data)) {
+            $object->quantity = null;
         }
         if (\array_key_exists('quantityType', $data) && null !== $data['quantityType']) {
-            $object->setQuantityType($data['quantityType']);
-        } elseif (\array_key_exists('quantityType', $data) && null === $data['quantityType']) {
-            $object->setQuantityType(null);
+            $object->quantityType = $data['quantityType'];
+        } elseif (\array_key_exists('quantityType', $data)) {
+            $object->quantityType = null;
         }
         if (\array_key_exists('unitPrice', $data) && null !== $data['unitPrice']) {
-            $object->setUnitPrice($data['unitPrice']);
-        } elseif (\array_key_exists('unitPrice', $data) && null === $data['unitPrice']) {
-            $object->setUnitPrice(null);
+            $object->unitPrice = $data['unitPrice'];
+        } elseif (\array_key_exists('unitPrice', $data)) {
+            $object->unitPrice = null;
         }
         if (\array_key_exists('unitPriceCurrencyCode', $data) && null !== $data['unitPriceCurrencyCode']) {
-            $object->setUnitPriceCurrencyCode($data['unitPriceCurrencyCode']);
-        } elseif (\array_key_exists('unitPriceCurrencyCode', $data) && null === $data['unitPriceCurrencyCode']) {
-            $object->setUnitPriceCurrencyCode(null);
+            $object->unitPriceCurrencyCode = $data['unitPriceCurrencyCode'];
+        } elseif (\array_key_exists('unitPriceCurrencyCode', $data)) {
+            $object->unitPriceCurrencyCode = null;
         }
         if (\array_key_exists('customsValue', $data) && null !== $data['customsValue']) {
-            $object->setCustomsValue($data['customsValue']);
-        } elseif (\array_key_exists('customsValue', $data) && null === $data['customsValue']) {
-            $object->setCustomsValue(null);
+            $object->customsValue = $data['customsValue'];
+        } elseif (\array_key_exists('customsValue', $data)) {
+            $object->customsValue = null;
         }
         if (\array_key_exists('customsValueCurrencyCode', $data) && null !== $data['customsValueCurrencyCode']) {
-            $object->setCustomsValueCurrencyCode($data['customsValueCurrencyCode']);
-        } elseif (\array_key_exists('customsValueCurrencyCode', $data) && null === $data['customsValueCurrencyCode']) {
-            $object->setCustomsValueCurrencyCode(null);
+            $object->customsValueCurrencyCode = $data['customsValueCurrencyCode'];
+        } elseif (\array_key_exists('customsValueCurrencyCode', $data)) {
+            $object->customsValueCurrencyCode = null;
         }
         if (\array_key_exists('commodityCode', $data) && null !== $data['commodityCode']) {
-            $object->setCommodityCode($data['commodityCode']);
-        } elseif (\array_key_exists('commodityCode', $data) && null === $data['commodityCode']) {
-            $object->setCommodityCode(null);
+            $object->commodityCode = $data['commodityCode'];
+        } elseif (\array_key_exists('commodityCode', $data)) {
+            $object->commodityCode = null;
         }
         if (\array_key_exists('weight', $data) && null !== $data['weight']) {
-            $object->setWeight($data['weight']);
-        } elseif (\array_key_exists('weight', $data) && null === $data['weight']) {
-            $object->setWeight(null);
+            $object->weight = $data['weight'];
+        } elseif (\array_key_exists('weight', $data)) {
+            $object->weight = null;
         }
         if (\array_key_exists('weightUnitOfMeasurement', $data) && null !== $data['weightUnitOfMeasurement']) {
-            $object->setWeightUnitOfMeasurement($data['weightUnitOfMeasurement']);
-        } elseif (\array_key_exists('weightUnitOfMeasurement', $data) && null === $data['weightUnitOfMeasurement']) {
-            $object->setWeightUnitOfMeasurement(null);
+            $object->weightUnitOfMeasurement = $data['weightUnitOfMeasurement'];
+        } elseif (\array_key_exists('weightUnitOfMeasurement', $data)) {
+            $object->weightUnitOfMeasurement = null;
         }
         if (\array_key_exists('category', $data) && null !== $data['category']) {
-            $object->setCategory($data['category']);
-        } elseif (\array_key_exists('category', $data) && null === $data['category']) {
-            $object->setCategory(null);
+            $object->category = $data['category'];
+        } elseif (\array_key_exists('category', $data)) {
+            $object->category = null;
         }
         if (\array_key_exists('brand', $data) && null !== $data['brand']) {
-            $object->setBrand($data['brand']);
-        } elseif (\array_key_exists('brand', $data) && null === $data['brand']) {
-            $object->setBrand(null);
+            $object->brand = $data['brand'];
+        } elseif (\array_key_exists('brand', $data)) {
+            $object->brand = null;
         }
         if (\array_key_exists('goodsCharacteristics', $data) && null !== $data['goodsCharacteristics']) {
             $values = [];
             foreach ($data['goodsCharacteristics'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItemGoodsCharacteristicsItem::class, 'json', $context);
             }
-            $object->setGoodsCharacteristics($values);
-        } elseif (\array_key_exists('goodsCharacteristics', $data) && null === $data['goodsCharacteristics']) {
-            $object->setGoodsCharacteristics(null);
+            $object->goodsCharacteristics = $values;
+        } elseif (\array_key_exists('goodsCharacteristics', $data)) {
+            $object->goodsCharacteristics = null;
         }
         if (\array_key_exists('additionalQuantityDefinitions', $data) && null !== $data['additionalQuantityDefinitions']) {
             $values_1 = [];
             foreach ($data['additionalQuantityDefinitions'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItemAdditionalQuantityDefinitionsItem::class, 'json', $context);
             }
-            $object->setAdditionalQuantityDefinitions($values_1);
-        } elseif (\array_key_exists('additionalQuantityDefinitions', $data) && null === $data['additionalQuantityDefinitions']) {
-            $object->setAdditionalQuantityDefinitions(null);
+            $object->additionalQuantityDefinitions = $values_1;
+        } elseif (\array_key_exists('additionalQuantityDefinitions', $data)) {
+            $object->additionalQuantityDefinitions = null;
         }
         if (\array_key_exists('estimatedTariffRateType', $data) && null !== $data['estimatedTariffRateType']) {
-            $object->setEstimatedTariffRateType($data['estimatedTariffRateType']);
-        } elseif (\array_key_exists('estimatedTariffRateType', $data) && null === $data['estimatedTariffRateType']) {
-            $object->setEstimatedTariffRateType(null);
+            $object->estimatedTariffRateType = $data['estimatedTariffRateType'];
+        } elseif (\array_key_exists('estimatedTariffRateType', $data)) {
+            $object->estimatedTariffRateType = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['number'] = $data->getNumber();
-        if ($data->isInitialized('name') && null !== $data->getName()) {
-            $dataArray['name'] = $data->getName();
+        $dataArray['number'] = $data->number;
+        if (\array_key_exists('name', get_object_vars($data)) && null !== ($data->name ?? null)) {
+            $dataArray['name'] = $data->name;
         }
-        if ($data->isInitialized('description') && null !== $data->getDescription()) {
-            $dataArray['description'] = $data->getDescription();
+        if (\array_key_exists('description', get_object_vars($data)) && null !== ($data->description ?? null)) {
+            $dataArray['description'] = $data->description;
         }
-        if ($data->isInitialized('manufacturerCountry') && null !== $data->getManufacturerCountry()) {
-            $dataArray['manufacturerCountry'] = $data->getManufacturerCountry();
+        if (\array_key_exists('manufacturerCountry', get_object_vars($data)) && null !== ($data->manufacturerCountry ?? null)) {
+            $dataArray['manufacturerCountry'] = $data->manufacturerCountry;
         }
-        if ($data->isInitialized('partNumber') && null !== $data->getPartNumber()) {
-            $dataArray['partNumber'] = $data->getPartNumber();
+        if (\array_key_exists('partNumber', get_object_vars($data)) && null !== ($data->partNumber ?? null)) {
+            $dataArray['partNumber'] = $data->partNumber;
         }
-        $dataArray['quantity'] = $data->getQuantity();
-        if ($data->isInitialized('quantityType') && null !== $data->getQuantityType()) {
-            $dataArray['quantityType'] = $data->getQuantityType();
+        $dataArray['quantity'] = $data->quantity;
+        if (\array_key_exists('quantityType', get_object_vars($data)) && null !== ($data->quantityType ?? null)) {
+            $dataArray['quantityType'] = $data->quantityType;
         }
-        $dataArray['unitPrice'] = $data->getUnitPrice();
-        $dataArray['unitPriceCurrencyCode'] = $data->getUnitPriceCurrencyCode();
-        if ($data->isInitialized('customsValue') && null !== $data->getCustomsValue()) {
-            $dataArray['customsValue'] = $data->getCustomsValue();
+        $dataArray['unitPrice'] = $data->unitPrice;
+        $dataArray['unitPriceCurrencyCode'] = $data->unitPriceCurrencyCode;
+        if (\array_key_exists('customsValue', get_object_vars($data)) && null !== ($data->customsValue ?? null)) {
+            $dataArray['customsValue'] = $data->customsValue;
         }
-        if ($data->isInitialized('customsValueCurrencyCode') && null !== $data->getCustomsValueCurrencyCode()) {
-            $dataArray['customsValueCurrencyCode'] = $data->getCustomsValueCurrencyCode();
+        if (\array_key_exists('customsValueCurrencyCode', get_object_vars($data)) && null !== ($data->customsValueCurrencyCode ?? null)) {
+            $dataArray['customsValueCurrencyCode'] = $data->customsValueCurrencyCode;
         }
-        if ($data->isInitialized('commodityCode') && null !== $data->getCommodityCode()) {
-            $dataArray['commodityCode'] = $data->getCommodityCode();
+        if (\array_key_exists('commodityCode', get_object_vars($data)) && null !== ($data->commodityCode ?? null)) {
+            $dataArray['commodityCode'] = $data->commodityCode;
         }
-        if ($data->isInitialized('weight') && null !== $data->getWeight()) {
-            $dataArray['weight'] = $data->getWeight();
+        if (\array_key_exists('weight', get_object_vars($data)) && null !== ($data->weight ?? null)) {
+            $dataArray['weight'] = $data->weight;
         }
-        if ($data->isInitialized('weightUnitOfMeasurement') && null !== $data->getWeightUnitOfMeasurement()) {
-            $dataArray['weightUnitOfMeasurement'] = $data->getWeightUnitOfMeasurement();
+        if (\array_key_exists('weightUnitOfMeasurement', get_object_vars($data)) && null !== ($data->weightUnitOfMeasurement ?? null)) {
+            $dataArray['weightUnitOfMeasurement'] = $data->weightUnitOfMeasurement;
         }
-        if ($data->isInitialized('category') && null !== $data->getCategory()) {
-            $dataArray['category'] = $data->getCategory();
+        if (\array_key_exists('category', get_object_vars($data)) && null !== ($data->category ?? null)) {
+            $dataArray['category'] = $data->category;
         }
-        if ($data->isInitialized('brand') && null !== $data->getBrand()) {
-            $dataArray['brand'] = $data->getBrand();
+        if (\array_key_exists('brand', get_object_vars($data)) && null !== ($data->brand ?? null)) {
+            $dataArray['brand'] = $data->brand;
         }
-        if ($data->isInitialized('goodsCharacteristics') && null !== $data->getGoodsCharacteristics()) {
+        if (\array_key_exists('goodsCharacteristics', get_object_vars($data)) && null !== ($data->goodsCharacteristics ?? null)) {
             $values = [];
-            foreach ($data->getGoodsCharacteristics() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->goodsCharacteristics as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['goodsCharacteristics'] = $values;
         }
-        if ($data->isInitialized('additionalQuantityDefinitions') && null !== $data->getAdditionalQuantityDefinitions()) {
+        if (\array_key_exists('additionalQuantityDefinitions', get_object_vars($data)) && null !== ($data->additionalQuantityDefinitions ?? null)) {
             $values_1 = [];
-            foreach ($data->getAdditionalQuantityDefinitions() as $value_1) {
-                $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
+            foreach ($data->additionalQuantityDefinitions as $value_1) {
+                $normalized_1 = null === $value_1 ? null : $this->normalizer->normalize($value_1, 'json', $context);
+                $values_1[] = is_iterable($normalized_1) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_1) : $normalized_1;
             }
             $dataArray['additionalQuantityDefinitions'] = $values_1;
         }
-        if ($data->isInitialized('estimatedTariffRateType') && null !== $data->getEstimatedTariffRateType()) {
-            $dataArray['estimatedTariffRateType'] = $data->getEstimatedTariffRateType();
+        if (\array_key_exists('estimatedTariffRateType', get_object_vars($data)) && null !== ($data->estimatedTariffRateType ?? null)) {
+            $dataArray['estimatedTariffRateType'] = $data->estimatedTariffRateType;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressLandedCostRequestItemsItem::class => false];
     }

@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressDocumentImagesItemNormalizer implements Denorm
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,39 +42,39 @@ class SupermodelIoLogisticsExpressDocumentImagesItemNormalizer implements Denorm
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('imageFormat', $data) && null !== $data['imageFormat']) {
-            $object->setImageFormat($data['imageFormat']);
-        } elseif (\array_key_exists('imageFormat', $data) && null === $data['imageFormat']) {
-            $object->setImageFormat(null);
+            $object->imageFormat = $data['imageFormat'];
+        } elseif (\array_key_exists('imageFormat', $data)) {
+            $object->imageFormat = null;
         }
         if (\array_key_exists('content', $data) && null !== $data['content']) {
-            $object->setContent($data['content']);
-        } elseif (\array_key_exists('content', $data) && null === $data['content']) {
-            $object->setContent(null);
+            $object->content = $data['content'];
+        } elseif (\array_key_exists('content', $data)) {
+            $object->content = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
-            $dataArray['typeCode'] = $data->getTypeCode();
+        if (\array_key_exists('typeCode', get_object_vars($data)) && null !== ($data->typeCode ?? null)) {
+            $dataArray['typeCode'] = $data->typeCode;
         }
-        if ($data->isInitialized('imageFormat') && null !== $data->getImageFormat()) {
-            $dataArray['imageFormat'] = $data->getImageFormat();
+        if (\array_key_exists('imageFormat', get_object_vars($data)) && null !== ($data->imageFormat ?? null)) {
+            $dataArray['imageFormat'] = $data->imageFormat;
         }
-        $dataArray['content'] = $data->getContent();
+        $dataArray['content'] = $data->content;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImagesItem::class => false];
     }

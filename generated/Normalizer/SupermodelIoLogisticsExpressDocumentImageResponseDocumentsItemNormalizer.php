@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItemNormalizer i
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,49 +42,49 @@ class SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItemNormalizer i
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('shipmentTrackingNumber', $data) && null !== $data['shipmentTrackingNumber']) {
-            $object->setShipmentTrackingNumber($data['shipmentTrackingNumber']);
-        } elseif (\array_key_exists('shipmentTrackingNumber', $data) && null === $data['shipmentTrackingNumber']) {
-            $object->setShipmentTrackingNumber(null);
+            $object->shipmentTrackingNumber = $data['shipmentTrackingNumber'];
+        } elseif (\array_key_exists('shipmentTrackingNumber', $data)) {
+            $object->shipmentTrackingNumber = null;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('function', $data) && null !== $data['function']) {
-            $object->setFunction($data['function']);
-        } elseif (\array_key_exists('function', $data) && null === $data['function']) {
-            $object->setFunction(null);
+            $object->function = $data['function'];
+        } elseif (\array_key_exists('function', $data)) {
+            $object->function = null;
         }
         if (\array_key_exists('encodingFormat', $data) && null !== $data['encodingFormat']) {
-            $object->setEncodingFormat($data['encodingFormat']);
-        } elseif (\array_key_exists('encodingFormat', $data) && null === $data['encodingFormat']) {
-            $object->setEncodingFormat(null);
+            $object->encodingFormat = $data['encodingFormat'];
+        } elseif (\array_key_exists('encodingFormat', $data)) {
+            $object->encodingFormat = null;
         }
         if (\array_key_exists('content', $data) && null !== $data['content']) {
-            $object->setContent($data['content']);
-        } elseif (\array_key_exists('content', $data) && null === $data['content']) {
-            $object->setContent(null);
+            $object->content = $data['content'];
+        } elseif (\array_key_exists('content', $data)) {
+            $object->content = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['shipmentTrackingNumber'] = $data->getShipmentTrackingNumber();
-        $dataArray['typeCode'] = $data->getTypeCode();
-        if ($data->isInitialized('function') && null !== $data->getFunction()) {
-            $dataArray['function'] = $data->getFunction();
+        $dataArray['shipmentTrackingNumber'] = $data->shipmentTrackingNumber;
+        $dataArray['typeCode'] = $data->typeCode;
+        if (\array_key_exists('function', get_object_vars($data)) && null !== ($data->function ?? null)) {
+            $dataArray['function'] = $data->function;
         }
-        $dataArray['encodingFormat'] = $data->getEncodingFormat();
-        $dataArray['content'] = $data->getContent();
+        $dataArray['encodingFormat'] = $data->encodingFormat;
+        $dataArray['content'] = $data->content;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressDocumentImageResponseDocumentsItem::class => false];
     }

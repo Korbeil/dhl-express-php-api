@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressErrorResponseNormalizer implements Denormalize
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse();
         if (null === $data || false === \is_array($data)) {
@@ -42,73 +42,73 @@ class SupermodelIoLogisticsExpressErrorResponseNormalizer implements Denormalize
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('instance', $data) && null !== $data['instance']) {
-            $object->setInstance($data['instance']);
-        } elseif (\array_key_exists('instance', $data) && null === $data['instance']) {
-            $object->setInstance(null);
+            $object->instance = $data['instance'];
+        } elseif (\array_key_exists('instance', $data)) {
+            $object->instance = null;
         }
         if (\array_key_exists('detail', $data) && null !== $data['detail']) {
-            $object->setDetail($data['detail']);
-        } elseif (\array_key_exists('detail', $data) && null === $data['detail']) {
-            $object->setDetail(null);
+            $object->detail = $data['detail'];
+        } elseif (\array_key_exists('detail', $data)) {
+            $object->detail = null;
         }
         if (\array_key_exists('title', $data) && null !== $data['title']) {
-            $object->setTitle($data['title']);
-        } elseif (\array_key_exists('title', $data) && null === $data['title']) {
-            $object->setTitle(null);
+            $object->title = $data['title'];
+        } elseif (\array_key_exists('title', $data)) {
+            $object->title = null;
         }
         if (\array_key_exists('message', $data) && null !== $data['message']) {
-            $object->setMessage($data['message']);
-        } elseif (\array_key_exists('message', $data) && null === $data['message']) {
-            $object->setMessage(null);
+            $object->message = $data['message'];
+        } elseif (\array_key_exists('message', $data)) {
+            $object->message = null;
         }
         if (\array_key_exists('additionalDetails', $data) && null !== $data['additionalDetails']) {
             $values = [];
             foreach ($data['additionalDetails'] as $value) {
                 $values[] = $value;
             }
-            $object->setAdditionalDetails($values);
-        } elseif (\array_key_exists('additionalDetails', $data) && null === $data['additionalDetails']) {
-            $object->setAdditionalDetails(null);
+            $object->additionalDetails = $values;
+        } elseif (\array_key_exists('additionalDetails', $data)) {
+            $object->additionalDetails = null;
         }
         if (\array_key_exists('status', $data) && null !== $data['status']) {
-            $object->setStatus($data['status']);
-        } elseif (\array_key_exists('status', $data) && null === $data['status']) {
-            $object->setStatus(null);
+            $object->status = $data['status'];
+        } elseif (\array_key_exists('status', $data)) {
+            $object->status = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('instance') && null !== $data->getInstance()) {
-            $dataArray['instance'] = $data->getInstance();
+        if (\array_key_exists('instance', get_object_vars($data)) && null !== ($data->instance ?? null)) {
+            $dataArray['instance'] = $data->instance;
         }
-        if ($data->isInitialized('detail') && null !== $data->getDetail()) {
-            $dataArray['detail'] = $data->getDetail();
+        if (\array_key_exists('detail', get_object_vars($data)) && null !== ($data->detail ?? null)) {
+            $dataArray['detail'] = $data->detail;
         }
-        if ($data->isInitialized('title') && null !== $data->getTitle()) {
-            $dataArray['title'] = $data->getTitle();
+        if (\array_key_exists('title', get_object_vars($data)) && null !== ($data->title ?? null)) {
+            $dataArray['title'] = $data->title;
         }
-        if ($data->isInitialized('message') && null !== $data->getMessage()) {
-            $dataArray['message'] = $data->getMessage();
+        if (\array_key_exists('message', get_object_vars($data)) && null !== ($data->message ?? null)) {
+            $dataArray['message'] = $data->message;
         }
-        if ($data->isInitialized('additionalDetails') && null !== $data->getAdditionalDetails()) {
+        if (\array_key_exists('additionalDetails', get_object_vars($data)) && null !== ($data->additionalDetails ?? null)) {
             $values = [];
-            foreach ($data->getAdditionalDetails() as $value) {
+            foreach ($data->additionalDetails as $value) {
                 $values[] = $value;
             }
             $dataArray['additionalDetails'] = $values;
         }
-        if ($data->isInitialized('status') && null !== $data->getStatus()) {
-            $dataArray['status'] = $data->getStatus();
+        if (\array_key_exists('status', get_object_vars($data)) && null !== ($data->status ?? null)) {
+            $dataArray['status'] = $data->status;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse::class => false];
     }

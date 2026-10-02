@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperti
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperties::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperties::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperties();
         if (null === $data || false === \is_array($data)) {
@@ -46,21 +46,22 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperti
             foreach ($data['imageOptions'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImagePropertiesImageOptionsItem::class, 'json', $context);
             }
-            $object->setImageOptions($values);
-        } elseif (\array_key_exists('imageOptions', $data) && null === $data['imageOptions']) {
-            $object->setImageOptions(null);
+            $object->imageOptions = $values;
+        } elseif (\array_key_exists('imageOptions', $data)) {
+            $object->imageOptions = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('imageOptions') && null !== $data->getImageOptions()) {
+        if (\array_key_exists('imageOptions', get_object_vars($data)) && null !== ($data->imageOptions ?? null)) {
             $values = [];
-            foreach ($data->getImageOptions() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->imageOptions as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['imageOptions'] = $values;
         }
@@ -68,7 +69,7 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperti
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestSIDOutputImageProperties::class => false];
     }

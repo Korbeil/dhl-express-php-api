@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesI
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem();
         if (null === $data || false === \is_array($data)) {
@@ -45,39 +45,39 @@ class SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesI
             $data['isRequested'] = (bool) $data['isRequested'];
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('templateName', $data) && null !== $data['templateName']) {
-            $object->setTemplateName($data['templateName']);
-        } elseif (\array_key_exists('templateName', $data) && null === $data['templateName']) {
-            $object->setTemplateName(null);
+            $object->templateName = $data['templateName'];
+        } elseif (\array_key_exists('templateName', $data)) {
+            $object->templateName = null;
         }
         if (\array_key_exists('isRequested', $data) && null !== $data['isRequested']) {
-            $object->setIsRequested($data['isRequested']);
-        } elseif (\array_key_exists('isRequested', $data) && null === $data['isRequested']) {
-            $object->setIsRequested(null);
+            $object->isRequested = $data['isRequested'];
+        } elseif (\array_key_exists('isRequested', $data)) {
+            $object->isRequested = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['typeCode'] = $data->getTypeCode();
-        if ($data->isInitialized('templateName') && null !== $data->getTemplateName()) {
-            $dataArray['templateName'] = $data->getTemplateName();
+        $dataArray['typeCode'] = $data->typeCode;
+        if (\array_key_exists('templateName', get_object_vars($data)) && null !== ($data->templateName ?? null)) {
+            $dataArray['templateName'] = $data->templateName;
         }
-        if ($data->isInitialized('isRequested') && null !== $data->getIsRequested()) {
-            $dataArray['isRequested'] = $data->getIsRequested();
+        if (\array_key_exists('isRequested', get_object_vars($data)) && null !== ($data->isRequested ?? null)) {
+            $dataArray['isRequested'] = $data->isRequested;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressUploadInvoiceDataRequestOutputImagePropertiesImageOptionsItem::class => false];
     }

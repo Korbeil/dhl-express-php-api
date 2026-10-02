@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem();
         if (null === $data || false === \is_array($data)) {
@@ -49,141 +49,146 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemNorma
             foreach ($data['serviceHandlingFeatureCodes'] as $value) {
                 $values[] = $value;
             }
-            $object->setServiceHandlingFeatureCodes($values);
-        } elseif (\array_key_exists('serviceHandlingFeatureCodes', $data) && null === $data['serviceHandlingFeatureCodes']) {
-            $object->setServiceHandlingFeatureCodes(null);
+            $object->serviceHandlingFeatureCodes = $values;
+        } elseif (\array_key_exists('serviceHandlingFeatureCodes', $data)) {
+            $object->serviceHandlingFeatureCodes = null;
         }
         if (\array_key_exists('volumetricWeight', $data) && null !== $data['volumetricWeight']) {
-            $object->setVolumetricWeight($data['volumetricWeight']);
-        } elseif (\array_key_exists('volumetricWeight', $data) && null === $data['volumetricWeight']) {
-            $object->setVolumetricWeight(null);
+            $object->volumetricWeight = $data['volumetricWeight'];
+        } elseif (\array_key_exists('volumetricWeight', $data)) {
+            $object->volumetricWeight = null;
         }
         if (\array_key_exists('billingCode', $data) && null !== $data['billingCode']) {
-            $object->setBillingCode($data['billingCode']);
-        } elseif (\array_key_exists('billingCode', $data) && null === $data['billingCode']) {
-            $object->setBillingCode(null);
+            $object->billingCode = $data['billingCode'];
+        } elseif (\array_key_exists('billingCode', $data)) {
+            $object->billingCode = null;
         }
         if (\array_key_exists('serviceContentCode', $data) && null !== $data['serviceContentCode']) {
-            $object->setServiceContentCode($data['serviceContentCode']);
-        } elseif (\array_key_exists('serviceContentCode', $data) && null === $data['serviceContentCode']) {
-            $object->setServiceContentCode(null);
+            $object->serviceContentCode = $data['serviceContentCode'];
+        } elseif (\array_key_exists('serviceContentCode', $data)) {
+            $object->serviceContentCode = null;
         }
         if (\array_key_exists('customerDetails', $data) && null !== $data['customerDetails']) {
-            $object->setCustomerDetails($this->denormalizer->denormalize($data['customerDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetails::class, 'json', $context));
-        } elseif (\array_key_exists('customerDetails', $data) && null === $data['customerDetails']) {
-            $object->setCustomerDetails(null);
+            $object->customerDetails = $this->denormalizer->denormalize($data['customerDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemCustomerDetails::class, 'json', $context);
+        } elseif (\array_key_exists('customerDetails', $data)) {
+            $object->customerDetails = null;
         }
         if (\array_key_exists('originServiceArea', $data) && null !== $data['originServiceArea']) {
-            $object->setOriginServiceArea($this->denormalizer->denormalize($data['originServiceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea::class, 'json', $context));
-        } elseif (\array_key_exists('originServiceArea', $data) && null === $data['originServiceArea']) {
-            $object->setOriginServiceArea(null);
+            $object->originServiceArea = $this->denormalizer->denormalize($data['originServiceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemOriginServiceArea::class, 'json', $context);
+        } elseif (\array_key_exists('originServiceArea', $data)) {
+            $object->originServiceArea = null;
         }
         if (\array_key_exists('destinationServiceArea', $data) && null !== $data['destinationServiceArea']) {
-            $object->setDestinationServiceArea($this->denormalizer->denormalize($data['destinationServiceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea::class, 'json', $context));
-        } elseif (\array_key_exists('destinationServiceArea', $data) && null === $data['destinationServiceArea']) {
-            $object->setDestinationServiceArea(null);
+            $object->destinationServiceArea = $this->denormalizer->denormalize($data['destinationServiceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemDestinationServiceArea::class, 'json', $context);
+        } elseif (\array_key_exists('destinationServiceArea', $data)) {
+            $object->destinationServiceArea = null;
         }
         if (\array_key_exists('dhlRoutingCode', $data) && null !== $data['dhlRoutingCode']) {
-            $object->setDhlRoutingCode($data['dhlRoutingCode']);
-        } elseif (\array_key_exists('dhlRoutingCode', $data) && null === $data['dhlRoutingCode']) {
-            $object->setDhlRoutingCode(null);
+            $object->dhlRoutingCode = $data['dhlRoutingCode'];
+        } elseif (\array_key_exists('dhlRoutingCode', $data)) {
+            $object->dhlRoutingCode = null;
         }
         if (\array_key_exists('dhlRoutingDataId', $data) && null !== $data['dhlRoutingDataId']) {
-            $object->setDhlRoutingDataId($data['dhlRoutingDataId']);
-        } elseif (\array_key_exists('dhlRoutingDataId', $data) && null === $data['dhlRoutingDataId']) {
-            $object->setDhlRoutingDataId(null);
+            $object->dhlRoutingDataId = $data['dhlRoutingDataId'];
+        } elseif (\array_key_exists('dhlRoutingDataId', $data)) {
+            $object->dhlRoutingDataId = null;
         }
         if (\array_key_exists('deliveryDateCode', $data) && null !== $data['deliveryDateCode']) {
-            $object->setDeliveryDateCode($data['deliveryDateCode']);
-        } elseif (\array_key_exists('deliveryDateCode', $data) && null === $data['deliveryDateCode']) {
-            $object->setDeliveryDateCode(null);
+            $object->deliveryDateCode = $data['deliveryDateCode'];
+        } elseif (\array_key_exists('deliveryDateCode', $data)) {
+            $object->deliveryDateCode = null;
         }
         if (\array_key_exists('deliveryTimeCode', $data) && null !== $data['deliveryTimeCode']) {
-            $object->setDeliveryTimeCode($data['deliveryTimeCode']);
-        } elseif (\array_key_exists('deliveryTimeCode', $data) && null === $data['deliveryTimeCode']) {
-            $object->setDeliveryTimeCode(null);
+            $object->deliveryTimeCode = $data['deliveryTimeCode'];
+        } elseif (\array_key_exists('deliveryTimeCode', $data)) {
+            $object->deliveryTimeCode = null;
         }
         if (\array_key_exists('productShortName', $data) && null !== $data['productShortName']) {
-            $object->setProductShortName($data['productShortName']);
-        } elseif (\array_key_exists('productShortName', $data) && null === $data['productShortName']) {
-            $object->setProductShortName(null);
+            $object->productShortName = $data['productShortName'];
+        } elseif (\array_key_exists('productShortName', $data)) {
+            $object->productShortName = null;
         }
         if (\array_key_exists('valueAddedServices', $data) && null !== $data['valueAddedServices']) {
             $values_1 = [];
             foreach ($data['valueAddedServices'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemValueAddedServicesItem::class, 'json', $context);
             }
-            $object->setValueAddedServices($values_1);
-        } elseif (\array_key_exists('valueAddedServices', $data) && null === $data['valueAddedServices']) {
-            $object->setValueAddedServices(null);
+            $object->valueAddedServices = $values_1;
+        } elseif (\array_key_exists('valueAddedServices', $data)) {
+            $object->valueAddedServices = null;
         }
         if (\array_key_exists('pickupDetails', $data) && null !== $data['pickupDetails']) {
-            $object->setPickupDetails($this->denormalizer->denormalize($data['pickupDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails::class, 'json', $context));
-        } elseif (\array_key_exists('pickupDetails', $data) && null === $data['pickupDetails']) {
-            $object->setPickupDetails(null);
+            $object->pickupDetails = $this->denormalizer->denormalize($data['pickupDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItemPickupDetails::class, 'json', $context);
+        } elseif (\array_key_exists('pickupDetails', $data)) {
+            $object->pickupDetails = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('serviceHandlingFeatureCodes') && null !== $data->getServiceHandlingFeatureCodes()) {
+        if (\array_key_exists('serviceHandlingFeatureCodes', get_object_vars($data)) && null !== ($data->serviceHandlingFeatureCodes ?? null)) {
             $values = [];
-            foreach ($data->getServiceHandlingFeatureCodes() as $value) {
+            foreach ($data->serviceHandlingFeatureCodes as $value) {
                 $values[] = $value;
             }
             $dataArray['serviceHandlingFeatureCodes'] = $values;
         }
-        if ($data->isInitialized('volumetricWeight') && null !== $data->getVolumetricWeight()) {
-            $dataArray['volumetricWeight'] = $data->getVolumetricWeight();
+        if (\array_key_exists('volumetricWeight', get_object_vars($data)) && null !== ($data->volumetricWeight ?? null)) {
+            $dataArray['volumetricWeight'] = $data->volumetricWeight;
         }
-        if ($data->isInitialized('billingCode') && null !== $data->getBillingCode()) {
-            $dataArray['billingCode'] = $data->getBillingCode();
+        if (\array_key_exists('billingCode', get_object_vars($data)) && null !== ($data->billingCode ?? null)) {
+            $dataArray['billingCode'] = $data->billingCode;
         }
-        if ($data->isInitialized('serviceContentCode') && null !== $data->getServiceContentCode()) {
-            $dataArray['serviceContentCode'] = $data->getServiceContentCode();
+        if (\array_key_exists('serviceContentCode', get_object_vars($data)) && null !== ($data->serviceContentCode ?? null)) {
+            $dataArray['serviceContentCode'] = $data->serviceContentCode;
         }
-        if ($data->isInitialized('customerDetails') && null !== $data->getCustomerDetails()) {
-            $dataArray['customerDetails'] = null === $data->getCustomerDetails() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getCustomerDetails(), 'json', $context));
+        if (\array_key_exists('customerDetails', get_object_vars($data)) && null !== ($data->customerDetails ?? null)) {
+            $normalized = $this->normalizer->normalize($data->customerDetails, 'json', $context);
+            $dataArray['customerDetails'] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
         }
-        if ($data->isInitialized('originServiceArea') && null !== $data->getOriginServiceArea()) {
-            $dataArray['originServiceArea'] = null === $data->getOriginServiceArea() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getOriginServiceArea(), 'json', $context));
+        if (\array_key_exists('originServiceArea', get_object_vars($data)) && null !== ($data->originServiceArea ?? null)) {
+            $normalized_1 = $this->normalizer->normalize($data->originServiceArea, 'json', $context);
+            $dataArray['originServiceArea'] = is_iterable($normalized_1) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_1) : $normalized_1;
         }
-        if ($data->isInitialized('destinationServiceArea') && null !== $data->getDestinationServiceArea()) {
-            $dataArray['destinationServiceArea'] = null === $data->getDestinationServiceArea() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getDestinationServiceArea(), 'json', $context));
+        if (\array_key_exists('destinationServiceArea', get_object_vars($data)) && null !== ($data->destinationServiceArea ?? null)) {
+            $normalized_2 = $this->normalizer->normalize($data->destinationServiceArea, 'json', $context);
+            $dataArray['destinationServiceArea'] = is_iterable($normalized_2) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_2) : $normalized_2;
         }
-        if ($data->isInitialized('dhlRoutingCode') && null !== $data->getDhlRoutingCode()) {
-            $dataArray['dhlRoutingCode'] = $data->getDhlRoutingCode();
+        if (\array_key_exists('dhlRoutingCode', get_object_vars($data)) && null !== ($data->dhlRoutingCode ?? null)) {
+            $dataArray['dhlRoutingCode'] = $data->dhlRoutingCode;
         }
-        if ($data->isInitialized('dhlRoutingDataId') && null !== $data->getDhlRoutingDataId()) {
-            $dataArray['dhlRoutingDataId'] = $data->getDhlRoutingDataId();
+        if (\array_key_exists('dhlRoutingDataId', get_object_vars($data)) && null !== ($data->dhlRoutingDataId ?? null)) {
+            $dataArray['dhlRoutingDataId'] = $data->dhlRoutingDataId;
         }
-        if ($data->isInitialized('deliveryDateCode') && null !== $data->getDeliveryDateCode()) {
-            $dataArray['deliveryDateCode'] = $data->getDeliveryDateCode();
+        if (\array_key_exists('deliveryDateCode', get_object_vars($data)) && null !== ($data->deliveryDateCode ?? null)) {
+            $dataArray['deliveryDateCode'] = $data->deliveryDateCode;
         }
-        if ($data->isInitialized('deliveryTimeCode') && null !== $data->getDeliveryTimeCode()) {
-            $dataArray['deliveryTimeCode'] = $data->getDeliveryTimeCode();
+        if (\array_key_exists('deliveryTimeCode', get_object_vars($data)) && null !== ($data->deliveryTimeCode ?? null)) {
+            $dataArray['deliveryTimeCode'] = $data->deliveryTimeCode;
         }
-        if ($data->isInitialized('productShortName') && null !== $data->getProductShortName()) {
-            $dataArray['productShortName'] = $data->getProductShortName();
+        if (\array_key_exists('productShortName', get_object_vars($data)) && null !== ($data->productShortName ?? null)) {
+            $dataArray['productShortName'] = $data->productShortName;
         }
-        if ($data->isInitialized('valueAddedServices') && null !== $data->getValueAddedServices()) {
+        if (\array_key_exists('valueAddedServices', get_object_vars($data)) && null !== ($data->valueAddedServices ?? null)) {
             $values_1 = [];
-            foreach ($data->getValueAddedServices() as $value_1) {
-                $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
+            foreach ($data->valueAddedServices as $value_1) {
+                $normalized_3 = null === $value_1 ? null : $this->normalizer->normalize($value_1, 'json', $context);
+                $values_1[] = is_iterable($normalized_3) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_3) : $normalized_3;
             }
             $dataArray['valueAddedServices'] = $values_1;
         }
-        if ($data->isInitialized('pickupDetails') && null !== $data->getPickupDetails()) {
-            $dataArray['pickupDetails'] = null === $data->getPickupDetails() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getPickupDetails(), 'json', $context));
+        if (\array_key_exists('pickupDetails', get_object_vars($data)) && null !== ($data->pickupDetails ?? null)) {
+            $normalized_4 = $this->normalizer->normalize($data->pickupDetails, 'json', $context);
+            $dataArray['pickupDetails'] = is_iterable($normalized_4) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_4) : $normalized_4;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseShipmentDetailsItem::class => false];
     }

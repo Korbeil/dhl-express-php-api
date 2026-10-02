@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues();
         if (null === $data || false === \is_array($data)) {
@@ -48,33 +48,33 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationI
             $data['importTaxesValue'] = (float) $data['importTaxesValue'];
         }
         if (\array_key_exists('importCustomsDutyValue', $data) && null !== $data['importCustomsDutyValue']) {
-            $object->setImportCustomsDutyValue($data['importCustomsDutyValue']);
-        } elseif (\array_key_exists('importCustomsDutyValue', $data) && null === $data['importCustomsDutyValue']) {
-            $object->setImportCustomsDutyValue(null);
+            $object->importCustomsDutyValue = $data['importCustomsDutyValue'];
+        } elseif (\array_key_exists('importCustomsDutyValue', $data)) {
+            $object->importCustomsDutyValue = null;
         }
         if (\array_key_exists('importTaxesValue', $data) && null !== $data['importTaxesValue']) {
-            $object->setImportTaxesValue($data['importTaxesValue']);
-        } elseif (\array_key_exists('importTaxesValue', $data) && null === $data['importTaxesValue']) {
-            $object->setImportTaxesValue(null);
+            $object->importTaxesValue = $data['importTaxesValue'];
+        } elseif (\array_key_exists('importTaxesValue', $data)) {
+            $object->importTaxesValue = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('importCustomsDutyValue') && null !== $data->getImportCustomsDutyValue()) {
-            $dataArray['importCustomsDutyValue'] = $data->getImportCustomsDutyValue();
+        if (\array_key_exists('importCustomsDutyValue', get_object_vars($data)) && null !== ($data->importCustomsDutyValue ?? null)) {
+            $dataArray['importCustomsDutyValue'] = $data->importCustomsDutyValue;
         }
-        if ($data->isInitialized('importTaxesValue') && null !== $data->getImportTaxesValue()) {
-            $dataArray['importTaxesValue'] = $data->getImportTaxesValue();
+        if (\array_key_exists('importTaxesValue', get_object_vars($data)) && null !== ($data->importTaxesValue ?? null)) {
+            $dataArray['importTaxesValue'] = $data->importTaxesValue;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationInvoiceIndicativeCustomsValues::class => false];
     }

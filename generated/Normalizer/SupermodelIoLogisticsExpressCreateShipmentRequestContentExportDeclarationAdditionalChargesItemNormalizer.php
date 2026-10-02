@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationA
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem();
         if (null === $data || false === \is_array($data)) {
@@ -45,37 +45,37 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationA
             $data['value'] = (float) $data['value'];
         }
         if (\array_key_exists('value', $data) && null !== $data['value']) {
-            $object->setValue($data['value']);
-        } elseif (\array_key_exists('value', $data) && null === $data['value']) {
-            $object->setValue(null);
+            $object->value = $data['value'];
+        } elseif (\array_key_exists('value', $data)) {
+            $object->value = null;
         }
         if (\array_key_exists('caption', $data) && null !== $data['caption']) {
-            $object->setCaption($data['caption']);
-        } elseif (\array_key_exists('caption', $data) && null === $data['caption']) {
-            $object->setCaption(null);
+            $object->caption = $data['caption'];
+        } elseif (\array_key_exists('caption', $data)) {
+            $object->caption = null;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['value'] = $data->getValue();
-        if ($data->isInitialized('caption') && null !== $data->getCaption()) {
-            $dataArray['caption'] = $data->getCaption();
+        $dataArray['value'] = $data->value;
+        if (\array_key_exists('caption', get_object_vars($data)) && null !== ($data->caption ?? null)) {
+            $dataArray['caption'] = $data->caption;
         }
-        $dataArray['typeCode'] = $data->getTypeCode();
+        $dataArray['typeCode'] = $data->typeCode;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestContentExportDeclarationAdditionalChargesItem::class => false];
     }

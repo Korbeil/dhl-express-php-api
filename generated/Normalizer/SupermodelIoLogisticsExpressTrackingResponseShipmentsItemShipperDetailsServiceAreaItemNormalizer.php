@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsSer
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,41 +42,41 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsSer
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('code', $data) && null !== $data['code']) {
-            $object->setCode($data['code']);
-        } elseif (\array_key_exists('code', $data) && null === $data['code']) {
-            $object->setCode(null);
+            $object->code = $data['code'];
+        } elseif (\array_key_exists('code', $data)) {
+            $object->code = null;
         }
         if (\array_key_exists('description', $data) && null !== $data['description']) {
-            $object->setDescription($data['description']);
-        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-            $object->setDescription(null);
+            $object->description = $data['description'];
+        } elseif (\array_key_exists('description', $data)) {
+            $object->description = null;
         }
         if (\array_key_exists('outboundSortCode', $data) && null !== $data['outboundSortCode']) {
-            $object->setOutboundSortCode($data['outboundSortCode']);
-        } elseif (\array_key_exists('outboundSortCode', $data) && null === $data['outboundSortCode']) {
-            $object->setOutboundSortCode(null);
+            $object->outboundSortCode = $data['outboundSortCode'];
+        } elseif (\array_key_exists('outboundSortCode', $data)) {
+            $object->outboundSortCode = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('code') && null !== $data->getCode()) {
-            $dataArray['code'] = $data->getCode();
+        if (\array_key_exists('code', get_object_vars($data)) && null !== ($data->code ?? null)) {
+            $dataArray['code'] = $data->code;
         }
-        if ($data->isInitialized('description') && null !== $data->getDescription()) {
-            $dataArray['description'] = $data->getDescription();
+        if (\array_key_exists('description', get_object_vars($data)) && null !== ($data->description ?? null)) {
+            $dataArray['description'] = $data->description;
         }
-        if ($data->isInitialized('outboundSortCode') && null !== $data->getOutboundSortCode()) {
-            $dataArray['outboundSortCode'] = $data->getOutboundSortCode();
+        if (\array_key_exists('outboundSortCode', get_object_vars($data)) && null !== ($data->outboundSortCode ?? null)) {
+            $dataArray['outboundSortCode'] = $data->outboundSortCode;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemShipperDetailsServiceAreaItem::class => false];
     }

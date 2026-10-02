@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDateNor
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate();
         if (null === $data || false === \is_array($data)) {
@@ -42,33 +42,33 @@ class SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDateNor
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('estimatedDeliveryDate', $data) && null !== $data['estimatedDeliveryDate']) {
-            $object->setEstimatedDeliveryDate($data['estimatedDeliveryDate']);
-        } elseif (\array_key_exists('estimatedDeliveryDate', $data) && null === $data['estimatedDeliveryDate']) {
-            $object->setEstimatedDeliveryDate(null);
+            $object->estimatedDeliveryDate = $data['estimatedDeliveryDate'];
+        } elseif (\array_key_exists('estimatedDeliveryDate', $data)) {
+            $object->estimatedDeliveryDate = null;
         }
         if (\array_key_exists('estimatedDeliveryType', $data) && null !== $data['estimatedDeliveryType']) {
-            $object->setEstimatedDeliveryType($data['estimatedDeliveryType']);
-        } elseif (\array_key_exists('estimatedDeliveryType', $data) && null === $data['estimatedDeliveryType']) {
-            $object->setEstimatedDeliveryType(null);
+            $object->estimatedDeliveryType = $data['estimatedDeliveryType'];
+        } elseif (\array_key_exists('estimatedDeliveryType', $data)) {
+            $object->estimatedDeliveryType = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('estimatedDeliveryDate') && null !== $data->getEstimatedDeliveryDate()) {
-            $dataArray['estimatedDeliveryDate'] = $data->getEstimatedDeliveryDate();
+        if (\array_key_exists('estimatedDeliveryDate', get_object_vars($data)) && null !== ($data->estimatedDeliveryDate ?? null)) {
+            $dataArray['estimatedDeliveryDate'] = $data->estimatedDeliveryDate;
         }
-        if ($data->isInitialized('estimatedDeliveryType') && null !== $data->getEstimatedDeliveryType()) {
-            $dataArray['estimatedDeliveryType'] = $data->getEstimatedDeliveryType();
+        if (\array_key_exists('estimatedDeliveryType', get_object_vars($data)) && null !== ($data->estimatedDeliveryType ?? null)) {
+            $dataArray['estimatedDeliveryType'] = $data->estimatedDeliveryType;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentResponseEstimatedDeliveryDate::class => false];
     }

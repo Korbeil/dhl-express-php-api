@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates();
         if (null === $data || false === \is_array($data)) {
@@ -46,50 +46,52 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
             foreach ($data['products'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItem::class, 'json', $context);
             }
-            $object->setProducts($values);
-        } elseif (\array_key_exists('products', $data) && null === $data['products']) {
-            $object->setProducts(null);
+            $object->products = $values;
+        } elseif (\array_key_exists('products', $data)) {
+            $object->products = null;
         }
         if (\array_key_exists('exchangeRates', $data) && null !== $data['exchangeRates']) {
             $values_1 = [];
             foreach ($data['exchangeRates'] as $value_1) {
                 $values_1[] = $this->denormalizer->denormalize($value_1, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesExchangeRatesItem::class, 'json', $context);
             }
-            $object->setExchangeRates($values_1);
-        } elseif (\array_key_exists('exchangeRates', $data) && null === $data['exchangeRates']) {
-            $object->setExchangeRates(null);
+            $object->exchangeRates = $values_1;
+        } elseif (\array_key_exists('exchangeRates', $data)) {
+            $object->exchangeRates = null;
         }
         if (\array_key_exists('warnings', $data) && null !== $data['warnings']) {
             $values_2 = [];
             foreach ($data['warnings'] as $value_2) {
                 $values_2[] = $value_2;
             }
-            $object->setWarnings($values_2);
-        } elseif (\array_key_exists('warnings', $data) && null === $data['warnings']) {
-            $object->setWarnings(null);
+            $object->warnings = $values_2;
+        } elseif (\array_key_exists('warnings', $data)) {
+            $object->warnings = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
         $values = [];
-        foreach ($data->getProducts() as $value) {
-            $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+        foreach ($data->products as $value) {
+            $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+            $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
         }
         $dataArray['products'] = $values;
-        if ($data->isInitialized('exchangeRates') && null !== $data->getExchangeRates()) {
+        if (\array_key_exists('exchangeRates', get_object_vars($data)) && null !== ($data->exchangeRates ?? null)) {
             $values_1 = [];
-            foreach ($data->getExchangeRates() as $value_1) {
-                $values_1[] = null === $value_1 ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value_1, 'json', $context));
+            foreach ($data->exchangeRates as $value_1) {
+                $normalized_1 = null === $value_1 ? null : $this->normalizer->normalize($value_1, 'json', $context);
+                $values_1[] = is_iterable($normalized_1) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_1) : $normalized_1;
             }
             $dataArray['exchangeRates'] = $values_1;
         }
-        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
+        if (\array_key_exists('warnings', get_object_vars($data)) && null !== ($data->warnings ?? null)) {
             $values_2 = [];
-            foreach ($data->getWarnings() as $value_2) {
+            foreach ($data->warnings as $value_2) {
                 $values_2[] = $value_2;
             }
             $dataArray['warnings'] = $values_2;
@@ -98,7 +100,7 @@ class SupermodelIoLogisticsExpressRatesNormalizer implements DenormalizerInterfa
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Rating\SupermodelIoLogisticsExpressRates::class => false];
     }

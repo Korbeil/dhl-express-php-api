@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,29 +42,29 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCust
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('fileFormat', $data) && null !== $data['fileFormat']) {
-            $object->setFileFormat($data['fileFormat']);
-        } elseif (\array_key_exists('fileFormat', $data) && null === $data['fileFormat']) {
-            $object->setFileFormat(null);
+            $object->fileFormat = $data['fileFormat'];
+        } elseif (\array_key_exists('fileFormat', $data)) {
+            $object->fileFormat = null;
         }
         if (\array_key_exists('content', $data) && null !== $data['content']) {
-            $object->setContent($data['content']);
-        } elseif (\array_key_exists('content', $data) && null === $data['content']) {
-            $object->setContent(null);
+            $object->content = $data['content'];
+        } elseif (\array_key_exists('content', $data)) {
+            $object->content = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['fileFormat'] = $data->getFileFormat();
-        $dataArray['content'] = $data->getContent();
+        $dataArray['fileFormat'] = $data->fileFormat;
+        $dataArray['content'] = $data->content;
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestOutputImagePropertiesCustomerLogosItem::class => false];
     }

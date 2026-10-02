@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressProductsNormalizer implements DenormalizerInte
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\Product\SupermodelIoLogisticsExpressProducts::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\Product\SupermodelIoLogisticsExpressProducts::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\Product\SupermodelIoLogisticsExpressProducts();
         if (null === $data || false === \is_array($data)) {
@@ -46,34 +46,35 @@ class SupermodelIoLogisticsExpressProductsNormalizer implements DenormalizerInte
             foreach ($data['products'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressProductsProductsItem::class, 'json', $context);
             }
-            $object->setProducts($values);
-        } elseif (\array_key_exists('products', $data) && null === $data['products']) {
-            $object->setProducts(null);
+            $object->products = $values;
+        } elseif (\array_key_exists('products', $data)) {
+            $object->products = null;
         }
         if (\array_key_exists('warnings', $data) && null !== $data['warnings']) {
             $values_1 = [];
             foreach ($data['warnings'] as $value_1) {
                 $values_1[] = $value_1;
             }
-            $object->setWarnings($values_1);
-        } elseif (\array_key_exists('warnings', $data) && null === $data['warnings']) {
-            $object->setWarnings(null);
+            $object->warnings = $values_1;
+        } elseif (\array_key_exists('warnings', $data)) {
+            $object->warnings = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
         $values = [];
-        foreach ($data->getProducts() as $value) {
-            $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+        foreach ($data->products as $value) {
+            $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+            $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
         }
         $dataArray['products'] = $values;
-        if ($data->isInitialized('warnings') && null !== $data->getWarnings()) {
+        if (\array_key_exists('warnings', get_object_vars($data)) && null !== ($data->warnings ?? null)) {
             $values_1 = [];
-            foreach ($data->getWarnings() as $value_1) {
+            foreach ($data->warnings as $value_1) {
                 $values_1[] = $value_1;
             }
             $dataArray['warnings'] = $values_1;
@@ -82,7 +83,7 @@ class SupermodelIoLogisticsExpressProductsNormalizer implements DenormalizerInte
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\Product\SupermodelIoLogisticsExpressProducts::class => false];
     }

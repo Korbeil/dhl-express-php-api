@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormali
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,73 +42,74 @@ class SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemNormali
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('date', $data) && null !== $data['date']) {
-            $object->setDate($data['date']);
-        } elseif (\array_key_exists('date', $data) && null === $data['date']) {
-            $object->setDate(null);
+            $object->date = $data['date'];
+        } elseif (\array_key_exists('date', $data)) {
+            $object->date = null;
         }
         if (\array_key_exists('time', $data) && null !== $data['time']) {
-            $object->setTime($data['time']);
-        } elseif (\array_key_exists('time', $data) && null === $data['time']) {
-            $object->setTime(null);
+            $object->time = $data['time'];
+        } elseif (\array_key_exists('time', $data)) {
+            $object->time = null;
         }
         if (\array_key_exists('typeCode', $data) && null !== $data['typeCode']) {
-            $object->setTypeCode($data['typeCode']);
-        } elseif (\array_key_exists('typeCode', $data) && null === $data['typeCode']) {
-            $object->setTypeCode(null);
+            $object->typeCode = $data['typeCode'];
+        } elseif (\array_key_exists('typeCode', $data)) {
+            $object->typeCode = null;
         }
         if (\array_key_exists('description', $data) && null !== $data['description']) {
-            $object->setDescription($data['description']);
-        } elseif (\array_key_exists('description', $data) && null === $data['description']) {
-            $object->setDescription(null);
+            $object->description = $data['description'];
+        } elseif (\array_key_exists('description', $data)) {
+            $object->description = null;
         }
         if (\array_key_exists('serviceArea', $data) && null !== $data['serviceArea']) {
             $values = [];
             foreach ($data['serviceArea'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItemServiceAreaItem::class, 'json', $context);
             }
-            $object->setServiceArea($values);
-        } elseif (\array_key_exists('serviceArea', $data) && null === $data['serviceArea']) {
-            $object->setServiceArea(null);
+            $object->serviceArea = $values;
+        } elseif (\array_key_exists('serviceArea', $data)) {
+            $object->serviceArea = null;
         }
         if (\array_key_exists('signedBy', $data) && null !== $data['signedBy']) {
-            $object->setSignedBy($data['signedBy']);
-        } elseif (\array_key_exists('signedBy', $data) && null === $data['signedBy']) {
-            $object->setSignedBy(null);
+            $object->signedBy = $data['signedBy'];
+        } elseif (\array_key_exists('signedBy', $data)) {
+            $object->signedBy = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('date') && null !== $data->getDate()) {
-            $dataArray['date'] = $data->getDate();
+        if (\array_key_exists('date', get_object_vars($data)) && null !== ($data->date ?? null)) {
+            $dataArray['date'] = $data->date;
         }
-        if ($data->isInitialized('time') && null !== $data->getTime()) {
-            $dataArray['time'] = $data->getTime();
+        if (\array_key_exists('time', get_object_vars($data)) && null !== ($data->time ?? null)) {
+            $dataArray['time'] = $data->time;
         }
-        if ($data->isInitialized('typeCode') && null !== $data->getTypeCode()) {
-            $dataArray['typeCode'] = $data->getTypeCode();
+        if (\array_key_exists('typeCode', get_object_vars($data)) && null !== ($data->typeCode ?? null)) {
+            $dataArray['typeCode'] = $data->typeCode;
         }
-        if ($data->isInitialized('description') && null !== $data->getDescription()) {
-            $dataArray['description'] = $data->getDescription();
+        if (\array_key_exists('description', get_object_vars($data)) && null !== ($data->description ?? null)) {
+            $dataArray['description'] = $data->description;
         }
-        if ($data->isInitialized('serviceArea') && null !== $data->getServiceArea()) {
+        if (\array_key_exists('serviceArea', get_object_vars($data)) && null !== ($data->serviceArea ?? null)) {
             $values = [];
-            foreach ($data->getServiceArea() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->serviceArea as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['serviceArea'] = $values;
         }
-        if ($data->isInitialized('signedBy') && null !== $data->getSignedBy()) {
-            $dataArray['signedBy'] = $data->getSignedBy();
+        if (\array_key_exists('signedBy', get_object_vars($data)) && null !== ($data->signedBy ?? null)) {
+            $dataArray['signedBy'] = $data->signedBy;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressTrackingResponseShipmentsItemEventsItem::class => false];
     }

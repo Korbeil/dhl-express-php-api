@@ -4,20 +4,17 @@ namespace Korbeil\DHLExpress\Api\Exception;
 
 class ExpApiPickupsCancelBadRequestException extends BadRequestException
 {
-    /**
-     * @var \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse
-     */
-    private $supermodelIoLogisticsExpressErrorResponse;
-    /**
-     * @var \Psr\Http\Message\ResponseInterface
-     */
-    private $response;
-
-    public function __construct(\Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse $supermodelIoLogisticsExpressErrorResponse, \Psr\Http\Message\ResponseInterface $response)
-    {
+    public function __construct(
+        /**
+         * @var \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse
+         */
+        private readonly \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse $supermodelIoLogisticsExpressErrorResponse,
+        /**
+         * @var \Symfony\Contracts\HttpClient\ResponseInterface
+         */
+        private readonly \Symfony\Contracts\HttpClient\ResponseInterface $response,
+    ) {
         parent::__construct('Pickup already cancelled or completed / Wrong input parameters');
-        $this->supermodelIoLogisticsExpressErrorResponse = $supermodelIoLogisticsExpressErrorResponse;
-        $this->response = $response;
     }
 
     public function getSupermodelIoLogisticsExpressErrorResponse(): \Korbeil\DHLExpress\Api\Model\Common\SupermodelIoLogisticsExpressErrorResponse
@@ -25,7 +22,7 @@ class ExpApiPickupsCancelBadRequestException extends BadRequestException
         return $this->supermodelIoLogisticsExpressErrorResponse;
     }
 
-    public function getResponse(): \Psr\Http\Message\ResponseInterface
+    public function getResponse(): \Symfony\Contracts\HttpClient\ResponseInterface
     {
         return $this->response;
     }

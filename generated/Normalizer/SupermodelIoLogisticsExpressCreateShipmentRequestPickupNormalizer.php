@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer implemen
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickup::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickup::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickup();
         if (null === $data || false === \is_array($data)) {
@@ -45,71 +45,74 @@ class SupermodelIoLogisticsExpressCreateShipmentRequestPickupNormalizer implemen
             $data['isRequested'] = (bool) $data['isRequested'];
         }
         if (\array_key_exists('isRequested', $data) && null !== $data['isRequested']) {
-            $object->setIsRequested($data['isRequested']);
-        } elseif (\array_key_exists('isRequested', $data) && null === $data['isRequested']) {
-            $object->setIsRequested(null);
+            $object->isRequested = $data['isRequested'];
+        } elseif (\array_key_exists('isRequested', $data)) {
+            $object->isRequested = null;
         }
         if (\array_key_exists('closeTime', $data) && null !== $data['closeTime']) {
-            $object->setCloseTime($data['closeTime']);
-        } elseif (\array_key_exists('closeTime', $data) && null === $data['closeTime']) {
-            $object->setCloseTime(null);
+            $object->closeTime = $data['closeTime'];
+        } elseif (\array_key_exists('closeTime', $data)) {
+            $object->closeTime = null;
         }
         if (\array_key_exists('location', $data) && null !== $data['location']) {
-            $object->setLocation($data['location']);
-        } elseif (\array_key_exists('location', $data) && null === $data['location']) {
-            $object->setLocation(null);
+            $object->location = $data['location'];
+        } elseif (\array_key_exists('location', $data)) {
+            $object->location = null;
         }
         if (\array_key_exists('specialInstructions', $data) && null !== $data['specialInstructions']) {
             $values = [];
             foreach ($data['specialInstructions'] as $value) {
                 $values[] = $this->denormalizer->denormalize($value, \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickupSpecialInstructionsItem::class, 'json', $context);
             }
-            $object->setSpecialInstructions($values);
-        } elseif (\array_key_exists('specialInstructions', $data) && null === $data['specialInstructions']) {
-            $object->setSpecialInstructions(null);
+            $object->specialInstructions = $values;
+        } elseif (\array_key_exists('specialInstructions', $data)) {
+            $object->specialInstructions = null;
         }
         if (\array_key_exists('pickupDetails', $data) && null !== $data['pickupDetails']) {
-            $object->setPickupDetails($this->denormalizer->denormalize($data['pickupDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupDetails::class, 'json', $context));
-        } elseif (\array_key_exists('pickupDetails', $data) && null === $data['pickupDetails']) {
-            $object->setPickupDetails(null);
+            $object->pickupDetails = $this->denormalizer->denormalize($data['pickupDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupDetails::class, 'json', $context);
+        } elseif (\array_key_exists('pickupDetails', $data)) {
+            $object->pickupDetails = null;
         }
         if (\array_key_exists('pickupRequestorDetails', $data) && null !== $data['pickupRequestorDetails']) {
-            $object->setPickupRequestorDetails($this->denormalizer->denormalize($data['pickupRequestorDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupRequestorDetails::class, 'json', $context));
-        } elseif (\array_key_exists('pickupRequestorDetails', $data) && null === $data['pickupRequestorDetails']) {
-            $object->setPickupRequestorDetails(null);
+            $object->pickupRequestorDetails = $this->denormalizer->denormalize($data['pickupRequestorDetails'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickupPickupRequestorDetails::class, 'json', $context);
+        } elseif (\array_key_exists('pickupRequestorDetails', $data)) {
+            $object->pickupRequestorDetails = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['isRequested'] = $data->getIsRequested();
-        if ($data->isInitialized('closeTime') && null !== $data->getCloseTime()) {
-            $dataArray['closeTime'] = $data->getCloseTime();
+        $dataArray['isRequested'] = $data->isRequested;
+        if (\array_key_exists('closeTime', get_object_vars($data)) && null !== ($data->closeTime ?? null)) {
+            $dataArray['closeTime'] = $data->closeTime;
         }
-        if ($data->isInitialized('location') && null !== $data->getLocation()) {
-            $dataArray['location'] = $data->getLocation();
+        if (\array_key_exists('location', get_object_vars($data)) && null !== ($data->location ?? null)) {
+            $dataArray['location'] = $data->location;
         }
-        if ($data->isInitialized('specialInstructions') && null !== $data->getSpecialInstructions()) {
+        if (\array_key_exists('specialInstructions', get_object_vars($data)) && null !== ($data->specialInstructions ?? null)) {
             $values = [];
-            foreach ($data->getSpecialInstructions() as $value) {
-                $values[] = null === $value ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($value, 'json', $context));
+            foreach ($data->specialInstructions as $value) {
+                $normalized = null === $value ? null : $this->normalizer->normalize($value, 'json', $context);
+                $values[] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
             }
             $dataArray['specialInstructions'] = $values;
         }
-        if ($data->isInitialized('pickupDetails') && null !== $data->getPickupDetails()) {
-            $dataArray['pickupDetails'] = null === $data->getPickupDetails() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getPickupDetails(), 'json', $context));
+        if (\array_key_exists('pickupDetails', get_object_vars($data)) && null !== ($data->pickupDetails ?? null)) {
+            $normalized_1 = $this->normalizer->normalize($data->pickupDetails, 'json', $context);
+            $dataArray['pickupDetails'] = is_iterable($normalized_1) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_1) : $normalized_1;
         }
-        if ($data->isInitialized('pickupRequestorDetails') && null !== $data->getPickupRequestorDetails()) {
-            $dataArray['pickupRequestorDetails'] = null === $data->getPickupRequestorDetails() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getPickupRequestorDetails(), 'json', $context));
+        if (\array_key_exists('pickupRequestorDetails', get_object_vars($data)) && null !== ($data->pickupRequestorDetails ?? null)) {
+            $normalized_2 = $this->normalizer->normalize($data->pickupRequestorDetails, 'json', $context);
+            $dataArray['pickupRequestorDetails'] = is_iterable($normalized_2) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized_2) : $normalized_2;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressCreateShipmentRequestPickup::class => false];
     }

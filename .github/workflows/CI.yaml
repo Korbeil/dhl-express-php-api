@@ -10,11 +10,11 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.composer/cache/
-          key: composer-8.1-${{ github.sha }}
+          key: composer-8.4-${{ github.sha }}
       - name: setup
         uses: shivammathur/setup-php@2.24.0
         with:
-          php-version: 8.1
+          php-version: 8.4
           extensions: mbstring, fileinfo, json, intl, dom
       - name: composer install
         run: composer update --prefer-stable
@@ -25,7 +25,7 @@ jobs:
     strategy:
       max-parallel: 15
       matrix:
-        php-versions:  ['8.1', '8.2']
+        php-versions:  ['8.4', '8.5']
     name: tests-${{ matrix.php-versions }}
     steps:
       - name: checkout
@@ -57,7 +57,7 @@ jobs:
       - name: setup
         uses: shivammathur/setup-php@2.24.0
         with:
-          php-version: 8.1
+          php-version: 8.4
           extensions: mbstring, fileinfo, json, intl, dom
       - name: composer install
         run: composer update --prefer-lowest --prefer-stable

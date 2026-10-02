@@ -5,274 +5,49 @@ namespace Korbeil\DHLExpress\Api\Model;
 class SupermodelIoLogisticsExpressPickupRequestShipmentDetailsItem
 {
     /**
-     * @var array
-     */
-    protected $initialized = [];
-
-    public function isInitialized($property): bool
-    {
-        return \array_key_exists($property, $this->initialized);
-    }
-    /**
      * Please provide DHL Express Global product code of the shipment.
-     *
-     * @var string|null
      */
-    protected $productCode;
+    public ?string $productCode;
     /**
      * Please provide DHL Express Local product code of the shipment.
-     *
-     * @var string|null
      */
-    protected $localProductCode;
+    public ?string $localProductCode;
     /**
      * Please enter all the DHL Express accounts related to this shipment.
      *
      * @var list<Common\SupermodelIoLogisticsExpressAccount>|null
      */
-    protected $accounts;
+    public ?array $accounts;
     /**
      * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
      *
      * @var list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
      */
-    protected $valueAddedServices;
+    public ?array $valueAddedServices;
     /**
      * For customs purposes please advise if your shipment is dutiable (true) or non dutiable (false).
-     *
-     * @var bool|null
      */
-    protected $isCustomsDeclarable;
+    public ?bool $isCustomsDeclarable;
     /**
      * For customs purposes please advise on declared value of the shipment.
-     *
-     * @var float|null
      */
-    protected $declaredValue;
+    public ?float $declaredValue;
     /**
      * For customs purposes please advise on declared value currency code of the shipment.
-     *
-     * @var string|null
      */
-    protected $declaredValueCurrency;
+    public ?string $declaredValueCurrency;
     /**
      * Please enter Unit of measurement - metric,imperial.
-     *
-     * @var string|null
      */
-    protected $unitOfMeasurement;
+    public ?string $unitOfMeasurement;
     /**
      * Please provide Shipment Identification number (AWB number).
-     *
-     * @var string|null
      */
-    protected $shipmentTrackingNumber;
+    public ?string $shipmentTrackingNumber;
     /**
      * Here you can define properties per package.
      *
      * @var list<Common\SupermodelIoLogisticsExpressPackageRR>|null
      */
-    protected $packages;
-
-    /**
-     * Please provide DHL Express Global product code of the shipment.
-     */
-    public function getProductCode(): ?string
-    {
-        return $this->productCode;
-    }
-
-    /**
-     * Please provide DHL Express Global product code of the shipment.
-     */
-    public function setProductCode(?string $productCode): self
-    {
-        $this->initialized['productCode'] = true;
-        $this->productCode = $productCode;
-
-        return $this;
-    }
-
-    /**
-     * Please provide DHL Express Local product code of the shipment.
-     */
-    public function getLocalProductCode(): ?string
-    {
-        return $this->localProductCode;
-    }
-
-    /**
-     * Please provide DHL Express Local product code of the shipment.
-     */
-    public function setLocalProductCode(?string $localProductCode): self
-    {
-        $this->initialized['localProductCode'] = true;
-        $this->localProductCode = $localProductCode;
-
-        return $this;
-    }
-
-    /**
-     * Please enter all the DHL Express accounts related to this shipment.
-     *
-     * @return list<Common\SupermodelIoLogisticsExpressAccount>|null
-     */
-    public function getAccounts(): ?array
-    {
-        return $this->accounts;
-    }
-
-    /**
-     * Please enter all the DHL Express accounts related to this shipment.
-     *
-     * @param list<Common\SupermodelIoLogisticsExpressAccount>|null $accounts
-     */
-    public function setAccounts(?array $accounts): self
-    {
-        $this->initialized['accounts'] = true;
-        $this->accounts = $accounts;
-
-        return $this;
-    }
-
-    /**
-     * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
-     *
-     * @return list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null
-     */
-    public function getValueAddedServices(): ?array
-    {
-        return $this->valueAddedServices;
-    }
-
-    /**
-     * This section communicates additional shipping services, such as Insurance (or Shipment Value Protection).
-     *
-     * @param list<Common\SupermodelIoLogisticsExpressValueAddedServicesRates>|null $valueAddedServices
-     */
-    public function setValueAddedServices(?array $valueAddedServices): self
-    {
-        $this->initialized['valueAddedServices'] = true;
-        $this->valueAddedServices = $valueAddedServices;
-
-        return $this;
-    }
-
-    /**
-     * For customs purposes please advise if your shipment is dutiable (true) or non dutiable (false).
-     */
-    public function getIsCustomsDeclarable(): ?bool
-    {
-        return $this->isCustomsDeclarable;
-    }
-
-    /**
-     * For customs purposes please advise if your shipment is dutiable (true) or non dutiable (false).
-     */
-    public function setIsCustomsDeclarable(?bool $isCustomsDeclarable): self
-    {
-        $this->initialized['isCustomsDeclarable'] = true;
-        $this->isCustomsDeclarable = $isCustomsDeclarable;
-
-        return $this;
-    }
-
-    /**
-     * For customs purposes please advise on declared value of the shipment.
-     */
-    public function getDeclaredValue(): ?float
-    {
-        return $this->declaredValue;
-    }
-
-    /**
-     * For customs purposes please advise on declared value of the shipment.
-     */
-    public function setDeclaredValue(?float $declaredValue): self
-    {
-        $this->initialized['declaredValue'] = true;
-        $this->declaredValue = $declaredValue;
-
-        return $this;
-    }
-
-    /**
-     * For customs purposes please advise on declared value currency code of the shipment.
-     */
-    public function getDeclaredValueCurrency(): ?string
-    {
-        return $this->declaredValueCurrency;
-    }
-
-    /**
-     * For customs purposes please advise on declared value currency code of the shipment.
-     */
-    public function setDeclaredValueCurrency(?string $declaredValueCurrency): self
-    {
-        $this->initialized['declaredValueCurrency'] = true;
-        $this->declaredValueCurrency = $declaredValueCurrency;
-
-        return $this;
-    }
-
-    /**
-     * Please enter Unit of measurement - metric,imperial.
-     */
-    public function getUnitOfMeasurement(): ?string
-    {
-        return $this->unitOfMeasurement;
-    }
-
-    /**
-     * Please enter Unit of measurement - metric,imperial.
-     */
-    public function setUnitOfMeasurement(?string $unitOfMeasurement): self
-    {
-        $this->initialized['unitOfMeasurement'] = true;
-        $this->unitOfMeasurement = $unitOfMeasurement;
-
-        return $this;
-    }
-
-    /**
-     * Please provide Shipment Identification number (AWB number).
-     */
-    public function getShipmentTrackingNumber(): ?string
-    {
-        return $this->shipmentTrackingNumber;
-    }
-
-    /**
-     * Please provide Shipment Identification number (AWB number).
-     */
-    public function setShipmentTrackingNumber(?string $shipmentTrackingNumber): self
-    {
-        $this->initialized['shipmentTrackingNumber'] = true;
-        $this->shipmentTrackingNumber = $shipmentTrackingNumber;
-
-        return $this;
-    }
-
-    /**
-     * Here you can define properties per package.
-     *
-     * @return list<Common\SupermodelIoLogisticsExpressPackageRR>|null
-     */
-    public function getPackages(): ?array
-    {
-        return $this->packages;
-    }
-
-    /**
-     * Here you can define properties per package.
-     *
-     * @param list<Common\SupermodelIoLogisticsExpressPackageRR>|null $packages
-     */
-    public function setPackages(?array $packages): self
-    {
-        $this->initialized['packages'] = true;
-        $this->packages = $packages;
-
-        return $this;
-    }
+    public ?array $packages;
 }

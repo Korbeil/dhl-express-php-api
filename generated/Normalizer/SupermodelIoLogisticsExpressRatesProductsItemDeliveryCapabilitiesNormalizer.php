@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalize
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities();
         if (null === $data || false === \is_array($data)) {
@@ -51,73 +51,73 @@ class SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilitiesNormalize
             $data['totalTransitDays'] = (float) $data['totalTransitDays'];
         }
         if (\array_key_exists('deliveryTypeCode', $data) && null !== $data['deliveryTypeCode']) {
-            $object->setDeliveryTypeCode($data['deliveryTypeCode']);
-        } elseif (\array_key_exists('deliveryTypeCode', $data) && null === $data['deliveryTypeCode']) {
-            $object->setDeliveryTypeCode(null);
+            $object->deliveryTypeCode = $data['deliveryTypeCode'];
+        } elseif (\array_key_exists('deliveryTypeCode', $data)) {
+            $object->deliveryTypeCode = null;
         }
         if (\array_key_exists('estimatedDeliveryDateAndTime', $data) && null !== $data['estimatedDeliveryDateAndTime']) {
-            $object->setEstimatedDeliveryDateAndTime($data['estimatedDeliveryDateAndTime']);
-        } elseif (\array_key_exists('estimatedDeliveryDateAndTime', $data) && null === $data['estimatedDeliveryDateAndTime']) {
-            $object->setEstimatedDeliveryDateAndTime(null);
+            $object->estimatedDeliveryDateAndTime = $data['estimatedDeliveryDateAndTime'];
+        } elseif (\array_key_exists('estimatedDeliveryDateAndTime', $data)) {
+            $object->estimatedDeliveryDateAndTime = null;
         }
         if (\array_key_exists('destinationServiceAreaCode', $data) && null !== $data['destinationServiceAreaCode']) {
-            $object->setDestinationServiceAreaCode($data['destinationServiceAreaCode']);
-        } elseif (\array_key_exists('destinationServiceAreaCode', $data) && null === $data['destinationServiceAreaCode']) {
-            $object->setDestinationServiceAreaCode(null);
+            $object->destinationServiceAreaCode = $data['destinationServiceAreaCode'];
+        } elseif (\array_key_exists('destinationServiceAreaCode', $data)) {
+            $object->destinationServiceAreaCode = null;
         }
         if (\array_key_exists('destinationFacilityAreaCode', $data) && null !== $data['destinationFacilityAreaCode']) {
-            $object->setDestinationFacilityAreaCode($data['destinationFacilityAreaCode']);
-        } elseif (\array_key_exists('destinationFacilityAreaCode', $data) && null === $data['destinationFacilityAreaCode']) {
-            $object->setDestinationFacilityAreaCode(null);
+            $object->destinationFacilityAreaCode = $data['destinationFacilityAreaCode'];
+        } elseif (\array_key_exists('destinationFacilityAreaCode', $data)) {
+            $object->destinationFacilityAreaCode = null;
         }
         if (\array_key_exists('deliveryAdditionalDays', $data) && null !== $data['deliveryAdditionalDays']) {
-            $object->setDeliveryAdditionalDays($data['deliveryAdditionalDays']);
-        } elseif (\array_key_exists('deliveryAdditionalDays', $data) && null === $data['deliveryAdditionalDays']) {
-            $object->setDeliveryAdditionalDays(null);
+            $object->deliveryAdditionalDays = $data['deliveryAdditionalDays'];
+        } elseif (\array_key_exists('deliveryAdditionalDays', $data)) {
+            $object->deliveryAdditionalDays = null;
         }
         if (\array_key_exists('deliveryDayOfWeek', $data) && null !== $data['deliveryDayOfWeek']) {
-            $object->setDeliveryDayOfWeek($data['deliveryDayOfWeek']);
-        } elseif (\array_key_exists('deliveryDayOfWeek', $data) && null === $data['deliveryDayOfWeek']) {
-            $object->setDeliveryDayOfWeek(null);
+            $object->deliveryDayOfWeek = $data['deliveryDayOfWeek'];
+        } elseif (\array_key_exists('deliveryDayOfWeek', $data)) {
+            $object->deliveryDayOfWeek = null;
         }
         if (\array_key_exists('totalTransitDays', $data) && null !== $data['totalTransitDays']) {
-            $object->setTotalTransitDays($data['totalTransitDays']);
-        } elseif (\array_key_exists('totalTransitDays', $data) && null === $data['totalTransitDays']) {
-            $object->setTotalTransitDays(null);
+            $object->totalTransitDays = $data['totalTransitDays'];
+        } elseif (\array_key_exists('totalTransitDays', $data)) {
+            $object->totalTransitDays = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        if ($data->isInitialized('deliveryTypeCode') && null !== $data->getDeliveryTypeCode()) {
-            $dataArray['deliveryTypeCode'] = $data->getDeliveryTypeCode();
+        if (\array_key_exists('deliveryTypeCode', get_object_vars($data)) && null !== ($data->deliveryTypeCode ?? null)) {
+            $dataArray['deliveryTypeCode'] = $data->deliveryTypeCode;
         }
-        if ($data->isInitialized('estimatedDeliveryDateAndTime') && null !== $data->getEstimatedDeliveryDateAndTime()) {
-            $dataArray['estimatedDeliveryDateAndTime'] = $data->getEstimatedDeliveryDateAndTime();
+        if (\array_key_exists('estimatedDeliveryDateAndTime', get_object_vars($data)) && null !== ($data->estimatedDeliveryDateAndTime ?? null)) {
+            $dataArray['estimatedDeliveryDateAndTime'] = $data->estimatedDeliveryDateAndTime;
         }
-        if ($data->isInitialized('destinationServiceAreaCode') && null !== $data->getDestinationServiceAreaCode()) {
-            $dataArray['destinationServiceAreaCode'] = $data->getDestinationServiceAreaCode();
+        if (\array_key_exists('destinationServiceAreaCode', get_object_vars($data)) && null !== ($data->destinationServiceAreaCode ?? null)) {
+            $dataArray['destinationServiceAreaCode'] = $data->destinationServiceAreaCode;
         }
-        if ($data->isInitialized('destinationFacilityAreaCode') && null !== $data->getDestinationFacilityAreaCode()) {
-            $dataArray['destinationFacilityAreaCode'] = $data->getDestinationFacilityAreaCode();
+        if (\array_key_exists('destinationFacilityAreaCode', get_object_vars($data)) && null !== ($data->destinationFacilityAreaCode ?? null)) {
+            $dataArray['destinationFacilityAreaCode'] = $data->destinationFacilityAreaCode;
         }
-        if ($data->isInitialized('deliveryAdditionalDays') && null !== $data->getDeliveryAdditionalDays()) {
-            $dataArray['deliveryAdditionalDays'] = $data->getDeliveryAdditionalDays();
+        if (\array_key_exists('deliveryAdditionalDays', get_object_vars($data)) && null !== ($data->deliveryAdditionalDays ?? null)) {
+            $dataArray['deliveryAdditionalDays'] = $data->deliveryAdditionalDays;
         }
-        if ($data->isInitialized('deliveryDayOfWeek') && null !== $data->getDeliveryDayOfWeek()) {
-            $dataArray['deliveryDayOfWeek'] = $data->getDeliveryDayOfWeek();
+        if (\array_key_exists('deliveryDayOfWeek', get_object_vars($data)) && null !== ($data->deliveryDayOfWeek ?? null)) {
+            $dataArray['deliveryDayOfWeek'] = $data->deliveryDayOfWeek;
         }
-        if ($data->isInitialized('totalTransitDays') && null !== $data->getTotalTransitDays()) {
-            $dataArray['totalTransitDays'] = $data->getTotalTransitDays();
+        if (\array_key_exists('totalTransitDays', get_object_vars($data)) && null !== ($data->totalTransitDays ?? null)) {
+            $dataArray['totalTransitDays'] = $data->totalTransitDays;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressRatesProductsItemDeliveryCapabilities::class => false];
     }

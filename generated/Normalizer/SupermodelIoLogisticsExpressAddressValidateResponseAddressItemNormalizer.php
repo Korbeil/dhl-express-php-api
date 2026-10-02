@@ -19,17 +19,17 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer i
     use NormalizerAwareTrait;
     use ValidatorTrait;
 
-    public function supportsDenormalization(mixed $data, string $type, string $format = null, array $context = []): bool
+    public function supportsDenormalization(mixed $data, string $type, ?string $format = null, array $context = []): bool
     {
         return \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem::class === $type;
     }
 
-    public function supportsNormalization(mixed $data, string $format = null, array $context = []): bool
+    public function supportsNormalization(mixed $data, ?string $format = null, array $context = []): bool
     {
         return \is_object($data) && \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem::class === $data::class;
     }
 
-    public function denormalize(mixed $data, string $type, string $format = null, array $context = []): mixed
+    public function denormalize(mixed $data, string $type, ?string $format = null, array $context = []): mixed
     {
         $object = new \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem();
         if (null === $data || false === \is_array($data)) {
@@ -42,53 +42,54 @@ class SupermodelIoLogisticsExpressAddressValidateResponseAddressItemNormalizer i
             return new Reference($data['$recursiveRef'], $context['document-origin']);
         }
         if (\array_key_exists('countryCode', $data) && null !== $data['countryCode']) {
-            $object->setCountryCode($data['countryCode']);
-        } elseif (\array_key_exists('countryCode', $data) && null === $data['countryCode']) {
-            $object->setCountryCode(null);
+            $object->countryCode = $data['countryCode'];
+        } elseif (\array_key_exists('countryCode', $data)) {
+            $object->countryCode = null;
         }
         if (\array_key_exists('postalCode', $data) && null !== $data['postalCode']) {
-            $object->setPostalCode($data['postalCode']);
-        } elseif (\array_key_exists('postalCode', $data) && null === $data['postalCode']) {
-            $object->setPostalCode(null);
+            $object->postalCode = $data['postalCode'];
+        } elseif (\array_key_exists('postalCode', $data)) {
+            $object->postalCode = null;
         }
         if (\array_key_exists('cityName', $data) && null !== $data['cityName']) {
-            $object->setCityName($data['cityName']);
-        } elseif (\array_key_exists('cityName', $data) && null === $data['cityName']) {
-            $object->setCityName(null);
+            $object->cityName = $data['cityName'];
+        } elseif (\array_key_exists('cityName', $data)) {
+            $object->cityName = null;
         }
         if (\array_key_exists('countyName', $data) && null !== $data['countyName']) {
-            $object->setCountyName($data['countyName']);
-        } elseif (\array_key_exists('countyName', $data) && null === $data['countyName']) {
-            $object->setCountyName(null);
+            $object->countyName = $data['countyName'];
+        } elseif (\array_key_exists('countyName', $data)) {
+            $object->countyName = null;
         }
         if (\array_key_exists('serviceArea', $data) && null !== $data['serviceArea']) {
-            $object->setServiceArea($this->denormalizer->denormalize($data['serviceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItemServiceArea::class, 'json', $context));
-        } elseif (\array_key_exists('serviceArea', $data) && null === $data['serviceArea']) {
-            $object->setServiceArea(null);
+            $object->serviceArea = $this->denormalizer->denormalize($data['serviceArea'], \Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItemServiceArea::class, 'json', $context);
+        } elseif (\array_key_exists('serviceArea', $data)) {
+            $object->serviceArea = null;
         }
 
         return $object;
     }
 
-    public function normalize(mixed $data, string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
+    public function normalize(mixed $data, ?string $format = null, array $context = []): array|string|int|float|bool|\ArrayObject|null
     {
         $dataArray = [];
-        $dataArray['countryCode'] = $data->getCountryCode();
-        $dataArray['postalCode'] = $data->getPostalCode();
-        if ($data->isInitialized('cityName') && null !== $data->getCityName()) {
-            $dataArray['cityName'] = $data->getCityName();
+        $dataArray['countryCode'] = $data->countryCode;
+        $dataArray['postalCode'] = $data->postalCode;
+        if (\array_key_exists('cityName', get_object_vars($data)) && null !== ($data->cityName ?? null)) {
+            $dataArray['cityName'] = $data->cityName;
         }
-        if ($data->isInitialized('countyName') && null !== $data->getCountyName()) {
-            $dataArray['countyName'] = $data->getCountyName();
+        if (\array_key_exists('countyName', get_object_vars($data)) && null !== ($data->countyName ?? null)) {
+            $dataArray['countyName'] = $data->countyName;
         }
-        if ($data->isInitialized('serviceArea') && null !== $data->getServiceArea()) {
-            $dataArray['serviceArea'] = null === $data->getServiceArea() ? null : new \Korbeil\DHLExpress\Api\Runtime\JsonObject($this->normalizer->normalize($data->getServiceArea(), 'json', $context));
+        if (\array_key_exists('serviceArea', get_object_vars($data)) && null !== ($data->serviceArea ?? null)) {
+            $normalized = $this->normalizer->normalize($data->serviceArea, 'json', $context);
+            $dataArray['serviceArea'] = is_iterable($normalized) ? new \Korbeil\DHLExpress\Api\Runtime\JsonObject($normalized) : $normalized;
         }
 
         return $dataArray;
     }
 
-    public function getSupportedTypes(string $format = null): array
+    public function getSupportedTypes(?string $format = null): array
     {
         return [\Korbeil\DHLExpress\Api\Model\SupermodelIoLogisticsExpressAddressValidateResponseAddressItem::class => false];
     }
